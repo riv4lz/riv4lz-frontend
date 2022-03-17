@@ -1,0 +1,138 @@
+@import "shared/typography.scss";
+
+.Login_Container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $Grey;
+    background-image: url(./images/login_background.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Login_Wrapper {
+    width: 1440px;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+.Login_Div_Container {
+    width: 640px;
+    height: 100%;
+    border-radius: 40px;
+    background: rgba($color: $Dark_Grey, $alpha: 0.3);
+    backdrop-filter: blur(5px);
+    filter: drop-shadow(0px 4px 70px rgba(0, 0, 0, 0.1));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./images/Login_Mask.png);
+    background-repeat: no-repeat;
+    background-position: -100px;
+}
+
+.Login_Div_Wrapper {
+    width: 450px;
+    height: auto;
+}
+
+.Login_Div_Header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.Login_Div_Email {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .Email_Input {
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        background-color: $Secondary;
+        padding-left: 20px;
+    }
+    .Email_Input::placeholder {
+        color: $Black;
+    }
+}
+
+.Login_Div_Password {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .Password_Input {
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        background-color: $Secondary;
+        padding-left: 20px;
+    }
+    .Password_Input::placeholder {
+        color: $Black;
+    }
+}
+
+.Login_Div_ForgotPass{
+    display: flex;
+    margin-top: 20px;
+    .Forgot_Password{
+        text-decoration: none;
+    }
+}
+
+.Login_Button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: $Primary;
+    border-radius: 5px;
+    margin: 40px 0;
+    cursor: pointer;
+}
+
+.Login_Div_Continue_Buttons_Container{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    .Buttons{
+        width: 125px;
+        height: 50px;
+        background-color: $Secondary;
+        border-radius: 40px;
+        margin: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+}
+
+.Login_Div_Continue_Register{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    .Register{
+        text-decoration: none;
+    }
+}
+
+.Half_opacity{
+    opacity: 0.5;
+}

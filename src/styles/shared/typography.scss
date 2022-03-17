@@ -1,0 +1,190 @@
+@import "colors.scss";
+
+@font-face {
+    font-family: 'Statewide_bold';
+    src: url("../fonts/StateWide-Bold.ttf");
+}
+
+@font-face {
+    font-family: 'Statewide_light';
+    src: url("../fonts/StateWide-Light.ttf");
+}
+
+@font-face {
+    font-family: 'Statewide_light_itallic';
+    src: url("../fonts/StateWide-LightItalic.ttf");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+$A1_Size: 180px;
+$A2_Size: 140px;
+$A3_Size: 100px;
+
+$H1_Size: 60px;
+$H2_Size: 40px;
+$H3_Size: 30px;
+
+$P1_Size: 20px;
+$P2_Size: 18px;
+$P3_Size: 16px;
+$P4_Size: 14px;
+
+$Statewide_bold_font_family: 'Statewide_bold';
+$Statewide_light_font_family: "Statewide_light", sans-serif;
+$Statewide_light_italic_font_family: "Statewide_light_italic", sans-serif;
+$Poppins_font_family: "Poppins", sans-serif;
+//A1
+.A1 {
+    font-family: $Statewide_bold_font_family;
+    font-size: $A1_Size;
+}
+
+//A2
+.A2 {
+    font-family: $Statewide_bold_font_family;
+    font-size: $A2_Size;
+}
+
+//A3
+.A3 {
+    font-family: $Statewide_bold_font_family;
+    font-size: $A3_Size;
+}
+
+//H1
+.H1 {
+    font-family: $Statewide_bold_font_family;
+    font-size: $H1_Size;
+}
+
+//H2
+.H2 {
+    font-family: $Statewide_bold_font_family;
+    font-size: $H2_Size;
+}
+
+//H3
+.H3 {
+    font-family: $Statewide_bold_font_family;
+    font-size: $H3_Size;
+}
+
+//P1
+@mixin P1($font_fam) {
+    font-family: $font_fam;
+    font-size: $P1_Size;
+}
+
+//P2
+@mixin P2($font_fam) {
+    font-family: $font_fam;
+    font-size: $P2_Size;
+}
+
+//P3
+@mixin P3($font_fam) {
+    font-family: $font_fam;
+    font-size: $P3_Size;
+}
+
+//P4
+@mixin P4($font_fam) {
+    font-family: $font_fam !important;
+    font-size: $P4_Size;
+}
+
+//TEXT COLORS
+.Text_Primary {
+    color: $Primary;
+}
+
+.Text_Secondary {
+    color: $Secondary;
+}
+
+.Text_Light_Grey {
+    color: $Light_Grey;
+}
+
+.Text_Grey {
+    color: $Grey;
+}
+
+.Text_Dark_Grey {
+    color: $Dark_Grey;
+}
+
+.Text_Black {
+    color: $Black;
+}
+
+//PARAGRAPH FONTS
+
+//SW_BOLD
+.P1_Statewide_Bold {
+    @include P1($Statewide_bold_font_family);
+}
+
+.P2_Statewide_Bold {
+    @include P2($Statewide_bold_font_family);
+}
+
+.P3_Statewide_Bold {
+    @include P3($Statewide_bold_font_family);
+}
+
+.P4_Statewide_Bold {
+    @include P4($Statewide_bold_font_family);
+}
+
+//SW_LIGHT
+.P1_Statewide_light {
+    @include P1($Statewide_bold_font_family);
+}
+
+.P2_Statewide_light {
+    @include P2($Statewide_bold_font_family);
+}
+
+.P3_Statewide_light {
+    @include P3($Statewide_bold_font_family);
+}
+
+.P4_Statewide_light {
+    @include P4($Statewide_bold_font_family);
+}
+
+//SW_LIGHT_ITALIC
+.P1_Statewide_light_italic {
+    @include P1($Statewide_light_italic_font_family);
+}
+
+.P2_Statewide_light_italic {
+    @include P2($Statewide_light_italic_font_family);
+}
+
+.P3_Statewide_light_italic {
+    @include P3($Statewide_light_italic_font_family);
+}
+
+.P4_Statewide_light_italic {
+    @include P4($Statewide_light_italic_font_family);
+}
+
+//SW_POPPINS
+.P1_Poppins {
+    @include P1($Poppins_font_family);
+}
+
+.P2_Poppins {
+    @include P2($Poppins_font_family);
+}
+
+.P3_Poppins {
+    @include P3($Poppins_font_family);
+}
+
+.P4_Poppins {
+    @include P4($Poppins_font_family);
+}
