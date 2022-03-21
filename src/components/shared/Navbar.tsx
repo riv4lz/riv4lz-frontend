@@ -1,7 +1,8 @@
 import React from 'react'
-import '../../styles/Navbar.scss';
-import '../../styles/shared/typography.scss';
-import logo from '../../styles/images/Union.png'
+import './Navbar.scss';
+import '../../styles/typography.scss';
+import logo from '../../assets/images/Union.png';
+
 import {
     BrowserRouter as Router,
     Link,

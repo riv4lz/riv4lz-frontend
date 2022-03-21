@@ -1,8 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Navbar from './components/shared/Navbar';
-import Login from './components/login/Login';
+import React from 'react';
+import LoginPage from './pages/loginPage/LoginPage'
+
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         {["/", "/Matches", "/About","/Guide","/Contact"].map((path, index) => 
         <Route path={path} element={<Navbar/>} key={index} />
         )}
-        <Route path='/Login' element={<Login/>}>
+        <Route path='/Login' element={<LoginPage />}>
           </Route>
         </Routes>
       </Router>

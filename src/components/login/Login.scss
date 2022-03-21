@@ -1,4 +1,7 @@
-@import "shared/typography.scss";
+@import url(../../index.scss);
+@import url(../../styles/imports.scss);
+
+@import '../../index.scss';
 
 .Login_Container {
     width: 100%;
@@ -6,8 +9,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: $Grey;
-    background-image: url(./images/login_background.png);
+    background-color: $Dark_Grey;
+    background-image: url('../../assets/images/login_background.png');
     background-repeat: no-repeat;
     background-position: right;
     display: flex;
@@ -32,7 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./images/Login_Mask.png);
+    background-image: url('../../assets//images//Login_Mask.png');
     background-repeat: no-repeat;
     background-position: -100px;
 }
