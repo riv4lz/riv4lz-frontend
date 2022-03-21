@@ -4,10 +4,18 @@ import './Login.scss';
 import google from '../../assets/icons/social-media/google.svg'
 import github from '../../assets/icons/social-media/github.svg'
 import facebook from '../../assets/icons/social-media/facebook.svg'
+import Btn from '../button/Btn';
 
 const Login = () => {
+    const test = () => {
+        console.log("Success");
+    }
+
+    const loginText = () =>{
+        return "Sign in"
+    }
+
     return (
-       
         <div className='Login_Div_Container'>
             <div className='Login_Div_Wrapper'>
                 <div className='Login_Div_Header'>
@@ -26,7 +34,7 @@ const Login = () => {
                 </div>
 
                 <div className='Login_Div_Signin'>
-                    <div className='Login_Button P1_Statewide_Bold Text_Secondary'>Sign in</div>
+                    <Btn onClick={() => console.log("EEEEEEEEEE")} children="TEST"/>
                 </div>
                 <div className='Login_Div_Continue_Container'>
                     <div className='Login_Div_Continue_Title'>
