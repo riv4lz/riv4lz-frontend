@@ -34,7 +34,7 @@ const Login = () => {
                 </div>
 
                 <div className='Login_Div_Signin'>
-                    <Btn onClick={() => console.log("EEEEEEEEEE")} children="TEST"/>
+                    <Btn onClick={() => console.log("EEEEEEEEEE")} children="TEST" classes="Login_Button P1_Statewide_Bold Text_Secondary"/>
                 </div>
                 <div className='Login_Div_Continue_Container'>
                     <div className='Login_Div_Continue_Title'>
