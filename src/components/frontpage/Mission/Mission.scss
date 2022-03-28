@@ -1,0 +1,90 @@
+@import "../../../index.scss";
+//TODO LAV SKEW PÅ MISSION DIV
+.mission_Container {
+    width: 100%;
+    height: 100%;
+    background: $Grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../../assets/images/mission_background.png");
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+}
+.mission_Wrapper {
+    width: 1440px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    hr {
+        width: 900px;
+        border: 3px solid $Secondary;
+    }
+    .logo {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+}
+.mission_Component {
+    width: 900px;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 265px;
+    .title {
+        width: 170px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+        transform: rotate(-90deg);
+        margin-right: -50px;
+        margin-left: -50px;
+        font-size: 45px !important;
+        line-height: 98px;
+    }
+
+    .paragraph {
+        font-size: 25px !important;
+        text-align: justify;
+    }
+}
+.vision_Component {
+    width: 900px;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    .title {
+        width: 250px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+        transform: rotate(-90deg);
+        margin-right: -50px;
+        margin-left: -50px;
+        font-size: 45px !important;
+    }
+
+    .paragraph {
+        font-size: 25px !important;
+        text-align: justify;
+    }
+}
