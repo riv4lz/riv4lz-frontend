@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../../index.scss';
 
 .callToAction_Container{
     width: 100%;
@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     background-color: $Grey;    
-    background-image: url('../../assets/images/callToAction.png');
+    background-image: url('../../../assets/images/callToAction.png');
     background-repeat: no-repeat;
     background-position: right;
 }

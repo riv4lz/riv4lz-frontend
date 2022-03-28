@@ -1,5 +1,5 @@
 import React from 'react'
-import Btn from '../button/Btn'
+import Btn from '../../button/Btn'
 import './CallToAction.scss'
 
 const CallToAction = () => {

@@ -1,6 +1,6 @@
 @import "./colors.scss";
 
-.btn_Login{
+.btn_Login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,8 +12,8 @@
     cursor: pointer;
 }
 
-.btn_CallToAction_Solid{
-   width: 100%;
+.btn_CallToAction_Solid {
+    width: 250px;
     height: 65px;
     padding: 10px 30px;
     border-radius: 10px;
@@ -21,14 +21,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-.btn_CallToAction_Outline{
-    width: 100%;
+.btn_CallToAction_Outline {
+    width: 250px;
     padding: 10px 30px;
     border-radius: 10px;
     border: 1px solid $Secondary;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
