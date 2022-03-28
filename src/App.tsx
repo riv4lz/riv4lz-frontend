@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Navbar from './components/shared/Navbar';
 import React from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
+import FrontPage from './pages/frontPage/FrontPage';
 
 
 function App() {
@@ -11,7 +12,13 @@ function App() {
       <Router>
         <Routes>
         {["/", "/Matches", "/About","/Guide","/Contact"].map((path, index) => 
-        <Route path={path} element={<Navbar/>} key={index} />
+        <Route path={path} element={
+          <>
+            <Navbar />
+            <FrontPage />  
+          </>
+      
+      } key={index} />
         )}
         <Route path='/Login' element={<LoginPage />}>
           </Route>
