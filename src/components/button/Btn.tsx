@@ -1,14 +1,14 @@
 import React from 'react'
 
-interface Props{
+interface Props {
   children?: React.ReactNode;
   onClick: () => void;
   classes?: string;
 }
 
-const Btn: React.FC<Props> = ({onClick, children, classes}) => {
+const Btn: React.FC<Props> = ({ onClick, children, classes }) => {
   return (
-    <div className={classes} onClick={onClick}>{children}</div>
+    <div id="btn" className={classes} onClick={onClick}>{children}</div>
   );
 }
 
