@@ -15,8 +15,10 @@ const Games = () => {
                     <div className='title H2 Text_Secondary'>
                         CURRENTLY SUPPORTED GAMES
                     </div>
-
                     <Btn onClick={onSeeAll} children='See All' classes='btn_CallToAction_Solid P4_Statewide_Bold Text_Secondary' />
+                </div>
+                <div className='games_Carousel'>
+
                 </div>
             </div>
         </div>
