@@ -1,5 +1,6 @@
 @import '../../index.scss';
 
+@media only screen and (min-width: $Desktop) {
 .Login_Div_Container {
     width: 640px;
     height: 100%;
@@ -125,4 +126,5 @@
     border-radius: 5px;
     margin: 40px 0;
     cursor: pointer;
+}
 }
