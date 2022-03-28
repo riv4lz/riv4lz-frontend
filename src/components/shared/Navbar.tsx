@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.scss';
-import '../../styles/typography.scss';
+import '../../../src/index.scss'
 import logo from '../../assets/images/Union.png';
 
 import {
