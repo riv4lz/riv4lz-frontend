@@ -1,19 +1,33 @@
 import './App.css';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Navbar from './components/shared/Navbar';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 
 
 function App() {
+  let [user, setUser] = useState([])
+
+  useEffect(() => {
+    if (localStorage.getItem('user')) {
+      //@ts-ignore
+      const user = JSON.parse(localStorage.getItem('user'));
+      console.log(user);
+      
+      if (user) {
+        setUser(user);
+      }
+    }
+  }, []);
+
   return (
     <div className="App">
       <Router>
         <Routes>
-        {["/", "/Matches", "/About","/Guide","/Contact"].map((path, index) => 
-        <Route path={path} element={<Navbar/>} key={index} />
-        )}
-        <Route path='/Login' element={<LoginPage />}>
+          {["/", "/Matches", "/About", "/Guide", "/Contact"].map((path, index) =>
+            <Route path={path} element={<Navbar user={user} />} key={index} />
+          )}
+          <Route path='/Login' element={<LoginPage />}>
           </Route>
         </Routes>
       </Router>

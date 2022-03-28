@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Navbar.scss';
 import '../../styles/typography.scss';
 import logo from '../../assets/images/Union.png';
@@ -9,9 +9,9 @@ import {
     useLocation
   } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props: any) => {
     const location = useLocation();
-
+    
   return (
     <div className='Navbar_Container'>
         <div className='Navbar_Wrapper'>
@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className='Navbar_Links_Right'>
                 <Link className='links Text_Secondary P4_Statewide_Bold' style={{opacity: location.pathname ==='/About' ? "1" : "0.5"}} to='/About'>About</Link>
                 <Link className='links Text_Secondary P4_Statewide_Bold'style={{opacity: location.pathname ==='/Contact' ? "1" : "0.5"}} to='/Contact'>Contact</Link>
-                <Link className='links Text_Primary P4_Statewide_Bold' to='/Login'>Login</Link>
+                <Link className='links Text_Primary P4_Statewide_Bold' to='/Login'>{!props.user ? props.user.gamerTag : "Login"}</Link>
             </div>
         </div>
     </div>
