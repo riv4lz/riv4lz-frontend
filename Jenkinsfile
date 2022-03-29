@@ -1,27 +1,28 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        script {
-          sh 'npm install'
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
         }
-
-      }
     }
-
-    stage('Run') {
-      steps {
-        script {
-          set -x
-          npm start &
-          sleep 1
-          echo $! > .pidfile
-          set +x
+    environment {
+        CI = 'true'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
         }
-
-      }
+        stage('Test') {
+            steps {
+                echo 'test'
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+            }
+        }
     }
-
-  }
 }
