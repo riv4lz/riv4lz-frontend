@@ -1,24 +1,27 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:14-alpine'
-            args '-p 3000:3000'
-        }
+  agent any
+  stages {
+    stage("verify tooling") {
+      steps {
+        sh '''
+          docker version
+          docker info
+          docker compose version 
+          curl --version
+          jq --version
+        '''
+      }
     }
-    environment {
-        CI = 'true'
-        HOME = '.'
+    stage('Prune Docker data') {
+      steps {
+        sh 'docker system prune -a --volumes -f'
+      }
     }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh 'npm run build'
-            }
-        }
+    stage('Start container') {
+      steps {
+        sh 'docker compose up -d --no-color --wait'
+        sh 'docker compose ps'
+      }
     }
+  }
 }
