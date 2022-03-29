@@ -12,12 +12,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'docker build -t getting-started .'
             }
         }
         stage('Deliver') {
             steps {
-                sh 'chmod +x ./jenkins/scripts/deliver.sh'
+                sh 'docker run -dp 3000:3000 getting-started'
             }
         }
     }
