@@ -16,7 +16,7 @@ pipeline {
         }
         stage("Production") {
             steps {
-              sh "docker run -p 3000:80 frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
+              sh "docker run -d -p 3000:3000 frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
             }
         }
     }
