@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Navbar from './components/shared/Navbar';
 import React, { useEffect, useState } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
+import FrontPage from './pages/frontPage/FrontPage';
 
 
 function App() {
@@ -24,9 +25,14 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          {["/", "/Matches", "/About", "/Guide", "/Contact"].map((path, index) =>
-            <Route path={path} element={<Navbar user={user} />} key={index} />
+          {["/Matches", "/About", "/Guide", "/Contact"].map((path, index) =>
+            <Route path={path} element={<Navbar />} key={index} />
           )}
+          <Route path="/" element={
+            <>
+              <Navbar />
+              <FrontPage />
+            </>}></Route>
           <Route path='/Login' element={<LoginPage />}>
           </Route>
         </Routes>
