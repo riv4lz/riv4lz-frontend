@@ -8,7 +8,7 @@ interface Props {
 
 const Btn: React.FC<Props> = ({ onClick, children, classes }) => {
   return (
-    <div id="btn" className={classes} onClick={onClick}>{children}</div>
+    <div data-testid="btn-test" id="btn" className={classes} onClick={onClick}>{children}</div>
   );
 }
 
