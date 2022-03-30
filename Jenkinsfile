@@ -28,7 +28,7 @@ pipeline {
       }
       post {
         always {
-          sh "docker stop api.thorleg.dk"
+          sh "docker stop frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
         }
       }
     }
