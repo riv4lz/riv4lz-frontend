@@ -22,5 +22,15 @@ pipeline {
               sh "docker run -d --rm -p 3000:3000 frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
             }
         }
+        stage('Cleanup') {
+            steps {
+          echo 'Running Cleanup'
+      }
+      post {
+        always {
+          sh "docker stop api.thorleg.dk"
+        }
+      }
+    }
     }
 }
