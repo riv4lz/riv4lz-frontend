@@ -1,11 +1,11 @@
-version: '3.3'
+version: '2'
 
 services:
-
-  sample-prod:
-    container_name: sample-prod
-    build:
-      context: .
-      dockerfile: Dockerfile.prod
+  web:
+    build: .
     ports:
-      - '1337:80'
+     - "5000:5000"
+    volumes:
+     - .:/code
+  redis:
+    image: redis

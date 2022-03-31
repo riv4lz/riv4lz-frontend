@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Navbar.scss';
 import '../../../src/index.scss'
 import logo from '../../assets/images/Union.png';
@@ -9,9 +9,9 @@ import {
     useLocation
   } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props: any) => {
     const location = useLocation();
-
+    
   return (
     
     <div className='Navbar_Container Flex Align_Center Justify_Center Full_Width'>
