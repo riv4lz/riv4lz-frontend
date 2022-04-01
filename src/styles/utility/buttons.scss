@@ -1,5 +1,9 @@
 @import "./colors.scss";
 
+.pointer {
+    cursor: pointer;
+}
+
 .btn_Login {
     display: flex;
     justify-content: center;

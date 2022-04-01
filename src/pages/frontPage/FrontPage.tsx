@@ -3,6 +3,8 @@ import CallToAction from '../../components/frontpage/CallToAction/CallToAction'
 import Games from '../../components/frontpage/Games/Games'
 import Guide from '../../components/frontpage/Guide/Guide'
 import Mission from '../../components/frontpage/Mission/Mission'
+import News from '../../components/frontpage/News/News'
+import Testimonies from '../../components/frontpage/Testimonies/Testimonies'
 
 const FrontPage = () => {
     return (
@@ -11,6 +13,8 @@ const FrontPage = () => {
             <Guide />
             <Mission />
             <Games />
+            <News />
+            <Testimonies />
         </>
     )
 }
