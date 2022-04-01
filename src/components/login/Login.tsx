@@ -24,7 +24,7 @@ const Login = () => {
     }
 
     const loginRequest = async (user: any) => {
-        const res = await fetch('https://localhost:7219/api/Caster/Login', {
+        const res = await fetch(process.env.REACT_APP_API + '/api/Caster/Login', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
