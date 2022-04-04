@@ -5,6 +5,7 @@ import Guide from '../../components/frontpage/Guide/Guide'
 import Mission from '../../components/frontpage/Mission/Mission'
 import News from '../../components/frontpage/News/News'
 import Testimonies from '../../components/frontpage/Testimonies/Testimonies'
+import Footer from '../../components/frontpage/Footer/Footer'
 
 const FrontPage = () => {
     return (
@@ -15,6 +16,7 @@ const FrontPage = () => {
             <Games />
             <News />
             <Testimonies />
+            <Footer />
         </>
     )
 }
