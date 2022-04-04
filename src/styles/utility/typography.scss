@@ -1,17 +1,17 @@
 @import "colors.scss";
 
 @font-face {
-    font-family: 'Statewide_bold';
+    font-family: "Statewide_bold";
     src: url("../../assets/fonts/StateWide-Bold.ttf");
 }
 
 @font-face {
-    font-family: 'Statewide_light';
+    font-family: "Statewide_light";
     src: url("../../assets/fonts/StateWide-Light.ttf");
 }
 
 @font-face {
-    font-family: 'Statewide_light_itallic';
+    font-family: "Statewide_light_itallic";
     src: url("../../assets/fonts/StateWide-LightItalic.ttf");
 }
 
@@ -30,7 +30,7 @@ $P2_Size: 18px;
 $P3_Size: 16px;
 $P4_Size: 14px;
 
-$Statewide_bold_font_family: 'Statewide_bold';
+$Statewide_bold_font_family: "Statewide_bold";
 $Statewide_light_font_family: "Statewide_light", sans-serif;
 $Statewide_light_italic_font_family: "Statewide_light_italic", sans-serif;
 $Poppins_font_family: "Poppins", sans-serif;
@@ -68,6 +68,13 @@ $Poppins_font_family: "Poppins", sans-serif;
 .H3 {
     font-family: $Statewide_bold_font_family;
     font-size: $H3_Size;
+}
+
+//H3 Poppins
+.H3_Poppins {
+    font-family: $Poppins_font_family;
+    font-size: $H3_Size;
+    font-weight: 900;
 }
 
 //P1
