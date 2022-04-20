@@ -4,6 +4,7 @@ import Navbar from './components/shared/Navbar/Navbar';
 import React, { useEffect, useState } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
+import MatchesPage from './pages/matchesPage/MatchesPage';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          {["/Matches", "/About", "/Guide", "/Contact"].map((path, index) =>
+          {["/About", "/Guide", "/Contact"].map((path, index) =>
             <Route path={path} element={<Navbar />} key={index} />
           )}
           <Route path="/" element={
@@ -34,6 +35,8 @@ function App() {
               <FrontPage />
             </>}></Route>
           <Route path='/Login' element={<LoginPage />}>
+          </Route>
+          <Route path='/Matches' element={<MatchesPage />}>
           </Route>
         </Routes>
       </Router>

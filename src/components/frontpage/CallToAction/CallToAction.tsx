@@ -1,12 +1,19 @@
 import React from 'react'
+import { Link, Route, useNavigate } from 'react-router-dom'
 import Btn from '../../button/Btn'
 import './CallToAction.scss'
 
 const CallToAction = () => {
-    const onBecomMember = () =>{
-        console.log("test");
-    }  
+    const navigate = useNavigate();
 
+    const onBecomMember = () => {
+        console.log("test");
+    }
+
+    const onFeatures = () => {
+        navigate('#Features');
+    }
+      
   return (
       <div className='callToAction_Container'>
           <div className='callToAction_Wrapper'>
@@ -25,15 +32,13 @@ const CallToAction = () => {
                 </div>
                 <div className='callToAction_Buttons'>
                     <Btn onClick={onBecomMember} children='Join Us Now' classes='btn_CallToAction_Blue P4_Statewide_Bold Text_Dark_Blue'></Btn>
-                    <Btn onClick={onBecomMember} children='EXPLORE FEATURES' classes='btn_CallToAction_White P4_Statewide_Bold Text_Dark_Blue'></Btn>
+                    <Btn onClick={onFeatures} children='Read More' classes='btn_CallToAction_White P4_Statewide_Bold Text_Dark_Blue'></Btn>
+                <div className='callToAction_emptyDiv'>
+                    &nbsp;
                 </div>
             </div>
-            <div className='callToAction_emptyDiv'>
-                &nbsp;
-            </div>
-          </div>
-      </div>
-  )
+        </div >
+    )
 }
 
 export default CallToAction

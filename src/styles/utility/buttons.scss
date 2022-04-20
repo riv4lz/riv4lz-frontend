@@ -4,22 +4,37 @@
     cursor: pointer;
 }
 
-.btn_Login {
+.Btn_Login {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 50px;
     background-color: $Primary;
-    border-radius: 5px;
+    border-radius: 2px;
     margin: 40px 0;
     cursor: pointer;
 }
 
-.btn_CallToAction_Blue {
-    width: 160px;
-    height: 50px;
+.Btn_Match {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 20px;
+    background-color: $Primary;
     border-radius: 2px;
+    cursor: pointer;
+    font-family: $Statewide_bold_font_family;
+    font-size: 6px;
+    margin-top: 10px;   
+}
+
+.btn_CallToAction_Blue {
+    width: 250px;
+    height: 65px;
+    padding: 10px 30px;
+    border-radius: 10px;
     background: $Primary;
     display: flex;
     justify-content: center;

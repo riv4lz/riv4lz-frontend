@@ -54,28 +54,27 @@ const Login = () => {
         <div className='Login_Div_Container'>
             <div className='Login_Div_Wrapper'>
                 <div className='Login_Div_Header'>
-                    <h2 className='H2 Text_Secondary'>Login</h2>
+                    <span className='H2 Text_Secondary'>Login</span>
                 </div>
                 <form className="add-form" onSubmit={onSubmit}>
                     <div className='Login_Div_Email'>
-                        <p className='Half_opacity P4_Statewide_light Text_Secondary' >Email</p>
+                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Email</span>
                         <input type="text" className='Email_Input' placeholder='username@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
                     </div>
-                    <div className='Login_Div_Password'>
-                        <p className='Half_opacity P4_Statewide_light Text_Secondary'>Password</p>
-                        <input type="password" className='Password_Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                    <div className='Login_Div_Email'>
+                        <span className='Half_opacity P4_Statewide_light Text_Secondary'>Password</span>
+                        <input type="password" className='Email_Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
                     </div>
                     <div className='Login_Div_ForgotPass'>
                         <Link to="/Login/ForgotPassword" className='Half_opacity Forgot_Password P4_Statewide_light Text_Secondary'>Forgot Password?</Link>
                     </div>
                     <div className='Login_Div_Signin'>
-                        <Btn onClick={() => loginRequest({email, password})} children="TEST" />
-                        <input value='Login' type='submit' ></input>
+                        <Btn onClick={() => loginRequest({email, password})} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="SIGN IN" />
                     </div>
                 </form>
                 <div className='Login_Div_Continue_Container'>
                     <div className='Login_Div_Continue_Title'>
-                        <p className='Half_opacity P4_Statewide_light Text_Secondary' >or continue with</p>
+                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >or continue with</span>
                     </div>
                     <div className='Login_Div_Continue_Buttons_Container'>
 
@@ -90,7 +89,7 @@ const Login = () => {
                         </div>
 
                         <div className='Login_Div_Continue_Register'>
-                            <p className='Half_opacity P4_Statewide_light Text_Secondary'>Dont have an account yet? &nbsp;</p><Link className='Register P4_Statewide_Bold Text_Secondary' to="/Register"> Register for free</Link>
+                            <span className='Half_opacity P4_Statewide_light Text_Secondary'>Dont have an account yet? &nbsp;</span><Link className='Register P4_Statewide_Bold Text_Secondary' to="/Register"> Register for free</Link>
                         </div>
                     </div>
                 </div>

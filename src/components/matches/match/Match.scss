@@ -1,0 +1,59 @@
+@import '../../../index.scss';
+
+.Match_Container {
+    width: 250px;
+    height: 100px;
+    background-color: $Dark_Grey;
+    margin-top: 20px;
+}
+
+.Match_Wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+
+.TeamLogo1_Container {
+    width: 25%;
+    height: 40px;
+    justify-self: start;
+}
+
+.TeamLogo2_Container {
+    width: 25%;
+    height: 40px;
+    justify-self: end;
+}
+.TeamLogo_Element {
+    width: 30px;
+    height: 40px;
+}
+
+.MatchInfo_Container {
+    align-items: center;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.MatchInfo_Title {
+    color: white;
+    font-family: $Statewide_bold_font_family;
+    font-size: 8px;
+}
+
+.MatchInfo_Time {
+    font-family: $Statewide_light_font_family;
+    font-size: 6px;
+    color: white;
+}
+
+.Streams_Element {
+    width: 40px;
+    height: 10px;
+}
+
+.Twitch {
+    margin-left: 10px;
+}
