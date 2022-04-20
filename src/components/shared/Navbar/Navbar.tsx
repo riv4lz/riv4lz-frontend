@@ -25,7 +25,7 @@ const Navbar = (props: any) => {
           <Link className='Links Text_Secondary P4_Statewide_Bold' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Guide'>Guide</Link>
           <Link className='Links Text_Secondary P4_Statewide_Bold' style={{ opacity: location.pathname === '/About' ? "1" : "0.5" }} to='/About'>About</Link>
           <Link className='Links Text_Secondary P4_Statewide_Bold' style={{ opacity: location.pathname === '/Contact' ? "1" : "0.5" }} to='/Contact'>Contact</Link>
-          <Link className='Links Text_Primary P4_Statewide_Bold' to='/Login'>Login</Link>
+          <Link className='Links Text_Dark_Blue P4_Statewide_Bold Flex Justify_Center Align_Center btn_Navlogin' to='/Login'>Login</Link>
         </div>
       </div>
     </div>

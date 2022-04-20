@@ -1,8 +1,11 @@
 @import url(../../../index.scss);
 
 .Navbar_Container {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 125px;
-    background-color: black; //ÆNDRE TIL COLOR SHEET NÅR DET ER LAVET
+    background-color: transparent; //ÆNDRE TIL COLOR SHEET NÅR DET ER LAVET
     flex-direction: row;
 }
 
@@ -25,6 +28,7 @@
 }
 
 .Links {
+    justify-content: center;
     text-decoration: none;
     margin: 0 1em;
 }
