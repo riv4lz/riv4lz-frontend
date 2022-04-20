@@ -16,11 +16,10 @@
     cursor: pointer;
 }
 
-.btn_CallToAction_Solid {
-    width: 250px;
-    height: 65px;
-    padding: 10px 30px;
-    border-radius: 10px;
+.btn_CallToAction_Blue {
+    width: 160px;
+    height: 50px;
+    border-radius: 2px;
     background: $Primary;
     display: flex;
     justify-content: center;
@@ -28,11 +27,11 @@
     cursor: pointer;
 }
 
-.btn_CallToAction_Outline {
-    width: 250px;
-    padding: 10px 30px;
-    border-radius: 10px;
-    border: 1px solid $Secondary;
+.btn_CallToAction_White {
+    width: 160px;
+    height: 50px;
+    border-radius: 2px;
+    background: $Secondary;
     display: flex;
     justify-content: center;
     align-items: center;

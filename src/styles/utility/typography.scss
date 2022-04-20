@@ -199,3 +199,7 @@ $Poppins_font_family: "Poppins", sans-serif;
 .P4_Poppins {
     @include P4($Poppins_font_family);
 }
+
+.Bold{
+    font-weight: bold;
+}
