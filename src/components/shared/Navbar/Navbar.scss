@@ -11,21 +11,17 @@
     height: 100%;
 }
 
-.Navbar_Links_Left {
-    max-width: 33%;
-    width: fit-content;
-    margin: 0 20px;
-}
-
 .Navbar_Logo {
     width: 125px;
     height: 125px;
+    .logo {
+        text-decoration: none;
+    }
 }
 
-.Navbar_Links_Right {
-    max-width: 33%;
-    width: fit-content;
-    margin: 0 20px;
+.Navbar_Links {
+    max-width: 100%;
+    width: 100%;
 }
 
 .Links {

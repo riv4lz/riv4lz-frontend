@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import './Navbar.scss';
-import logo from '../../assets/images/Union.png';
 
 import {
   BrowserRouter as Router,
@@ -13,18 +12,14 @@ const Navbar = (props: any) => {
   const location = useLocation();
 
   return (
-
     <div className='Navbar_Container Flex Align_Center Justify_Center Full_Width'>
       <div className='Navbar_Wrapper Flex Align_Center Justify_Center Content_Width'>
-        <div className="menu btn2" data-menu="2">
-          <div className="icon"></div>
-        </div>
-        <Link to='/'>
-          <div className='Navbar_Logo Flex Align_Center Justify_Center'>
+        <div className='Navbar_Logo Flex Align_Center '>
+          <Link className='logo' to='/'>
             <Logo />
-          </div>
-        </Link>
-        <div className='Navbar_Links_Right'>
+          </Link>
+        </div>
+        <div className='Navbar_Links Flex Align_Center Justify_End'>
           <Link className='Links Text_Secondary P4_Statewide_Bold' style={{ opacity: location.pathname === '/' ? "1" : "0.5" }} to='/'>Home</Link>
           <Link className='Links Text_Secondary P4_Statewide_Bold' style={{ opacity: location.pathname === '/Matches' ? "1" : "0.5" }} to='/Matches'>Matches</Link>
           <Link className='Links Text_Secondary P4_Statewide_Bold' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Guide'>Guide</Link>
