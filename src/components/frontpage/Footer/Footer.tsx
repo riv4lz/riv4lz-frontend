@@ -6,7 +6,6 @@ import Instagram from '../../../assets/icons/social-media/Instagram_White.svg'
 import Discord from '../../../assets/icons/social-media/Discord_White.svg'
 import Telegram from '../../../assets/icons/social-media/Telegram_White.svg'
 import Btn from '../../button/Btn'
-import { Link } from 'react-router-dom'
 
 const Footer = () => {
 

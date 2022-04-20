@@ -9,7 +9,7 @@ const Guide = () => {
     }
 
     return (
-        <div className='guide_Container'>
+        <div id="Features" className='guide_Container'>
             <div className='guide_Wrapper'>
                 <div className='guide_Title H2 Text_Secondary'>
                     HOW DOES IT WORK?
