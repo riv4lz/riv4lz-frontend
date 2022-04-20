@@ -1,6 +1,6 @@
 import React from 'react'
 import Login from '../../components/login/Login'
-import './loginPage.scss'
+import './LoginPage.scss'
 import Quote from '../../components/login/quote/Quote'
 
 const LoginPage = () => {
