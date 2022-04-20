@@ -1,0 +1,27 @@
+@import '../../../index.scss';
+
+.Login_Quotes_Container {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Login_Quotes_Wrapper {
+    width: 450px;
+    height: auto;
+}
+
+.Login_Quotes_Logo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: $Desktop) {
+    .Login_Quotes_Container {
+        display: flex;
+    }
+}
