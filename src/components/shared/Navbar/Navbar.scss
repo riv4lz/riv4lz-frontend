@@ -1,0 +1,34 @@
+@import url(../../../index.scss);
+
+.Navbar_Container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 125px;
+    background-color: transparent; //ÆNDRE TIL COLOR SHEET NÅR DET ER LAVET
+    flex-direction: row;
+}
+
+.Navbar_Wrapper {
+    width: 1440px; //LAV CONTENT WIDTH PÅ LAYOUT SHEET
+    height: 100%;
+}
+
+.Navbar_Logo {
+    width: 125px;
+    height: 125px;
+    .logo {
+        text-decoration: none;
+    }
+}
+
+.Navbar_Links {
+    max-width: 100%;
+    width: 100%;
+}
+
+.Links {
+    justify-content: center;
+    text-decoration: none;
+    margin: 0 1em;
+}

@@ -1,0 +1,32 @@
+@import '../../../index.scss';
+
+.Orgs_Container{
+    height: 310px;
+    width: 100%;
+    background-color: $Dark_Grey;
+
+}
+.Orgs_Wrapper{
+    width: 1440px;
+    height: 100%;
+    flex-direction: column;
+}
+
+.Orgs_Title{
+    margin-bottom: 40px;
+}
+
+.Orgs_Logos{
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    img{
+        filter: grayscale(100%);
+        transition: 0.2s;
+    }
+
+    img:hover{
+        filter: grayscale(0%);
+    }
+}

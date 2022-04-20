@@ -7,9 +7,10 @@
     justify-content: center;
     align-items: center;
     background-color: $Grey;    
-    background-image: url('../../../assets/images/callToAction.png');
+    background-image: url('../../../assets/images/CallToAction.png');
     background-repeat: no-repeat;
-    background-position: right;
+    background-size: cover;
+    background-position: center;
 }
 
 .callToAction_Wrapper{
@@ -31,5 +32,7 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 35px;
 }
