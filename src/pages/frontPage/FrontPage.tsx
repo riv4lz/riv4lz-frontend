@@ -13,8 +13,8 @@ const FrontPage = () => {
         <>
             <CallToAction />
             <Orgs />
-            <Guide />
             <Mission />
+            <Guide />
             <Games />
             <News />
             <Testimonies />

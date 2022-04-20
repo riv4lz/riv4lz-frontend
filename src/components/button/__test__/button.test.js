@@ -1,4 +1,3 @@
-
 import ReactDOM from 'react-dom';
 import Btn from '../Btn';
 import { render, cleanup } from '@testing-library/react';
@@ -35,7 +34,9 @@ test('render button with render method and onClick prop', () => {
 
     const testBtn = shallow((<Btn children="test" onClick={mockCallback} />));
     const { getByTestId } = render(testBtn);
+
     testBtn.simulate('click');
+
     expect(getByTestId('btn-test')).toHaveTextContent("test");
     expect(mockCallback.mock.calls.length).toEqual(1);
 });

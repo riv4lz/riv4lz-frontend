@@ -7,10 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../../../assets/images/mission_background.png");
+    background-image: url("../../../assets/images/tanks.png");
     background-repeat: no-repeat;
-    background-position-x: left;
-    background-position-y: center;
 }
 .mission_Wrapper {
     width: 1440px;
@@ -20,8 +18,7 @@
     align-items: center;
     flex-direction: column;
     hr {
-        width: 900px;
-        border: 3px solid $Secondary;
+        width: 850px;
     }
     .logo {
         width: 100%;
@@ -33,6 +30,10 @@
         margin-bottom: 50px;
     }
 }
+
+.mission_Title{
+    margin-top: 150px;
+}
 .mission_Component {
     width: 900px;
     height: 250px;
@@ -40,8 +41,9 @@
     flex-direction: row;
     justify-content: start;
     align-items: center;
+    margin-top: 50px;
     margin-bottom: 50px;
-    margin-top: 265px;
+
     .title {
         width: 170px;
         height: 90px;
@@ -57,7 +59,7 @@
     }
 
     .paragraph {
-        font-size: 25px !important;
+        line-height: 250%;
         text-align: justify;
     }
 }
@@ -68,8 +70,8 @@
     flex-direction: row;
     justify-content: start;
     align-items: center;
+    margin-bottom: 50px;
     margin-top: 50px;
-    margin-bottom: 150px;
     .title {
         width: 250px;
         height: 90px;
@@ -84,7 +86,11 @@
     }
 
     .paragraph {
-        font-size: 25px !important;
+        line-height: 250%;
         text-align: justify;
     }
+}
+
+.mission_Footer{
+    margin-bottom: 150px;
 }

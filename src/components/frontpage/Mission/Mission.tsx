@@ -6,6 +6,9 @@ const Mission = () => {
     return (
         <div className='mission_Container'>
             <div className='mission_Wrapper'>
+                <div className='mission_Title H2 Text_Secondary'>
+                    WHY ARE WE HERE?
+                </div>
                 <div className='mission_Component'>
                     <div className='title H2 Text_Primary'>
                         MISSION
@@ -33,11 +36,8 @@ const Mission = () => {
                         <span className='Text_Primary'><b> TOGETHER </b></span>
                     </div>
                 </div>
-                <div className='H3 Text_Primary'>
+                <div className='mission_Footer H3 Text_Primary'>
                     together we shape the future of esports
-                </div>
-                <div className='logo'>
-                    <img src={logo} alt="logo" /> <span className='H3 Text_Secondary'>RIV4LZ</span>
                 </div>
             </div>
         </div>
