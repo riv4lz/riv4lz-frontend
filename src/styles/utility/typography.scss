@@ -20,6 +20,7 @@
 $A1_Size: 180px;
 $A2_Size: 140px;
 $A3_Size: 100px;
+$A4_Size: 80px;
 
 $H1_Size: 60px;
 $H2_Size: 40px;
@@ -50,6 +51,11 @@ $Poppins_font_family: "Poppins", sans-serif;
 .A3 {
     font-family: $Statewide_bold_font_family;
     font-size: $A3_Size;
+}
+//A3
+.A4 {
+    font-family: $Statewide_bold_font_family;
+    font-size: $A4_Size;
 }
 
 //H1
