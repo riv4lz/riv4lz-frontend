@@ -7,6 +7,7 @@ import News from '../../components/frontpage/News/News'
 import Testimonies from '../../components/frontpage/Testimonies/Testimonies'
 import Footer from '../../components/frontpage/Footer/Footer'
 import Orgs from '../../components/frontpage/Orgs/Orgs'
+import Stats from '../../components/frontpage/Stats/Stats'
 
 const FrontPage = () => {
     return (
@@ -15,6 +16,7 @@ const FrontPage = () => {
             <Orgs />
             <Mission />
             <Guide />
+            <Stats />
             <Games />
             <News />
             <Testimonies />
