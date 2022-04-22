@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
+import Chat from "./pages/chat/chat";
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
           <Route path='/Login' element={<LoginPage />}>
           </Route>
           <Route path='/Matches' element={<MatchesPage />}>
+          </Route>
+          <Route path='/Chat' element={<Chat />}>
           </Route>
         </Routes>
       </Router>
