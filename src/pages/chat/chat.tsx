@@ -1,8 +1,36 @@
 import {observer} from "mobx-react-lite";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './chat.scss';
+import {ChatComment} from "../../components/chat/message";
+import { useStore} from "../../Stores/store";
 
-export default observer(function Chat(){
+export default observer(function Chat(props: any){
+    const {commentStore} = useStore();
+    const comments: ChatComment[] = [];
+    const [body, setBody] = useState('');
+    const [username, setUsername] = useState('');
+
+    useEffect(() => {
+        return () => {
+            commentStore.createHubConnection();
+        };
+    }, [commentStore]);
+
+
+    const sendMessage = (e: any) =>{
+        let comment = {
+            body,
+            username,
+            date: new Date()
+        };
+        commentStore.sendMessage(comment).then(r => {
+            setBody('');
+            setUsername('');
+        });
+
+
+    }
+
     return <>
         <div className="chat--container">
             <div className="chat--wrapper">
@@ -12,21 +40,24 @@ export default observer(function Chat(){
                     </div>
                     <div className="chat--main_messages">
                         <ul>
-                            <li>Msg 1</li>
-                            <li>Msg 2</li>
-                            <li>Msg 3</li>
-                            <li>Msg 4</li>
+                            {comments.map((comment: ChatComment) => <li>{comment.body}</li>)}
                         </ul>
                     </div>
                 </div>
                 <div className="chat--input_section">
                     <div className="chat--input_username">
-                        <input type="text" placeholder="Username"/>
+                        <input type="text"
+                               value={username}
+                               onChange={(e) =>
+                                   setUsername(e.target.value)} placeholder="Username"/>
                     </div>
                     <div className="chat--input_message">
-                        <input className="chat--message_field" type="text" placeholder="Enter message here.."/>
+                        <input className="chat--message_field"
+                               type="text" value={body}
+                               onChange={(e) =>
+                                   setBody(e.target.value)} placeholder="Enter message here.."/>
                     </div>
-                    <button className="chat--message_button">Send</button>
+                    <button className="chat--message_button" onClick={sendMessage}>Send</button>
                 </div>
             </div>
         </div>

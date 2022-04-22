@@ -2,9 +2,13 @@ import {ChatComment} from "../components/chat/message";
 import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
 import {makeAutoObservable, runInAction} from "mobx";
 
+
 export default class CommentStore{
     comments: ChatComment[] = [];
     hubConnection: HubConnection | null = null;
+    editMode = false;
+    loading = false;
+    loadingInitial = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -12,7 +16,7 @@ export default class CommentStore{
 
     createHubConnection = () => {
         this.hubConnection = new HubConnectionBuilder()
-            .withUrl(process.env.REACT_APP_API + '/chat')
+            .withUrl( 'https://localhost:7219/Chat')
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();
@@ -42,5 +46,18 @@ export default class CommentStore{
         this.stopHubConnection()
     }
 
+    loadMessages = async () => {
+        this.loadingInitial = true;
+        this.hubConnection?.invoke('LoadMessages')
+            .then(() => {
+                this.loadingInitial = false;
+            })
+            .catch(error => console.log('Error loading messages', error));
+    }
+
+    sendMessage = async (values: any) => {
+        this.hubConnection?.invoke('SendMessage', values)
+            .catch(error => console.log('Error sending message', error));
+    }
 
 }

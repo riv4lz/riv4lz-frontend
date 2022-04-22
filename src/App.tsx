@@ -6,12 +6,16 @@ import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
 import Chat from "./pages/chat/chat";
+import {store, useStore} from "./Stores/store";
+import {observer} from "mobx-react-lite";
 
 
 function App() {
+  const {commentStore} = useStore();
   let [user, setUser] = useState([])
 
   useEffect(() => {
+    commentStore.loadMessages()
     if (localStorage.getItem('user')) {
       //@ts-ignore
       const user = JSON.parse(localStorage.getItem('user'));
@@ -39,7 +43,7 @@ function App() {
           </Route>
           <Route path='/Matches' element={<MatchesPage />}>
           </Route>
-          <Route path='/Chat' element={<Chat />}>
+          <Route path='/Chat' element={<Chat comments={commentStore.comments} commentStore={commentStore}/>}>
           </Route>
         </Routes>
       </Router>
@@ -48,4 +52,4 @@ function App() {
 }
 
 
-export default App;
+export default observer(App);
