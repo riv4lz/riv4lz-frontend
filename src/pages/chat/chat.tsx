@@ -24,7 +24,7 @@ export default observer(function Chat(){
                         <input type="text" placeholder="Username"/>
                     </div>
                     <div className="chat--input_message">
-                        <input type="text" placeholder="Enter message here.."/>
+                        <input className="chat--message_field" type="text" placeholder="Enter message here.."/>
                     </div>
                     <button className="chat--message_button">Send</button>
                 </div>
