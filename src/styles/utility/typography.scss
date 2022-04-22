@@ -16,6 +16,7 @@
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oxanium&display=swap");
 
 $A1_Size: 180px;
 $A2_Size: 140px;
@@ -35,6 +36,7 @@ $Statewide_bold_font_family: "Statewide_bold";
 $Statewide_light_font_family: "Statewide_light", sans-serif;
 $Statewide_light_italic_font_family: "Statewide_light_italic", sans-serif;
 $Poppins_font_family: "Poppins", sans-serif;
+$Oxanium_font_family: "Oxanium", sans-serif;
 //A1
 .A1 {
     font-family: $Statewide_bold_font_family;
@@ -206,6 +208,23 @@ $Poppins_font_family: "Poppins", sans-serif;
     @include P4($Poppins_font_family);
 }
 
-.Bold{
+//Oxanium
+.P1_Oxanium {
+    @include P1($Oxanium_font_family);
+}
+
+.P2_Oxanium {
+    @include P2($Oxanium_font_family);
+}
+
+.P3_Oxanium {
+    @include P3($Oxanium_font_family);
+}
+
+.P4_Oxanium {
+    @include P4($Oxanium_font_family);
+}
+
+.Bold {
     font-weight: bold;
 }
