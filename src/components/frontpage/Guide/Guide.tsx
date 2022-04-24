@@ -88,20 +88,21 @@ const Caster = () => {
 
 const Org = () => {
     return (
-        <><div className='guide_ComponentContainer Flex Justify_Center Align_Center'>
-            <div className='number A4 Text_Secondary Flex Justify_Center Align_Center'>
-                1
-            </div>
-            <div className='text_Wrapper Flex'>
-                <div className='title P3_Oxanium Bold Text_Secondary'>
-                    Register Org
+        <>
+            <div className='guide_ComponentContainer Flex Justify_Center Align_Center'>
+                <div className='number A4 Text_Secondary Flex Justify_Center Align_Center'>
+                    1
                 </div>
-                <div className='paragraph  P3_Oxanium Medium  Text_Secondary'>
-                    For business which a product online
-                    product listings in the
+                <div className='text_Wrapper Flex'>
+                    <div className='title P3_Oxanium Bold Text_Secondary'>
+                        Register Org
+                    </div>
+                    <div className='paragraph  P3_Oxanium Medium  Text_Secondary'>
+                        For business which a product online
+                        product listings in the
+                    </div>
                 </div>
-            </div>
-        </div><div className='guide_ComponentContainer Flex Justify_Center Align_Center'>
+            </div><div className='guide_ComponentContainer Flex Justify_Center Align_Center'>
                 <div className='number A4 Text_Secondary Flex Justify_Center Align_Center'>
                     2
                 </div>

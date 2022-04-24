@@ -19,8 +19,6 @@ const FrontPage = () => {
             <Guide />
             <Stats />
             <Matches />
-            <Games />
-            <News />
             <Testimonies />
             <Footer />
         </>

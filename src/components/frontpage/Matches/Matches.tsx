@@ -32,7 +32,7 @@ const Matches = () => {
 
                 <div className='matches_MatchContainer Grid Justify_Center Align_Center'>
 
-                {upcomingState === true ? <Upcoming /> : <Finished />}
+                    {upcomingState === true ? <Upcoming /> : <Finished />}
 
                 </div>
             </div>
