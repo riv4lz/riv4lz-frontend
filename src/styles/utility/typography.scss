@@ -225,6 +225,10 @@ $Oxanium_font_family: "Oxanium", sans-serif;
     @include P4($Oxanium_font_family);
 }
 
+.Extra_Bold {
+    font-weight: 900;
+}
+
 .Bold {
     font-weight: 700;
 }
