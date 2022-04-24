@@ -8,6 +8,7 @@ import Testimonies from '../../components/frontpage/Testimonies/Testimonies'
 import Footer from '../../components/frontpage/Footer/Footer'
 import Orgs from '../../components/frontpage/Orgs/Orgs'
 import Stats from '../../components/frontpage/Stats/Stats'
+import Matches from '../../components/frontpage/Matches/Matches'
 
 const FrontPage = () => {
     return (
@@ -17,6 +18,7 @@ const FrontPage = () => {
             <Mission />
             <Guide />
             <Stats />
+            <Matches />
             <Games />
             <News />
             <Testimonies />
