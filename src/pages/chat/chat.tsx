@@ -33,9 +33,6 @@ const Chat = () => {
         setConnection(hubConnection);
     }
 
-
-
-
     useEffect(() => {
         connection?.on("ReceiveMessage", (message: string) => {
             setClientMessage([...clientMessage, message]);
