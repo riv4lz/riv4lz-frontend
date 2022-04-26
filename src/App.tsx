@@ -5,7 +5,8 @@ import React, { useEffect, useState } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
-import Chat from "./pages/chat/Chat"
+import {observer} from "mobx-react-lite";
+import Chat from "./pages/chat/chat";
 
 
 function App() {
@@ -48,4 +49,4 @@ function App() {
 }
 
 
-export default App;
+export default observer(App);

@@ -3,9 +3,24 @@ import React, { useEffect, useState } from "react";
 
 import './chat.scss';
 import * as signalR from '@microsoft/signalr'
+import {useStore} from "../../Stores/store";
 
 
 const Chat = () => {
+    const {commentStore} = useStore();
+    const [localMessage, setLocalMessage] = useState<string>('');
+
+    useEffect(() => {
+        commentStore.createHubConnection();
+        return () => {
+            commentStore.clearComments();
+        };
+    }, []);
+
+
+
+    /*
+
     const [clientMessage, setClientMessage] = useState<string[]>([]);
     const messages = clientMessage?.map((message: string) =>
         <li>{message}</li>
@@ -40,9 +55,26 @@ const Chat = () => {
     })
 
 
+
+     */
+
+
     const sendMessage = () => {
+/*
         connection?.invoke("SendMessage", localMessage);
         console.log(clientMessage);
+
+ */
+
+
+
+        commentStore.addComment(localMessage).then(() => {
+            setLocalMessage('');
+        });
+
+
+
+
     }
 
     return (
@@ -54,14 +86,16 @@ const Chat = () => {
                     </div>
                     <div className="chat--main_messages">
                         <ul>
-                            {messages}
+                            {commentStore.comments.map((comment: any) =>
+                                <li>{comment}</li>
+                            )}
                         </ul>
                     </div>
                 </div>
                 <div className="chat--input_section">
                     <div className="chat--input_username">
                         <input type="text" placeholder="Username" />
-                        <button className="chat--message_button" onClick={connect}>Connect</button>
+                        <button className="chat--message_button" /*onClick={connect}*/>Connect</button>
                     </div>
                     <div className="chat--input_message">
                         <input type="text" placeholder="Enter message here.." onChange={e => setLocalMessage(e.target.value)} />
@@ -73,4 +107,4 @@ const Chat = () => {
     )
 }
 
-export default Chat
+export default observer(Chat);

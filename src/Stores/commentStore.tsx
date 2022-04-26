@@ -1,9 +1,9 @@
 import {ChatComment} from "../components/chat/message";
-import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
+import signalR, {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
 import {makeAutoObservable, runInAction} from "mobx";
 
 export default class CommentStore{
-    comments: ChatComment[] = [];
+    comments: string[] = [];
     hubConnection: HubConnection | null = null;
 
     constructor() {
@@ -12,7 +12,7 @@ export default class CommentStore{
 
     createHubConnection = () => {
         this.hubConnection = new HubConnectionBuilder()
-            .withUrl(process.env.REACT_APP_API + '/chat')
+            .withUrl('https://localhost:7219/chat')
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();
@@ -20,15 +20,16 @@ export default class CommentStore{
         this.hubConnection.start().catch(error =>
             console.log('Error establishing the connection', error));
 
-        this.hubConnection.on('LoadMessages', (comments: ChatComment[]) => {
+        this.hubConnection.on('LoadMessages', (comments: string[]) => {
             runInAction(() => {
                 this.comments = comments;
             });
         });
 
-        this.hubConnection.on('ReceiveMessage', (comment: ChatComment) => {
+        this.hubConnection.on('ReceiveMessage', (comment: string) => {
             runInAction(() => {
                 this.comments.push(comment);
+                console.log("pushed comment!")
             });
         });
     }
@@ -40,6 +41,14 @@ export default class CommentStore{
     clearComments = () => {
         this.comments = [];
         this.stopHubConnection()
+    }
+
+    addComment = async (values: string) => {
+        try {
+            await this.hubConnection?.invoke('SendMessage', values);
+        } catch (error) {
+            console.log('Error sending message', error);
+        }
     }
 
 
