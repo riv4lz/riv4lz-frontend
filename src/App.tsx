@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
-import Chat from "./pages/chat/chat";
+import Chat from "./pages/chat/Chat"
 
 
 function App() {
