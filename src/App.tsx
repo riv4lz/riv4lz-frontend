@@ -6,6 +6,8 @@ import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
 import Chat from "./pages/chat/chat";
+import CastersPage from "./pages/castersPage/CastersPage";
+import CreateCasterPage from "./pages/createCaster/CreateCasterPage";
 
 
 function App() {
@@ -37,7 +39,9 @@ function App() {
             </>}></Route>
           <Route path='/Login' element={<LoginPage />}>
           </Route>
-          <Route path='/Matches' element={<MatchesPage />}>
+          <Route path='/Matches' element={<CastersPage />}>
+          </Route>
+          <Route path='/Casters' element={<CreateCasterPage />}>
           </Route>
           <Route path='/Chat' element={<Chat />}>
           </Route>
