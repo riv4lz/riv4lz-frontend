@@ -1,20 +1,15 @@
 import CommentStore from "./commentStore";
-import {CasterStore} from "./casterStore";
+import {createContext, useContext} from "react";
 
-import React, {createContext, useContext} from "react";
-
-
-type Store = {
+interface Store{
     commentStore: CommentStore;
-    casterStore: CasterStore;
 }
 
 export const store: Store = {
-    commentStore: new CommentStore(),
-    casterStore: new CasterStore(),
+    commentStore: new CommentStore()
 };
 
-export const StoreContext = React.createContext<Store>({} as Store);
+export const StoreContext = createContext(store);
 
 export function useStore() {
     return useContext(StoreContext);
