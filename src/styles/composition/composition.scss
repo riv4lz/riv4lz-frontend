@@ -30,6 +30,18 @@
     justify-content: right;
 }
 
+.Justify_Around{
+    justify-content: space-around;
+}
+
+.Justify_Between{
+    justify-content: space-between;
+}
+
+.Justify_Evenly{
+    justify-content: space-evenly;
+}
+
 .Align_Start {
     align-items: flex-start;
 }

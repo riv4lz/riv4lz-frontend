@@ -7,6 +7,7 @@ import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
 import Chat from "./pages/chat/chat";
 import CastersPage from "./pages/castersPage/CastersPage";
+import RegisterPage from './pages/registerPage/RegisterPage';
 
 
 function App() {
@@ -38,7 +39,8 @@ function App() {
             </>}></Route>
           <Route path='/Login' element={<LoginPage />}>
           </Route>
-          <Route path='/Matches' element={<CastersPage />}>
+          <Route path='/Register' element={<RegisterPage />}></Route>
+          <Route path='/Matches' element={<MatchesPage />}>
           </Route>
           <Route path='/Chat' element={<Chat />}>
           </Route>
