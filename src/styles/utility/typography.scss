@@ -27,6 +27,7 @@ $H1_Size: 60px;
 $H2_Size: 40px;
 $H3_Size: 30px;
 
+$P0_Size: 24px;
 $P1_Size: 20px;
 $P2_Size: 18px;
 $P3_Size: 16px;
@@ -83,6 +84,17 @@ $Oxanium_font_family: "Oxanium", sans-serif;
     font-family: $Poppins_font_family;
     font-size: $H3_Size;
     font-weight: 900;
+}
+
+.H_Oxanium{
+    font-family: $Oxanium_font_family;
+    font-size: 48px;
+}
+
+//P0
+@mixin P0($font_fam) {
+    font-family: $font_fam;
+    font-size: $P0_Size;
 }
 
 //P1
@@ -209,6 +221,11 @@ $Oxanium_font_family: "Oxanium", sans-serif;
 }
 
 //Oxanium
+
+.P0_Oxanium {
+    @include P0($Oxanium_font_family);
+}
+
 .P1_Oxanium {
     @include P1($Oxanium_font_family);
 }

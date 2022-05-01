@@ -1,0 +1,57 @@
+@import "../../../index.scss";
+
+.Blog_Container {
+    width: 100%;
+    height: 750px;
+    background-color: $Dark_Grey;
+    flex-direction: column;
+    .Blog_Wrapper {
+        flex-direction: column;
+        width: 1440px;
+        height: 100%;
+        .Blog_Title {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .Blog_Paragraph {
+            width: 100%;
+            height: auto;
+            margin-bottom: 50px;
+        }
+        .Component_Container {
+            grid-template-columns: repeat(3, 420px);
+            gap: 25px;
+            text-align: left;
+            .Image {
+                width: 100%;
+                height: 300px;
+                border-radius: 14px;
+                border: 1px solid $Primary;
+                margin-bottom: 30px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 14px;
+                }
+            }
+            .Title {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .Paragraph {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .Read_More {
+                user-select: none;
+                cursor: pointer;
+            }
+        }
+    }
+}

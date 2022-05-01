@@ -9,6 +9,7 @@ import Footer from '../../components/frontpage/Footer/Footer'
 import Orgs from '../../components/frontpage/Orgs/Orgs'
 import Stats from '../../components/frontpage/Stats/Stats'
 import Matches from '../../components/frontpage/Matches/Matches'
+import Blog from '../../components/frontpage/Blog/Blog'
 
 const FrontPage = () => {
     return (
@@ -20,7 +21,7 @@ const FrontPage = () => {
             <Stats />
             <Matches />
             <Testimonies />
-            <Footer />
+            <Blog />
         </>
     )
 }
