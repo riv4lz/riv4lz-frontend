@@ -7,6 +7,7 @@ import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
 import Chat from "./pages/chat/chat";
 import CastersPage from "./pages/castersPage/CastersPage";
+import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
 
 
 function App() {
@@ -42,6 +43,11 @@ function App() {
           </Route>
           <Route path='/Chat' element={<Chat />}>
           </Route>
+          <Route path="/test" element={
+            <>
+              <Navbar />
+              <CasterProfilePage />
+            </>}></Route>
         </Routes>
       </Router>
     </div>

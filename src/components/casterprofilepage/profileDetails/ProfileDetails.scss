@@ -1,0 +1,63 @@
+@import '../../../index.scss';
+
+.ProfileDetails {
+    padding-top: 12rem;
+    background-image: url("../../../assets/images/ProfileDetails_Background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 20% 50%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "profileImg description"
+    "additionalDetails additionalDetails";
+
+    justify-content: center;
+
+    .ProfileDetails__ProfileImage {
+        grid-area: profileImg;
+        .ProfileDetails__ProfileImage_Image {
+            width: 300px;
+            height: 300px;
+
+        }
+    }
+
+    .ProfileDetails__Description {
+        grid-area: description;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto  auto;
+        grid-template-areas:
+        "gamerTag socialIcons"
+        "realName realName"
+        "description1 description1";
+        align-items: start;
+        text-align: start;
+        .ProfileDetails__Description__GamerTag {
+            grid-area: gamerTag;
+
+        }
+        .ProfileDetails__Description__RealName {
+            grid-area: realName;
+
+        }
+        .ProfileDetails__Description__SocialIcons {
+            grid-area: socialIcons;
+            justify-self: end;
+            .ProfileDetails__Description__SocialIcons__Icon {
+                width: 30px;
+                padding-right: 10px;
+            }
+        }
+
+        .ProfileDetails__Description__Description {
+            grid-area: description1;
+        }
+    }
+
+    .ProfileDetails__AdditionalDetails {
+        grid-area: additionalDetails;
+
+    }
+}
