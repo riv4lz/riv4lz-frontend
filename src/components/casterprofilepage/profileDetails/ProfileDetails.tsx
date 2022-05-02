@@ -22,7 +22,7 @@ const ProfileDetails = () => {
             </div>
             <div className={"ProfileDetails__Description"}>
                 <span className={"ProfileDetails__Description__GamerTag H1 Text_Secondary"}>PLYKKERANDEN</span>
-                <span className={"ProfileDetails__Description__RealName P1 Text_Secondary"}>MIA ANDERSEN</span>
+                <span className={"ProfileDetails__Description__RealName P1_Statewide_light Text_Secondary"}>MIA ANDERSEN</span>
                 <div className={"ProfileDetails__Description__SocialIcons"}>
                     <img src={Facebook} className={"ProfileDetails__Description__SocialIcons__Icon"}></img>
                     <img src={Twitter} className={"ProfileDetails__Description__SocialIcons__Icon"}></img>

@@ -12,12 +12,12 @@ const Cta = () => {
     return (
         <div className='Cta'>
             <div className={"Cta__Text"}>
-                <span className={"Cta__Text__Title"}>hire plykkeranden</span>
-                <span className={"Cta__Text_SubTitle"}>Send a match request</span>
-                <span className={"Cta__Text__MainText"}>
-                    As an organisation or a tournament organisor you can request a
-                    specfic caster for a specific match.
-                    This can help you get the perfect that for your specfic needs and tailor your
+                <span className={"Cta__Text__Title H3 Text_Secondary"}>hire plykkeranden</span>
+                <span className={"Cta__Text_SubTitle "}>Send a match request</span>
+                <span className={"Cta__Text__MainText P4_Poppins Text_Secondary"}>
+                    As an organisation or a tournament organisor you can request a specfic caster<br />
+                    for a specific match. <br />
+                    This can help you get the perfect that for your specfic needs and tailor your <br />
                     event after it.
                 </span>
                 <Btn onClick={test} classes={"btn_CallToAction_Blue"} >check availability</Btn>

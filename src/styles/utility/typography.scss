@@ -151,7 +151,7 @@ $Poppins_font_family: "Poppins", sans-serif;
 
 //SW_LIGHT
 .P1_Statewide_light {
-    @include P1($Statewide_bold_font_family);
+    @include P1($Statewide_light_font_family);
 }
 
 .P2_Statewide_light {
