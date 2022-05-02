@@ -1,8 +1,8 @@
-import {ChatComment} from "../components/chat/message";
-import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
-import {makeAutoObservable, runInAction} from "mobx";
+import { ChatComment } from "../components/chat/message";
+import { HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
+import { makeAutoObservable, runInAction } from "mobx";
 
-export default class CommentStore{
+export default class CommentStore {
     comments: ChatComment[] = [];
     hubConnection: HubConnection | null = null;
 
@@ -17,7 +17,7 @@ export default class CommentStore{
             .configureLogging(LogLevel.Information)
             .build();
 
-        this.hubConnection.start().catch(error =>
+        this.hubConnection.start().catch((error: any) =>
             console.log('Error establishing the connection', error));
 
         this.hubConnection.on('LoadMessages', (comments: ChatComment[]) => {
@@ -34,7 +34,7 @@ export default class CommentStore{
     }
 
     stopHubConnection = () => {
-        this.hubConnection?.stop().catch(error => console.log('Error stopping the connection', error));
+        this.hubConnection?.stop().catch((error: any) => console.log('Error stopping the connection', error));
     }
 
     clearComments = () => {
