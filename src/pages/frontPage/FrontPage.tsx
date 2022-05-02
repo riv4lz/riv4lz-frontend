@@ -5,11 +5,11 @@ import Guide from '../../components/frontpage/Guide/Guide'
 import Mission from '../../components/frontpage/Mission/Mission'
 import News from '../../components/frontpage/News/News'
 import Testimonies from '../../components/frontpage/Testimonies/Testimonies'
-import Footer from '../../components/frontpage/Footer/Footer'
 import Orgs from '../../components/frontpage/Orgs/Orgs'
 import Stats from '../../components/frontpage/Stats/Stats'
 import Matches from '../../components/frontpage/Matches/Matches'
 import Blog from '../../components/frontpage/Blog/Blog'
+import Footer from '../../components/shared/Footer/Footer'
 
 const FrontPage = () => {
     return (
@@ -22,6 +22,7 @@ const FrontPage = () => {
             <Matches />
             <Testimonies />
             <Blog />
+            <Footer />
         </>
     )
 }
