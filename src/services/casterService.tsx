@@ -5,8 +5,8 @@ class CasterService {
     getAll() {
         return http.get<Array<Caster>>("/Caster/GetAll");
     }
-    get(id: string) {
-        return http.get<Caster>(`/Caster/GetCasterProfile/${id}`);
+    get(id: any) {
+        return http.get<Caster>(`/Caster/GetCasterProfile?id=${id}`);
     }
     create(data: Caster) {
         return http.post<Caster>("/Caster/RegisterCasterProfile", data);

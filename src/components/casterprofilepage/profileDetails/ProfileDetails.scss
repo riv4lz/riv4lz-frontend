@@ -11,10 +11,8 @@
     grid-template-areas:
     "profileImg description"
     "additionalDetails additionalDetails";
-
     justify-content: center;
     padding-bottom: 4rem;
-
     .ProfileDetails__ProfileImage {
         grid-area: profileImg;
         justify-self: center;
@@ -24,7 +22,6 @@
             margin-bottom: 0.5rem;
         }
     }
-
     .ProfileDetails__Description {
         grid-area: description;
         display: grid;
@@ -38,14 +35,11 @@
         text-align: start;
         .ProfileDetails__Description__GamerTag {
             grid-area: gamerTag;
-
-
         }
         .ProfileDetails__Description__RealName {
             grid-area: realName;
             line-height: 187.5%;
             font-weight: 300;
-
         }
         .ProfileDetails__Description__SocialIcons {
             grid-area: socialIcons;
@@ -63,9 +57,7 @@
             line-height: 187.5%;
         }
     }
-
     .ProfileDetails__AdditionalDetails {
         grid-area: additionalDetails;
-
     }
 }

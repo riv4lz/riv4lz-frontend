@@ -43,11 +43,7 @@ function App() {
           </Route>
           <Route path='/Chat' element={<Chat />}>
           </Route>
-          <Route path="/test" element={
-            <>
-              <Navbar />
-              <CasterProfilePage />
-            </>}></Route>
+          <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
         </Routes>
       </Router>
     </div>
