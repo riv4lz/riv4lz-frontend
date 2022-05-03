@@ -3,15 +3,18 @@ import React, {useEffect, useState} from "react";
 import './chat.scss';
 import {ChatComment} from "../../components/chat/message";
 import { useStore} from "../../Stores/store";
+import {ChatRoom} from "../../components/chat/chatRooms";
 
 export default observer(function Chat(props: any){
     const {commentStore} = useStore();
     const comments: ChatComment[] = [];
+    const chatRoom: ChatRoom[] = [];
     const [body, setBody] = useState('');
     const [username, setUsername] = useState('');
 
     useEffect(() => {
         return () => {
+            console.log("bananmad");
             commentStore.createHubConnection();
         };
     }, [commentStore]);
@@ -27,8 +30,13 @@ export default observer(function Chat(props: any){
             setBody('');
             setUsername('');
         });
+    }
 
-
+    const loadRooms = (e: any) => {
+        console.log("test succes");
+        commentStore.loadRooms().then(r => {
+           console.log(chatRoom);
+        });
     }
 
     return <>
@@ -57,7 +65,11 @@ export default observer(function Chat(props: any){
                                onChange={(e) =>
                                    setBody(e.target.value)} placeholder="Enter message here.."/>
                     </div>
-                    <button className="chat--message_button" onClick={sendMessage}>Send</button>
+                    <button className="chat--message_button" onClick={loadRooms}>Send</button>
+                    <div>Chatrooms</div>
+                    <ul>
+                        {chatRoom.map((chatRoom: ChatRoom) => <li>{chatRoom.name}</li>)}
+                    </ul>
                 </div>
             </div>
         </div>
