@@ -48,12 +48,14 @@
             }
             .Event_GameDetails{
                 margin-right: 25px;
+                .Info{margin-bottom: 10px;}
             }
             .Component_Title{
                 margin-bottom: 10px;
             }
             .Component_Container{
                 grid-template-columns: repeat(2,1fr);
+                gap: 15px;
             }
         }
         .Title{
