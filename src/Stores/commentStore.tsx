@@ -1,18 +1,31 @@
 import {ChatComment} from "../components/chat/message";
 import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
-import {makeAutoObservable, runInAction} from "mobx";
+import {makeAutoObservable, observable, runInAction, toJS} from "mobx";
+import {ChatRoom} from "../components/chat/chatRooms";
+
+export interface chatRoom {
+
+}
+
 
 export default class CommentStore{
+    @observable chatRoom: ChatRoom[] = [];
+    @observable caster: Caster | undefined;
     comments: ChatComment[] = [];
     hubConnection: HubConnection | null = null;
+    editMode = false;
+    loading = false;
+    loadingInitial = false;
+    chatRoom: ChatRoom[] = [];
 
     constructor() {
         makeAutoObservable(this);
     }
 
     createHubConnection = () => {
+        console.log("trying to connect");
         this.hubConnection = new HubConnectionBuilder()
-            .withUrl(process.env.REACT_APP_API + '/chat')
+            .withUrl( 'https://localhost:7219/Chat')
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();
@@ -23,6 +36,14 @@ export default class CommentStore{
         this.hubConnection.on('LoadMessages', (comments: ChatComment[]) => {
             runInAction(() => {
                 this.comments = comments;
+            });
+        });
+
+        this.hubConnection.on('LoadRooms', (chatRoom: ChatRoom) => {
+            runInAction(() => {
+                this.chatRoom.push(chatRoom);
+                console.log("fisk 4");
+                console.log(toJS(this.chatRoom));
             });
         });
 
@@ -42,5 +63,26 @@ export default class CommentStore{
         this.stopHubConnection()
     }
 
+    loadMessages = async () => {
+        this.loadingInitial = true;
+        this.hubConnection?.invoke('LoadMessages')
+            .then(() => {
+                this.loadingInitial = false;
+            })
+            .catch(error => console.log('Error loading messages', error));
+    }
+
+    sendMessage = async (values: any) => {
+        this.hubConnection?.invoke('SendMessage', values)
+            .catch(error => console.log('Error sending message', error));
+    }
+
+    loadRooms = async () => {
+        console.log("commentstore");
+        console.log(toJS(this.chatRoom));
+        this.hubConnection?.invoke('LoadRooms')
+            .catch(error => console.log('Error sending message', error));
+        return toJS(this.chatRoom);
+    }
 
 }
