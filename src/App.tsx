@@ -8,6 +8,7 @@ import MatchesPage from './pages/matchesPage/MatchesPage';
 import Chat from "./pages/chat/chat";
 import {store, useStore} from "./Stores/store";
 import {observer} from "mobx-react-lite";
+import CastersPage from "./pages/castersPage/CastersPage";
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
             </>}></Route>
           <Route path='/Login' element={<LoginPage />}>
           </Route>
-          <Route path='/Matches' element={<MatchesPage />}>
+          <Route path='/Matches' element={<CastersPage />}>
           </Route>
           <Route path='/Chat' element={<Chat comments={commentStore.comments} commentStore={commentStore}/>}>
           </Route>
