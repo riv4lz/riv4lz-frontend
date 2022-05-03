@@ -68,7 +68,7 @@ export default observer(function Chat(props: any){
                     <button className="chat--message_button" onClick={loadRooms}>Send</button>
                     <div>Chatrooms</div>
                     <ul>
-                        {chatRoom.map((chatRoom: ChatRoom) => <li>{chatRoom.name}</li>)}
+                        {chatRoom.map((chatRooms: ChatRoom) => <li>{chatRooms.name}</li>)}
                     </ul>
                 </div>
             </div>
