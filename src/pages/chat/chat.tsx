@@ -3,12 +3,11 @@ import React, {useEffect, useState} from "react";
 import './chat.scss';
 import {ChatComment} from "../../components/chat/message";
 import { useStore} from "../../Stores/store";
-import {ChatRoom} from "../../components/chat/chatRooms";
+import {values} from "mobx";
 
 export default observer(function Chat(props: any){
     const {commentStore} = useStore();
     const comments: ChatComment[] = [];
-    const chatRoom: ChatRoom[] = [];
     const [body, setBody] = useState('');
     const [username, setUsername] = useState('');
 
@@ -35,7 +34,7 @@ export default observer(function Chat(props: any){
     const loadRooms = (e: any) => {
         console.log("test succes");
         commentStore.loadRooms().then(r => {
-            chatRoom.push(r);
+            console.log(values(commentStore.chatRooms))
         });
     }
 
@@ -68,7 +67,10 @@ export default observer(function Chat(props: any){
                     <button className="chat--message_button" onClick={loadRooms}>Send</button>
                     <div>Chatrooms</div>
                     <ul>
-                        {chatRoom.map((chatRooms: ChatRoom) => <li>{chatRooms.name}</li>)}
+                        {commentStore.chatRooms.map((chatRoom) => (
+                            <ul key={chatRoom.id}>{chatRoom.name}
+                            </ul>
+                        ))}
                     </ul>
                 </div>
             </div>

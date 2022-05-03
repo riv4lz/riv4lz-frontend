@@ -14,7 +14,7 @@ export const store: Store = {
     casterStore: new CasterStore(),
 };
 
-export const StoreContext = React.createContext<Store>({} as Store);
+export const StoreContext = createContext<Store>({} as Store);
 
 export function useStore() {
     return useContext(StoreContext);

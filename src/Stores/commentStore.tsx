@@ -1,22 +1,22 @@
 import {ChatComment} from "../components/chat/message";
 import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
 import {makeAutoObservable, observable, runInAction, toJS} from "mobx";
-import {ChatRoom} from "../components/chat/chatRooms";
 
-export interface chatRoom {
+export interface ChatRoom {
+    id: number,
+    name: string,
 
 }
 
 
 export default class CommentStore{
-    @observable chatRoom: ChatRoom[] = [];
-    @observable caster: Caster | undefined;
+    @observable chatRooms: ChatRoom[] = [];
+    @observable chatRoom: ChatRoom | undefined;
     comments: ChatComment[] = [];
     hubConnection: HubConnection | null = null;
     editMode = false;
     loading = false;
     loadingInitial = false;
-    chatRoom: ChatRoom[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -41,9 +41,9 @@ export default class CommentStore{
 
         this.hubConnection.on('LoadRooms', (chatRoom: ChatRoom) => {
             runInAction(() => {
-                this.chatRoom.push(chatRoom);
+                this.chatRooms.push(chatRoom);
                 console.log("fisk 4");
-                console.log(toJS(this.chatRoom));
+                console.log(toJS(this.chatRooms));
             });
         });
 
@@ -79,10 +79,10 @@ export default class CommentStore{
 
     loadRooms = async () => {
         console.log("commentstore");
-        console.log(toJS(this.chatRoom));
+        console.log(toJS(this.chatRooms));
         this.hubConnection?.invoke('LoadRooms')
             .catch(error => console.log('Error sending message', error));
-        return toJS(this.chatRoom);
+        return toJS(this.chatRooms);
     }
 
 }
