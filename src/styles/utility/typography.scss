@@ -23,7 +23,7 @@ $A2_Size: 140px;
 $A3_Size: 100px;
 $A4_Size: 80px;
 
-$H1_Size: 60px;
+$H1_Size: 50px;
 $H2_Size: 40px;
 $H3_Size: 30px;
 
@@ -171,7 +171,7 @@ $Oxanium_font_family: "Oxanium", sans-serif;
 
 //SW_LIGHT
 .P1_Statewide_light {
-    @include P1($Statewide_bold_font_family);
+    @include P1($Statewide_light_font_family);
 }
 
 .P2_Statewide_light {
