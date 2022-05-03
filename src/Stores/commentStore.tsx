@@ -1,6 +1,6 @@
 import {ChatComment} from "../components/chat/message";
 import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
-import {makeAutoObservable, runInAction, toJS} from "mobx";
+import {makeAutoObservable, observable, runInAction, toJS} from "mobx";
 import {ChatRoom} from "../components/chat/chatRooms";
 
 export interface chatRoom {
@@ -9,6 +9,8 @@ export interface chatRoom {
 
 
 export default class CommentStore{
+    @observable chatRoom: ChatRoom[] = [];
+    @observable caster: Caster | undefined;
     comments: ChatComment[] = [];
     hubConnection: HubConnection | null = null;
     editMode = false;
