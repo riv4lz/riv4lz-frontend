@@ -35,7 +35,7 @@ export default observer(function Chat(props: any){
     const loadRooms = (e: any) => {
         console.log("test succes");
         commentStore.loadRooms().then(r => {
-           console.log(chatRoom);
+            chatRoom.push(r);
         });
     }
 

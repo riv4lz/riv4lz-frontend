@@ -80,6 +80,7 @@ export default class CommentStore{
         console.log(toJS(this.chatRoom));
         this.hubConnection?.invoke('LoadRooms')
             .catch(error => console.log('Error sending message', error));
+        return toJS(this.chatRoom);
     }
 
 }
