@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
+import {observer} from "mobx-react-lite";
 import Chat from "./pages/chat/chat";
 import {store, useStore} from "./Stores/store";
 import {observer} from "mobx-react-lite";

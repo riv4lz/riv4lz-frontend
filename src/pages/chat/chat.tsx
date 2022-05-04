@@ -1,48 +1,83 @@
-import {observer} from "mobx-react-lite";
-import React, {useEffect, useState} from "react";
-import './chat.scss';
-import {ChatComment} from "../../components/chat/message";
-import { useStore} from "../../Stores/store";
-import {values} from "mobx";
-import {ChatRoom} from "../../Stores/commentStore";
+import { observer } from "mobx-react-lite";
+import React, { useEffect, useState } from "react";
 
-export default observer(function Chat(props: any){
+import './chat.scss';
+import * as signalR from '@microsoft/signalr'
+import {useStore} from "../../Stores/store";
+
+
+const Chat = () => {
     const {commentStore} = useStore();
-    const comments: ChatComment[] = [];
-    const [body, setBody] = useState('');
-    const [username, setUsername] = useState('');
+    const [localMessage, setLocalMessage] = useState<string>('');
 
     useEffect(() => {
+        commentStore.createHubConnection();
         return () => {
-            console.log("bananmad");
-            commentStore.createHubConnection();
+            commentStore.clearComments();
         };
-    }, [commentStore]);
+    }, []);
 
 
-    const sendMessage = (e: any) =>{
-        let comment = {
-            body,
-            username,
-            date: new Date()
-        };
-        commentStore.sendMessage(comment).then(r => {
-            setBody('');
-            setUsername('');
+
+    /*
+
+    const [clientMessage, setClientMessage] = useState<string[]>([]);
+    const messages = clientMessage?.map((message: string) =>
+        <li>{message}</li>
+    );
+
+    const [connection, setConnection] = useState<signalR.HubConnection>();
+
+    const [localMessage, setLocalMessage] = useState<string>('');
+
+
+    const connect = () => {
+        const hubConnection = new signalR.HubConnectionBuilder()
+            .withUrl("https://localhost:7219/chat")
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        // Starts the SignalR connection
+        hubConnection.start().then(a => {
+            // Once started, invokes the sendConnectionId in our ChatHub inside our ASP.NET Core application.
+            if (hubConnection.connectionId) {
+                hubConnection.invoke("sendConnectionId", hubConnection.connectionId);
+            }
         });
+
+        setConnection(hubConnection);
     }
 
-    const loadRooms = (e: any) => {
-        console.log("test succes");
-        commentStore.loadRooms().then(r => {
-            console.log(values(commentStore.chatRooms))
+    useEffect(() => {
+        connection?.on("ReceiveMessage", (message: string) => {
+            setClientMessage([...clientMessage, message]);
         });
-        commentStore.chatRooms.map((chatRoom) => (
-            console.log(chatRoom)
-        ));
+    })
+
+
+
+     */
+
+
+    const sendMessage = () => {
+/*
+        connection?.invoke("SendMessage", localMessage);
+        console.log(clientMessage);
+
+ */
+
+
+
+        commentStore.addComment(localMessage).then(() => {
+            setLocalMessage('');
+        });
+
+
+
+
     }
 
-    return <>
+    return (
         <div className="chat--container">
             <div className="chat--wrapper">
                 <div className="chat--main_section">
@@ -51,24 +86,21 @@ export default observer(function Chat(props: any){
                     </div>
                     <div className="chat--main_messages">
                         <ul>
-                            {comments.map((comment: ChatComment) => <li>{comment.body}</li>)}
+                            {commentStore.comments.map((comment: any) =>
+                                <li>{comment}</li>
+                            )}
                         </ul>
                     </div>
                 </div>
                 <div className="chat--input_section">
                     <div className="chat--input_username">
-                        <input type="text"
-                               value={username}
-                               onChange={(e) =>
-                                   setUsername(e.target.value)} placeholder="Username"/>
+                        <input type="text" placeholder="Username" />
+                        <button className="chat--message_button" /*onClick={connect}*/>Connect</button>
                     </div>
                     <div className="chat--input_message">
-                        <input className="chat--message_field"
-                               type="text" value={body}
-                               onChange={(e) =>
-                                   setBody(e.target.value)} placeholder="Enter message here.."/>
+                        <input type="text" placeholder="Enter message here.." onChange={e => setLocalMessage(e.target.value)} />
                     </div>
-                    <button className="chat--message_button" onClick={loadRooms}>Send</button>
+                    <button className="chat--message_button" onClick={sendMessage}>Send</button>
                     <div>Chatrooms</div>
                     <ul>
                         {commentStore.test.map((chatRoom: ChatRoom) => (
@@ -79,6 +111,7 @@ export default observer(function Chat(props: any){
                 </div>
             </div>
         </div>
+    )
+}
 
-    </>
-})
+export default observer(Chat);
