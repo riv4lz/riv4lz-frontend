@@ -4,12 +4,14 @@ import './chat.scss';
 import * as signalR from '@microsoft/signalr'
 import {useStore} from "../../Stores/store";
 import {ChatRoom, message, messageSent, room} from "../../Stores/commentStore";
+// @ts-ignore
+import { v4 as uuidv4 } from 'uuid';
 
 const Chat = (comment: any) => {
     const {commentStore} = useStore();
     const [localMessage, setLocalMessage] = useState<string>('');
     const [localUserName, setLocalUserName] = useState<string>('');
-    const [localMessageId, setLocalMessageId] = useState<string>("ad4cff79-928d-4efc-9e28-a86151a95435");
+    const [localMessageId, setLocalMessageId] = useState<string>("ad4cff79-928d-4efc-9e28-a86151a95433");
 
     const [currentRoomId, setCurrentRoomId] = useState<string>('');
     const [roomId, setRoomId] = useState<string>('');
@@ -24,7 +26,7 @@ const Chat = (comment: any) => {
     const sendMessage = () => {
         const message: messageSent = {
             ChatRoomId: commentStore.test2.id,
-            Id: localMessageId,
+            Id: uuidv4(),
             Text: localMessage,
             Username: localUserName,
         }
@@ -40,6 +42,7 @@ const Chat = (comment: any) => {
         console.log(commentStore.test2.id);
         console.log(commentStore.test2.name);
         console.log(commentStore.test2.messages);
+        console.log(uuidv4());
 
     }
 

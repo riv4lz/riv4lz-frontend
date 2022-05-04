@@ -1,6 +1,6 @@
 import {ChatComment} from "../components/chat/message";
 import signalR, {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
-import {makeAutoObservable, observable, runInAction, toJS} from "mobx";
+import {makeAutoObservable, observable, runInAction, toJS, autorun} from "mobx";
 
 export interface ChatRoom {
     id: string,
@@ -16,7 +16,7 @@ export interface test {
 export interface room {
     id: string,
     name: string,
-    messages: {text: string, username: string}[]
+    messages: {text: string, username: string}[];
 }
 
 export interface message {
@@ -37,13 +37,13 @@ export interface messageSent {
 export default class CommentStore{
     @observable chatRooms: ChatRoom[] = [];
     @observable chatRoom: ChatRoom | undefined;
-    comments: string[] = [];
+    @observable comments: string[] = [];
     hubConnection: HubConnection | null = null;
     editMode = false;
     loading = false;
     loadingInitial = false;
-    test: any = [];
-    test2: any = [];
+    @observable test: any = [];
+    @observable test2: any = [];
 
     constructor() {
         makeAutoObservable(this);
