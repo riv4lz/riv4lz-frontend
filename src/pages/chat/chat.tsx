@@ -101,6 +101,13 @@ const Chat = () => {
                         <input type="text" placeholder="Enter message here.." onChange={e => setLocalMessage(e.target.value)} />
                     </div>
                     <button className="chat--message_button" onClick={sendMessage}>Send</button>
+                    <div>Chatrooms</div>
+                    <ul>
+                        {commentStore.test.map((chatRoom: ChatRoom) => (
+                            <ul key={chatRoom.id}>{chatRoom.name}
+                            </ul>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </div>

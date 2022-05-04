@@ -31,8 +31,8 @@ const CallToAction = () => {
 
                     </div>
                     <div className='callToAction_Buttons'>
-                        <Btn onClick={onBecomMember} children='Join Us Now' classes='btn_CallToAction_Blue P4_Statewide_Bold Text_Dark_Blue'></Btn>
-                        <Btn onClick={onFeatures} children='Read More' classes='btn_CallToAction_White P4_Statewide_Bold Text_Dark_Blue'></Btn>
+                        <Btn onClick={onBecomMember} children='Join Us Now' classes='btn_CallToAction_Blue P3_Oxanium Bold Text_Dark_Blue'></Btn>
+                        <Btn onClick={onFeatures} children='Read More' classes='btn_CallToAction_White P3_Oxanium Bold Text_Dark_Blue'></Btn>
                     </div>
                     <div className='callToAction_emptyDiv'>
                         &nbsp;
