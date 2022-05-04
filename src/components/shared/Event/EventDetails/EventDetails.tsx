@@ -3,15 +3,7 @@ import './EventDetails.scss'
 import Tricked from '../../../../assets/images/Esports-orgs/Tricked.svg'
 import Btn from '../../../button/Btn'
 
-const EventDetails = ({ Event, handleClose, show}: any) => {
-
-    useEffect(() => {
-        console.log(Event);
-        
-    });
-
-
-
+const EventDetails = ({ Event, handleClose, show }: any) => {
     return (
         <div className='Event_Container' style={{ display: show ? 'block' : 'none' }}>
             <div className='Event_Wrapper Flex Text_Secondary'>
@@ -27,18 +19,17 @@ const EventDetails = ({ Event, handleClose, show}: any) => {
                                     <img src={Tricked} alt='Tricked' />
                                 </div>
                                 <div className='Info_Container '>
-                                    <div className='name P2_Statewide_Bold Text_Secondary'>{Event.org}</div>
-                                    <div className='tag P4_Statewide_light Text_Secondary'>{Event.tagline}</div>
-                                    <div className='karma P3_Statewide_Bold Text_Primary'>{Event.orgKarma}/5 Karma</div>
+                                    <div className='name P2_Statewide_Bold Text_Secondary'>{Event.organiser}</div>
+                                    <div className='tag P4_Statewide_light Text_Secondary'>{Event.description}</div>
                                 </div>
                             </div>
                         </div>
                         <div className='Participants '>
                             <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>Participants</div>
                             <div className='Info Flex Justify_Evenly Align_Center'>
-                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.team1}</div>
+                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.teamOne}</div>
                                 <div className='vs H3 Text_Primary'>VS</div>
-                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.team2}</div>
+                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.teamTwo}</div>
                             </div>
                         </div>
                     </div>
@@ -47,15 +38,15 @@ const EventDetails = ({ Event, handleClose, show}: any) => {
                             DETAILS
                         </div>
                         <div className='Component_Container Grid'>
-                            <div className='Info_component'>
+                            <div className='Info_component Flex Justify_Center'>
                                 <div className='Component_Title P2_Statewide_Bold'>
                                     Time
                                 </div>
                                 <div className='Info P4_Statewide_light'>
-                                    {Event.date}
+                                    {Event.time}
                                 </div>
                             </div>
-                            <div className='Info_component'>
+                            <div className='Info_component Flex Justify_Center'>
                                 <div className='Component_Title P2_Statewide_Bold'>
                                     Channel
                                 </div>
@@ -63,31 +54,8 @@ const EventDetails = ({ Event, handleClose, show}: any) => {
                                     {Event.channel}
                                 </div>
                             </div>
-                            <div className='Info_component'>
-                                <div className='Component_Title P2_Statewide_Bold'>
-                                    LEAGUE
-                                </div>
-                                <div className='Info P4_Statewide_light'>
-                                    {Event.league}
-                                </div>
-                            </div>
-                            <div className='Info_component'>
-                                <div className='Component_Title P2_Statewide_Bold'>
-                                    language
-                                </div>
-                                <div className='Info P4_Statewide_light'>
-                                    {Event.language}
-                                </div>
-                            </div>
-                            <div className='Info_component'>
-                                <div className='Component_Title P2_Statewide_Bold'>
-                                    graphics
-                                </div>
-                                <div className='Info P4_Statewide_light'>
-                                    {Event.graphics}
-                                </div>
-                            </div>
-                            <div className='Info_component'>
+
+                            <div className='Info_component Game Flex Justify_Center'>
                                 <div className='Component_Title P2_Statewide_Bold'>
                                     game
                                 </div>

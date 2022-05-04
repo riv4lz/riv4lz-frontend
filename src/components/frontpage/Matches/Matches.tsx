@@ -10,16 +10,12 @@ const Matches = () => {
     const [upcomingState, setUpcommingState] = useState(true);
     const [finishedState, setFinishedState] = useState(false);
     const [eventDetails, setEventDetails] = useState<IEventDetails>({
-        org: '',
-        tagline: '',
-        orgKarma: 0,
-        team1: '',
-        team2: '',
-        date: '',
+        organiser: '',
+        description: '',
+        teamOne: '',
+        teamTwo: '',
+        time: '',
         channel: '',
-        league: '',
-        language: '',
-        graphics: '',
         game: ''
     });
 
@@ -45,9 +41,9 @@ const Matches = () => {
 
     return (
         <>
-            { showState ?
-            <EventDetails show={showState} handleClose={hide} Event={eventDetails} /> : null
-        }
+            {showState ?
+                <EventDetails show={showState} handleClose={hide} Event={eventDetails} /> : null
+            }
             <div className='matches_Container Flex Justify_Center Align_Center'>
                 <div className='matches_Wrapper Flex Justify_Center Align_Center'>
                     <div className='matches_Title H2 Text_Secondary'>
@@ -60,7 +56,7 @@ const Matches = () => {
 
                     <div className='matches_MatchContainer Grid Justify_Center Align_Center'>
 
-                        {upcomingState === true ? <Upcoming show={(value: any) => show(value)}  /> : <Finished show={show} setEventDetails={setEventDetails} />}
+                        {upcomingState === true ? <Upcoming show={(value: any) => show(value)} /> : <Finished show={show} setEventDetails={setEventDetails} />}
 
                     </div>
                 </div>
@@ -69,7 +65,7 @@ const Matches = () => {
     )
 }
 
-const Upcoming = ({ show }: any ) => {
+const Upcoming = ({ show }: any) => {
 
     return (
         <>
@@ -89,16 +85,12 @@ const Upcoming = ({ show }: any ) => {
                         <img src={Twitch} alt="Astralis" />
                     </div>
                     <div onClick={() => show({
-                        org: 'CPH Flames',
-                        tagline: 'lorem ipsum',
-                        orgKarma: 2.5,
-                        team1: 'CPH Flames',
-                        team2: 'AGF Esports',
-                        date: 'Juni 25, 2022 3:00 PM',
+                        organiser: 'CPH Flames',
+                        description: 'lorem ipsum',
+                        teamOne: 'CPH Flames',
+                        teamTwo: 'AGF Esports',
+                        time: 'Juni 25, 2022 3:00 PM',
                         channel: 'https://www.twitch.tv/CPH_Flames',
-                        league: 'ESL One',
-                        language: 'English',
-                        graphics: 'Provided',
                         game: 'CS:GO'
 
                     })} className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
@@ -125,16 +117,12 @@ const Upcoming = ({ show }: any ) => {
                         <img src={Twitch} alt="Astralis" />
                     </div>
                     <div onClick={() => show({
-                        org: 'Tricked',
-                        tagline: 'Tricked',
-                        orgKarma: 3.5,
-                        team1: 'Tricked',
-                        team2: 'Astralis',
-                        date: 'December 25, 2022 4:00 PM',
+                        organiser: 'Tricked',
+                        description: 'Tricked',
+                        teamOne: 'Tricked',
+                        teamTwo: 'Astralis',
+                        time: 'December 25, 2022 4:00 PM',
                         channel: 'https://www.twitch.tv/tricked',
-                        league: 'ESL One',
-                        language: 'English',
-                        graphics: 'Provided',
                         game: 'League of Legends'
 
                     })} className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue' >
@@ -161,16 +149,12 @@ const Upcoming = ({ show }: any ) => {
                         <img src={Twitch} alt="Astralis" />
                     </div>
                     <div onClick={() => show({
-                        org: 'Astralis',
-                        tagline: 'To the stars',
-                        orgKarma: 4,
-                        team1: 'Astralis',
-                        team2: 'Cepter',
-                        date: 'August 5, 2022 8:00 PM',
+                        organiser: 'Astralis',
+                        description: 'To the stars',
+                        teamOne: 'Astralis',
+                        teamTwo: 'Cepter',
+                        time: 'August 5, 2022 8:00 PM',
                         channel: 'https://www.twitch.tv/Astralis',
-                        league: 'ESL One',
-                        language: 'English',
-                        graphics: 'Provided',
                         game: 'Rocket league'
 
                     })} className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
@@ -197,16 +181,12 @@ const Upcoming = ({ show }: any ) => {
                         <img src={Twitch} alt="Astralis" />
                     </div>
                     <div onClick={() => show({
-                        org: 'Tricked',
-                        tagline: 'Tricked',
-                        orgKarma: 3.5,
-                        team1: 'Tricked',
-                        team2: 'Astralis',
-                        date: 'December 25, 2022 4:00 PM',
+                        organiser: 'Tricked',
+                        description: 'Tricked',
+                        teamOne: 'Tricked',
+                        teamTwo: 'Astralis',
+                        time: 'December 25, 2022 4:00 PM',
                         channel: 'https://www.twitch.tv/tricked',
-                        league: 'ESL One',
-                        language: 'English',
-                        graphics: 'Provided',
                         game: 'League of Legends'
 
                     })} className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>

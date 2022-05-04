@@ -56,6 +56,14 @@
             .Component_Container{
                 grid-template-columns: repeat(2,1fr);
                 gap: 15px;
+                height: 100%;
+                .Info_component{
+                    flex-direction: column;
+                }
+                .Game{
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                }
             }
         }
         .Title{
