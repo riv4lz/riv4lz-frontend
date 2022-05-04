@@ -8,7 +8,6 @@ import MatchesPage from './pages/matchesPage/MatchesPage';
 import {observer} from "mobx-react-lite";
 import Chat from "./pages/chat/chat";
 import {store, useStore} from "./Stores/store";
-import {observer} from "mobx-react-lite";
 import CastersPage from "./pages/castersPage/CastersPage";
 import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
 

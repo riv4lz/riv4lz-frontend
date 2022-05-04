@@ -1,28 +1,49 @@
 import {ChatComment} from "../components/chat/message";
 import signalR, {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
-import {makeAutoObservable, runInAction} from "mobx";
-
-export default class CommentStore{
-    comments: string[] = [];
-import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
 import {makeAutoObservable, observable, runInAction, toJS} from "mobx";
 
 export interface ChatRoom {
-    id: number,
+    id: string,
     name: string,
 
 }
+
+export interface test {
+    roomId: string,
+    previousRoomId: string,
+}
+
+export interface room {
+    id: string,
+    name: string,
+    messages: {text: string, username: string}[]
+}
+
+export interface message {
+    text: string,
+    username: string
+}
+
+export interface messageSent {
+    ChatRoomId: string,
+    Id: string,
+    Text: string,
+    Username: string
+}
+
+
 
 
 export default class CommentStore{
     @observable chatRooms: ChatRoom[] = [];
     @observable chatRoom: ChatRoom | undefined;
-    comments: ChatComment[] = [];
+    comments: string[] = [];
     hubConnection: HubConnection | null = null;
     editMode = false;
     loading = false;
     loadingInitial = false;
-    test: any;
+    test: any = [];
+    test2: any = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -39,13 +60,13 @@ export default class CommentStore{
         this.hubConnection.start().catch(error =>
             console.log('Error establishing the connection', error));
 
-        this.hubConnection.on('LoadMessages', (comments: string[]) => {
+        this.hubConnection.on('LoadMessages', (comments: room) => {
             runInAction(() => {
-                this.comments = comments;
+                console.log(comments);
+                this.test2 = comments;
+                console.log(this.test2);
             });
         });
-
-        this.hubConnection.on('ReceiveMessage', (comment: string) => {
           
         this.hubConnection.on('LoadRooms', (chatRoom: ChatRoom) => {
             runInAction(() => {
@@ -59,7 +80,7 @@ export default class CommentStore{
             });
         });
 
-        this.hubConnection.on('ReceiveMessage', (comment: ChatComment) => {
+        this.hubConnection.on('ReceiveMessage', (comment: string) => {
             runInAction(() => {
                 this.comments.push(comment);
                 console.log("pushed comment!")
@@ -76,9 +97,9 @@ export default class CommentStore{
         this.stopHubConnection()
     }
     
-    addComment = async (values: string) => {
+    addComment = async (message: messageSent) => {
         try {
-            await this.hubConnection?.invoke('SendMessage', values);
+            await this.hubConnection?.invoke('SendMessage', message);
         } catch (error) {
             console.log('Error sending message', error);
         }
@@ -95,6 +116,15 @@ export default class CommentStore{
 
     sendMessage = async (values: any) => {
         this.hubConnection?.invoke('SendMessage', values)
+            .catch(error => console.log('Error sending message', error));
+    }
+
+    joinRoom = async (roomId: string, previousRoomId: string) => {
+        console.log(this.comments);
+        this.hubConnection?.invoke('JoinRoom', roomId, previousRoomId).then(() => {
+            console.log("fisk");
+            console.log(this.test2);
+        })
             .catch(error => console.log('Error sending message', error));
     }
 
