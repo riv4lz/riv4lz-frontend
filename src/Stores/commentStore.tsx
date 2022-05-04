@@ -17,6 +17,7 @@ export default class CommentStore{
     editMode = false;
     loading = false;
     loadingInitial = false;
+    test: any;
 
     constructor() {
         makeAutoObservable(this);
@@ -41,9 +42,13 @@ export default class CommentStore{
 
         this.hubConnection.on('LoadRooms', (chatRoom: ChatRoom) => {
             runInAction(() => {
-                this.chatRooms.push(chatRoom);
+                if (this.chatRooms.length <= 0) {
+                    this.chatRooms.push(chatRoom);
+                    this.test = chatRoom;
+                }
                 console.log("fisk 4");
                 console.log(toJS(this.chatRooms));
+                console.log(this.test);
             });
         });
 

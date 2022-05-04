@@ -23,6 +23,7 @@ export class CasterStore{
     loadCasters = () => {
         casterService.getAll().then((response: any) => {
             this.casters = response.data;
+            console.log(this.casters);
         })
     }
 

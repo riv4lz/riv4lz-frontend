@@ -4,6 +4,7 @@ import './chat.scss';
 import {ChatComment} from "../../components/chat/message";
 import { useStore} from "../../Stores/store";
 import {values} from "mobx";
+import {ChatRoom} from "../../Stores/commentStore";
 
 export default observer(function Chat(props: any){
     const {commentStore} = useStore();
@@ -36,6 +37,9 @@ export default observer(function Chat(props: any){
         commentStore.loadRooms().then(r => {
             console.log(values(commentStore.chatRooms))
         });
+        commentStore.chatRooms.map((chatRoom) => (
+            console.log(chatRoom)
+        ));
     }
 
     return <>
@@ -67,7 +71,7 @@ export default observer(function Chat(props: any){
                     <button className="chat--message_button" onClick={loadRooms}>Send</button>
                     <div>Chatrooms</div>
                     <ul>
-                        {commentStore.chatRooms.map((chatRoom) => (
+                        {commentStore.test.map((chatRoom: ChatRoom) => (
                             <ul key={chatRoom.id}>{chatRoom.name}
                             </ul>
                         ))}
