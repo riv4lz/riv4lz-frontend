@@ -4,8 +4,8 @@ import Tricked from '../../../../assets/images/Esports-orgs/Tricked.svg'
 import Btn from '../../../button/Btn'
 
 const EventDetails = ({ Event, handleClose, show }: any) => {
-    const [casterState, setCasterState] = useState(false);
-    const [organisationState, setOrganisationState] = useState(true);
+    const [casterState, setCasterState] = useState(true);
+    const [organisationState, setOrganisationState] = useState(false);
     return (
         <div className='Event_Container' style={{ display: show ? 'block' : 'none' }}>
             <div className='Event_Wrapper Flex Text_Secondary'>
@@ -68,8 +68,7 @@ const EventDetails = ({ Event, handleClose, show }: any) => {
                         </div>
                     </div>
                 </div>
-                {casterState ? <Caster /> : null}
-                {organisationState ? <Organisation /> : null}
+                {casterState ? <Caster /> : organisationState ? <Organisation /> : null}
                 <div className='Event_button Flex Justify_Center Align_Center'>
                     <Public Close={handleClose} />
                 </div>
@@ -86,8 +85,30 @@ const Public = ({ Close }: any) => {
 }
 
 const Caster = () => {
+    const [offer, setOfferState] = useState("");
+
+    const onSendOffer = () => {
+        console.log(offer)
+    }
     return (
-        <div className='Caster_Container Flex Justify_Center Align_Center'> </div>
+        <div className='Caster_Container Flex Justify_Center Align_Center'>
+
+            <div className='Caster_Title Flex Justify_Center Align_Center P1_Statewide_Bold Text_Secondary'>Send Offer</div>
+            <div className='Caster_Paragraph Flex Justify_Center Align_Center P4_Statewide_light'>If you exceed the povided min and maximum values by the organisation, your acceptance rate will be significantly lower</div>
+            <div className='Caster_Component_Container Grid'>
+                <div className='Budget'>
+                    <div className='Title P1_Statewide_Bold'>Organisation budget</div>
+                    <div className='Info Flex Justify_Center Align_Center P1_Oxanium Bold'> 250kr </div>
+                </div>
+                <div className='Offer P1_Statewide_Bold'>
+                    <div className='Title'>Your Offer</div>
+                    <div className='input_Container Flex Justify_Center Align_Center'>
+                        <input className='P3_Oxanium Bold Text_Secondary' type="text" onChange={e => setOfferState(e.target.value)} />
+                        <Btn classes='btn_Offer_Solid P3_Oxanium Bold Text_Dark_Blue' children='Send Offer' onClick={onSendOffer} />
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
@@ -162,12 +183,6 @@ const Organisation = () => {
 
             </div>
         </div>
-    )
-}
-
-const OrganisationButtons = ({ Close }: any) => {
-    return (
-        <Btn onClick={Close} children='Close' classes='btn_CallToAction_Blue P3_Oxanium Bold Text_Dark_Blue' />
     )
 }
 
