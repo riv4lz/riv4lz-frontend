@@ -175,15 +175,15 @@ $Oxanium_font_family: "Oxanium", sans-serif;
 }
 
 .P2_Statewide_light {
-    @include P2($Statewide_bold_font_family);
+    @include P2($Statewide_light_font_family);
 }
 
 .P3_Statewide_light {
-    @include P3($Statewide_bold_font_family);
+    @include P3($Statewide_light_font_family);
 }
 
 .P4_Statewide_light {
-    @include P4($Statewide_bold_font_family);
+    @include P4($Statewide_light_font_family);
 }
 
 //SW_LIGHT_ITALIC

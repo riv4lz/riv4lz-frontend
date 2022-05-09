@@ -4,10 +4,20 @@ import Tricked from '../../../assets/images/Esports-orgs/Tricked.svg'
 import Astralis from '../../../assets/images/Esports-orgs/Astralis.svg'
 import Twitch from '../../../assets/icons/social-media/twitch.svg'
 import Youtube from '../../../assets/icons/social-media/youtube.svg'
+import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 
 const Matches = () => {
     const [upcomingState, setUpcommingState] = useState(true);
     const [finishedState, setFinishedState] = useState(false);
+    const [eventDetails, setEventDetails] = useState<IEventDetails>({
+        organiser: '',
+        description: '',
+        teamOne: '',
+        teamTwo: '',
+        time: '',
+        channel: '',
+        game: ''
+    });
 
     const onUpcoming = () => {
         setUpcommingState(true);
@@ -19,28 +29,44 @@ const Matches = () => {
         setFinishedState(true);
     }
 
+    const [showState, setShowState] = useState(false);
+    const show = (event: any) => {
+        setEventDetails(event);
+        setShowState(true);
+    }
+
+    const hide = () => {
+        setShowState(false);
+    }
+
     return (
-        <div className='matches_Container Flex Justify_Center Align_Center'>
-            <div className='matches_Wrapper Flex Justify_Center Align_Center'>
-                <div className='matches_Title H2 Text_Secondary'>
-                    Matches
-                </div>
-                <div className='matches_Buttons P1_Oxanium Bold Flex Justify_Center Align_Center'>
-                    <div style={{ color: upcomingState === true ? '#279BBB' : 'white' }} onClick={onUpcoming}>Upcoming</div>
-                    <div style={{ color: finishedState === true ? '#279BBB' : 'white' }} onClick={onFinished}>Finished</div>
-                </div>
+        <>
+            {showState ?
+                <EventDetails show={showState} handleClose={hide} Event={eventDetails} /> : null
+            }
+            <div className='matches_Container Flex Justify_Center Align_Center'>
+                <div className='matches_Wrapper Flex Justify_Center Align_Center'>
+                    <div className='matches_Title H2 Text_Secondary'>
+                        Matches
+                    </div>
+                    <div className='matches_Buttons P1_Oxanium Bold Flex Justify_Center Align_Center'>
+                        <div style={{ color: upcomingState === true ? '#279BBB' : 'white' }} onClick={onUpcoming}>Upcoming</div>
+                        <div style={{ color: finishedState === true ? '#279BBB' : 'white' }} onClick={onFinished}>Finished</div>
+                    </div>
 
-                <div className='matches_MatchContainer Grid Justify_Center Align_Center'>
+                    <div className='matches_MatchContainer Grid Justify_Center Align_Center'>
 
-                    {upcomingState === true ? <Upcoming /> : <Finished />}
+                        {upcomingState === true ? <Upcoming show={(value: any) => show(value)} /> : <Finished show={show} setEventDetails={setEventDetails} />}
 
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
-const Upcoming = () => {
+const Upcoming = ({ show }: any) => {
+
     return (
         <>
             <div className='matches_Component Flex Justify_Center Align_Center'>
@@ -58,7 +84,16 @@ const Upcoming = () => {
                         <img src={Youtube} alt="Astralis" />
                         <img src={Twitch} alt="Astralis" />
                     </div>
-                    <div className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
+                    <div onClick={() => show({
+                        organiser: 'CPH Flames',
+                        description: 'lorem ipsum',
+                        teamOne: 'CPH Flames',
+                        teamTwo: 'AGF Esports',
+                        time: 'Juni 25, 2022 3:00 PM',
+                        channel: 'https://www.twitch.tv/CPH_Flames',
+                        game: 'CS:GO'
+
+                    })} className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
                         See more
                     </div>
                 </div>
@@ -81,7 +116,16 @@ const Upcoming = () => {
                         <img src={Youtube} alt="Astralis" />
                         <img src={Twitch} alt="Astralis" />
                     </div>
-                    <div className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
+                    <div onClick={() => show({
+                        organiser: 'Tricked',
+                        description: 'Tricked',
+                        teamOne: 'Tricked',
+                        teamTwo: 'Astralis',
+                        time: 'December 25, 2022 4:00 PM',
+                        channel: 'https://www.twitch.tv/tricked',
+                        game: 'League of Legends'
+
+                    })} className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue' >
                         See more
                     </div>
                 </div>
@@ -104,7 +148,16 @@ const Upcoming = () => {
                         <img src={Youtube} alt="Astralis" />
                         <img src={Twitch} alt="Astralis" />
                     </div>
-                    <div className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
+                    <div onClick={() => show({
+                        organiser: 'Astralis',
+                        description: 'To the stars',
+                        teamOne: 'Astralis',
+                        teamTwo: 'Cepter',
+                        time: 'August 5, 2022 8:00 PM',
+                        channel: 'https://www.twitch.tv/Astralis',
+                        game: 'Rocket league'
+
+                    })} className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
                         See more
                     </div>
                 </div>
@@ -127,7 +180,16 @@ const Upcoming = () => {
                         <img src={Youtube} alt="Astralis" />
                         <img src={Twitch} alt="Astralis" />
                     </div>
-                    <div className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
+                    <div onClick={() => show({
+                        organiser: 'Tricked',
+                        description: 'Tricked',
+                        teamOne: 'Tricked',
+                        teamTwo: 'Astralis',
+                        time: 'December 25, 2022 4:00 PM',
+                        channel: 'https://www.twitch.tv/tricked',
+                        game: 'League of Legends'
+
+                    })} className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
                         See more
                     </div>
                 </div>
@@ -139,7 +201,7 @@ const Upcoming = () => {
     )
 }
 
-const Finished = () => {
+const Finished = ({ show }: any) => {
     return (
         <>
             <div className='matches_Component Flex Justify_Center Align_Center'>
@@ -157,7 +219,7 @@ const Finished = () => {
                         <img src={Youtube} alt="Astralis" />
                         <img src={Twitch} alt="Astralis" />
                     </div>
-                    <div className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
+                    <div onClick={show} className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
                         See more
                     </div>
                 </div>
@@ -180,7 +242,7 @@ const Finished = () => {
                         <img src={Youtube} alt="Astralis" />
                         <img src={Twitch} alt="Astralis" />
                     </div>
-                    <div className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
+                    <div onClick={show} className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
                         See more
                     </div>
                 </div>
@@ -203,7 +265,7 @@ const Finished = () => {
                         <img src={Youtube} alt="Astralis" />
                         <img src={Twitch} alt="Astralis" />
                     </div>
-                    <div className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
+                    <div onClick={show} className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
                         See more
                     </div>
                 </div>
@@ -226,7 +288,7 @@ const Finished = () => {
                         <img src={Youtube} alt="Astralis" />
                         <img src={Twitch} alt="Astralis" />
                     </div>
-                    <div className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
+                    <div onClick={show} className='matches_InfoButton Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
                         See more
                     </div>
                 </div>
