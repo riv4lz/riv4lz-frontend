@@ -1,4 +1,4 @@
-import { observer } from "mobx-react-lite";
+import {observer, useObserver} from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
 import './chat.scss';
 import * as signalR from '@microsoft/signalr'
@@ -46,7 +46,7 @@ const Chat = (comment: any) => {
 
     }
 
-    return (
+    return useObserver(() => (
         <div className="chat--container">
             <div className="chat--wrapper">
                 <div className="chat--main_section">
@@ -83,6 +83,7 @@ const Chat = (comment: any) => {
             </div>
         </div>
     )
+    );
 }
 
 export default observer(Chat);
