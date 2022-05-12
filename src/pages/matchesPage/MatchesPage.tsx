@@ -26,7 +26,7 @@ const MatchesPage = () => {
               show case your skillset
             </div>
             <Link to='/Guide'>
-              <Btn onClick={onReadGuide} children='Read More' classes='btn_CallToAction_Blue P3_Oxanium Bold Text_Dark_Blue'></Btn>
+              <Btn onClick={onReadGuide} children='READ OUR GUIDE HERE' classes='btn_Gig_Guide P3_Oxanium Bold Text_Dark_Blue'></Btn>
             </Link>
           </div>
           <div className='Gig_Pic'></div>

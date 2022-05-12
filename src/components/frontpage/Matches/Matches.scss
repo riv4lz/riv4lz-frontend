@@ -19,16 +19,24 @@
             margin-bottom: 50px;
             width: 100%;
             .input_Component {
-                width: 200px;
+                width: 600px;
                 .Title {
                     width: 100%;
                     text-align: start;
                 }
                 .Input {
-                    width: 200px;
+                    width: 100%;
                     height: 50px;
                     background-color: $Dark_Grey;
                     border: none;
+                    border-radius: 5px;
+                    padding-left: 10px;
+                }
+                .Input:focus{
+                    outline: none;
+                }
+                .Input::placeholder {
+                    color: $Light_Grey;
                 }
             }
         }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { finished } from 'stream'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
 import Match from '../match/Match'
@@ -10,36 +11,36 @@ const Matches = () => {
         description: 'Tricked',
         teamOne: 'Tricked',
         teamTwo: 'Astralis',
-        time: 'December 25, 2022 4:00 PM',
+        time: 'December 21, 2022 4:00 PM',
         channel: 'https://www.twitch.tv/tricked',
         game: 'League of Legends'
 
     }, {
         organiser: 'Tricked',
-        description: 'Tricked',
-        teamOne: 'Tricked',
-        teamTwo: 'Astralis',
-        time: 'December 25, 2022 4:00 PM',
+        description: 'test1',
+        teamOne: 'test1',
+        teamTwo: 'test2',
+        time: 'December 22, 2022 4:00 PM',
         channel: 'https://www.twitch.tv/tricked',
-        game: 'League of Legends'
+        game: 'CS:GO'
+
+    }, {
+        organiser: 'Tricked',
+        description: 'test3',
+        teamOne: 'test3',
+        teamTwo: 'test4',
+        time: 'December 23, 2022 4:00 PM',
+        channel: 'https://www.twitch.tv/tricked',
+        game: 'Rocket League'
 
     }, {
         organiser: 'Tricked',
         description: 'Tricked',
-        teamOne: 'Tricked',
-        teamTwo: 'Astralis',
-        time: 'December 25, 2022 4:00 PM',
+        teamOne: 'test5',
+        teamTwo: 'test6',
+        time: 'December 24, 2022 4:00 PM',
         channel: 'https://www.twitch.tv/tricked',
-        game: 'League of Legends'
-
-    }, {
-        organiser: 'Tricked',
-        description: 'Tricked',
-        teamOne: 'Tricked',
-        teamTwo: 'Astralis',
-        time: 'December 25, 2022 4:00 PM',
-        channel: 'https://www.twitch.tv/tricked',
-        game: 'League of Legends'
+        game: 'Call of Duty'
 
     }]
 
@@ -81,6 +82,7 @@ const Matches = () => {
 
     }]
 
+    const [searchValue, setSearchValue] = useState('');
     const [upcomingState, setUpcommingState] = useState(true);
     const [finishedState, setFinishedState] = useState(false);
     const [eventDetails, setEventDetails] = useState<IEventDetails>({
@@ -129,21 +131,9 @@ const Matches = () => {
                     <div className='input_Container Flex Justify_Evenly Align_Center'>
                         <div className='input_Component'>
                             <div className='Title P1_Oxanium Bold Text_Secondary'>
-                                Team
+                                Filter Matches
                             </div>
-                            <input className='Input Text_Secondary' type='text' placeholder='Team' />
-                        </div>
-                        <div className='input_Component'>
-                            <div className='Title P1_Oxanium Bold Text_Secondary'>
-                                Game
-                            </div>
-                            <input className='Input' type='text' placeholder='Game' />
-                        </div>
-                        <div className='input_Component'>
-                            <div className='Title P1_Oxanium Bold Text_Secondary'>
-                                Date
-                            </div>
-                            <input className='Input' type='text' placeholder='Game' />
+                            <input className='Input P4_Oxanium Text_Secondary' type='text' placeholder='Search based on: Game, Teams or Date' onChange={e => setSearchValue(e.target.value)}/>
                         </div>
                     </div>
                     <div className='matches_Buttons P1_Oxanium Bold Flex Justify_Center Align_Center'>
@@ -151,7 +141,7 @@ const Matches = () => {
                         <div style={{ color: finishedState === true ? '#279BBB' : 'white' }} onClick={onFinished}>Finished</div>
                     </div>
                     <div className='MatchesComponent_Container' id='Matches'>
-                    {upcomingState === true ? <Upcoming events={upcomingList} show={(value: any) => show(value)} /> : <Finished events={finishedList} show={(value: any) => show(value)} />}
+                    {upcomingState === true ? <Upcoming searchValue={searchValue} events={upcomingList} show={(value: any) => show(value)} /> : <Finished events={finishedList} show={(value: any) => show(value)} />}
                     </div>
                 </div>
             </div>
@@ -159,10 +149,16 @@ const Matches = () => {
     )
 }
 
-const Upcoming = ({ events, show }: any) => {
+const Upcoming = ({searchValue, events, show }: any) => {
     return (
         <>
-            {events.map((event: IEventDetails, index: any) => (
+            {events.filter((test: IEventDetails) => {
+                return  test.game.match(new RegExp(searchValue, "i")) ||
+                test.teamOne.match(new RegExp(searchValue, "i")) ||
+                test.teamTwo.match(new RegExp(searchValue, "i")) ||
+                test.time.match(new RegExp(searchValue, "i"));
+            
+            }).map((event: IEventDetails, index: any) => (
                 <Event key={index} E={event} show={show} />
             ))}
         </>
