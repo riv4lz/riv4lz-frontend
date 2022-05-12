@@ -43,7 +43,8 @@
 
         .MatchesComponent_Container {
             width: calc(100% - 25px);
-            max-height: 1000px;
+            height: 500px;
+            max-height: 500px;
             flex-direction: column;
             overflow-y: scroll;
             margin-bottom: 100px;
