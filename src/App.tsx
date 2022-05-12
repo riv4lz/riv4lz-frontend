@@ -10,6 +10,7 @@ import Chat from "./pages/chat/chat";
 import { store, useStore } from "./Stores/store";
 import CastersPage from "./pages/castersPage/CastersPage";
 import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
+import Footer from './components/shared/Footer/Footer';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             <>
               <Navbar />
               <MatchesPage />
+              <Footer />
             </>
           }>
           </Route>

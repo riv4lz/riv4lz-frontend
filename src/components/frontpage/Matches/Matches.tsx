@@ -55,7 +55,7 @@ const Matches = () => {
         channel: 'https://www.twitch.tv/Astralis',
         game: 'CSGO'
 
-    },{
+    }, {
         organiser: 'Astralis',
         description: 'Astralis',
         teamOne: 'Astralis',
@@ -64,7 +64,7 @@ const Matches = () => {
         channel: 'https://www.twitch.tv/Astralis',
         game: 'CSGO'
 
-    },{
+    }, {
         organiser: 'Astralis',
         description: 'Astralis',
         teamOne: 'Astralis',
@@ -73,7 +73,7 @@ const Matches = () => {
         channel: 'https://www.twitch.tv/Astralis',
         game: 'CSGO'
 
-    },{
+    }, {
         organiser: 'Astralis',
         description: 'Astralis',
         teamOne: 'Astralis',
@@ -143,12 +143,12 @@ const Matches = () => {
     )
 }
 
-const Upcoming = ( {events, show }: any) => {
+const Upcoming = ({ events, show }: any) => {
 
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
         for (let i = 0; i < 4; i++) {
-            content.push(<Event E={events[i]} show={show}  />);
+            content.push(<Event E={events[i]} show={show} />);
         }
         return content;
     }
@@ -161,11 +161,11 @@ const Upcoming = ( {events, show }: any) => {
     )
 }
 
-const Finished = ({events, show }: any) => {
+const Finished = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
         for (let i = 0; i < 4; i++) {
-            content.push(<Event E={events[i]} show={show}  />);
+            content.push(<Event E={events[i]} show={show} />);
         }
         return content;
     }
