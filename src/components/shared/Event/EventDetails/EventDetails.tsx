@@ -21,17 +21,17 @@ const EventDetails = ({ Event, handleClose, show }: any) => {
                                     <img src={Tricked} alt='Tricked' />
                                 </div>
                                 <div className='Info_Container '>
-                                    <div className='name P2_Statewide_Bold Text_Secondary'>{Event.organiser}</div>
-                                    <div className='tag P4_Statewide_light Text_Secondary'>{Event.description}</div>
+                                    <div className='name P2_Statewide_Bold Text_Secondary'>{Event.organisationProfile.name}</div>
+                                    <div className='tag P4_Statewide_light Text_Secondary'>{Event.organisationProfile.description}</div>
                                 </div>
                             </div>
                         </div>
                         <div className='Participants '>
                             <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>Participants</div>
                             <div className='Info Flex Justify_Evenly Align_Center'>
-                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.teamOne}</div>
+                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.teams[0].name}</div>
                                 <div className='vs H3 Text_Primary'>VS</div>
-                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.teamTwo}</div>
+                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.teams[1].name}</div>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@ const EventDetails = ({ Event, handleClose, show }: any) => {
                                     Channel
                                 </div>
                                 <div className='Info P4_Statewide_light'>
-                                    {Event.channel}
+                                    {Event.organisationProfile.twitchURL}
                                 </div>
                             </div>
 
@@ -62,13 +62,13 @@ const EventDetails = ({ Event, handleClose, show }: any) => {
                                     game
                                 </div>
                                 <div className='Info P4_Statewide_light'>
-                                    {Event.game}
+                                    {Event.id}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {casterState ? <Caster /> : organisationState ? <Organisation /> : null}
+                {casterState ? <Caster Event={Event}/> : organisationState ? <Organisation /> : null}
                 <div className='Event_button Flex Justify_Center Align_Center'>
                     <Public Close={handleClose} />
                 </div>
@@ -84,7 +84,7 @@ const Public = ({ Close }: any) => {
     )
 }
 
-const Caster = () => {
+const Caster = ({Event}: any) => {
     const [offer, setOfferState] = useState("");
 
     const onSendOffer = () => {
@@ -98,7 +98,7 @@ const Caster = () => {
             <div className='Caster_Component_Container Grid'>
                 <div className='Budget'>
                     <div className='Title P1_Statewide_Bold'>Organisation budget</div>
-                    <div className='Info Flex Justify_Center Align_Center P1_Oxanium Bold'> 250kr </div>
+                    <div className='Info Flex Justify_Center Align_Center P1_Oxanium Bold'> {Event.price} </div>
                 </div>
                 <div className='Offer P1_Statewide_Bold'>
                     <div className='Title'>Your Offer</div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Matches.scss'
 import Tricked from '../../../assets/images/Esports-orgs/Tricked.svg'
 import Astralis from '../../../assets/images/Esports-orgs/Astralis.svg'
@@ -6,8 +6,18 @@ import Twitch from '../../../assets/icons/social-media/twitch.svg'
 import Youtube from '../../../assets/icons/social-media/youtube.svg'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
+import { useStore } from '../../../Stores/store'
 
 const Matches = () => {
+
+    const { eventStore } = useStore();
+
+    useEffect(() => {
+        eventStore.loadMatches();
+        console.log(eventStore.matches);
+        
+    }, [])
+
     const upcomingList = [{
         organiser: 'Tricked',
         description: 'Tricked',
@@ -134,7 +144,7 @@ const Matches = () => {
 
                     <div className='matches_MatchContainer Grid Justify_Center Align_Center'>
 
-                        {upcomingState === true ? <Upcoming events={upcomingList} show={(value: any) => show(value)} /> : <Finished events={finishedList} show={(value: any) => show(value)} />}
+                        {upcomingState === true ? <Upcoming events={eventStore.matches} show={(value: any) => show(value)} /> : <Finished events={eventStore.matches} show={(value: any) => show(value)} />}
 
                     </div>
                 </div>
@@ -147,7 +157,7 @@ const Upcoming = ({ events, show }: any) => {
 
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < events.length && i > 5; i++) {
             content.push(<Event E={events[i]} show={show} />);
         }
         return content;
@@ -156,7 +166,7 @@ const Upcoming = ({ events, show }: any) => {
 
     return (
         <>
-            {getEvents(events)};
+            {getEvents(events)}
         </>
     )
 }
@@ -164,7 +174,7 @@ const Upcoming = ({ events, show }: any) => {
 const Finished = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < events.length && i > 5; i++) {
             content.push(<Event E={events[i]} show={show} />);
         }
         return content;
@@ -173,7 +183,7 @@ const Finished = ({ events, show }: any) => {
 
     return (
         <>
-            {getEvents(events)};
+            {getEvents(events)}
         </>
     )
 }

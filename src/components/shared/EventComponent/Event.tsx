@@ -14,7 +14,7 @@ const Event = ({ E, show }: any) => {
                 </div>
                 <div className='matches_Info Flex Justify_Evenly Align_Center Text_Secondary'>
                     <div className='matches_InfoTitle P1_Oxanium Bold '>
-                        {E.teamOne} VS {E.teamTwo}
+                        {E.teams[0].name} VS {E.teams[1].name}
                     </div>
                     <div className='matches_InfoDate P3_Oxanium Medium'>
                         {E.time}
