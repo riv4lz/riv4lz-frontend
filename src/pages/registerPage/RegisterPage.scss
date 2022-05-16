@@ -1,0 +1,33 @@
+@import "../../index.scss";
+
+
+.RegisterPage_Container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../../assets/images/registration_background.png");
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.RegisterPage_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: $Desktop) {
+    .RegisterPage_Wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 1440px;
+        height: 90%;
+    }
+}
