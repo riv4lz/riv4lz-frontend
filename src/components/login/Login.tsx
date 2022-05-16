@@ -32,7 +32,7 @@ const Login = () => {
             localStorage.setItem("token", authStore.user.token);
             console.log(authStore.getCurrentUser());
             
-            //navigate('/')
+            navigate('/')
         }
     }
 

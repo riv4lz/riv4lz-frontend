@@ -10,7 +10,7 @@ class AuthService {
     async attemptLogin(data: loginDto) {
         return http.post<User>("/Auth/Login", data);
     }
-    getCurrentUser() {
+    async getCurrentUser() {
         return http.get<User>(`/Auth/GetCurrentUser`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`

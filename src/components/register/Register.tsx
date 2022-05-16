@@ -7,6 +7,7 @@ const Register = () => {
 
     const [casterState, setCasterState] = useState(true);
     const [orgState, setOrgState] = useState(false);
+    
 
     const onCaster = () => {
         setCasterState(true);
