@@ -1,16 +1,45 @@
 @import "../../index.scss";
 
 
-.MatchesPage_Container {
-    position: absolute;
+.Gig_Container {
+    position: relative;
+    background-color: $Dark_Grey;
+    flex-direction: row;
     width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url("../../assets/images/MatchesPage_Background.png");
-}
+    height: 500px;
+    .Gig_Wrapper{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        div{
+        }
 
-.MatchesPage_Wrapper {
-    display: flex;
-    justify-content: center;
+        .Gig_Info{
+            flex-direction: column;
+            max-height: 400px;
+            .Gig_InfoTitle{
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .Gig_InfoSubtitle{
+                width: 100%;
+            }
+            .Gig_InfoParagraph{
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            a{
+                text-decoration: none;
+            }
+        }
+        .Gig_Pic{
+            width: 100%;
+            height: 400px;
+            background-image: url(../../assets/images/gig_Background.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
 }

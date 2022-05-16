@@ -5,15 +5,16 @@ import React, { useEffect, useState } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 import Chat from "./pages/chat/chat";
-import {store, useStore} from "./Stores/store";
+import { store, useStore } from "./Stores/store";
 import CastersPage from "./pages/castersPage/CastersPage";
 import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
+import Footer from './components/shared/Footer/Footer';
 
 
 function App() {
-  const {commentStore} = useStore();
+  const { commentStore } = useStore();
   let [user, setUser] = useState([])
 
   useEffect(() => {
@@ -43,9 +44,15 @@ function App() {
             </>}></Route>
           <Route path='/Login' element={<LoginPage />}>
           </Route>
-          <Route path='/Matches' element={<CastersPage />}>
+          <Route path='/Matches' element={
+            <>
+              <Navbar />
+              <MatchesPage />
+              <Footer />
+            </>
+          }>
           </Route>
-          <Route path='/Chat' element={<Chat comments={commentStore.comments} commentStore={commentStore}/>}>
+          <Route path='/Chat' element={<Chat comments={commentStore.comments} commentStore={commentStore} />}>
           </Route>
           <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
         </Routes>
