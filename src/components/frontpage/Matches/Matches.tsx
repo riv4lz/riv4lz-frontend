@@ -18,83 +18,6 @@ const Matches = () => {
         
     }, [])
 
-    const upcomingList = [{
-        organiser: 'Tricked',
-        description: 'Tricked',
-        teamOne: 'Tricked',
-        teamTwo: 'Astralis',
-        time: 'December 25, 2022 4:00 PM',
-        channel: 'https://www.twitch.tv/tricked',
-        game: 'League of Legends'
-
-    }, {
-        organiser: 'Tricked',
-        description: 'Tricked',
-        teamOne: 'Tricked',
-        teamTwo: 'Astralis',
-        time: 'December 25, 2022 4:00 PM',
-        channel: 'https://www.twitch.tv/tricked',
-        game: 'League of Legends'
-
-    }, {
-        organiser: 'Tricked',
-        description: 'Tricked',
-        teamOne: 'Tricked',
-        teamTwo: 'Astralis',
-        time: 'December 25, 2022 4:00 PM',
-        channel: 'https://www.twitch.tv/tricked',
-        game: 'League of Legends'
-
-    }, {
-        organiser: 'Tricked',
-        description: 'Tricked',
-        teamOne: 'Tricked',
-        teamTwo: 'Astralis',
-        time: 'December 25, 2022 4:00 PM',
-        channel: 'https://www.twitch.tv/tricked',
-        game: 'League of Legends'
-
-    }]
-
-    const finishedList = [{
-        organiser: 'Astralis',
-        description: 'Astralis',
-        teamOne: 'Astralis',
-        teamTwo: 'Tricked',
-        time: 'December 25, 2022 4:00 PM',
-        channel: 'https://www.twitch.tv/Astralis',
-        game: 'CSGO'
-
-    }, {
-        organiser: 'Astralis',
-        description: 'Astralis',
-        teamOne: 'Astralis',
-        teamTwo: 'Tricked',
-        time: 'December 25, 2022 4:00 PM',
-        channel: 'https://www.twitch.tv/Astralis',
-        game: 'CSGO'
-
-    }, {
-        organiser: 'Astralis',
-        description: 'Astralis',
-        teamOne: 'Astralis',
-        teamTwo: 'Tricked',
-        time: 'December 25, 2022 4:00 PM',
-        channel: 'https://www.twitch.tv/Astralis',
-        game: 'CSGO'
-
-    }, {
-        organiser: 'Astralis',
-        description: 'Astralis',
-        teamOne: 'Astralis',
-        teamTwo: 'Tricked',
-        time: 'December 25, 2022 4:00 PM',
-        channel: 'https://www.twitch.tv/Astralis',
-        game: 'CSGO'
-
-    }]
-
-
     const [upcomingState, setUpcommingState] = useState(true);
     const [finishedState, setFinishedState] = useState(false);
     const [eventDetails, setEventDetails] = useState<IEventDetails>({
@@ -157,7 +80,7 @@ const Upcoming = ({ events, show }: any) => {
 
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
-        for (let i = 0; i < events.length && i > 5; i++) {
+        for (let i = 0; i < events.length && i < 4; i++) {
             content.push(<Event E={events[i]} show={show} />);
         }
         return content;
@@ -174,7 +97,7 @@ const Upcoming = ({ events, show }: any) => {
 const Finished = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
-        for (let i = 0; i < events.length && i > 5; i++) {
+        for (let i = 0; i < events.length && i < 4; i++) {
             content.push(<Event E={events[i]} show={show} />);
         }
         return content;
