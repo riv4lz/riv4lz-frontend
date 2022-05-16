@@ -17,11 +17,20 @@ export interface Caster {
 
 export class CasterStore{
     @observable casters: Caster[] = [];
+    @observable caster: Caster | undefined;
 
     @action
     loadCasters = () => {
         casterService.getAll().then((response: any) => {
             this.casters = response.data;
+            console.log(this.casters);
+        })
+    }
+
+    @action
+    loadCaster = (id: any) => {
+        casterService.get(id).then((response: any) => {
+            this.caster = response.data;
         })
     }
 

@@ -6,9 +6,11 @@ import github from '../../assets/icons/social-media/github.svg'
 import facebook from '../../assets/icons/social-media/facebook.svg'
 import Btn from '../button/Btn';
 import { useNavigate } from "react-router-dom";
+import { useStore } from '../../Stores/store';
 
 const Login = () => {
     let navigate = useNavigate()
+    const { authStore } = useStore();
 
     const [email, setEmail] = useState('')
 
@@ -23,28 +25,16 @@ const Login = () => {
         return "Sign in"
     }
 
-    const loginRequest = async (user: any) => {
-        const res = await fetch(process.env.REACT_APP_API + '/api/Caster/Login', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-        const data = await res.json()
-        console.log(data);
+    const loginRequest = async(user: any) => {
+        await authStore.attemptLogin(user);
         
-        localStorage.setItem("user", JSON.stringify(data));
-        if(localStorage.getItem("user")){
-            navigate("../", {replace: true})
+        if (authStore.user) {
+            navigate('/')
         }
-            
-        
-        
     }
 
-    const onSubmit = (e: any) =>{
-        loginRequest({email, password})
+    const onSubmit = (e: any) => {
+        loginRequest({ email, password })
 
         setEmail('')
         setPassword('')
@@ -69,7 +59,7 @@ const Login = () => {
                         <Link to="/Login/ForgotPassword" className='Half_opacity Forgot_Password P4_Statewide_light Text_Secondary'>Forgot Password?</Link>
                     </div>
                     <div className='Login_Div_Signin'>
-                        <Btn onClick={() => loginRequest({email, password})} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="SIGN IN" />
+                        <Btn onClick={() => loginRequest({ email, password })} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="SIGN IN" />
                     </div>
                 </form>
                 <div className='Login_Div_Continue_Container'>

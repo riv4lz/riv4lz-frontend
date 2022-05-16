@@ -16,15 +16,18 @@
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oxanium&display=swap");
 
 $A1_Size: 180px;
 $A2_Size: 140px;
 $A3_Size: 100px;
+$A4_Size: 80px;
 
-$H1_Size: 60px;
+$H1_Size: 50px;
 $H2_Size: 40px;
 $H3_Size: 30px;
 
+$P0_Size: 24px;
 $P1_Size: 20px;
 $P2_Size: 18px;
 $P3_Size: 16px;
@@ -34,6 +37,7 @@ $Statewide_bold_font_family: "Statewide_bold";
 $Statewide_light_font_family: "Statewide_light", sans-serif;
 $Statewide_light_italic_font_family: "Statewide_light_italic", sans-serif;
 $Poppins_font_family: "Poppins", sans-serif;
+$Oxanium_font_family: "Oxanium", sans-serif;
 //A1
 .A1 {
     font-family: $Statewide_bold_font_family;
@@ -50,6 +54,11 @@ $Poppins_font_family: "Poppins", sans-serif;
 .A3 {
     font-family: $Statewide_bold_font_family;
     font-size: $A3_Size;
+}
+//A3
+.A4 {
+    font-family: $Statewide_bold_font_family;
+    font-size: $A4_Size;
 }
 
 //H1
@@ -75,6 +84,17 @@ $Poppins_font_family: "Poppins", sans-serif;
     font-family: $Poppins_font_family;
     font-size: $H3_Size;
     font-weight: 900;
+}
+
+.H_Oxanium{
+    font-family: $Oxanium_font_family;
+    font-size: 48px;
+}
+
+//P0
+@mixin P0($font_fam) {
+    font-family: $font_fam;
+    font-size: $P0_Size;
 }
 
 //P1
@@ -151,19 +171,19 @@ $Poppins_font_family: "Poppins", sans-serif;
 
 //SW_LIGHT
 .P1_Statewide_light {
-    @include P1($Statewide_bold_font_family);
+    @include P1($Statewide_light_font_family);
 }
 
 .P2_Statewide_light {
-    @include P2($Statewide_bold_font_family);
+    @include P2($Statewide_light_font_family);
 }
 
 .P3_Statewide_light {
-    @include P3($Statewide_bold_font_family);
+    @include P3($Statewide_light_font_family);
 }
 
 .P4_Statewide_light {
-    @include P4($Statewide_bold_font_family);
+    @include P4($Statewide_light_font_family);
 }
 
 //SW_LIGHT_ITALIC
@@ -200,6 +220,40 @@ $Poppins_font_family: "Poppins", sans-serif;
     @include P4($Poppins_font_family);
 }
 
-.Bold{
-    font-weight: bold;
+//Oxanium
+
+.P0_Oxanium {
+    @include P0($Oxanium_font_family);
+}
+
+.P1_Oxanium {
+    @include P1($Oxanium_font_family);
+}
+
+.P2_Oxanium {
+    @include P2($Oxanium_font_family);
+}
+
+.P3_Oxanium {
+    @include P3($Oxanium_font_family);
+}
+
+.P4_Oxanium {
+    @include P4($Oxanium_font_family);
+}
+
+.Extra_Bold {
+    font-weight: 900;
+}
+
+.Bold {
+    font-weight: 700;
+}
+
+.Semi_Bold {
+    font-weight: 600;
+}
+
+.Medium {
+    font-weight: 500;
 }
