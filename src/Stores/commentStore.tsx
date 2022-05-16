@@ -1,6 +1,6 @@
 import {ChatComment} from "../components/chat/message";
 import signalR, {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
-import {makeAutoObservable, observable, runInAction, toJS, autorun} from "mobx";
+import {makeAutoObservable, observable, runInAction, toJS, autorun, action} from "mobx";
 
 export interface ChatRoom {
     id: string,
@@ -83,7 +83,8 @@ export default class CommentStore{
         this.hubConnection.on('ReceiveMessage', (comment: string) => {
             runInAction(() => {
                 this.comments.push(comment);
-                console.log("pushed comment!")
+                this.test2.messages.push(comment);
+                console.log(comment)
             });
         });
     }
@@ -94,7 +95,7 @@ export default class CommentStore{
 
     clearComments = () => {
         this.comments = [];
-        this.stopHubConnection()
+        this.stopHubConnection();
     }
     
     addComment = async (message: messageSent) => {
@@ -106,6 +107,7 @@ export default class CommentStore{
     }
 
     loadMessages = async () => {
+        console.log("fisk 14");
         this.loadingInitial = true;
         this.hubConnection?.invoke('LoadMessages')
             .then(() => {
