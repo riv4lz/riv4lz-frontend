@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-    {authStore.user !== undefined ? 
+
     <div className="App">
       <Router>
         <Routes>
@@ -61,7 +61,6 @@ function App() {
         </Routes>
       </Router>
     </div>
-    : null}
     </>
     
   );
