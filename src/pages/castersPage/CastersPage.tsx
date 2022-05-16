@@ -24,11 +24,11 @@ function CastersPage() {
     <div className='Login_Container'>
     <ul>
         {casterStore.casters.map((caster) => (
-            <ul key={caster.casterId}>{caster.firstName}
-            <div>{caster.gamerTag}</div>
-              <button onClick={() => test(caster.casterId)}></button>
-              <button onClick={() => casterStore.loadCaster(caster.casterId)}></button>
-              <a href={'/caster/'+ caster.casterId}>Edit</a>
+            <ul key={caster.id}>
+            <div>{caster.name}</div>
+              <button onClick={() => test(caster.id)}></button>
+              <button onClick={() => casterStore.loadCaster(caster.id)}></button>
+              <a href={'/caster/'+ caster.id}>Edit</a>
             </ul>
         ))}
     </ul>

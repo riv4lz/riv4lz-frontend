@@ -4,6 +4,7 @@ import './Navbar.scss';
 import {
   BrowserRouter as Router,
   Link,
+  Navigate,
   useLocation
 } from "react-router-dom";
 import Logo from '../Logo/Logo';
@@ -40,6 +41,9 @@ export default Navbar
 
 const LoggedInNavbar = () => { 
   const {authStore} = useStore();
+
+
+
   return (
     <div className='LoggedIn_Container Flex Justify_Center Align_Center'>
       <div className='LoggedIn_Wrapper Flex Justify_Center Align_Center'>
@@ -53,7 +57,9 @@ const LoggedInNavbar = () => {
         </div>
         </div>
         <div className='Profile_Pic'>
+          <Link to={'/caster/' + authStore.user?.id} >
           <img src={Tricked} alt="Tricked" />
+          </ Link>
         </div>
       </div>
     </div>
