@@ -7,7 +7,7 @@ export interface loginDto {
 }
 
 class AuthService {
-    attemptLogin(data: loginDto) {
+    async attemptLogin(data: loginDto) {
         return http.post<User>("/Auth/Login", data);
     }
     getCurrentUser() {

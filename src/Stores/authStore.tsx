@@ -27,11 +27,6 @@ export class AuthStore{
         })
     }
 
-    @action
-    saveCasters = () => {
-    }
-
-
     constructor() {
         makeAutoObservable(this);
     }
