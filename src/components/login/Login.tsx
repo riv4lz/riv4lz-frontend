@@ -27,9 +27,12 @@ const Login = () => {
 
     const loginRequest = async(user: any) => {
         await authStore.attemptLogin(user);
-        
+
         if (authStore.user) {
-            navigate('/')
+            localStorage.setItem("token", authStore.user.token);
+            console.log(authStore.getCurrentUser());
+            
+            //navigate('/')
         }
     }
 

@@ -1,4 +1,4 @@
-import {makeAutoObservable, observable, action} from "mobx";
+import { makeAutoObservable, observable, action } from "mobx";
 import authService, { loginDto } from "../services/authService";
 import casterService from "../services/casterService";
 
@@ -9,7 +9,7 @@ export interface User {
 
 }
 
-export class AuthStore{
+export class AuthStore {
     @observable user: User | undefined;
 
     @action
@@ -20,11 +20,11 @@ export class AuthStore{
     }
 
     @action
-    getCurrentUser = () => {
-        authService.getCurrentUser().then((response: any) => {
-            console.log(response);
-            this.user = response.data;
-        })
+    getCurrentUser = async () => {
+        const response = await authService.getCurrentUser()
+        this.user = response.data;
+        console.log(this.user);
+
     }
 
     constructor() {

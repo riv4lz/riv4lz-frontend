@@ -15,23 +15,24 @@ import Footer from './components/shared/Footer/Footer';
 
 
 function App() {
-  const { commentStore } = useStore();
+  const { commentStore, authStore } = useStore();
   let [user, setUser] = useState([])
 
   useEffect(() => {
     commentStore.loadMessages()
-    if (localStorage.getItem('user')) {
-      //@ts-ignore
-      const user = JSON.parse(localStorage.getItem('user'));
-      console.log(user);
-
-      if (user) {
-        setUser(user);
-      }
+    if (localStorage.getItem("token")) {
+      getCurrentUser();
     }
   }, []);
 
+  const getCurrentUser = async () => {
+    const response = await authStore.getCurrentUser()
+    return response;
+  }
+
   return (
+    <>
+    {authStore.user !== undefined ? 
     <div className="App">
       <Router>
         <Routes>
@@ -60,6 +61,9 @@ function App() {
         </Routes>
       </Router>
     </div>
+    : null}
+    </>
+    
   );
 }
 

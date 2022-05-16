@@ -11,7 +11,11 @@ class AuthService {
         return http.post<User>("/Auth/Login", data);
     }
     getCurrentUser() {
-        return http.get<User>(`/Auth/GetCurrentUser`);
+        return http.get<User>(`/Auth/GetCurrentUser`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
     }
 }
 export default new AuthService();

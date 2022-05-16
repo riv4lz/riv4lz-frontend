@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../../assets/images/Union.png'
+import Logo from '../../shared/Logo/Logo';
 import './Quote.scss'
 
 interface Props {
@@ -15,7 +15,7 @@ const Quote: React.FC<Props> = ({quote}) => {
               “{quote}”
             </div>
             <div className='Login_Quotes_Logo H3 Text_Secondary'>
-              <img src={Logo} alt=""></img> RIV4LZ
+              <Logo />
             </div>
           </div>
         </div>
