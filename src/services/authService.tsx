@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import http from "../http-common";
+import { User } from "../Stores/authStore";
 
-    let loggedIn: boolean = false;
-    const [user, setUser] = useState({id: Number, email: String, gamerTag: String})
+export interface loginDto {
+    email: string;
+    password: string;
+}
 
-    const setLoggedInUser = (u:any) => {
-        setUser(u)
-        if(user){
-            loggedIn = true;
-        }
+class AuthService {
+    attemptLogin(data: loginDto) {
+        return http.post<User>("/Auth/Login", data);
     }
-
-    const getLoggedInUser = () => {
-        return user;
+    getCurrentUser() {
+        return http.get<User>(`/Auth/GetCurrentUser`);
     }
+}
+export default new AuthService();
