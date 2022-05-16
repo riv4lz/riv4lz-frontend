@@ -13,11 +13,10 @@ export class AuthStore{
     @observable user: User | undefined;
 
     @action
-    attemptLogin = (data: loginDto) => {
-        authService.attemptLogin(data).then((response: any) => {
-            this.user = response.data;
-            console.log(this.user);
-        })
+    attemptLogin = async (data: loginDto) => {
+        const response = await authService.attemptLogin(data);
+        this.user = response.data;
+        console.log(this.user);
     }
 
     @action
