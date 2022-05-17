@@ -54,13 +54,13 @@ const Chat = (comment: any) => {
                         <h1>ChatRoom: {commentStore.test2.name}</h1>
                     </div>
                     <div className="chat--main_messages">
-                        <ul>
+                        {/*<ul>
                             {commentStore.test2.messages.map((message: message, index: number) => (
                                 <ul key={index}>
                                     <li>{message.username} says: {message.text}</li>
                                 </ul>
                             ))}
-                        </ul>
+                        </ul>*/}
                     </div>
                 </div>
                 <div className="chat--input_section">
