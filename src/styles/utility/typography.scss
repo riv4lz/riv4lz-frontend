@@ -32,6 +32,7 @@ $P1_Size: 20px;
 $P2_Size: 18px;
 $P3_Size: 16px;
 $P4_Size: 14px;
+$P5_Size: 12px;
 
 $Statewide_bold_font_family: "Statewide_bold";
 $Statewide_light_font_family: "Statewide_light", sans-serif;
@@ -121,6 +122,12 @@ $Oxanium_font_family: "Oxanium", sans-serif;
     font-size: $P4_Size;
 }
 
+//P5
+@mixin P5($font_fam) {
+    font-family: $font_fam;
+    font-size: $P5_Size;
+}
+
 //TEXT COLORS
 .Text_Primary {
     color: $Primary;
@@ -167,6 +174,10 @@ $Oxanium_font_family: "Oxanium", sans-serif;
 
 .P4_Statewide_Bold {
     @include P4($Statewide_bold_font_family);
+}
+
+.P5_Statewide_Bold {
+    @include P5($Statewide_bold_font_family);
 }
 
 //SW_LIGHT

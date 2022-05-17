@@ -3,9 +3,13 @@ import {Caster} from "../Stores/casterStore";
 
 class CasterService {
     getAll() {
-        return http.get<Array<Caster>>("/Caster/GetAll");
+        return http.get<Array<Caster>>("/Caster/GetCasterProfiles", {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
     }
-    get(id: any) {
+    async get(id: any) {
         return http.get<Caster>(`/Caster/GetCasterProfile?id=${id}`);
     }
     create(data: Caster) {

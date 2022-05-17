@@ -6,7 +6,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     display: grid;
-    grid-template-columns: 20% 50%;
+    column-gap: 20px;
     grid-template-rows: auto;
     grid-template-areas:
     "profileImg description"
@@ -20,6 +20,7 @@
             width: 300px;
             height: 300px;
             margin-bottom: 0.5rem;
+            border-radius: 50%;
         }
     }
     .ProfileDetails__Description {
