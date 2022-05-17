@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useStore } from '../../Stores/store'
 import Btn from '../button/Btn'
 import './Register.scss'
+import { v4 as uuidv4 } from 'uuid';
 
 const Register = () => {
     const [pageNumber, setPageNumber] = useState(0)
@@ -76,6 +78,7 @@ const Step0 = ({ caster, org }: any) => {
 }
 
 const Step1_Caster = ({ nextPage, prevPage }: any) => {
+    const { authStore } = useStore();
     const [email, setEmail] = useState('')
     const [realName, setRealName] = useState('')
     const [country, setCountry] = useState('')
@@ -83,6 +86,11 @@ const Step1_Caster = ({ nextPage, prevPage }: any) => {
     const [gamertag, setGamertag] = useState('')
 
     const onNext = () => {
+        authStore.registerCaster({
+            id: uuidv4().toString(),
+            email,
+            password: 'pw',
+        })
         nextPage()
     }
 
