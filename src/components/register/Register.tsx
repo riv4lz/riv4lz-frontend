@@ -3,9 +3,10 @@ import { useStore } from '../../Stores/store'
 import Btn from '../button/Btn'
 import './Register.scss'
 import { v4 as uuidv4 } from 'uuid';
-import { CasterStore } from '../../Stores/casterStore';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+    const { authStore } = useStore();
     const [pageNumber, setPageNumber] = useState(0)
 
     const [casterState, setCasterState] = useState(true);
@@ -37,16 +38,21 @@ const Register = () => {
     }
 
     const complete = () => {
-        console.log("complete");
+        if(localStorage.getItem("token") !== null) {
+            setPageNumber(pageNumber + 1);
+        } else {
+            alert("Something went wrong, please try again");
+        }
     }
 
     return (
         <div className='Register_Container Flex Justify_Between Align_Center'>
-            <div className='Register_Wrapper'>
+            <div className='Register_Wrapper Flex'>
                 {pageNumber === 0 ? <Step0 caster={onCaster} org={onOrg} /> : null}
                 {pageNumber === 1 ? casterState ? <Step1_Caster id={uuid} nextPage={nextPage} prevPage={prevPage} /> : <Step1_Org id={uuid} nextPage={nextPage} prevPage={prevPage} /> : null}
                 {pageNumber === 2 ? casterState ? <Step2_Caster id={uuid} nextPage={nextPage} prevPage={prevPage} /> : <Step2_Org id={uuid} nextPage={nextPage} prevPage={prevPage} /> : null}
                 {pageNumber === 3 ? casterState ? <Step3_Caster id={uuid} complete={complete} prevPage={prevPage} /> : <Step3_Org id={uuid} complete={complete} prevPage={prevPage} /> : null}
+                {pageNumber === 4 ? <Done /> : null}
             </div>
             <div className='Step_Counter Grid'>
                 <div className={pageNumber === 0 ? "Step_Div_Active" : "Step_Div"}>&nbsp;</div>
@@ -419,6 +425,28 @@ const Step3_Org = ({ id, complete, prevPage }: any) => {
             <div className='Register_Buttons Flex Justify_Center Align_Center'>
                 <Btn onClick={onPrev} classes="Btn_LoginOutline P3_Statewide_Bold Text_Secondary" children="PREVIOUS STEP" />
                 <Btn onClick={onComplete} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="COMPLETE" />
+            </div>
+        </>
+    )
+}
+
+const Done = () => {
+
+    const navigate = useNavigate();
+    const onHome = () => {
+        navigate('/');
+    }
+    return (
+        <>
+            <div className='Register_Header Text_Secondary Flex Justify_Center Align_Center'>
+                <div className='Title H3 Flex Justify_Center Align_Center'> Finished</div>
+            </div>
+            <div className='Finished_Container Flex Justify_Start Align_Center Text_Secondary P1_Oxanium Bold'>
+                Congratulations! You have successfully created your account.
+                To continue please press the button below, we've already logged you in to your account.
+            </div>
+            <div className='Register_Buttons Flex Justify_Center Align_Center'>
+                <Btn onClick={onHome} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="Back to home" />
             </div>
         </>
     )
