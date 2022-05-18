@@ -12,6 +12,7 @@ import CastersPage from "./pages/castersPage/CastersPage";
 import RegisterPage from './pages/registerPage/RegisterPage';
 import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
 import Footer from './components/shared/Footer/Footer';
+import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 
 function App() {
   const { commentStore, authStore } = useStore();
@@ -33,7 +34,7 @@ function App() {
     if (response !== undefined) {
       setLoaded(true)
     }
-    
+
     return response;
   }
   return (
@@ -52,6 +53,8 @@ function App() {
                   <FrontPage />
                 </>}></Route>
               <Route path='/Login' element={<LoginPage />}>
+              </Route>
+              <Route path='/createMatch' element={<CreateMatchPage />}>
               </Route>
               <Route path='/Register' element={<RegisterPage />}></Route>
               <Route path='/Matches' element={

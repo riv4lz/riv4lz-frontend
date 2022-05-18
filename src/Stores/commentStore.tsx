@@ -31,9 +31,6 @@ export interface messageSent {
     Username: string
 }
 
-
-
-
 export default class CommentStore{
     @observable chatRooms: ChatRoom[] = [];
     @observable chatRoom: ChatRoom | undefined;
@@ -52,7 +49,7 @@ export default class CommentStore{
     createHubConnection = () => {
         console.log("trying to connect");
         this.hubConnection = new HubConnectionBuilder()
-            .withUrl('http://localhost:5000/chat')
+            .withUrl('http://70.34.201.1:5000/chat')
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();
@@ -67,7 +64,7 @@ export default class CommentStore{
                 console.log(this.test2);
             });
         });
-          
+
         this.hubConnection.on('LoadRooms', (chatRoom: ChatRoom) => {
             runInAction(() => {
                 if (this.chatRooms.length <= 0) {
@@ -97,7 +94,7 @@ export default class CommentStore{
         this.comments = [];
         this.stopHubConnection();
     }
-    
+
     addComment = async (message: messageSent) => {
         try {
             await this.hubConnection?.invoke('SendMessage', message);
