@@ -1,4 +1,3 @@
-import {ChatComment} from "../components/chat/message";
 import signalR, {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
 import {makeAutoObservable, observable, runInAction, toJS, autorun, action} from "mobx";
 
@@ -44,6 +43,7 @@ export default class CommentStore{
     loadingInitial = false;
     @observable test: any = [];
     @observable test2: any = [];
+    @observable test3: any = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -64,6 +64,7 @@ export default class CommentStore{
             runInAction(() => {
                 console.log(comments);
                 this.test2 = comments;
+                this.test3 = comments.messages;
                 console.log(this.test2);
             });
         });
@@ -84,6 +85,7 @@ export default class CommentStore{
             runInAction(() => {
                 this.comments.push(comment);
                 this.test2.messages.push(comment);
+                this.test3.push(comment);
                 console.log(comment)
             });
         });

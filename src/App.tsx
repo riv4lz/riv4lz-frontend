@@ -22,7 +22,7 @@ function App() {
   setTimeout(test, 500)
 
   useEffect(() => {
-    commentStore.loadMessages()
+    commentStore.loadMessages();
     if (localStorage.getItem("token")) {
       getCurrentUser();
     }

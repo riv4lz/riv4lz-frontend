@@ -6,9 +6,13 @@ import {useStore} from "../../Stores/store";
 import {ChatRoom, message, messageSent, room} from "../../Stores/commentStore";
 // @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
+import {Link, Navigate, useNavigate} from "react-router-dom";
 
 const Chat = (comment: any) => {
-    const {commentStore} = useStore();
+    let navigate = useNavigate()
+    const { commentStore } = useStore();
+    const { authStore } = useStore();
+    const { casterStore } = useStore();
     const [localMessage, setLocalMessage] = useState<string>('');
     const [localUserName, setLocalUserName] = useState<string>('');
     const [localMessageId, setLocalMessageId] = useState<string>("ad4cff79-928d-4efc-9e28-a86151a95433");
@@ -17,7 +21,13 @@ const Chat = (comment: any) => {
     const [roomId, setRoomId] = useState<string>('');
 
     useEffect(() => {
+        if (!localStorage.getItem("token")) {
+            navigate("/Login");
+        }
         commentStore.createHubConnection();
+        console.log(commentStore.test3.messages);
+        console.log(commentStore.test2);
+        //casterStore.loadCaster(authStore.user?.id).then(r => console.log(r));
         return () => {
             commentStore.clearComments();
         };
@@ -47,41 +57,31 @@ const Chat = (comment: any) => {
     }
 
     return useObserver(() => (
-        <div className="chat--container">
-            <div className="chat--wrapper">
-                <div className="chat--main_section">
-                    <div className="chat--main_header">
+            <div className={"Chat"}>
+                <div className={"Chat__Sidebar"}>
+                    <h3 className={"Text_Secondary"}>ROOMS</h3>
+                    {commentStore.test.map((chatRoom: ChatRoom) => (
+                        <ul key={chatRoom.id} className={"Text_Secondary"}>{chatRoom.name}
+                            <button className="" onClick={() => enterRoom(chatRoom.id)}>test</button>
+                        </ul>
+                    ))}
+                </div>
+                <div className={"Chat__ChatSection"}>
+                    <div className={"Chat__ChatSection__Header"}>
                         <h1>ChatRoom: {commentStore.test2.name}</h1>
                     </div>
-                    <div className="chat--main_messages">
-                        {/*<ul>
-                            {commentStore.test2.messages.map((message: message, index: number) => (
+                    <div className={"Chat__ChatSection__Body"}>
+                        <ul>
+                            {commentStore.test3.messages.map((message: message, index: number) => (
                                 <ul key={index}>
                                     <li>{message.username} says: {message.text}</li>
                                 </ul>
                             ))}
-                        </ul>*/}
+                        </ul>
                     </div>
-                </div>
-                <div className="chat--input_section">
-                    <div className="chat--input_username">
-                        <input type="text" placeholder="Username" onChange={e => setLocalUserName(e.target.value)}/>
-                    </div>
-                    <div className="chat--input_message">
-                        <input type="text" placeholder="Enter message here.." onChange={e => setLocalMessage(e.target.value)} />
-                    </div>
-                    <button className="chat--message_button" onClick={sendMessage}>Send</button>
-                    <div>Chatrooms</div>
-                    <ul>
-                        {commentStore.test.map((chatRoom: ChatRoom) => (
-                            <ul key={chatRoom.id}>{chatRoom.name}
-                                <button className="" onClick={() => enterRoom(chatRoom.id)}>test</button>
-                            </ul>
-                        ))}
-                    </ul>
+                    <div className={"Chat__ChatSection__InputArea"}></div>
                 </div>
             </div>
-        </div>
     )
     );
 }
