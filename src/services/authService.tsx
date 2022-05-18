@@ -14,6 +14,9 @@ export interface registerDto{
 }
 
 class AuthService {
+    registerOrg(data: registerDto) {
+        return http.post<User>("/Auth/RegisterOrganisation", data);
+    }
     registerCaster(data: registerDto) {
         return http.post<User>("/Auth/RegisterCaster", data);
     }
