@@ -12,11 +12,11 @@ class CasterService {
     async get(id: any) {
         return http.get<Caster>(`/Caster/GetCasterProfile?id=${id}`);
     }
-    create(data: Caster) {
+    async create(data: Caster) {
         return http.post<Caster>("/Caster/RegisterCasterProfile", data);
     }
-    update(data: Caster, id: any) {
-        return http.put<any>(`/Caster/UpdateCasterProfile/${id}`, data);
+    update(data: Caster) {
+        return http.put<any>(`/Caster/UpdateCasterProfile/`, data);
     }
     delete(id: any) {
         return http.delete<any>(`/Caster/DeleteCaster/${id}`);

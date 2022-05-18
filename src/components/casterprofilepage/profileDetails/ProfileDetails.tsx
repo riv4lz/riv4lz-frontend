@@ -14,7 +14,7 @@ const ProfileDetails = () => {
     const { casterStore, authStore } = useStore();
 
     const test = async () => {
-
+        
     }
 
     return (

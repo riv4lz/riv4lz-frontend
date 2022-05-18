@@ -4,32 +4,47 @@ import casterService from "../services/casterService";
 export interface Caster {
     id: string
     name: string
+    userType: number
     description: string
-    profileImage: string | null
-    bannerImage: string | null
+    profileImage?: string
+    bannerImage?: string
     facebookURL: string
     twitterURL: string
     discordURL: string
     twitchURL: string
+    websiteURL: string
 }
 
 export class CasterStore {
     @observable casters: Caster[] = [];
-    @observable caster: Caster | undefined;
+    @observable caster: Caster = {
+        id: '',
+        name: '',
+        userType: 0,
+        description: '',
+        profileImage: '',
+        bannerImage: '',
+        facebookURL: '',
+        twitterURL: '',
+        discordURL: '',
+        twitchURL: '',
+        websiteURL: ''
+    };
+
 
     @action
-    loadCasters = async() => {
-        const response = await casterService.getAll()
+    loadCasters = () => {
+        casterService.getAll().then((response: any) => {
             this.casters = response.data;
             console.log(this.casters);
-       
+        })
     }
 
     @action
-    loadCaster = async (id: any) => {
-        const response = await casterService.get(id);
-        this.caster = response.data;
-        console.log(response);
+    loadCaster = (id: any) => {
+        casterService.get(id).then((response: any) => {
+            this.caster = response.data;
+        })
     }
 
     @action
@@ -40,6 +55,23 @@ export class CasterStore {
     addCaster = (caster: string) => {
         this.casters.push();
     }
+    @action
+    setCaster = (caster: Caster) => {
+        this.caster = caster;
+    }
+
+    @action
+    createCasterProfile = async (caster: Caster) => {
+        const response = await casterService.create(caster)
+        this.caster = response.data;
+        console.log(this.caster);
+    }
+
+    @action
+    updateCasterProfile = (caster: Caster) => {
+        casterService.update(caster)
+    }
+
 
 
     constructor() {
