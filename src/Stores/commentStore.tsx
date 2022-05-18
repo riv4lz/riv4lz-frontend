@@ -30,9 +30,6 @@ export interface messageSent {
     Username: string
 }
 
-
-
-
 export default class CommentStore{
     @observable chatRooms: ChatRoom[] = [];
     @observable chatRoom: ChatRoom | undefined;
@@ -52,7 +49,7 @@ export default class CommentStore{
     createHubConnection = () => {
         console.log("trying to connect");
         this.hubConnection = new HubConnectionBuilder()
-            .withUrl('http://localhost:5000/chat')
+            .withUrl('http://70.34.201.1:5000/chat')
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();

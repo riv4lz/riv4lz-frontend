@@ -25,11 +25,23 @@ export interface organisationProfile{
     twitterURL: string
     discordURL: string
     twitchURL: string
-    }
+}
+
+export interface createMatchDTO {
+    id: string
+    organisationId: string
+    time: string
+    description: string
+    //teams: Team[]
+    price: number
+}
 
 export class EventStore{
     @observable matches: Match[] = [];
     @observable match: Match | undefined;
+    @observable match1: createMatchDTO | undefined;
+    @observable teams: Team[] = [];
+
 
     @action
     loadMatches = () => {
@@ -43,6 +55,21 @@ export class EventStore{
     loadMatch = (id: any) => {
         matchesService.get(id).then((response: any) => {
             this.match = response.data;
+        })
+    }
+
+    @action
+    createMatch = (data: createMatchDTO) => {
+        matchesService.create(data).then((response: any) => {
+            this.match1 = response.data;
+        })
+    }
+
+    @action
+    loadTeams = () => {
+        matchesService.getTeams().then((response: any) => {
+            this.teams = response.data;
+            console.log(this.teams);
         })
     }
 
