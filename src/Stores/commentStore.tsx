@@ -65,10 +65,10 @@ export default class CommentStore{
                 console.log(comments);
                 this.test2 = comments;
                 this.test3 = comments.messages;
-                console.log(this.test2);
+                console.log("TEXT DATA " + this.test3);
             });
         });
-          
+
         this.hubConnection.on('LoadRooms', (chatRoom: ChatRoom) => {
             runInAction(() => {
                 if (this.chatRooms.length <= 0) {
@@ -99,7 +99,7 @@ export default class CommentStore{
         this.comments = [];
         this.stopHubConnection();
     }
-    
+
     addComment = async (message: messageSent) => {
         try {
             await this.hubConnection?.invoke('SendMessage', message);
