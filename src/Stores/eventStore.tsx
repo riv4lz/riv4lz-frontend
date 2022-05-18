@@ -32,7 +32,7 @@ export interface createMatchDTO {
     organisationId: string
     time: string
     description: string
-    teams: Team[]
+    //teams: Team[]
     price: number
 }
 
