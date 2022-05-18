@@ -6,7 +6,6 @@ export interface User {
     id: string
     email: string
     token: string
-
 }
 
 export class AuthStore {
@@ -29,6 +28,13 @@ export class AuthStore {
     @action
     registerCaster = async (data: registerDto) => {
         const response = await authService.registerCaster(data);
+        this.user = response.data;
+        console.log(this.user);
+    }
+
+    @action
+    registerOrg = async (data: registerDto) => {
+        const response = await authService.registerOrg(data);
         this.user = response.data;
         console.log(this.user);
     }

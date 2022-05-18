@@ -12,9 +12,10 @@ import CastersPage from "./pages/castersPage/CastersPage";
 import RegisterPage from './pages/registerPage/RegisterPage';
 import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
 import Footer from './components/shared/Footer/Footer';
+import OrgProfilePage from './pages/orgProfilePage/OrgProfilePage';
 
 function App() {
-  const { commentStore, authStore } = useStore();
+  const { commentStore, authStore, casterStore} = useStore();
   let [user, setUser] = useState([])
   const [loaded, setLoaded] = useState(false)
   const test = () => setLoaded(true)
@@ -23,6 +24,7 @@ function App() {
 
   useEffect(() => {
     commentStore.loadMessages()
+    casterStore.loadCasters()
     if (localStorage.getItem("token")) {
       getCurrentUser();
     }
@@ -65,6 +67,7 @@ function App() {
               <Route path='/Chat' element={<Chat comments={commentStore.comments} commentStore={commentStore} />}>
               </Route>
               <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
+              <Route path="/Org/:id" element={<OrgProfilePage />}></Route>
             </Routes>
           </Router>
         </div>

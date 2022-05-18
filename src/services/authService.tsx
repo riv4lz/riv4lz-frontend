@@ -20,6 +20,7 @@ class AuthService {
     registerCaster(data: registerDto) {
         return http.post<User>("/Auth/RegisterCaster", data);
     }
+    
     async attemptLogin(data: loginDto) {
         return http.post<User>("/Auth/Login", data);
     }
