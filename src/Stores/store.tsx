@@ -4,6 +4,7 @@ import {EventStore} from "./eventStore";
 import {AuthStore} from "./authStore";
 import {TeamStore} from "./teamStore";
 import React, {createContext, useContext} from "react";
+import { OrgStore } from "./orgStore";
 
 
 type Store = {
@@ -11,6 +12,7 @@ type Store = {
     casterStore: CasterStore;
     eventStore: EventStore;
     authStore: AuthStore;
+    orgStore: OrgStore;
     teamStore: TeamStore;
 }
 
@@ -19,6 +21,7 @@ export const store: Store = {
     casterStore: new CasterStore(),
     eventStore: new EventStore(),
     authStore: new AuthStore(),
+    orgStore: new OrgStore(),
     teamStore: new TeamStore(),
 };
 

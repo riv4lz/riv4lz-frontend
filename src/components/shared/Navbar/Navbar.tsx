@@ -5,7 +5,8 @@ import {
   BrowserRouter as Router,
   Link,
   Navigate,
-  useLocation
+  useLocation,
+  useNavigate
 } from "react-router-dom";
 import Logo from '../Logo/Logo';
 import { useStore } from '../../../Stores/store';
@@ -15,7 +16,6 @@ import Tricked from '../../../assets/images/Esports-orgs/Tricked.svg';
 const Navbar = (props: any) => {
   const location = useLocation();
   const {authStore} = useStore();
-  const test = true
 
   return (
     <div className='Navbar_Container Flex Align_Center Justify_Center Full_Width'>
@@ -40,9 +40,18 @@ const Navbar = (props: any) => {
 export default Navbar
 
 const LoggedInNavbar = () => { 
-  const {authStore} = useStore();
-
-
+  const {authStore, casterStore} = useStore();
+  const navigate = useNavigate();
+  const onClick = () => {
+    let isCaster = false;
+    
+    for(let i = 0; i < casterStore.casters.length; i++) {
+      if(casterStore.casters[i].id === authStore.user?.id) {
+        isCaster = true;
+      }
+    }
+    navigate(isCaster ? '/Caster/'+ authStore.user?.id : '/Org/' + authStore.user?.id);
+  }
 
   return (
     <div className='LoggedIn_Container Flex Justify_Center Align_Center'>
@@ -56,10 +65,8 @@ const LoggedInNavbar = () => {
           <div className='walleticon'><img src={Wallet} alt="Wallet" /></div>
         </div>
         </div>
-        <div className='Profile_Pic'>
-          <Link to={'/caster/' + authStore.user?.id} >
+        <div className='Profile_Pic' onClick={onClick}>
           <img src={Tricked} alt="Tricked" />
-          </ Link>
         </div>
       </div>
     </div>
