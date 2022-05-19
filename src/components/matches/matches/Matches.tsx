@@ -8,15 +8,35 @@ import './Matches.scss'
 
 const Matches = () => {
 
-    const { eventStore } = useStore();
+    const { eventStore, offerStore, casterStore, orgStore, authStore } = useStore();
 
     useEffect(() => {
         eventStore.loadMatches();
         console.log(eventStore.matches);
-        
+        offerStore.getOffers();
+        console.log(offerStore.offers);
+
+
+        for (let i = 0; i < casterStore.casters.length; i++) {
+            console.log(casterStore.casters[i].id);
+            
+            if (casterStore.casters[i].id === authStore.user?.id) {
+                setCasterState(true)
+            }
+        }
+
+        for (let i = 0; i < orgStore.orgs.length; i++) {
+            console.log(orgStore.orgs[i].id);
+            if (orgStore.orgs[i].id === authStore.user?.id) {
+                setOrgState(true)
+            }
+        }
+
     }, [])
 
     const [searchValue, setSearchValue] = useState('');
+    const [isCaster, setCasterState] = useState(false);
+    const [isOrg, setOrgState] = useState(false);
     const [upcomingState, setUpcommingState] = useState(true);
     const [finishedState, setFinishedState] = useState(false);
     const [eventDetails, setEventDetails] = useState<IEventDetails>({
@@ -41,7 +61,12 @@ const Matches = () => {
 
     const [showState, setShowState] = useState(false);
     const show = (event: any) => {
-        console.log(showState);
+        console.log(authStore.user?.id);
+
+        
+
+        console.log(isCaster);
+        console.log(isOrg);
 
 
         setEventDetails(event);
@@ -55,7 +80,7 @@ const Matches = () => {
     return (
         <>
             {showState ?
-                <EventDetails show={showState} handleClose={hide} Event={eventDetails} /> : null
+                <EventDetails isOrg={isOrg} isCaster={isCaster} show={showState} handleClose={hide} Event={eventDetails} /> : null
             }
             <div className='Matches_Container Flex '>
                 <div className='Matches_Wrapper Flex Content_Width '>

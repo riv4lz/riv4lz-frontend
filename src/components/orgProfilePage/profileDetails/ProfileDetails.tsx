@@ -14,7 +14,7 @@ const ProfileDetails = () => {
     const { orgStore, authStore } = useStore();
 
     const test = async () => {
-        
+
     }
 
     return (

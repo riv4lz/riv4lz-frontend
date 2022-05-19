@@ -13,6 +13,7 @@ export class AuthStore {
 
     @action
     attemptLogin = async (data: loginDto) => {
+        localStorage.clear();
         const response = await authService.attemptLogin(data);
         this.user = response.data;
         console.log(this.user);
