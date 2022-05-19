@@ -10,6 +10,8 @@ export interface User {
 
 export class AuthStore {
     @observable user: User | undefined;
+    @observable isCaster: boolean = false;
+    @observable isOrg: boolean = false;
 
     @action
     attemptLogin = async (data: loginDto) => {

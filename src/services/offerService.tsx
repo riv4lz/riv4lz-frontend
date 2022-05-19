@@ -1,5 +1,5 @@
 import http from "../http-common";
-import { CreateOfferDTO, offer } from "../Stores/offerStore";
+import { acceptRejectOfferDTO, CreateOfferDTO, offer } from "../Stores/offerStore";
 
 class OfferStatus {
     getOffer(id: string) {
@@ -12,5 +12,12 @@ class OfferStatus {
         return http.post<any>(`/Offers/CreateOffer`, offer);
     }
 
+    acceptOffer(offer: acceptRejectOfferDTO) {
+        return http.put<boolean>(`/Offers/AcceptOffer`, offer);
+    }
+
+    rejectOffer(offer: acceptRejectOfferDTO) {
+        return http.put<boolean>(`/Offers/RejectOffer`, offer);
+    }
 }
 export default new OfferStatus();

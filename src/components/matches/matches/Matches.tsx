@@ -14,27 +14,12 @@ const Matches = () => {
     useEffect(() => {
         eventStore.loadMatches();
         console.log(eventStore.matches);
-
-        for (let i = 0; i < casterStore.casters.length; i++) {
-            console.log(casterStore.casters[i].id);
-            
-            if (casterStore.casters[i].id === authStore.user?.id) {
-                setCasterState(true)
-            }
-        }
-
-        for (let i = 0; i < orgStore.orgs.length; i++) {
-            console.log(orgStore.orgs[i].id);
-            if (orgStore.orgs[i].id === authStore.user?.id) {
-                setOrgState(true)
-            }
-        }
-
+        console.log(authStore.isCaster);
+        console.log(authStore.isOrg);
+        
     }, [])
-
+    const load = () => setShowState(true)
     const [searchValue, setSearchValue] = useState('');
-    const [isCaster, setCasterState] = useState(false);
-    const [isOrg, setOrgState] = useState(false);
     const [upcomingState, setUpcommingState] = useState(true);
     const [finishedState, setFinishedState] = useState(false);
     const [eventDetails, setEventDetails] = useState<IEventDetails>({
@@ -58,11 +43,13 @@ const Matches = () => {
     }
 
     const [showState, setShowState] = useState(false);
-    const show = (event: any) => {
+    const show = async (event: any) => {
         setEventDetails(event);
         console.log(event.id);
-        offerStore.getOffers(event.id);
-        setShowState(true);
+        await offerStore.getOffers(event.id);
+        setTimeout(load, 10)
+        console.log(offerStore.offers);
+        
     }
 
     const hide = () => {
@@ -73,7 +60,7 @@ const Matches = () => {
     return (
         <>
             {showState ?
-                <EventDetails isOrg={isOrg} isCaster={isCaster} show={showState} handleClose={hide} Event={eventDetails} /> : null
+                <EventDetails isOrg={authStore.isOrg} isCaster={authStore.isCaster} show={showState} handleClose={hide} Event={eventDetails} /> : null
             }
             <div className='Matches_Container Flex '>
                 <div className='Matches_Wrapper Flex Content_Width '>

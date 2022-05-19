@@ -10,7 +10,7 @@ import { useStore } from '../../Stores/store';
 
 const Login = () => {
     let navigate = useNavigate()
-    const { authStore } = useStore();
+    const { authStore, casterStore, orgStore } = useStore();
 
     const [email, setEmail] = useState('')
 
@@ -27,6 +27,23 @@ const Login = () => {
 
     const loginRequest = async(user: any) => {
         await authStore.attemptLogin(user);
+
+        for (let i = 0; i < casterStore.casters.length; i++) {
+            console.log(casterStore.casters[i].id);
+            
+            if (casterStore.casters[i].id === authStore.user?.id) {
+                authStore.isCaster = true;
+                authStore.isOrg = false;
+            }
+        }
+
+        for (let i = 0; i < orgStore.orgs.length; i++) {
+            console.log(orgStore.orgs[i].id);
+            if (orgStore.orgs[i].id === authStore.user?.id) {
+                authStore.isCaster = false;
+                authStore.isOrg = true;
+            }
+        }
 
         if (authStore.user) {
             localStorage.setItem("token", authStore.user.token);

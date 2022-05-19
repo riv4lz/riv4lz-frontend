@@ -53,6 +53,7 @@ export class OfferStore {
         return this.offers
     }
 
+    @action
     getOffer = async (id: string) => {
         const response = await offerService.getOffer(id)
         this.offer = response.data
@@ -60,15 +61,19 @@ export class OfferStore {
     }
 
     @action
-    declineOffer(id: any) {
-        console.log(id);
+    declineOffer = async (offer: acceptRejectOfferDTO) => {
+        const response = await offerService.rejectOffer(offer)
+        console.log(response);
         
+        return response
     }
 
     @action
-    acceptOffer(id: any) {
-        console.log(id);
+    acceptOffer = async (offer: acceptRejectOfferDTO) => {
+        const response = await offerService.acceptOffer(offer)
+        console.log(response);
         
+        return response
     }
 
     constructor() {

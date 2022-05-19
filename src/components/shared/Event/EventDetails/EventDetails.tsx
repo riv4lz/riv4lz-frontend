@@ -83,7 +83,7 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
                         </div>
                     </div>
                 </div>
-                {casterState ? <Caster Event={Event} /> : organisationState ? <Organisation /> : null}
+                {casterState ? <Caster Event={Event} handleClose={handleClose} /> : organisationState ? <Organisation handleClose={handleClose} /> : null}
                 <div className='Event_button Flex Justify_Center Align_Center'>
                     <Public Close={handleClose} />
                 </div>
@@ -99,15 +99,16 @@ const Public = ({ Close }: any) => {
     )
 }
 
-const Caster = ({ Event }: any) => {
+const Caster = ({ Event, handleClose }: any) => {
     const {offerStore, authStore} = useStore();
     const [offer, setOfferState] = useState("");
 
     const onSendOffer = () => {
 
-        offerStore.sendOffer({id: uuidv4(), offerStatus: 1, eventId: Event.id, casterId: authStore.user?.id ? authStore.user.id : ""});
+        offerStore.sendOffer({id: uuidv4(), offerStatus: 0, eventId: Event.id, casterId: authStore.user?.id ? authStore.user.id : ""});
         console.log(offerStore.offers);
-        
+        handleClose();
+        alert("Offer sent!");
     }
     return (
         <div className='Caster_Container Flex Justify_Center Align_Center'>
@@ -131,7 +132,7 @@ const Caster = ({ Event }: any) => {
     )
 }
 
-const Organisation = () => {
+const Organisation = ({handleClose}: any ) => {
     const { offerStore } = useStore()
 
     interface test {
@@ -139,12 +140,16 @@ const Organisation = () => {
         offerStatus: number
     }
 
-    const onAcceptOffer = () => {
-        offerStore.acceptOffer(offerStore.offers[0].id)
+    const onAcceptOffer = async (offer: any) => {
+        const status = await offerStore.acceptOffer({id: offer.id, offerStatus: 1});
+        console.log(status);
+        
     }
 
-    const onDeclineOffer = () => {
-        offerStore.declineOffer(offerStore.offers[0].id)
+    const onDeclineOffer = async (offer: any) => {
+        const status = await offerStore.declineOffer({id: offer.id, offerStatus: 2});
+        console.log(status);
+        
     }
 
     return (
@@ -164,8 +169,8 @@ const Organisation = () => {
                                 </div>
                             </div>
                             <div className='offer_container Flex Justify_End Align_Center'>
-                                <div className='accept btn_Offer_Solid' onClick={() => console.log("e")}>Accept</div>
-                                <div className='decline btn_Offer_Outline' onClick={() => console.log("e")}>Decline</div>
+                                <div className='accept btn_Offer_Solid' onClick={() => onAcceptOffer(offer)}>Accept</div>
+                                <div className='decline btn_Offer_Outline' onClick={() => onDeclineOffer(offer)}>Decline</div>
                             </div>
                         </div>
                     )
