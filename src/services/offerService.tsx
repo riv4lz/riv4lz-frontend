@@ -5,11 +5,11 @@ class OfferStatus {
     getOffer(id: string) {
         return http.get<offer>(`/Offers/GetOffer?offerId=${id}`);
     }
-    getOffers() {
-        return http.get<Array<offer>>("/Offers/GetOffers");
+    getOffers(eventId: string) {
+        return http.get<Array<offer>>(`/Offers/GetOffers?eventId=${eventId}`);
     }
     sendOffer(offer: CreateOfferDTO) {
-        return http.post<any>(`/Offers/SendOffer`, offer);
+        return http.post<any>(`/Offers/CreateOffer`, offer);
     }
 
 }

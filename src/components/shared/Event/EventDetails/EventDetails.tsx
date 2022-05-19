@@ -4,6 +4,7 @@ import Tricked from '../../../../assets/images/Esports-orgs/Tricked.svg'
 import Btn from '../../../button/Btn'
 import { useStore } from '../../../../Stores/store'
 import { OrgStore } from '../../../../Stores/orgStore'
+import { v4 as uuidv4 } from 'uuid';
 
 const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
     const { casterStore, orgStore, offerStore } = useStore()
@@ -99,10 +100,14 @@ const Public = ({ Close }: any) => {
 }
 
 const Caster = ({ Event }: any) => {
+    const {offerStore, authStore} = useStore();
     const [offer, setOfferState] = useState("");
 
     const onSendOffer = () => {
 
+        offerStore.sendOffer({id: uuidv4(), offerStatus: 1, eventId: Event.id, casterId: authStore.user?.id ? authStore.user.id : ""});
+        console.log(offerStore.offers);
+        
     }
     return (
         <div className='Caster_Container Flex Justify_Center Align_Center'>
@@ -126,11 +131,6 @@ const Caster = ({ Event }: any) => {
     )
 }
 
-const CasterButtons = ({ Close }: any) => {
-    return (
-        <Btn onClick={Close} children='Close' classes='btn_CallToAction_Blue P3_Oxanium Bold Text_Dark_Blue' />
-    )
-}
 const Organisation = () => {
     const { offerStore } = useStore()
 

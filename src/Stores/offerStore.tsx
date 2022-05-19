@@ -47,8 +47,8 @@ export class OfferStore {
     }
 
     @action
-    getOffers = async () => {
-        const response = await offerService.getOffers()
+    getOffers = async (eventId: string) => {
+        const response = await offerService.getOffers(eventId)
         this.offers = response.data
         return this.offers
     }

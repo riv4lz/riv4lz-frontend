@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { finished } from 'stream'
 import { Match } from '../../../Stores/eventStore'
+import { offer } from '../../../Stores/offerStore'
 import { useStore } from '../../../Stores/store'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
@@ -13,9 +14,6 @@ const Matches = () => {
     useEffect(() => {
         eventStore.loadMatches();
         console.log(eventStore.matches);
-        offerStore.getOffers();
-        console.log(offerStore.offers);
-
 
         for (let i = 0; i < casterStore.casters.length; i++) {
             console.log(casterStore.casters[i].id);
@@ -61,21 +59,16 @@ const Matches = () => {
 
     const [showState, setShowState] = useState(false);
     const show = (event: any) => {
-        console.log(authStore.user?.id);
-
-        
-
-        console.log(isCaster);
-        console.log(isOrg);
-
-
         setEventDetails(event);
+        console.log(event.id);
+        offerStore.getOffers(event.id);
         setShowState(true);
     }
 
     const hide = () => {
         setShowState(false);
     }
+
 
     return (
         <>
@@ -117,7 +110,7 @@ const Upcoming = ({ searchValue, events, show }: any) => {
                     test.organisationProfile.name.match(new RegExp(searchValue, "i"))
 
             }).map((event: Match, index: any) => (
-                <Event key={index} E={event} show={show} />
+                <Event key={index} E={event} show={show}  />
             ))}
         </>
     )
