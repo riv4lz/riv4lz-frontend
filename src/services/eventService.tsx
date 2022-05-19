@@ -1,5 +1,5 @@
 import http from "../http-common";
-import {Match} from "../Stores/eventStore";
+import {createMatchDTO, Match} from "../Stores/eventStore";
 
 class MatchesService {
     getAll() {
@@ -8,8 +8,8 @@ class MatchesService {
     get(id: any) {
         return http.get<Match>(`/Event/GetEvent?eventId=${id}`);
     }
-    create(data: Match) {
-        return http.post<Match>("/Event/CreateEvent", data);
+    create(data: createMatchDTO) {
+        return http.post<createMatchDTO>("/Event/CreateEvent", data);
     }
     update(data: Match, id: any) {
         return http.put<any>(`/Event/UpdateEvent?eventId=${id}`, data);

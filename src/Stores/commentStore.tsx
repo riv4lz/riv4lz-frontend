@@ -1,4 +1,3 @@
-import {ChatComment} from "../components/chat/message";
 import signalR, {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
 import {makeAutoObservable, observable, runInAction, toJS, autorun, action} from "mobx";
 
@@ -31,9 +30,6 @@ export interface messageSent {
     Username: string
 }
 
-
-
-
 export default class CommentStore{
     @observable chatRooms: ChatRoom[] = [];
     @observable chatRoom: ChatRoom | undefined;
@@ -44,6 +40,7 @@ export default class CommentStore{
     loadingInitial = false;
     @observable test: any = [];
     @observable test2: any = [];
+    @observable test3: any = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -52,7 +49,7 @@ export default class CommentStore{
     createHubConnection = () => {
         console.log("trying to connect");
         this.hubConnection = new HubConnectionBuilder()
-            .withUrl('http://localhost:5000/chat')
+            .withUrl('http://70.34.201.1:5000/chat')
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();
@@ -64,10 +61,11 @@ export default class CommentStore{
             runInAction(() => {
                 console.log(comments);
                 this.test2 = comments;
-                console.log(this.test2);
+                this.test3 = comments.messages;
+                console.log("TEXT DATA " + this.test3);
             });
         });
-          
+
         this.hubConnection.on('LoadRooms', (chatRoom: ChatRoom) => {
             runInAction(() => {
                 if (this.chatRooms.length <= 0) {
@@ -84,6 +82,7 @@ export default class CommentStore{
             runInAction(() => {
                 this.comments.push(comment);
                 this.test2.messages.push(comment);
+                this.test3.push(comment);
                 console.log(comment)
             });
         });
@@ -97,7 +96,7 @@ export default class CommentStore{
         this.comments = [];
         this.stopHubConnection();
     }
-    
+
     addComment = async (message: messageSent) => {
         try {
             await this.hubConnection?.invoke('SendMessage', message);
