@@ -34,8 +34,8 @@ export interface createMatchDTO {
     time: string
     description: string
     price: number
-    teamOne: Team
-    teamTwo: Team
+    teams: Team[]
+    eventStatus: number
     game: string
 }
 
