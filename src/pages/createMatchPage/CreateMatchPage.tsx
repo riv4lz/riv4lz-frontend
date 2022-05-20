@@ -21,7 +21,7 @@ const CreateMatchPage = () => {
     const orgId = authStore.user !== undefined ? authStore.user?.id : ''
     const id = uuidv4().toString()
     
-    eventStore.createMatch({id: id, organisationId: orgId, time: dateTime, description: description, price: price, teams: [team1, team2], game: 'lol', eventStatus: 0})
+    eventStore.createMatch({id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: 'lol', eventStatus: 0})
   }
 
   const fetchAllTeams = async() => {
