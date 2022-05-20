@@ -1,19 +1,19 @@
 @import '../../../index.scss';
 
-.callToAction_Container{
+.CallToAction {
     width: 100%;
     height: 900px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $Grey;    
+    background-color: $Grey;
     background-image: url('../../../assets/images/callToAction.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.callToAction_Wrapper{
+.CallToAction__Wrapper{
     width: 1440px;
     height: 100%;
     display: grid;

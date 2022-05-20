@@ -15,19 +15,18 @@ const CallToAction = () => {
     }
 
     return (
-        <div className='callToAction_Container'>
-            <div className='callToAction_Wrapper'>
-                <div className='callToAction_MainSection'>
-                    <div className='callToAction_Title H1 Text_Secondary'>
+        <div className='CallToAction'>
+            <div className='CallToAction__Wrapper'>
+                <div className='CallToAction__Wrapper__MainSection'>
+                    <div className='CallToAction__Wrapper__MainSection__Title    h1 clr-white font-statewideBold'>
                         CASTING MADE
                     </div>
-
-                    <div className='callToAction_TitleModern A3 Text_Primary' style={{ fontSize: '105px' }}>
+                    <div className='CallToAction__Wrapper__MainSection__TitleTwo    h0 clr-primary font-statewideBold'>
                         MODERN
                     </div>
-                    <div className='callToAction_Paragraph P3_Poppins Bold'>
-                        <span className='Text_Secondary'>Discover our innovative platform for casters and organisations alike - </span>
-                        <span className='Text_Primary'>“imagine if booking a caster was as easy as ordering a pizza”</span>
+                    <div className='CallToAction__Wrapper__MainSection__Paragraph   p2 clr-white font-poppins fontWeight-900'>
+                        <span className='CallToAction__Wrapper__MainSection__Paragraph__MainLine'> Discover our innovative platform for casters and organisations alike - </span>
+                        <span className='CallToAction__Wrapper__MainSection__Paragraph__TagLine    clr-primary'>“imagine if booking a caster was as easy as ordering a pizza”</span>
 
                     </div>
                     <div className='callToAction_Buttons'>
@@ -39,7 +38,7 @@ const CallToAction = () => {
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 
