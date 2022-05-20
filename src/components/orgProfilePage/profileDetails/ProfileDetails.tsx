@@ -11,7 +11,7 @@ import { useStore } from '../../../Stores/store';
 
 
 const ProfileDetails = () => {
-    const { orgStore, authStore } = useStore();
+    const { userStore, authStore } = useStore();
 
     const test = async () => {
 
@@ -20,27 +20,27 @@ const ProfileDetails = () => {
     return (
         <div className='ProfileDetails'>
             <div className='ProfileDetails__ProfileImage'>
-                <img src={orgStore.org?.profileImage !== null ? orgStore.org?.profileImage : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className='ProfileDetails__ProfileImage_Image' />
+                <img src={userStore.user?.profileImage !== null ? userStore.user?.profileImage : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className='ProfileDetails__ProfileImage_Image' />
                 <Btn onClick={test} classes={"btn_Profile_Collaborator P5_Statewide_Bold Text_Dark_Blue"}>See matches from this org</Btn>
             </div>
             <div className={"ProfileDetails__Description"}>
-                <span className={"ProfileDetails__Description__GamerTag H1 Text_Secondary"}>{orgStore.org?.name}</span>
+                <span className={"ProfileDetails__Description__GamerTag H1 Text_Secondary"}>{userStore.user?.name}</span>
                 <span className={"ProfileDetails__Description__RealName P1_Statewide_light Text_Secondary"}>
-                    {orgStore.org?.name}</span>
+                    {userStore.user?.name}</span>
                 <div className={"ProfileDetails__Description__SocialIcons"}>
-                    <a href={orgStore.org?.facebookURL}>
+                    <a href={userStore.user?.facebookURL}>
                         <img src={Facebook} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
-                    <a href={orgStore.org?.twitterURL}>
+                    <a href={userStore.user?.twitterURL}>
                         <img src={Twitter} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
-                    <a href={orgStore.org?.twitchURL}>
+                    <a href={userStore.user?.twitchURL}>
                         <img src={Instagram} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
-                    <a href={orgStore.org?.discordURL}>
+                    <a href={userStore.user?.discordURL}>
                         <img src={Discord} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
-                    <a href={orgStore.org?.facebookURL}>
+                    <a href={userStore.user?.facebookURL}>
                         <img src={Telegram} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
                 </div>
                 <span className={"ProfileDetails__Description__Description P3_Poppins Text_Secondary"}>
-                    {orgStore.org?.description}
+                    {userStore.user?.description}
                 </span>
             </div>
             <div className={"ProfileDetails__AdditionalDetails"}></div>

@@ -13,7 +13,7 @@ import {
 
 
 function CastersPage() {
-  const {casterStore} = useStore();
+  const {userStore} = useStore();
 
   const test = (props: any) => {
     console.log(props);
@@ -23,16 +23,16 @@ function CastersPage() {
   return useObserver(() => (
     <div className='Login_Container'>
     <ul>
-        {casterStore.casters.map((caster) => (
-            <ul key={caster.id}>
-            <div>{caster.name}</div>
-              <button onClick={() => test(caster.id)}></button>
-              <button onClick={() => casterStore.loadCaster(caster.id)}></button>
-              <a href={'/caster/'+ caster.id}>Edit</a>
+        {userStore.casters.map((user) => (
+            <ul key={user.id}>
+            <div>{user.name}</div>
+              <button onClick={() => test(user.id)}></button>
+              <button onClick={() => userStore.loadUser(user.id)}></button>
+              <a href={'/caster/'+ user.id}>Edit</a>
             </ul>
         ))}
     </ul>
-      <button onClick={() => casterStore.loadCasters()}>Load casters</button>
+      <button onClick={() => userStore.loadUsers(0)}>Load casters</button>
     </div>
   )
   );

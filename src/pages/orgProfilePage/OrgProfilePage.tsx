@@ -11,7 +11,7 @@ import Navbar from '../../components/shared/Navbar/Navbar';
 import Footer from '../../components/shared/Footer/Footer';
 
 function OrgProfilePage(props: any) {
-  const { orgStore, authStore } = useStore();
+  const { userStore, authStore } = useStore();
 
   const [test, setid] = useState('');
 
@@ -19,7 +19,7 @@ function OrgProfilePage(props: any) {
 
 
   useEffect(() => {
-    orgStore.loadOrg(id);
+    userStore.loadUser(id);
   });
 
 

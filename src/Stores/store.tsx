@@ -6,26 +6,25 @@ import {TeamStore} from "./teamStore";
 import React, {createContext, useContext} from "react";
 import { OrgStore } from "./orgStore";
 import { OfferStore } from "./offerStore";
+import { UserStore } from "./userStore";
 
 
 type Store = {
     commentStore: CommentStore;
-    casterStore: CasterStore;
     eventStore: EventStore;
     authStore: AuthStore;
-    orgStore: OrgStore;
     teamStore: TeamStore;
     offerStore: OfferStore;
+    userStore: UserStore;
 }
 
 export const store: Store = {
     commentStore: new CommentStore(),
-    casterStore: new CasterStore(),
     eventStore: new EventStore(),
     authStore: new AuthStore(),
-    orgStore: new OrgStore(),
     teamStore: new TeamStore(),
     offerStore: new OfferStore(),
+    userStore: new UserStore(),
 };
 
 export const StoreContext = createContext<Store>({} as Store);

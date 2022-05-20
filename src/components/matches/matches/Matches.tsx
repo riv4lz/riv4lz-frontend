@@ -9,7 +9,7 @@ import './Matches.scss'
 
 const Matches = () => {
 
-    const { eventStore, offerStore, casterStore, orgStore, authStore } = useStore();
+    const { eventStore, offerStore, authStore } = useStore();
 
     useEffect(() => {
         eventStore.loadMatches();

@@ -12,7 +12,7 @@ import Navbar from '../../components/shared/Navbar/Navbar';
 import Footer from '../../components/shared/Footer/Footer';
 
 function CasterProfilePage(props: any) {
-  const { casterStore, authStore } = useStore();
+  const { userStore, authStore } = useStore();
 
   const [test, setid] = useState('');
 
@@ -20,7 +20,7 @@ function CasterProfilePage(props: any) {
 
 
   useEffect(() => {
-    casterStore.loadCaster(id);
+    userStore.loadUser(id);
   });
 
 

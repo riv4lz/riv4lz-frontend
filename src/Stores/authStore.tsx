@@ -29,15 +29,8 @@ export class AuthStore {
     }
 
     @action
-    registerCaster = async (data: registerDto) => {
-        const response = await authService.registerCaster(data);
-        this.user = response.data;
-        console.log(this.user);
-    }
-
-    @action
-    registerOrg = async (data: registerDto) => {
-        const response = await authService.registerOrg(data);
+    registerUser = async (data: registerDto) => {
+        const response = await authService.registerUser(data);
         this.user = response.data;
         console.log(this.user);
     }

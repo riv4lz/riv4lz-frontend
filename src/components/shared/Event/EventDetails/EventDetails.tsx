@@ -7,18 +7,13 @@ import { OrgStore } from '../../../../Stores/orgStore'
 import { v4 as uuidv4 } from 'uuid';
 
 const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
-    const { casterStore, orgStore, offerStore } = useStore()
+    const { userStore, offerStore } = useStore()
     const [casterState, setCasterState] = useState(isCaster);
     const [organisationState, setOrganisationState] = useState(isOrg);
     const [o, setOffers] = useState<any>([]);
 
     useEffect(() => {
         setOffers(offerStore.offers);
-        console.log(o);
-        console.log(casterStore.caster);
-
-        console.log(orgStore.org);
-
     }, [])
 
     return (

@@ -18,7 +18,7 @@ import InaccessiblePage from './pages/inaccessiblePage/InaccessiblePage';
 
 
 function App() {
-  const { commentStore, authStore, casterStore, orgStore, offerStore, eventStore } = useStore();
+  const { commentStore, authStore, userStore, offerStore, eventStore } = useStore();
 
   let [user, setUser] = useState([])
   const [loaded, setLoaded] = useState(false)
@@ -28,8 +28,8 @@ function App() {
 
   useEffect(() => {
     commentStore.loadMessages()
-    casterStore.loadCasters();
-    orgStore.loadOrgs();
+    userStore.loadUsers(0);
+    userStore.loadUsers(1);
     eventStore.loadMatches();
     if (localStorage.getItem("token")) {
       getCurrentUser();
