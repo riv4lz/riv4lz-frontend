@@ -15,6 +15,7 @@ export interface Caster {
     websiteURL: string
 }
 
+
 export class CasterStore {
     @observable casters: Caster[] = [];
     @observable caster: Caster = {
@@ -44,6 +45,8 @@ export class CasterStore {
     loadCaster = (id: any) => {
         casterService.get(id).then((response: any) => {
             this.caster = response.data;
+            console.log(this.caster);
+            
         })
     }
 
@@ -71,6 +74,8 @@ export class CasterStore {
     updateCasterProfile = (caster: Caster) => {
         casterService.update(caster)
     }
+
+
 
 
 

@@ -1,11 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './EventDetails.scss'
 import Tricked from '../../../../assets/images/Esports-orgs/Tricked.svg'
 import Btn from '../../../button/Btn'
+import { useStore } from '../../../../Stores/store'
+import { OrgStore } from '../../../../Stores/orgStore'
+import { v4 as uuidv4 } from 'uuid';
 
-const EventDetails = ({ Event, handleClose, show }: any) => {
-    const [casterState, setCasterState] = useState(true);
-    const [organisationState, setOrganisationState] = useState(false);
+const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
+    const { casterStore, orgStore, offerStore } = useStore()
+    const [casterState, setCasterState] = useState(isCaster);
+    const [organisationState, setOrganisationState] = useState(isOrg);
+    const [o, setOffers] = useState<any>([]);
+
+    useEffect(() => {
+        setOffers(offerStore.offers);
+        console.log(o);
+        console.log(casterStore.caster);
+
+        console.log(orgStore.org);
+
+    }, [])
+
     return (
         <div className='Event_Container' style={{ display: show ? 'block' : 'none' }}>
             <div className='Event_Wrapper Flex Text_Secondary'>
@@ -68,7 +83,7 @@ const EventDetails = ({ Event, handleClose, show }: any) => {
                         </div>
                     </div>
                 </div>
-                {casterState ? <Caster Event={Event}/> : organisationState ? <Organisation /> : null}
+                {casterState ? <Caster Event={Event} handleClose={handleClose} /> : organisationState ? <Organisation handleClose={handleClose} /> : null}
                 <div className='Event_button Flex Justify_Center Align_Center'>
                     <Public Close={handleClose} />
                 </div>
@@ -84,11 +99,16 @@ const Public = ({ Close }: any) => {
     )
 }
 
-const Caster = ({Event}: any) => {
+const Caster = ({ Event, handleClose }: any) => {
+    const {offerStore, authStore} = useStore();
     const [offer, setOfferState] = useState("");
 
     const onSendOffer = () => {
-        console.log(offer)
+
+        offerStore.sendOffer({id: uuidv4(), offerStatus: 0, eventId: Event.id, casterId: authStore.user?.id ? authStore.user.id : ""});
+        console.log(offerStore.offers);
+        handleClose();
+        alert("Offer sent!");
     }
     return (
         <div className='Caster_Container Flex Justify_Center Align_Center'>
@@ -112,70 +132,45 @@ const Caster = ({Event}: any) => {
     )
 }
 
-const CasterButtons = ({ Close }: any) => {
-    return (
-        <Btn onClick={Close} children='Close' classes='btn_CallToAction_Blue P3_Oxanium Bold Text_Dark_Blue' />
-    )
-}
-const Organisation = () => {
-    const offers: any[] = [{
-        caster: {
-            ProfileImage: 'https://i.imgur.com/lpWSQZX_d.webp?maxwidth=760&fidelity=grand',
-            firstname: 'John',
-            lastname: 'Doe',
-            gamerTag: 'JohnDoe',
-            description: 'Lorem ipsum dolor sit amet',
-        },
-        casterOffer: '10$'
-    }, {
-        caster: {
-            ProfileImage: 'https://i.imgur.com/lpWSQZX_d.webp?maxwidth=760&fidelity=grand',
-            firstname: 'John',
-            lastname: 'Doe',
-            gamerTag: 'JohnDoe',
-            description: 'Lorem ipsum dolor sit amet',
-        },
-        casterOffer: '10$'
-    }, {
-        caster: {
-            ProfileImage: 'https://i.imgur.com/lpWSQZX_d.webp?maxwidth=760&fidelity=grand',
-            firstname: 'John',
-            lastname: 'Doe',
-            gamerTag: 'JohnDoe',
-            description: 'Lorem ipsum dolor sit amet',
-        },
-        casterOffer: '10$'
-    }, {
-        caster: {
-            ProfileImage: 'https://i.imgur.com/lpWSQZX_d.webp?maxwidth=760&fidelity=grand',
-            firstname: 'John',
-            lastname: 'Doe',
-            gamerTag: 'JohnDoe',
-            description: 'Lorem ipsum dolor sit amet',
-        },
-        casterOffer: '10$'
-    }];
+const Organisation = ({handleClose}: any ) => {
+    const { offerStore } = useStore()
+
+    interface test {
+        id: string,
+        offerStatus: number
+    }
+
+    const onAcceptOffer = async (offer: any) => {
+        const status = await offerStore.acceptOffer({id: offer.id, offerStatus: 1});
+        console.log(status);
+        
+    }
+
+    const onDeclineOffer = async (offer: any) => {
+        const status = await offerStore.declineOffer({id: offer.id, offerStatus: 2});
+        console.log(status);
+        
+    }
 
     return (
         <div className='Offer_Container Flex Justify_Center Align_Center'>
             <div className='Offer_Title Flex Justify_Start Align_Center P1_Statewide_Bold Text_Secondary'>Caster Applications</div>
             <div className='Component_Container Flex Align_Start'>
-                {offers.map((offer: any) => {
+                {offerStore.offers.map((offer: any) => {
                     return (
                         <div className='Component_Wrapper Flex Justify_Start Align_Center'>
-                            <div className='image Flex Justify_Center Align_Center'> <img src={offer.caster.ProfileImage} alt="" /></div>
+                            <div className='image Flex Justify_Center Align_Center'> <img src={offer.caster.profileImage !== null ? offer.caster.profileImage : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} alt="" /></div>
                             <div className='name_container Flex Justify_Around Align_Center'>
                                 <div className='name P1_Statewide_Bold Text_Secondary'>
-                                    {offer.caster.firstname} {offer.caster.lastname} - {offer.caster.gamerTag}
+                                    {offer.caster.name}
                                 </div>
                                 <div className='description P4_Statewide_Bold Text_Secondary'>
                                     {offer.caster.description}
                                 </div>
                             </div>
                             <div className='offer_container Flex Justify_End Align_Center'>
-                                <div className='offer P1_Statewide_Bold Text_Secondary'>{offer.casterOffer}</div>
-                                <div className='accept btn_Offer_Solid'>Accept</div>
-                                <div className='decline btn_Offer_Outline'>Decline</div>
+                                <div className='accept btn_Offer_Solid' onClick={() => onAcceptOffer(offer)}>Accept</div>
+                                <div className='decline btn_Offer_Outline' onClick={() => onDeclineOffer(offer)}>Decline</div>
                             </div>
                         </div>
                     )

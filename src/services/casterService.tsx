@@ -2,6 +2,7 @@ import http from "../http-common";
 import {Caster} from "../Stores/casterStore";
 
 class CasterService {
+    
     getAll() {
         return http.get<Array<Caster>>("/Caster/GetCasterProfiles", {
             headers: {

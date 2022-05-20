@@ -23,7 +23,7 @@ const Event = ({ E, show }: any) => {
                         <img src={Youtube} alt="Astralis" />
                         <img src={Twitch} alt="Astralis" />
                     </div>
-                    <div onClick={() => show(E)} className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
+                    <div onClick={() => show(E) } className='matches_InfoButton pointer Flex Justify_Center Align_Center P3_Oxanium Bold Text_Dark_Blue'>
                         See more
                     </div>
                 </div>

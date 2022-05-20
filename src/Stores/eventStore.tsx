@@ -3,6 +3,7 @@ import matchesService from "../services/eventService";
 
 
 export interface Match {
+    eventStatus: number
     id: string
     time: string
     teams: Team[]
@@ -46,11 +47,15 @@ export class EventStore {
 
 
     @action
-    loadMatches = () => {
-        matchesService.getAll().then((response: any) => {
-            this.matches = response.data;
-            console.log(this.matches);
-        })
+    loadMatches = async () => {
+        this.matches = [];
+        const response = await matchesService.getAll();
+
+        for (let i = 0; i < response.data.length; i++) {
+            if (response.data[i].eventStatus === 0) {
+                this.matches.push(response.data[i])
+            }
+        }
     }
 
     @action
