@@ -1,0 +1,20 @@
+@import '../../../index.scss';
+
+.MainSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.MainSection__Wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 800px;
+}
+
+.MainSection__Hero {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

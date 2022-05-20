@@ -1,0 +1,22 @@
+@import '../../../index.scss';
+
+.CallToActionAbout {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $Grey;
+    background-image: url('../../../assets/images/callToAction.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.CallToActionAbout__Wrapper{
+    width: 1440px;
+    height: 100%;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}

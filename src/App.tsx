@@ -15,6 +15,7 @@ import Footer from './components/shared/Footer/Footer';
 import OrgProfilePage from './pages/orgProfilePage/OrgProfilePage';
 import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 import InaccessiblePage from './pages/inaccessiblePage/InaccessiblePage';
+import AboutPage from "./pages/aboutPage/AboutPage";
 
 
 function App() {
@@ -58,14 +59,21 @@ function App() {
         <div className="App">
           <Router>
             <Routes>
-              {["/About", "/Guide", "/Contact"].map((path, index) =>
+              {["/Guide", "/Contact"].map((path, index) =>
                 <Route path={path} element={<Navbar />} key={index} />
               )}
               <Route path="/" element={
                 <>
                   <Navbar />
                   <FrontPage />
-                </>}></Route>
+                </>}>
+              </Route>
+              <Route path="/About" element={
+                <>
+                  <Navbar />
+                  <AboutPage />
+                </>}>
+              </Route>
               <Route path='/Login' element={<LoginPage />}>
               </Route>
               <Route path='/createMatch' element={authStore.isOrg ? <CreateMatchPage /> : <InaccessiblePage />}>
