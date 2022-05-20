@@ -1,4 +1,4 @@
-import {makeAutoObservable, observable, action} from "mobx";
+import { makeAutoObservable, observable, action } from "mobx";
 import matchesService from "../services/eventService";
 
 
@@ -10,12 +10,12 @@ export interface Match {
     organisationProfile: organisationProfile
 }
 
-export interface Team{
+export interface Team {
     id: string
     name: string
 }
 
-export interface organisationProfile{
+export interface organisationProfile {
     id: string
     name: string
     description: string
@@ -32,11 +32,13 @@ export interface createMatchDTO {
     organisationId: string
     time: string
     description: string
-    //teams: Team[]
     price: number
+    teamOne: Team
+    teamTwo: Team
+    game: string
 }
 
-export class EventStore{
+export class EventStore {
     @observable matches: Match[] = [];
     @observable match: Match | undefined;
     @observable match1: createMatchDTO | undefined;
@@ -60,17 +62,16 @@ export class EventStore{
 
     @action
     createMatch = (data: createMatchDTO) => {
-        matchesService.create(data).then((response: any) => {
-            this.match1 = response.data;
-        })
+        console.log(data);
+        
+        matchesService.create(data)
     }
 
     @action
-    loadTeams = () => {
-        matchesService.getTeams().then((response: any) => {
-            this.teams = response.data;
-            console.log(this.teams);
-        })
+    loadTeams = async () => {
+        const response = await matchesService.getTeams()
+        this.teams = response.data;
+        console.log(this.teams);
     }
 
     constructor() {

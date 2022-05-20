@@ -17,7 +17,7 @@ import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 
 
 function App() {
-  const { commentStore, authStore, casterStore} = useStore();
+  const { commentStore, authStore, casterStore, eventStore} = useStore();
   let [user, setUser] = useState([])
   const [loaded, setLoaded] = useState(false)
   const test = () => setLoaded(true)
@@ -27,6 +27,7 @@ function App() {
   useEffect(() => {
     commentStore.loadMessages()
     casterStore.loadCasters()
+    eventStore.loadMatches()
     if (localStorage.getItem("token")) {
       getCurrentUser();
     }
