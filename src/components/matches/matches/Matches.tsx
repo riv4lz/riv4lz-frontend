@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { finished } from 'stream'
 import { Match } from '../../../Stores/eventStore'
+import { offer } from '../../../Stores/offerStore'
 import { useStore } from '../../../Stores/store'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
@@ -8,14 +9,16 @@ import './Matches.scss'
 
 const Matches = () => {
 
-    const { eventStore } = useStore();
+    const { eventStore, offerStore, casterStore, orgStore, authStore } = useStore();
 
     useEffect(() => {
         eventStore.loadMatches();
         console.log(eventStore.matches);
+        console.log(authStore.isCaster);
+        console.log(authStore.isOrg);
         
     }, [])
-
+    const load = () => setShowState(true)
     const [searchValue, setSearchValue] = useState('');
     const [upcomingState, setUpcommingState] = useState(true);
     const [finishedState, setFinishedState] = useState(false);
@@ -40,22 +43,24 @@ const Matches = () => {
     }
 
     const [showState, setShowState] = useState(false);
-    const show = (event: any) => {
-        console.log(showState);
-
-
+    const show = async (event: any) => {
         setEventDetails(event);
-        setShowState(true);
+        console.log(event.id);
+        await offerStore.getOffers(event.id);
+        setTimeout(load, 10)
+        console.log(offerStore.offers);
+        
     }
 
     const hide = () => {
         setShowState(false);
     }
 
+
     return (
         <>
             {showState ?
-                <EventDetails show={showState} handleClose={hide} Event={eventDetails} /> : null
+                <EventDetails isOrg={authStore.isOrg} isCaster={authStore.isCaster} show={showState} handleClose={hide} Event={eventDetails} /> : null
             }
             <div className='Matches_Container Flex '>
                 <div className='Matches_Wrapper Flex Content_Width '>
@@ -92,7 +97,7 @@ const Upcoming = ({ searchValue, events, show }: any) => {
                     test.organisationProfile.name.match(new RegExp(searchValue, "i"))
 
             }).map((event: Match, index: any) => (
-                <Event key={index} E={event} show={show} />
+                <Event key={index} E={event} show={show}  />
             ))}
         </>
     )

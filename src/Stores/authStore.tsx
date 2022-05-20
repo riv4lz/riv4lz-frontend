@@ -10,9 +10,12 @@ export interface User {
 
 export class AuthStore {
     @observable user: User | undefined;
+    @observable isCaster: boolean = false;
+    @observable isOrg: boolean = false;
 
     @action
     attemptLogin = async (data: loginDto) => {
+        localStorage.clear();
         const response = await authService.attemptLogin(data);
         this.user = response.data;
         console.log(this.user);

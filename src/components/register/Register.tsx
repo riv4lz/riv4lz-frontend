@@ -18,6 +18,8 @@ const Register = () => {
         setCasterState(true);
         setOrgState(false);
         setPageNumber(pageNumber + 1);
+        console.log(uuid);
+        
     }
 
     const onOrg = () => {
@@ -92,14 +94,13 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
     const [password, setPassword] = useState('')
 
     const onNext = () => {
-        const uuid = uuidv4().toString();
         authStore.registerCaster({
-            id: uuid,
+            id: id,
             email: email,
             password: password,
         })
         casterStore.createCasterProfile({
-            id: uuid,
+            id: id,
             name: username,
             userType: 0,
             description: '',
@@ -161,14 +162,13 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
     const [password, setPassword] = useState('')
 
     const onNext = () => {
-        const uuid = uuidv4().toString();
         authStore.registerCaster({
-            id: uuid,
+            id: id,
             email: email,
             password: password,
         })
         orgStore.createOrgProfile({
-            id: uuid,
+            id: id,
             name: username,
             userType: 1,
             description: '',
