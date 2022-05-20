@@ -88,18 +88,19 @@ const Step0 = ({ caster, org }: any) => {
 }
 
 const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
-    const { authStore, casterStore } = useStore();
+    const { authStore, userStore } = useStore();
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
     const onNext = () => {
-        authStore.registerCaster({
+        authStore.registerUser({
             id: id,
             email: email,
             password: password,
+            userType: 0
         })
-        casterStore.createCasterProfile({
+        userStore.createUserProfile({
             id: id,
             name: username,
             userType: 0,
@@ -156,18 +157,19 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
 }
 
 const Step1_Org = ({ id, nextPage, prevPage }: any) => {
-    const { authStore, orgStore } = useStore();
+    const { authStore, userStore } = useStore();
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
     const onNext = () => {
-        authStore.registerCaster({
+        authStore.registerUser({
             id: id,
             email: email,
             password: password,
+            userType: 1
         })
-        orgStore.createOrgProfile({
+        userStore.createUserProfile({
             id: id,
             name: username,
             userType: 1,
@@ -224,7 +226,7 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
 }
 
 const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
-    const { casterStore } = useStore();
+    const { userStore } = useStore();
     const [twitter, setTwitter] = useState('')
     const [facebook, setFacebook] = useState('')
     const [twitch, setTwitch] = useState('')
@@ -235,14 +237,14 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
         prevPage();
     }
     const onNext = () => {
-        let caster = casterStore.caster
+        let caster = userStore.user
         const updatedCaster = {
             ...caster, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImage: '', profileImage: '', websiteURL: website
         }
         console.log(updatedCaster);
 
-        casterStore.updateCasterProfile(updatedCaster);
-        casterStore.setCaster(updatedCaster);
+        userStore.updateUserProfile(updatedCaster);
+        userStore.setUser(updatedCaster);
         nextPage();
     }
 
@@ -287,7 +289,7 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
 }
 
 const Step2_Org = ({ id, nextPage, prevPage }: any) => {
-    const { orgStore } = useStore();
+    const { userStore } = useStore();
     const [twitter, setTwitter] = useState('')
     const [facebook, setFacebook] = useState('')
     const [twitch, setTwitch] = useState('')
@@ -298,14 +300,14 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
         prevPage();
     }
     const onNext = () => {
-        let org = orgStore.org
+        let org = userStore.user
         const updatedOrg = {
             ...org, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImage: '', profileImage: '', websiteURL: website
         }
         console.log(updatedOrg);
 
-        orgStore.updateOrgProfile(updatedOrg);
-        orgStore.setOrg(updatedOrg);
+        userStore.updateUserProfile(updatedOrg);
+        userStore.setUser(updatedOrg);
         nextPage();
     }
     return (
@@ -349,21 +351,21 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
 }
 
 const Step3_Caster = ({ id, complete, prevPage }: any) => {
-    const { casterStore } = useStore();
+    const { userStore } = useStore();
     const [description, setDescription] = useState('')
 
     const onPrev = () => {
         prevPage();
     }
     const onComplete = () => {
-        let caster = casterStore.caster
+        let caster = userStore.user
         const updatedCaster = {
             ...caster, description: description
         }
         console.log(updatedCaster);
 
-        casterStore.updateCasterProfile(updatedCaster);
-        casterStore.setCaster(updatedCaster);
+        userStore.updateUserProfile(updatedCaster);
+        userStore.setUser(updatedCaster);
         complete();
     }
     return (
@@ -389,21 +391,21 @@ const Step3_Caster = ({ id, complete, prevPage }: any) => {
 }
 
 const Step3_Org = ({ id, complete, prevPage }: any) => {
-    const { orgStore } = useStore();
+    const { userStore } = useStore();
     const [description, setDescription] = useState('')
 
     const onPrev = () => {
         prevPage();
     }
     const onComplete = () => {
-        let org = orgStore.org
+        let org = userStore.user
         const updatedOrg = {
             ...org, description: description
         }
         console.log(updatedOrg);
 
-        orgStore.updateOrgProfile(updatedOrg);
-        orgStore.setOrg(updatedOrg);
+        userStore.updateUserProfile(updatedOrg);
+        userStore.setUser(updatedOrg);
         complete();
     }
     return (

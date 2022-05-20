@@ -40,17 +40,11 @@ const Navbar = (props: any) => {
 export default Navbar
 
 const LoggedInNavbar = () => { 
-  const {authStore, casterStore} = useStore();
+  const {authStore, userStore} = useStore();
   const navigate = useNavigate();
   const onClick = () => {
-    let isCaster = false;
     
-    for(let i = 0; i < casterStore.casters.length; i++) {
-      if(casterStore.casters[i].id === authStore.user?.id) {
-        isCaster = true;
-      }
-    }
-    navigate(isCaster ? '/Caster/'+ authStore.user?.id : '/Org/' + authStore.user?.id);
+    navigate(authStore.isCaster ? '/Caster/'+ authStore.user?.id : '/Org/' + authStore.user?.id);
   }
 
   return (

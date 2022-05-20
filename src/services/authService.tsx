@@ -11,14 +11,12 @@ export interface registerDto{
     id: string;
     email: string;
     password: string;
+    userType: number;
 }
 
 class AuthService {
-    registerOrg(data: registerDto) {
-        return http.post<User>("/Auth/RegisterOrganisation", data);
-    }
-    registerCaster(data: registerDto) {
-        return http.post<User>("/Auth/RegisterCaster", data);
+    registerUser(data: registerDto) {
+        return http.post<User>("/Auth/RegisterUser", data);
     }
     
     async attemptLogin(data: loginDto) {

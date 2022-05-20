@@ -16,7 +16,7 @@ const Chat = (comment: any) => {
     let navigate = useNavigate()
     const { commentStore } = useStore();
     const { authStore } = useStore();
-    const { casterStore } = useStore();
+    const { userStore } = useStore();
     const [localMessage, setLocalMessage] = useState<string>('');
     const [localUserName, setLocalUserName] = useState<string>('');
     const [localMessageId, setLocalMessageId] = useState<string>("ad4cff79-928d-4efc-9e28-a86151a95433");

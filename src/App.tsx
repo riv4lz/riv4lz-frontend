@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom'
 import Navbar from './components/shared/Navbar/Navbar';
 import React, { Component, useCallback, useEffect, useState, Suspense } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
@@ -14,10 +14,12 @@ import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
 import Footer from './components/shared/Footer/Footer';
 import OrgProfilePage from './pages/orgProfilePage/OrgProfilePage';
 import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
+import InaccessiblePage from './pages/inaccessiblePage/InaccessiblePage';
 
 
 function App() {
-  const { commentStore, authStore, casterStore, orgStore, offerStore, eventStore} = useStore();
+  const { commentStore, authStore, userStore, offerStore, eventStore } = useStore();
+
   let [user, setUser] = useState([])
   const [loaded, setLoaded] = useState(false)
   const test = () => setLoaded(true)
@@ -26,8 +28,8 @@ function App() {
 
   useEffect(() => {
     commentStore.loadMessages()
-    casterStore.loadCasters();
-    orgStore.loadOrgs();
+    userStore.loadUsers(0);
+    userStore.loadUsers(1);
     eventStore.loadMatches();
     if (localStorage.getItem("token")) {
       getCurrentUser();
@@ -42,6 +44,13 @@ function App() {
 
     return response;
   }
+
+
+  const navigateHome = () => {
+    window.location.href = "/"
+  }
+
+
   return (
     <>
       {{ loaded } ?
@@ -59,7 +68,7 @@ function App() {
                 </>}></Route>
               <Route path='/Login' element={<LoginPage />}>
               </Route>
-              <Route path='/createMatch' element={<CreateMatchPage />}>
+              <Route path='/createMatch' element={authStore.isOrg ? <CreateMatchPage /> : <InaccessiblePage />}>
               </Route>
               <Route path='/Register' element={<RegisterPage />}></Route>
               <Route path='/Matches' element={

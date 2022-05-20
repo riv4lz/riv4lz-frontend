@@ -6,7 +6,7 @@ import { useStore } from '../../../Stores/store';
 
 
 const Cta = () => {
-    const { casterStore } = useStore();
+    const { userStore } = useStore();
     const test = () => {
         console.log("Success");
     }
@@ -14,7 +14,7 @@ const Cta = () => {
     return (
         <div className='Cta'>
             <div className={"Cta__Text"}>
-                <span className={"Cta__Text__Title H3 Text_Secondary"}>hire {casterStore.caster?.name}</span>
+                <span className={"Cta__Text__Title H3 Text_Secondary"}>hire {userStore.user?.name}</span>
                 <span className={"Cta__Text_SubTitle "}>Send a match request</span>
                 <span className={"Cta__Text__MainText P4_Poppins Text_Secondary"}>
                     As an organisation or a tournament organisor you can request a specfic caster
@@ -28,7 +28,7 @@ const Cta = () => {
                 </div>
             </div>
             <div className='Cta_ImageContainer'>
-                <img src={casterStore.caster?.bannerImage !== null ? casterStore.caster?.bannerImage : 'https://imgs.xkcd.com/comics/real_programmers.png'} className={"Cta__Image"}></img>
+                <img src={userStore.user?.bannerImage !== null ? userStore.user?.bannerImage : 'https://imgs.xkcd.com/comics/real_programmers.png'} className={"Cta__Image"}></img>
             </div>
         </div>
     )

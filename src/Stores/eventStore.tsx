@@ -33,8 +33,11 @@ export interface createMatchDTO {
     organisationId: string
     time: string
     description: string
-    //teams: Team[]
     price: number
+    teamOne: Team
+    teamTwo: Team
+    eventStatus: number
+    game: string
 }
 
 export class EventStore {
@@ -65,17 +68,16 @@ export class EventStore {
 
     @action
     createMatch = (data: createMatchDTO) => {
-        matchesService.create(data).then((response: any) => {
-            this.match1 = response.data;
-        })
+        console.log(data);
+        
+        matchesService.create(data)
     }
 
     @action
-    loadTeams = () => {
-        matchesService.getTeams().then((response: any) => {
-            this.teams = response.data;
-            console.log(this.teams);
-        })
+    loadTeams = async () => {
+        const response = await matchesService.getTeams()
+        this.teams = response.data;
+        console.log(this.teams);
     }
 
     constructor() {
