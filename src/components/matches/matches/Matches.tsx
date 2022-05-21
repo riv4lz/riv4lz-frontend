@@ -17,6 +17,7 @@ const Matches = () => {
         console.log(authStore.isCaster);
         console.log(authStore.isOrg);
         
+        
     }, [])
     const load = () => setShowState(true)
     const [searchValue, setSearchValue] = useState('');
@@ -80,7 +81,7 @@ const Matches = () => {
                         <div style={{ color: finishedState === true ? '#279BBB' : 'white' }} onClick={onFinished}>Finished</div>
                     </div>
                     <div className='MatchesComponent_Container' id='Matches'>
-                        {upcomingState === true ? <Upcoming searchValue={searchValue} events={eventStore.matches} show={(value: any) => show(value)} /> : <Finished events={eventStore.matches} show={(value: any) => show(value)} />}
+                        {upcomingState === true ? <Upcoming searchValue={searchValue} events={eventStore.upcoming} show={(value: any) => show(value)} /> : <Finished events={eventStore.finished} show={(value: any) => show(value)} />}
                     </div>
                 </div>
             </div>
@@ -94,7 +95,11 @@ const Upcoming = ({ searchValue, events, show }: any) => {
             {events.filter((test: Match) => {
 
                 return test.id.match(new RegExp(searchValue, "i")) ||
-                    test.organisationProfile.name.match(new RegExp(searchValue, "i"))
+                    test.organisationProfile.name.match(new RegExp(searchValue, "i")) ||
+                    test.teams[0].name.match(new RegExp(searchValue, "i")) ||
+                    test.teams[1].name.match(new RegExp(searchValue, "i")) ||
+                    test.time.match(new RegExp(searchValue, "i"))
+
 
             }).map((event: Match, index: any) => (
                 <Event key={index} E={event} show={show}  />

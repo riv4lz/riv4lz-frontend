@@ -45,16 +45,25 @@ export class EventStore {
     @observable match: Match | undefined;
     @observable match1: createMatchDTO | undefined;
     @observable teams: Team[] = [];
+    @observable finished: Match[] = [];
+    @observable upcoming: Match[] = [];
 
 
     @action
     loadMatches = async () => {
         this.matches = [];
+        this.upcoming = [];
+        this.finished = [];
         const response = await matchesService.getAll();
 
         for (let i = 0; i < response.data.length; i++) {
             if (response.data[i].eventStatus === 0) {
                 this.matches.push(response.data[i])
+                if (new Date(response.data[i].time) > new Date()) {
+                    this.upcoming.push(response.data[i])
+                } else {
+                    this.finished.push(response.data[i])
+                }
             }
         }
     }
@@ -69,7 +78,7 @@ export class EventStore {
     @action
     createMatch = (data: createMatchDTO) => {
         console.log(data);
-        
+
         matchesService.create(data)
     }
 

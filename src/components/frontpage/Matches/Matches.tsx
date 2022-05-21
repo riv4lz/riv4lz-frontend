@@ -68,7 +68,7 @@ const Matches = () => {
 
                     <div className='matches_MatchContainer Grid Justify_Center Align_Center'>
 
-                        {upcomingState === true ? <Upcoming events={eventStore.matches} show={(value: any) => show(value)} /> : <Finished events={eventStore.matches} show={(value: any) => show(value)} />}
+                        {upcomingState === true ? <Upcoming events={eventStore.upcoming} show={(value: any) => show(value)} /> : <Finished events={eventStore.finished} show={(value: any) => show(value)} />}
 
                     </div>
                 </div>
