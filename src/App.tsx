@@ -80,6 +80,7 @@ function App() {
                 <>
                   <Navbar />
                   <AboutPage />
+                  <Footer />
                 </>}>
               </Route>
               <Route path='/Login' element={<LoginPage />}>

@@ -239,7 +239,7 @@ $header_0_mobile: 36px;
 
 $header_1_desktop: 53px;
 $header_1_tablet: 53px;
-$header_1_mobile: 19 px;
+$header_1_mobile: 19px;
 
 //--------------------------Header 2 - VALUES--------------------------
 $header_2_desktop: 34px;
@@ -388,6 +388,52 @@ $header_3_mobile: 20px;
 }
 .margin-bottom-xxxl{
   margin-bottom: 20rem;
+}
+
+//--------------------------Padding-Top - CLASSES--------------------------
+.padding-top-xs{
+  padding-top: 0.5rem;
+}
+.padding-top-s{
+  padding-top: 1rem;
+}
+.padding-top-m{
+  padding-top: 1.25rem;
+}
+.padding-top-l{
+  padding-top: 1.5rem;
+}
+.padding-top-xl{
+  padding-top: 2.0rem;
+}
+.padding-top-xxl{
+  padding-top: 6rem;
+}
+
+//--------------------------Padding-Buttom - CLASSES--------------------------
+.padding-bottom-1{
+  padding-bottom: 0.5rem;
+}
+.padding-bottom-2{
+  padding-bottom: 1rem;
+}
+.padding-bottom-1_25{
+  padding-bottom: 1.25rem;
+}
+.padding-bottom-3{
+  padding-bottom: 1.5rem;
+}
+.padding-bottom-4{
+  padding-bottom: 2.0rem;
+}
+.padding-bottom-5{
+  padding-bottom: 2.5rem;
+}
+.padding-bottom-xxl{
+  padding-bottom: 6rem;
+}
+.padding-bottom-xxxl{
+  padding-bottom: 20rem;
 }
 
 
