@@ -21,7 +21,6 @@ import AboutPage from './pages/aboutPage/AboutPage';
 function App() {
   const { commentStore, authStore, userStore, offerStore, eventStore } = useStore();
 
-  let [user, setUser] = useState([])
   const [loaded, setLoaded] = useState(false)
   const test = () => setLoaded(true)
 
@@ -47,10 +46,6 @@ function App() {
       authStore.isCaster = false;
       authStore.isOrg = true;
     }
-    if (response !== undefined) {
-      setLoaded(true)
-    }
-
     return response;
   }
 
@@ -85,7 +80,7 @@ function App() {
               </Route>
               <Route path='/Login' element={<LoginPage />}>
               </Route>
-              <Route path='/createMatch' element={authStore.isOrg ? <CreateMatchPage /> : <InaccessiblePage />}>
+              <Route path='/createMatch' element={<CreateMatchPage />}>
               </Route>
               <Route path='/Register' element={<RegisterPage />}></Route>
               <Route path='/Matches' element={

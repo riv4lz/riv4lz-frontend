@@ -78,7 +78,7 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
                         </div>
                     </div>
                 </div>
-                {casterState ? <Caster Event={Event} handleClose={handleClose} /> : organisationState ? <Organisation handleClose={handleClose} /> : null}
+                {casterState ? <Caster Event={Event} handleClose={handleClose} /> : organisationState && userStore.user.id === Event.organisationProfile.id ? <Organisation handleClose={handleClose} /> : null}
                 <div className='Event_button Flex Justify_Center Align_Center'>
                     <Public Close={handleClose} />
                 </div>
