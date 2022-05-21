@@ -27,23 +27,18 @@ const Login = () => {
 
     const loginRequest = async(user: any) => {
         await authStore.attemptLogin(user);
-
-        for (let i = 0; i < userStore.casters.length; i++) {
-            console.log(userStore.casters[i].id);
-            
-            if (userStore.casters[i].id === authStore.user?.id) {
-                authStore.isCaster = true;
-                authStore.isOrg = false;
-            }
+        const loadedUser = await userStore.loadUser(authStore.user?.id);
+        if(loadedUser.userType === 0) {
+            authStore.isCaster = true;
+            authStore.isOrg = false;
+        } else{
+            authStore.isCaster = false;
+            authStore.isOrg = true;
         }
 
-        for (let i = 0; i < userStore.orgs.length; i++) {
-            console.log(userStore.orgs[i].id);
-            if (userStore.orgs[i].id === authStore.user?.id) {
-                authStore.isCaster = false;
-                authStore.isOrg = true;
-            }
-        }
+        console.log(loadedUser);
+        
+        
 
         if (authStore.user) {
             localStorage.setItem("token", authStore.user.token);

@@ -7,7 +7,7 @@ class UserService {
         return http.get<Array<User>>(`/Profile/GetProfiles?userType=${userType}`);
     }
     async get(id: any) {
-        return http.get<User>(`/Profile/GetCasterProfile?id=${id}`);
+        return http.get<User>(`/Profile/GetProfile?id=${id}`);
     }
     async create(data: User) {
         return http.post<User>("/Profile/RegisterProfile", data);

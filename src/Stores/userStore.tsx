@@ -37,7 +37,7 @@ export class UserStore {
     @action
     loadUsers = (userType: number) => {
         userService.getAll(userType).then((response: any) => {
-            if(userType === 1) {
+            if (userType === 1) {
                 this.orgs = response.data;
             } else {
                 this.casters = response.data;
@@ -46,12 +46,11 @@ export class UserStore {
     }
 
     @action
-    loadUser = (id: any) => {
-        userService.get(id).then((response: any) => {
-            this.user = response.data;
-            console.log(this.user);
-            
-        })
+    loadUser = async (id: any) => {
+        const response = await userService.get(id)
+        this.user = response.data;
+        console.log(this.user);
+        return this.user;
     }
 
     @action
