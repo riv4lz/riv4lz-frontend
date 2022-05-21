@@ -39,6 +39,14 @@ function App() {
 
   const getCurrentUser = async () => {
     const response = await authStore.getCurrentUser()
+    const user = await userStore.loadUser(authStore.user?.id);
+    if (user.userType === 0) {
+      authStore.isCaster = true;
+      authStore.isOrg = false;
+    } else {
+      authStore.isCaster = false;
+      authStore.isOrg = true;
+    }
     if (response !== undefined) {
       setLoaded(true)
     }
