@@ -15,7 +15,7 @@ import Footer from './components/shared/Footer/Footer';
 import OrgProfilePage from './pages/orgProfilePage/OrgProfilePage';
 import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 import InaccessiblePage from './pages/inaccessiblePage/InaccessiblePage';
-import AboutPage from "./pages/aboutPage/AboutPage";
+import AboutPage from './pages/aboutPage/AboutPage';
 
 
 function App() {
