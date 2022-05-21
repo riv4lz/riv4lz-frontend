@@ -7,6 +7,7 @@ import Youtube from '../../../assets/icons/social-media/youtube.svg'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
 import { useStore } from '../../../Stores/store'
+import { v4 as uuidv4 } from 'uuid';
 
 const Matches = () => {
 
@@ -81,7 +82,8 @@ const Upcoming = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
         for (let i = 0; i < events.length && i < 4; i++) {
-            content.push(<Event E={events[i]} show={show} />);
+            const k = uuidv4();
+            content.push(<Event key={k} E={events[i]} show={show} />);
         }
         return content;
     }
@@ -98,7 +100,8 @@ const Finished = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
         for (let i = 0; i < events.length && i < 4; i++) {
-            content.push(<Event E={events[i]} show={show} />);
+            const k = uuidv4();
+            content.push(<Event key={k} E={events[i]} show={show} />);
         }
         return content;
     }
