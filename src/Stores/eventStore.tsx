@@ -9,6 +9,7 @@ export interface Match {
     teams: Team[]
     price: number
     organisationProfile: organisationProfile
+    game: string
 }
 
 export interface Team {

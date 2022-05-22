@@ -72,7 +72,7 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
                                     game
                                 </div>
                                 <div className='Info P4_Statewide_light'>
-                                    {Event.id}
+                                    {Event.game}
                                 </div>
                             </div>
                         </div>
