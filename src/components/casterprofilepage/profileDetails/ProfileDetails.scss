@@ -1,4 +1,4 @@
-@import '../../../index.scss';
+@import "../../../index.scss";
 
 .ProfileDetails {
     padding-top: 12rem;
@@ -9,18 +9,35 @@
     column-gap: 20px;
     grid-template-rows: auto;
     grid-template-areas:
-    "profileImg description"
-    "additionalDetails additionalDetails";
+        "profileImg description"
+        "additionalDetails additionalDetails";
     justify-content: center;
     padding-bottom: 4rem;
     .ProfileDetails__ProfileImage {
         grid-area: profileImg;
         justify-self: center;
+        position: relative;
         .ProfileDetails__ProfileImage_Image {
             width: 300px;
             height: 300px;
             margin-bottom: 0.5rem;
             border-radius: 50%;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0%;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 0.5rem;
+            border-radius: 50%;
+            transition: 0.2s ease-in-out;
+            opacity: 0;
+            background-color:rgba($color: $clr_primary, $alpha: 0.5);
+        }
+        
+        .test:hover .overlay{
+            opacity: 1;
         }
     }
     .ProfileDetails__Description {
@@ -29,9 +46,9 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: max-content max-content max-content;
         grid-template-areas:
-        "gamerTag socialIcons"
-        "realName socialIcons"
-        "description1 description1";
+            "gamerTag socialIcons"
+            "realName socialIcons"
+            "description1 description1";
         align-items: start;
         text-align: start;
         .ProfileDetails__Description__GamerTag {

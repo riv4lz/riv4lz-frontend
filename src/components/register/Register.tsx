@@ -105,8 +105,8 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
             name: username,
             userType: 0,
             description: '',
-            profileImage: '',
-            bannerImage: '',
+            profileImageUrl: '',
+            bannerImageUrl: '',
             facebookURL: '',
             twitterURL: '',
             discordURL: '',
@@ -174,8 +174,8 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
             name: username,
             userType: 1,
             description: '',
-            profileImage: '',
-            bannerImage: '',
+            profileImageUrl: '',
+            bannerImageUrl: '',
             facebookURL: '',
             twitterURL: '',
             discordURL: '',
@@ -239,7 +239,7 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
     const onNext = () => {
         let caster = userStore.user
         const updatedCaster = {
-            ...caster, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImage: '', profileImage: '', websiteURL: website
+            ...caster, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImageUrl: '', profileImage: '', websiteURL: website
         }
         console.log(updatedCaster);
 
@@ -302,7 +302,7 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
     const onNext = () => {
         let org = userStore.user
         const updatedOrg = {
-            ...org, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImage: '', profileImage: '', websiteURL: website
+            ...org, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImageUrl: '', profileImage: '', websiteURL: website
         }
         console.log(updatedOrg);
 
