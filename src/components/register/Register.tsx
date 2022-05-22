@@ -92,8 +92,42 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [repeatPassword, setRepeatPassword] = useState('')
 
-    const onNext = () => {
+    const onNext = async () => {
+        if (username.length <= 0) {
+            alert("Username cannot be empty");
+            return;
+        }
+        if (email.length <= 0) {
+            alert("Email cannot be empty");
+            return;
+        }
+        if (password.length <= 0) {
+            alert("Password cannot be empty");
+            return
+        }
+        if (password !== repeatPassword) {
+            alert("Passwords do not match");
+            return;
+        }
+        if (password.length < 8) {
+            alert("Password must be at least 8 characters long");
+            return;
+        }
+        if (username.length < 3) {
+            alert("Username must be at least 3 characters long");
+            return;
+        }
+        if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+            alert("Email is not valid");
+            return;
+        }
+        if (await authStore.isEmailTaken(email)) {
+            alert("Email already taken");
+            return;
+        }
+
         authStore.registerUser({
             id: id,
             email: email,
@@ -144,7 +178,7 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
-                        <input type="password" className='Input' placeholder='Password'></input>
+                        <input type="password" className='Input' placeholder='Password' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}></input>
                     </div>
                 </form>
             </div>
@@ -161,8 +195,43 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [repeatPassword, setRepeatPassword] = useState('')
 
-    const onNext = () => {
+    const onNext = async () => {
+        if (username.length <= 0) {
+            alert("Username cannot be empty");
+            return;
+        }
+        if (email.length <= 0) {
+            alert("Email cannot be empty");
+            return;
+        }
+        if (password.length <= 0) {
+            alert("Password cannot be empty");
+            return
+        }
+
+        if (password !== repeatPassword) {
+            alert("Passwords do not match");
+            return;
+        }
+        if (!password.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$")) {
+            alert("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter and one number");
+            return;
+        }
+        if (username.length < 3) {
+            alert("Username must be at least 3 characters long");
+            return;
+        }
+        if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+            alert("Email is not valid");
+            return;
+        }
+        if (await authStore.isEmailTaken(email)) {
+            alert("Email already taken");
+            return;
+        }
+
         authStore.registerUser({
             id: id,
             email: email,
@@ -213,7 +282,7 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
-                        <input type="password" className='Input' placeholder='Password'></input>
+                        <input type="password" className='Input' placeholder='Password' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}></input>
                     </div>
                 </form>
             </div>
@@ -260,23 +329,23 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
                 <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitter</span>
-                        <input type="text" className='Input' placeholder='Jane Doe' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Twitter' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Facebook</span>
-                        <input type="text" className='Input' placeholder='username@gmail.com' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Facebook' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitch</span>
-                        <input type="text" className='Input' placeholder='Uzbekistan' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Twitch' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Discord</span>
-                        <input type="text" className='Input' placeholder='Skrrrrt lane 69' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Discord' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Website</span>
-                        <input type="text" className='Input' placeholder='Skrrrrt lane 69' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Website' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
                     </div>
                 </form>
             </div>
@@ -322,23 +391,23 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
                 <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitter</span>
-                        <input type="text" className='Input' placeholder='Jane Doe' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Twitter' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Facebook</span>
-                        <input type="text" className='Input' placeholder='username@gmail.com' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Facebook' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitch</span>
-                        <input type="text" className='Input' placeholder='Uzbekistan' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Twitch' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Discord</span>
-                        <input type="text" className='Input' placeholder='Skrrrrt lane 69' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Discord' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Website</span>
-                        <input type="text" className='Input' placeholder='Skrrrrt lane 69' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Website' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
                     </div>
                 </form>
             </div>

@@ -29,5 +29,9 @@ class AuthService {
             }
         });
     }
+
+    async isEmailTaken(email: string) {
+        return http.get<boolean>(`/Auth/IsEmailTaken?email=${email}`);
+    }
 }
 export default new AuthService();
