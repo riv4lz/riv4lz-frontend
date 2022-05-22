@@ -1,12 +1,11 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom'
+import {BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate} from 'react-router-dom'
 import Navbar from './components/shared/Navbar/Navbar';
 import React, { Component, useCallback, useEffect, useState, Suspense } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
 import { observer } from "mobx-react-lite";
-import Chat from "./pages/chat/chat";
 import { store, useStore } from "./Stores/store";
 import CastersPage from "./pages/castersPage/CastersPage";
 import RegisterPage from './pages/registerPage/RegisterPage';
@@ -16,6 +15,17 @@ import OrgProfilePage from './pages/orgProfilePage/OrgProfilePage';
 import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 import InaccessiblePage from './pages/inaccessiblePage/InaccessiblePage';
 import AboutPage from './pages/aboutPage/AboutPage';
+import ChatPage from "./pages/chatPage/ChatPage";
+import GuidePage from "./pages/guidePage/GuidePage";
+
+function RequireAuth({ children }) {
+  const location = useLocation();
+  return !localStorage.getItem("token") ? (
+      children
+  ) : (
+      <Navigate to="/Login" replace state={{ path: location.pathname }} />
+  );
+}
 
 
 function App() {
@@ -58,6 +68,12 @@ function App() {
     window.location.href = "/"
   }
 
+  function authRequired(nextState, replace) {
+    if (localStorage.getItem("token")) {
+      replace('/login');
+    }
+  }
+
 
   return (
     <>
@@ -68,7 +84,7 @@ function App() {
           <Router>
             <Navbar />
             <Routes>
-              {["/Guide", "/Contact"].map((path, index) =>
+              {["/Contact"].map((path, index) =>
                 <Route path={path} element={<Navbar />} key={index} />
               )}
               <Route path="/" element={
@@ -79,6 +95,13 @@ function App() {
               <Route path="/About" element={
                 <>
                   <AboutPage />
+                </>}>
+              </Route>
+              <Route path="/Guide" element={
+                <>
+                  <Navbar />
+                  <GuidePage />
+                  <Footer />
                 </>}>
               </Route>
               <Route path='/Login' element={<LoginPage />}>
@@ -92,7 +115,12 @@ function App() {
                 </>
               }>
               </Route>
-              <Route path='/Chat' element={<Chat comments={commentStore.comments} commentStore={commentStore} />}>
+              <Route path="/Chat" element={
+                <RequireAuth>
+                  <Navbar />
+                  <ChatPage />
+                  <Footer />
+                </RequireAuth>}>
               </Route>
               <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
               <Route path="/Org/:id" element={<OrgProfilePage />}></Route>

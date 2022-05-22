@@ -1,0 +1,16 @@
+@import '../../../index.scss';
+
+.FAQComponent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .FAQComponent__Wrapper {
+        width: 1440px;
+
+    }
+}
+
+.test {
+    color: red;
+}

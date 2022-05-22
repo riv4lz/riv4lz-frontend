@@ -367,24 +367,28 @@ $header_3_mobile: 20px;
   margin-top: 6rem;
 }
 
+.margin-top-xxxl{
+  margin-top: 20rem;
+}
+
 //--------------------------Margin-Buttom - CLASSES--------------------------
-.margin-bottom-1{
+.margin-bottom-xs{
   margin-bottom: 0.5rem;
 }
-.margin-bottom-2{
+.margin-bottom-s{
   margin-bottom: 1rem;
 }
-.margin-bottom-1_25{
+.margin-bottom-m{
   margin-bottom: 1.25rem;
 }
-.margin-bottom-3{
+.margin-bottom-l{
   margin-bottom: 1.5rem;
 }
-.margin-bottom-4{
+.margin-bottom-xl{
   margin-bottom: 2.0rem;
 }
-.margin-bottom-5{
-  margin-bottom: 2.5rem;
+.margin-bottom-xxl{
+  margin-bottom: 5rem;
 }
 .margin-bottom-xxxl{
   margin-bottom: 20rem;
@@ -409,33 +413,6 @@ $header_3_mobile: 20px;
 .padding-top-xxl{
   padding-top: 6rem;
 }
-
-//--------------------------Padding-Buttom - CLASSES--------------------------
-.padding-bottom-1{
-  padding-bottom: 0.5rem;
-}
-.padding-bottom-2{
-  padding-bottom: 1rem;
-}
-.padding-bottom-1_25{
-  padding-bottom: 1.25rem;
-}
-.padding-bottom-3{
-  padding-bottom: 1.5rem;
-}
-.padding-bottom-4{
-  padding-bottom: 2.0rem;
-}
-.padding-bottom-5{
-  padding-bottom: 2.5rem;
-}
-.padding-bottom-xxl{
-  padding-bottom: 6rem;
-}
-.padding-bottom-xxxl{
-  padding-bottom: 20rem;
-}
-
 
 //--------------------------Gap - CLASSES--------------------------
 .gap-1{
