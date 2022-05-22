@@ -16,6 +16,7 @@ import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 import InaccessiblePage from './pages/inaccessiblePage/InaccessiblePage';
 import AboutPage from './pages/aboutPage/AboutPage';
 import ChatPage from "./pages/chatPage/ChatPage";
+import GuidePage from "./pages/guidePage/GuidePage";
 
 
 function App() {
@@ -59,7 +60,7 @@ function App() {
         <div className="App">
           <Router>
             <Routes>
-              {["/Guide", "/Contact"].map((path, index) =>
+              {["/Contact"].map((path, index) =>
                 <Route path={path} element={<Navbar />} key={index} />
               )}
               <Route path="/" element={
@@ -72,6 +73,13 @@ function App() {
                 <>
                   <Navbar />
                   <AboutPage />
+                </>}>
+              </Route>
+              <Route path="/Guide" element={
+                <>
+                  <Navbar />
+                  <GuidePage />
+                  <Footer />
                 </>}>
               </Route>
               <Route path='/Login' element={<LoginPage />}>
