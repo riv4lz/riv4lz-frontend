@@ -25,9 +25,8 @@ const MatchesPage = () => {
     setTimeout(load, 10)
   }
 
-  const hide = () => {
+  const hide = async() => {
     setShowState(false);
-    window.location.reload();
   }
 
   return (

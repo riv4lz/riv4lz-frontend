@@ -3,14 +3,14 @@ import './CreateMatches.scss'
 import { useStore } from '../../../Stores/store'
 import Btn from '../../button/Btn'
 import { createMatchDTO, Team } from "../../../Stores/eventStore";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 
 const CreateMatches = ({ show, handleClose }: any) => {
     const { eventStore, authStore } = useStore()
 
-    const [team1, setTeam1] = useState({id: '', name: ''})
-    const [team2, setTeam2] = useState({id: '', name: ''})
+    const [team1, setTeam1] = useState({ id: '', name: '' })
+    const [team2, setTeam2] = useState({ id: '', name: '' })
     const [dateTime, setDateTime] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState(0)
@@ -28,12 +28,14 @@ const CreateMatches = ({ show, handleClose }: any) => {
 
     }
 
-    const createEvent = async() => {
+    const createEvent = async () => {
         const orgId = authStore.user !== undefined ? authStore.user?.id : ''
         const id = uuidv4().toString()
-        
-        eventStore.createMatch({id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: 'lol', eventStatus: 0})
+
+        eventStore.createMatch({ id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: 'lol', eventStatus: 0 })
         handleClose()
+
+        window.location.reload();
     }
 
     return (
