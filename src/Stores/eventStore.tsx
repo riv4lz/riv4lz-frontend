@@ -9,6 +9,7 @@ export interface Match {
     teams: Team[]
     price: number
     organisationProfile: organisationProfile
+    game: string
 }
 
 export interface Team {
@@ -45,19 +46,28 @@ export class EventStore {
     @observable match: Match | undefined;
     @observable match1: createMatchDTO | undefined;
     @observable teams: Team[] = [];
+    @observable finished: Match[] = [];
+    @observable upcoming: Match[] = [];
 
 
     @action
     loadMatches = async () => {
         this.matches = [];
+        observable.array(this.upcoming).clear();
+        this.finished = [];
         const response = await matchesService.getAll();
+        this.matches = response.data.filter(match => match.eventStatus === 0);
+    }
 
-        for (let i = 0; i < response.data.length; i++) {
-            if (response.data[i].eventStatus === 0) {
-                this.matches.push(response.data[i])
-            }
+    @action
+    filterMatches = async (isUpcomming: boolean) => {
+        if (isUpcomming) {
+            return this.matches.filter((match: Match) => new Date(match.time) > new Date());
+        } else {
+            return this.matches.filter((match: Match) => new Date(match.time) < new Date());
         }
     }
+
 
     @action
     loadMatch = (id: any) => {
@@ -69,7 +79,7 @@ export class EventStore {
     @action
     createMatch = (data: createMatchDTO) => {
         console.log(data);
-        
+
         matchesService.create(data)
     }
 

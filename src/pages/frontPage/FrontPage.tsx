@@ -20,7 +20,6 @@ const FrontPage = () => {
             <Matches />
             <Testimonies />
             <Blog />
-            <Footer />
         </>
     )
 }

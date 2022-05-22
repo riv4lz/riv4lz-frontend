@@ -1,6 +1,16 @@
 @import "../../index.scss";
 
-
+.CreateMatch{
+    position:fixed;
+    z-index: 999;
+    bottom: 0;
+    right: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: $clr-primary;
+    margin: 64px;
+}
 .Gig_Container {
     position: relative;
     background-color: $Dark_Grey;

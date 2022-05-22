@@ -4,6 +4,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background-image: url(../../../assets/images/pngwing.com.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 444px 343px;
 }
 
 .MainSection__Wrapper {
@@ -11,6 +15,7 @@
   align-items: center;
   flex-direction: column;
   max-width: 800px;
+  line-height: 187%;
 }
 
 .MainSection__Hero {

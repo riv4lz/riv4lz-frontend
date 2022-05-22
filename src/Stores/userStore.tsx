@@ -6,8 +6,8 @@ export interface User {
     name: string
     userType: number
     description: string
-    profileImage?: string
-    bannerImage?: string
+    profileImageUrl?: string
+    bannerImageUrl?: string
     facebookURL: string
     twitterURL: string
     discordURL: string
@@ -24,8 +24,8 @@ export class UserStore {
         name: '',
         userType: 0,
         description: '',
-        profileImage: '',
-        bannerImage: '',
+        profileImageUrl: '',
+        bannerImageUrl: '',
         facebookURL: '',
         twitterURL: '',
         discordURL: '',

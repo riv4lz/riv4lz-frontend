@@ -26,11 +26,9 @@ function OrgProfilePage(props: any) {
 
   return useObserver(() => (
     <div>
-      <Navbar />
-      <ProfileDetails />
+      <ProfileDetails id={id}/>
       <Matches />
       <Highlights />
-      <Footer />
     </div>
   )
   );

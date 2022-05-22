@@ -35,6 +35,12 @@ export class AuthStore {
         console.log(this.user);
     }
 
+    @action
+    isEmailTaken = async (email: string) => {
+        const response = await authService.isEmailTaken(email);
+        return response.data;
+    }
+
     constructor() {
         makeAutoObservable(this);
     }
