@@ -60,22 +60,21 @@ function App() {
       {{ loaded } ?
 
         <div className="App">
+
           <Router>
+            <Navbar />
             <Routes>
               {["/Guide", "/Contact"].map((path, index) =>
                 <Route path={path} element={<Navbar />} key={index} />
               )}
               <Route path="/" element={
                 <>
-                  <Navbar />
                   <FrontPage />
                 </>}>
               </Route>
               <Route path="/About" element={
                 <>
-                  <Navbar />
                   <AboutPage />
-                  <Footer />
                 </>}>
               </Route>
               <Route path='/Login' element={<LoginPage />}>
@@ -85,9 +84,7 @@ function App() {
               <Route path='/Register' element={<RegisterPage />}></Route>
               <Route path='/Matches' element={
                 <>
-                  <Navbar />
                   <MatchesPage />
-                  <Footer />
                 </>
               }>
               </Route>
@@ -96,7 +93,9 @@ function App() {
               <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
               <Route path="/Org/:id" element={<OrgProfilePage />}></Route>
             </Routes>
+            <Footer />
           </Router>
+
         </div>
         : null}
     </>
