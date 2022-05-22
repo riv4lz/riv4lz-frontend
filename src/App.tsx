@@ -30,7 +30,11 @@ function App() {
     commentStore.loadMessages()
     userStore.loadUsers(0);
     userStore.loadUsers(1);
-    eventStore.loadMatches();
+    const loadEvents = async () => {
+      await eventStore.loadMatches();
+    }
+    loadEvents();
+    
     if (localStorage.getItem("token")) {
       getCurrentUser();
     }

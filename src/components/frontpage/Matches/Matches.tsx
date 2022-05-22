@@ -8,19 +8,28 @@ import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
 import { useStore } from '../../../Stores/store'
 import { v4 as uuidv4 } from 'uuid';
+import { Match } from '../../../Stores/eventStore'
 
 const Matches = () => {
 
     const { eventStore } = useStore();
 
     useEffect(() => {
-        eventStore.loadMatches();
-        console.log(eventStore.matches);
-        
+        const loadMatches = async () => {
+            if (eventStore.matches.length <= 0) {
+                await eventStore.loadMatches();
+            }
+            setUpcomingMatches(await eventStore.filterMatches(true));
+            setFinishedMatches(await eventStore.filterMatches(false));
+        }
+        loadMatches();
+
     }, [])
 
     const [upcomingState, setUpcommingState] = useState(true);
     const [finishedState, setFinishedState] = useState(false);
+    const [upcomingMatches, setUpcomingMatches] = useState<Match[]>([]);
+    const [finishedMatches, setFinishedMatches] = useState<Match[]>([]);
     const [eventDetails, setEventDetails] = useState<IEventDetails>({
         organiser: '',
         description: '',
@@ -68,7 +77,7 @@ const Matches = () => {
 
                     <div className='matches_MatchContainer Grid Justify_Center Align_Center'>
 
-                        {upcomingState === true ? <Upcoming events={eventStore.upcoming} show={(value: any) => show(value)} /> : <Finished events={eventStore.finished} show={(value: any) => show(value)} />}
+                        {upcomingState === true ? <Upcoming events={upcomingMatches} show={(value: any) => show(value)} /> : <Finished events={finishedMatches} show={(value: any) => show(value)} />}
 
                     </div>
                 </div>

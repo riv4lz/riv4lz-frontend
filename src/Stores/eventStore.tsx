@@ -53,21 +53,21 @@ export class EventStore {
     @action
     loadMatches = async () => {
         this.matches = [];
-        this.upcoming = [];
+        observable.array(this.upcoming).clear();
         this.finished = [];
         const response = await matchesService.getAll();
+        this.matches = response.data.filter(match => match.eventStatus === 0);
+    }
 
-        for (let i = 0; i < response.data.length; i++) {
-            if (response.data[i].eventStatus === 0) {
-                this.matches.push(response.data[i])
-                if (new Date(response.data[i].time) > new Date()) {
-                    this.upcoming.push(response.data[i])
-                } else {
-                    this.finished.push(response.data[i])
-                }
-            }
+    @action
+    filterMatches = async (isUpcomming: boolean) => {
+        if (isUpcomming) {
+            return this.matches.filter((match: Match) => new Date(match.time) > new Date());
+        } else {
+            return this.matches.filter((match: Match) => new Date(match.time) < new Date());
         }
     }
+
 
     @action
     loadMatch = (id: any) => {

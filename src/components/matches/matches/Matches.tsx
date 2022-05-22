@@ -12,8 +12,25 @@ const Matches = () => {
 
     const { eventStore, offerStore, authStore } = useStore();
 
+
+    const [loaded, setLoaded] = useState(false)
+    const [upcoming, setUpcomming] = useState<Match[]>([])
+    const [finished, setFinished] = useState<Match[]>([])
+    const test = async () => {
+        setLoaded(true)
+    }
+
+    setTimeout(test, 500)
+
     useEffect(() => {
-        eventStore.loadMatches();
+        const t = async () => {
+            if(eventStore.matches.length <= 0){
+                await eventStore.loadMatches();
+            }
+            setUpcomming(await eventStore.filterMatches(true));
+            setFinished(await eventStore.filterMatches(false))
+        }
+        t();
         console.log(eventStore.matches);
         console.log(authStore.isCaster);
         console.log(authStore.isOrg);
@@ -58,34 +75,37 @@ const Matches = () => {
         setShowState(false);
     }
 
-
     return (
         <>
-            {showState ?
-                <EventDetails isOrg={authStore.isOrg} isCaster={authStore.isCaster} show={showState} handleClose={hide} Event={eventDetails} /> : null
-            }
-            <div className='Matches_Container Flex '>
-                <div className='Matches_Wrapper Flex Content_Width '>
-                    <div className='Matches_Title H2 Text_Secondary'>
-                        MATCHES
-                    </div>
-                    <div className='input_Container Flex Justify_Evenly Align_Center'>
-                        <div className='input_Component'>
-                            <div className='Title P1_Oxanium Bold Text_Secondary'>
-                                Filter Matches
+            {loaded ?
+                <>
+                    {showState ?
+                        <EventDetails isOrg={authStore.isOrg} isCaster={authStore.isCaster} show={showState} handleClose={hide} Event={eventDetails} /> : null
+                    }
+                    <div className='Matches_Container Flex '>
+                        <div className='Matches_Wrapper Flex Content_Width '>
+                            <div className='Matches_Title H2 Text_Secondary'>
+                                MATCHES
                             </div>
-                            <input className='Input P4_Oxanium Text_Secondary' type='text' placeholder='Search based on: Game, Teams or Date' onChange={e => setSearchValue(e.target.value)} />
+                            <div className='input_Container Flex Justify_Evenly Align_Center'>
+                                <div className='input_Component'>
+                                    <div className='Title P1_Oxanium Bold Text_Secondary'>
+                                        Filter Matches
+                                    </div>
+                                    <input className='Input P4_Oxanium Text_Secondary' type='text' placeholder='Search based on: Game, Teams or Date' onChange={e => setSearchValue(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className='matches_Buttons P1_Oxanium Bold Flex Justify_Center Align_Center'>
+                                <div style={{ color: upcomingState === true ? '#279BBB' : 'white' }} onClick={onUpcoming}>Upcoming</div>
+                                <div style={{ color: finishedState === true ? '#279BBB' : 'white' }} onClick={onFinished}>Finished</div>
+                            </div>
+                            <div className='MatchesComponent_Container' id='Matches'>
+                                {upcomingState === true ? <Upcoming searchValue={searchValue} events={upcoming} show={(value: any) => show(value)} /> : <Finished searchValue={searchValue} events={finished} show={(value: any) => show(value)} />}
+                            </div>
                         </div>
                     </div>
-                    <div className='matches_Buttons P1_Oxanium Bold Flex Justify_Center Align_Center'>
-                        <div style={{ color: upcomingState === true ? '#279BBB' : 'white' }} onClick={onUpcoming}>Upcoming</div>
-                        <div style={{ color: finishedState === true ? '#279BBB' : 'white' }} onClick={onFinished}>Finished</div>
-                    </div>
-                    <div className='MatchesComponent_Container' id='Matches'>
-                        {upcomingState === true ? <Upcoming searchValue={searchValue} events={eventStore.upcoming} show={(value: any) => show(value)} /> : <Finished searchValue={searchValue} events={eventStore.finished} show={(value: any) => show(value)} />}
-                    </div>
-                </div>
-            </div>
+                </>
+                : null}
         </>
     )
 }

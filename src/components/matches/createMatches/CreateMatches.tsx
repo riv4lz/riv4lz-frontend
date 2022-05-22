@@ -14,6 +14,7 @@ const CreateMatches = ({ show, handleClose }: any) => {
     const [dateTime, setDateTime] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState(0)
+    const [game, setGame] = useState('')
 
     const onChangeTeam1 = (e: any) => {
         setTeam1(eventStore.teams[e.target.value]);
@@ -32,7 +33,8 @@ const CreateMatches = ({ show, handleClose }: any) => {
         const id = uuidv4().toString()
         
         eventStore.createMatch({id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: 'lol', eventStatus: 0})
-      }
+        handleClose()
+    }
 
     return (
         <div className='Event_Container' style={{ display: show ? 'block' : 'none' }}>
@@ -42,7 +44,7 @@ const CreateMatches = ({ show, handleClose }: any) => {
                 </div>
                 <div className='Event_DetailsContainer Grid'>
                     <div className='Event_HiringInfo'>
-                        <div className='Participants '>
+                        <div className='Participants display-flex flex-direction-column'>
                             <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>Participants</div>
                             <div className='Info Flex Justify_Evenly Align_Center'>
                                 <select onChange={onChangeTeam1}>
@@ -81,12 +83,20 @@ const CreateMatches = ({ show, handleClose }: any) => {
                                 </div>
                             </div>
 
-                            <div className='Info_component Game Flex Justify_Center'>
+                            <div className='Info_component Flex Justify_Center'>
                                 <div className='Component_Title P2_Statewide_Bold'>
                                     Price
                                 </div>
                                 <div className='Info P4_Statewide_light'>
                                     <input type="number" className='Email_Input' placeholder='price' value={price} onChange={(e) => setPrice(e.target.valueAsNumber)}></input>
+                                </div>
+                            </div>
+                            <div className='Info_component Flex Justify_Center'>
+                                <div className='Component_Title P2_Statewide_Bold'>
+                                    Game
+                                </div>
+                                <div className='Info P4_Statewide_light'>
+                                    <input type="text" className='Email_Input' placeholder='CS:GO' value={game} onChange={(e) => setGame(e.target.value)}></input>
                                 </div>
                             </div>
                         </div>

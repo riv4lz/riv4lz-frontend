@@ -27,6 +27,7 @@ const MatchesPage = () => {
 
   const hide = () => {
     setShowState(false);
+    window.location.reload();
   }
 
   return (
