@@ -5,19 +5,33 @@ import FAQItemComponent from "./FAQItemComponent/FAQItemComponent";
 import Image from "../../../assets/images/gig_Background.png"
 
 const data = {
-    title: "HOW TO USE OUR PLATFORM",
+    title: <p className={"h3 font-statewideBold"}>How to optimize your profile</p>,
     rows: [
         {
-            title: "How to register your profile",
+            title: <p className={"h4 font-statewideLight"}>How to register your profile</p>,
             content: <FAQItemComponent
                 step1Text={"Click the login button in the top right hand corner"}
-                step2Text={"Hej med jer"}
-                step3Text={"Hej med jer"}
+                step2Text={"Than click the REGISTER FOR FREE text"}
+                step3Text={"Next fill in your account info and finalize registration"}
                 image={Image}
             />,
         },
         {
-            title: "How to optimize your profile",
+            title: <p className={"h4 font-statewideLight"}>How to optimize your profile</p>,
+            content: <FAQItemComponent
+                introText={"In order to ensure that organisations will be more likely to accept your offer personalizing" +
+                    "your profile is a crucial part - The more you can showoff the aspect that make specifically you a " +
+                    "unique caster the more likely you are to be accepted to cast their games"}
+                step1Text={"Add a profile picture that show who you are and most importantly DONT FORGET TO SMILE"}
+                step2Text={"Update your profile details to include the things that make your way of casting DIFFERENT"}
+                step3Text={"Make sure to have links to aspecially your twitch account associated with your profile"}
+                step4Text={"And last but most importantly dont forget to add some highlight clips on your profile" +
+                    "to show your unique skills in action"}
+                image={Image}
+            />,
+        },
+        {
+            title: <p className={"h4 font-statewideLight"}>How send an offer for a match</p>,
             content: <FAQItemComponent
                 step1Text={"Hej med jer"}
                 step2Text={"Hej med jer"}
@@ -26,19 +40,10 @@ const data = {
             />,
         },
         {
-            title: "How to create an event",
+            title: <p className={"h4 font-statewideLight"}>How to check if the organisation accepted your offer</p>,
             content: <FAQItemComponent
                 step1Text={"Hej med jer"}
                 step2Text={"Hej med jer"}
-                step3Text={"Hej med jer"}
-                image={Image}
-            />,
-        },
-        {
-            title: "How to accept an offer",
-            content: <FAQItemComponent
-                step1Text={"Hej med jer"}
-                step2Text={"Hej med jer"} 
                 step3Text={"Hej med jer"}
                 image={Image}
             />,

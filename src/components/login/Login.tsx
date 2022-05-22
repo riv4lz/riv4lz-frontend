@@ -13,6 +13,7 @@ const Login = () => {
     const { authStore, userStore } = useStore();
 
     const [email, setEmail] = useState('')
+    const [path, setPath] = useState('')
 
     const [password, setPassword] = useState('')
 
@@ -37,14 +38,14 @@ const Login = () => {
         }
 
         console.log(loadedUser);
-        
-        
+
+
 
         if (authStore.user) {
             localStorage.setItem("token", authStore.user.token);
             console.log(authStore.getCurrentUser());
-            
-            navigate('/')
+
+            navigate(path || "/");
         }
     }
 

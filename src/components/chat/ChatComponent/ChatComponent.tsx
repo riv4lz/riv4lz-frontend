@@ -25,9 +25,6 @@ const ChatComponent = () => {
     const [roomId, setRoomId] = useState<string>('');
 
     useEffect(() => {
-        if (!localStorage.getItem("token")) {
-            navigate("/Login");
-        }
         commentStore.createHubConnection();
         console.log(commentStore.test3.messages);
         console.log(commentStore.test2);

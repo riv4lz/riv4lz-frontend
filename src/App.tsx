@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom'
+import {BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate} from 'react-router-dom'
 import Navbar from './components/shared/Navbar/Navbar';
 import React, { Component, useCallback, useEffect, useState, Suspense } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
@@ -17,6 +17,15 @@ import InaccessiblePage from './pages/inaccessiblePage/InaccessiblePage';
 import AboutPage from './pages/aboutPage/AboutPage';
 import ChatPage from "./pages/chatPage/ChatPage";
 import GuidePage from "./pages/guidePage/GuidePage";
+
+function RequireAuth({ children }) {
+  const location = useLocation();
+  return !localStorage.getItem("token") ? (
+      children
+  ) : (
+      <Navigate to="/Login" replace state={{ path: location.pathname }} />
+  );
+}
 
 
 function App() {
@@ -50,6 +59,12 @@ function App() {
 
   const navigateHome = () => {
     window.location.href = "/"
+  }
+
+  function authRequired(nextState, replace) {
+    if (localStorage.getItem("token")) {
+      replace('/login');
+    }
   }
 
 
@@ -96,11 +111,11 @@ function App() {
               }>
               </Route>
               <Route path="/Chat" element={
-                <>
+                <RequireAuth>
                   <Navbar />
                   <ChatPage />
                   <Footer />
-                </>}>
+                </RequireAuth>}>
               </Route>
               <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
               <Route path="/Org/:id" element={<OrgProfilePage />}></Route>
