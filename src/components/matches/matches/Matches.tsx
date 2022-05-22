@@ -5,6 +5,7 @@ import { offer } from '../../../Stores/offerStore'
 import { useStore } from '../../../Stores/store'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
+import CreateMatches from '../createMatches/CreateMatches'
 import './Matches.scss'
 
 const Matches = () => {
@@ -16,8 +17,8 @@ const Matches = () => {
         console.log(eventStore.matches);
         console.log(authStore.isCaster);
         console.log(authStore.isOrg);
-        
-        
+
+
     }, [])
     const load = () => setShowState(true)
     const [searchValue, setSearchValue] = useState('');
@@ -50,7 +51,7 @@ const Matches = () => {
         await offerStore.getOffers(event.id);
         setTimeout(load, 10)
         console.log(offerStore.offers);
-        
+
     }
 
     const hide = () => {
@@ -102,7 +103,7 @@ const Upcoming = ({ searchValue, events, show }: any) => {
 
 
             }).map((event: Match, index: any) => (
-                <Event key={index} E={event} show={show}  />
+                <Event key={index} E={event} show={show} />
             ))}
         </>
     )
