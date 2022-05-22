@@ -1,18 +1,18 @@
 import {observer, useObserver} from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
-import './chat.scss';
+import './ChatComponent.scss';
 import * as signalR from '@microsoft/signalr'
-import {useStore} from "../../Stores/store";
-import {ChatRoom, message, messageSent, room} from "../../Stores/commentStore";
+import {useStore} from "../../../Stores/store";
+import {ChatRoom, message, messageSent, room} from "../../../Stores/commentStore";
 // @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
 import {Link, Navigate, useNavigate} from "react-router-dom";
-import profileImg from '../../assets/images/Temp/ProfileIMG_Temp.jpg'
+import profileImg from '../../../assets/images/Temp/ProfileIMG_Temp.jpg'
 import { FaTelegramPlane } from "react-icons/fa";
-import Btn from "../../components/button/Btn";
+import Btn from "../../button/Btn";
 
 
-const Chat = (comment: any) => {
+const ChatComponent = () => {
     let navigate = useNavigate()
     const { commentStore } = useStore();
     const { authStore } = useStore();
@@ -77,6 +77,7 @@ const Chat = (comment: any) => {
     }
 
     return useObserver(() => (
+        <div className={"Chat_Container"}>
             <div className={"Chat"}>
                 <div className={"Chat__Sidebar"}>
                     <p className={"Chat__Sidebar__Title Text_Secondary H3"}>ROOMS</p>
@@ -109,8 +110,9 @@ const Chat = (comment: any) => {
                     </div>
                 </div>
             </div>
+        </div>
     )
     );
 }
 
-export default observer(Chat);
+export default ChatComponent;

@@ -6,7 +6,6 @@ import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
 import { observer } from "mobx-react-lite";
-import Chat from "./pages/chat/chat";
 import { store, useStore } from "./Stores/store";
 import CastersPage from "./pages/castersPage/CastersPage";
 import RegisterPage from './pages/registerPage/RegisterPage';
@@ -16,6 +15,7 @@ import OrgProfilePage from './pages/orgProfilePage/OrgProfilePage';
 import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 import InaccessiblePage from './pages/inaccessiblePage/InaccessiblePage';
 import AboutPage from './pages/aboutPage/AboutPage';
+import ChatPage from "./pages/chatPage/ChatPage";
 
 
 function App() {
@@ -87,7 +87,12 @@ function App() {
                 </>
               }>
               </Route>
-              <Route path='/Chat' element={<Chat comments={commentStore.comments} commentStore={commentStore} />}>
+              <Route path="/Chat" element={
+                <>
+                  <Navbar />
+                  <ChatPage />
+                  <Footer />
+                </>}>
               </Route>
               <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
               <Route path="/Org/:id" element={<OrgProfilePage />}></Route>
