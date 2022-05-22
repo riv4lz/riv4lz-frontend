@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './ProfileDetails.scss'
 import Btn from "../../button/Btn";
 import ProfileImg from '../../../assets/images/ProfileDetails_ProfileImgTemp.png'
@@ -17,10 +17,15 @@ const ProfileDetails = () => {
         
     }
 
+    useEffect(() => {
+        console.log(userStore.user);
+    }, [])
+        
+
     return (
         <div className='ProfileDetails'>
             <div className='ProfileDetails__ProfileImage'>
-                <img src={userStore.user?.profileImage !== null ? userStore.user?.profileImage : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className='ProfileDetails__ProfileImage_Image' />
+                <img src={userStore.user?.profileImage !== undefined ? userStore.user?.profileImage : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className='ProfileDetails__ProfileImage_Image' />
                 <Btn onClick={test} classes={"btn_Profile_Collaborator P5_Statewide_Bold Text_Dark_Blue"}>Request as Collaborator</Btn>
             </div>
             <div className={"ProfileDetails__Description"}>

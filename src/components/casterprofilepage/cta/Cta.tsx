@@ -28,7 +28,7 @@ const Cta = () => {
                 </div>
             </div>
             <div className='Cta_ImageContainer'>
-                <img src={userStore.user?.bannerImage !== null ? userStore.user?.bannerImage : 'https://imgs.xkcd.com/comics/real_programmers.png'} className={"Cta__Image"}></img>
+                <img src={userStore.user?.bannerImage !== undefined ? userStore.user?.bannerImage : 'https://imgs.xkcd.com/comics/real_programmers.png'} className={"Cta__Image"}></img>
             </div>
         </div>
     )

@@ -20,7 +20,7 @@ const ProfileDetails = () => {
     return (
         <div className='ProfileDetails'>
             <div className='ProfileDetails__ProfileImage'>
-                <img src={userStore.user?.profileImage !== null ? userStore.user?.profileImage : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className='ProfileDetails__ProfileImage_Image' />
+                <img src={userStore.user?.profileImage !== undefined ? userStore.user?.profileImage : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className='ProfileDetails__ProfileImage_Image' />
                 <Btn onClick={test} classes={"btn_Profile_Collaborator P5_Statewide_Bold Text_Dark_Blue"}>See matches from this org</Btn>
             </div>
             <div className={"ProfileDetails__Description"}>
