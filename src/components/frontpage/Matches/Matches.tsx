@@ -15,7 +15,7 @@ const Matches = () => {
     useEffect(() => {
         eventStore.loadMatches();
         console.log(eventStore.matches);
-        
+
     }, [])
 
     const [upcomingState, setUpcommingState] = useState(true);
@@ -81,7 +81,7 @@ const Upcoming = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
         for (let i = 0; i < events.length && i < 4; i++) {
-            content.push(<Event E={events[i]} show={show} />);
+            //content.push(<Event E={events[i]} show={show} />);
         }
         return content;
     }
@@ -98,7 +98,7 @@ const Finished = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
         for (let i = 0; i < events.length && i < 4; i++) {
-            content.push(<Event E={events[i]} show={show} />);
+            //content.push(<Event E={events[i]} show={show} />);
         }
         return content;
     }
