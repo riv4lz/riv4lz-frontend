@@ -5,11 +5,12 @@ import CreateMatches from '../../components/matches/createMatches/CreateMatches'
 import Matches from '../../components/matches/matches/Matches'
 import EventDetails from '../../components/shared/Event/EventDetails/EventDetails';
 import Event from '../../components/shared/EventComponent/Event';
+import authService from '../../services/authService';
 import { useStore } from '../../Stores/store';
 import './MatchesPage.scss'
 
 const MatchesPage = () => {
-  const {eventStore} = useStore();
+  const {eventStore, userStore} = useStore();
 
   const onReadGuide = () => {
     console.log('read guide');
@@ -35,9 +36,11 @@ const MatchesPage = () => {
         <CreateMatches show={showState} handleClose={hide} /> : null
       }
       <Matches />
+      {userStore.user.userType === 1 ? 
       <div className='CreateMatch display-flex justify-content-center align-items-center cursor-pointer' onClick={show}>
         <p className='h3 font-poppins clr-darkblue'>+</p>
       </div>
+      : null}
       <div className='Gig_Container'>
         <div className='Gig_Wrapper Grid Content_Width Justify_Center Align_Center'>
           <div className='Gig_Info Flex Justify_Center Align_Center Text_Secondary'>
