@@ -82,7 +82,7 @@ const Matches = () => {
                         <div style={{ color: finishedState === true ? '#279BBB' : 'white' }} onClick={onFinished}>Finished</div>
                     </div>
                     <div className='MatchesComponent_Container' id='Matches'>
-                        {upcomingState === true ? <Upcoming searchValue={searchValue} events={eventStore.upcoming} show={(value: any) => show(value)} /> : <Finished events={eventStore.finished} show={(value: any) => show(value)} />}
+                        {upcomingState === true ? <Upcoming searchValue={searchValue} events={eventStore.upcoming} show={(value: any) => show(value)} /> : <Finished searchValue={searchValue} events={eventStore.finished} show={(value: any) => show(value)} />}
                     </div>
                 </div>
             </div>
@@ -93,15 +93,13 @@ const Matches = () => {
 const Upcoming = ({ searchValue, events, show }: any) => {
     return (
         <>
-            {events.filter((test: Match) => {
+            {events.filter((event: Match) => {
 
-                return test.id.match(new RegExp(searchValue, "i")) ||
-                    test.organisationProfile.name.match(new RegExp(searchValue, "i")) ||
-                    test.teams[0].name.match(new RegExp(searchValue, "i")) ||
-                    test.teams[1].name.match(new RegExp(searchValue, "i")) ||
-                    test.time.match(new RegExp(searchValue, "i"))
-
-
+                return event.id.match(new RegExp(searchValue, "i")) ||
+                    event.organisationProfile.name.match(new RegExp(searchValue, "i")) ||
+                    event.teams[0].name.match(new RegExp(searchValue, "i")) ||
+                    event.teams[1].name.match(new RegExp(searchValue, "i")) ||
+                    event.time.match(new RegExp(searchValue, "i"))
             }).map((event: Match, index: any) => (
                 <Event key={index} E={event} show={show} />
             ))}
@@ -109,10 +107,17 @@ const Upcoming = ({ searchValue, events, show }: any) => {
     )
 }
 
-const Finished = ({ events, show }: any) => {
+const Finished = ({ searchValue, events, show }: any) => {
     return (
         <>
-            {events.map((event: IEventDetails, index: any) => (
+            {events.filter((event: Match) => {
+
+                return event.id.match(new RegExp(searchValue, "i")) ||
+                    event.organisationProfile.name.match(new RegExp(searchValue, "i")) ||
+                    event.teams[0].name.match(new RegExp(searchValue, "i")) ||
+                    event.teams[1].name.match(new RegExp(searchValue, "i")) ||
+                    event.time.match(new RegExp(searchValue, "i"))
+            }).map((event: Match, index: any) => (
                 <Event key={index} E={event} show={show} />
             ))}
         </>
