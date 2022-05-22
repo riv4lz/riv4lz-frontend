@@ -19,7 +19,7 @@ const Register = () => {
         setOrgState(false);
         setPageNumber(pageNumber + 1);
         console.log(uuid);
-        
+
     }
 
     const onOrg = () => {
@@ -40,7 +40,7 @@ const Register = () => {
     }
 
     const complete = () => {
-        if(localStorage.getItem("token") !== null) {
+        if (localStorage.getItem("token") !== null) {
             setPageNumber(pageNumber + 1);
         } else {
             alert("Something went wrong, please try again");
@@ -198,7 +198,7 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
                 <div className='Title H3 Flex Justify_Center Align_Center'> BASIC INFO ORG</div>
             </div>
             <div className='add-form_Container Flex Justify_Start Align_Center'>
-            <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
+                <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Username</span>
                         <input type="text" className='Input' placeholder='Groundpound69' value={username} onChange={(e) => setUsername(e.target.value)}></input>
@@ -435,7 +435,17 @@ const Step3_Org = ({ id, complete, prevPage }: any) => {
 const Done = () => {
 
     const navigate = useNavigate();
-    const onHome = () => {
+    const { userStore, authStore } = useStore();
+    const onHome = async () => {
+
+        const loadedUser = await userStore.loadUser(authStore.user?.id);
+        if (loadedUser.userType === 0) {
+            authStore.isCaster = true;
+            authStore.isOrg = false;
+        } else {
+            authStore.isCaster = false;
+            authStore.isOrg = true;
+        }
         navigate('/');
     }
     return (
