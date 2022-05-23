@@ -89,7 +89,7 @@ const Matches = () => {
 const Upcoming = ({ events, show }: any) => {
 
     const getEvents = (events: IEventDetails[]) => {
-        const content = [];
+        const content:any[] = [];
         for (let i = 0; i < events.length && i < 4; i++) {
             const k = uuidv4();
             content.push(<Event key={k} E={events[i]} show={show} />);
@@ -107,7 +107,7 @@ const Upcoming = ({ events, show }: any) => {
 
 const Finished = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
-        const content = [];
+        const content:any[] = [];
         for (let i = 0; i < events.length && i < 4; i++) {
             const k = uuidv4();
             content.push(<Event key={k} E={events[i]} show={show} />);
