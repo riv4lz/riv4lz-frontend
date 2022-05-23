@@ -14,9 +14,7 @@ import Btn from "../../button/Btn";
 
 const ChatComponent = () => {
     let navigate = useNavigate()
-    const { commentStore } = useStore();
-    const { authStore } = useStore();
-    const { userStore } = useStore();
+    const { commentStore, userStore } = useStore();
     const [localMessage, setLocalMessage] = useState<string>('');
     const [localUserName, setLocalUserName] = useState<string>('');
     const [localMessageId, setLocalMessageId] = useState<string>("ad4cff79-928d-4efc-9e28-a86151a95433");
@@ -39,7 +37,7 @@ const ChatComponent = () => {
             ChatRoomId: commentStore.test2.id,
             Id: uuidv4(),
             Text: localMessage,
-            Username: "Chatman",
+            Username: userStore.user.name,
         }
         commentStore.addComment(message).then(() => {
         });
