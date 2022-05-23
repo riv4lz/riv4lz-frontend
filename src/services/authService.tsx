@@ -15,6 +15,9 @@ export interface registerDto{
 }
 
 class AuthService {
+    isEmailTaken(email: string) {
+        return http.get<boolean>(`/Auth/IsEmailTaken/${email}`);
+    }
     registerUser(data: registerDto) {
         return http.post<User>("/Auth/RegisterUser", data);
     }
