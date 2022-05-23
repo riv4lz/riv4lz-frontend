@@ -6,7 +6,7 @@ fixture`Login`.page`localhost:3000/login`;
 test('Successful Login and find create event button on matches page', async t => {
     await t
         .typeText('#test', 'org@r.co')
-        .typeText('#pass', 'Pyf36xzn')
+        .typeText('#pass', 'Password123')
         .click('#btn')
         .click('#navMatches')
 
@@ -24,7 +24,7 @@ test('create event successful', async t => {
 
     await t
         .typeText('#test', 'org@r.co')
-        .typeText('#pass', 'Pyf36xzn')
+        .typeText('#pass', 'Password123')
         .click('#btn')
         .click('#navMatches')
         .click('#createEvent')
@@ -52,7 +52,7 @@ test('create event with same team', async t => {
             return null;
         })
         .typeText('#test', 'org@r.co')
-        .typeText('#pass', 'Pyf36xzn')
+        .typeText('#pass', 'Password123')
         .click('#btn')
         .click('#navMatches')
         .click('#createEvent')
@@ -83,7 +83,7 @@ test('create event with empty date', async t => {
             return null;
         })
         .typeText('#test', 'org@r.co')
-        .typeText('#pass', 'Pyf36xzn')
+        .typeText('#pass', 'Password123')
         .click('#btn')
         .click('#navMatches')
         .click('#createEvent')
@@ -112,7 +112,7 @@ test('create event with past date', async t => {
             return null;
         })
         .typeText('#test', 'org@r.co')
-        .typeText('#pass', 'Pyf36xzn')
+        .typeText('#pass', 'Password123')
         .click('#btn')
         .click('#navMatches')
         .click('#createEvent')
@@ -142,7 +142,7 @@ test('create event with empty description', async t => {
             return null;
         })
         .typeText('#test', 'org@r.co')
-        .typeText('#pass', 'Pyf36xzn')
+        .typeText('#pass', 'Password123')
         .click('#btn')
         .click('#navMatches')
         .click('#createEvent')
@@ -171,7 +171,7 @@ test('create event with price less than or equal to 0', async t => {
             return null;
         })
         .typeText('#test', 'org@r.co')
-        .typeText('#pass', 'Pyf36xzn')
+        .typeText('#pass', 'Password123')
         .click('#btn')
         .click('#navMatches')
         .click('#createEvent')
@@ -201,7 +201,7 @@ test('create event with empty game', async t => {
             return null;
         })
         .typeText('#test', 'org@r.co')
-        .typeText('#pass', 'Pyf36xzn')  
+        .typeText('#pass', 'Password123')  
         .click('#btn')
         .click('#navMatches')
         .click('#createEvent')
