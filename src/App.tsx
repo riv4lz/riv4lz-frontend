@@ -20,7 +20,7 @@ import GuidePage from "./pages/guidePage/GuidePage";
 
 function RequireAuth({ children }) {
   const location = useLocation();
-  return !localStorage.getItem("token") ? (
+  return localStorage.getItem("token") !== null ? (
       children
   ) : (
       <Navigate to="/Login" replace state={{ path: location.pathname }} />
@@ -117,9 +117,7 @@ function App() {
               </Route>
               <Route path="/Chat" element={
                 <RequireAuth>
-                  <Navbar />
                   <ChatPage />
-                  <Footer />
                 </RequireAuth>}>
               </Route>
               <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
