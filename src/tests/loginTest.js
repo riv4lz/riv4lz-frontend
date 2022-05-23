@@ -19,8 +19,6 @@ test('Unsuccessful Login', async t => {
             .typeText('#pass', 'pw')
             .click('#btn')
     } catch (e) {
-        console.log(e.message);
-        
         await t.expect(e.message).contains('Request failed with status code 400');
     }});
 

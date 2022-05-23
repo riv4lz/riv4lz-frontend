@@ -27,7 +27,7 @@ const Navbar = (props: any) => {
         </div>
         <div className='Navbar_Links Flex Align_Center Justify_End'>
           <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/' ? "1" : "0.5" }} to='/'>Home</Link>
-          <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/Matches' ? "1" : "0.5" }} to='/Matches'>Matches</Link>
+          <Link className='Links Text_Secondary P3_Oxanium Bold' id='navMatches' style={{ opacity: location.pathname === '/Matches' ? "1" : "0.5" }} to='/Matches'>Matches</Link>
           <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Chat'>Guide</Link>
           <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/About' ? "1" : "0.5" }} to='/About'>About</Link>
           <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/Contact' ? "1" : "0.5" }} to='/Contact'>Contact</Link>
