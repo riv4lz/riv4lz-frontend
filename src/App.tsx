@@ -31,7 +31,6 @@ function RequireAuth({ children }) {
 function App() {
   const { commentStore, authStore, userStore, offerStore, eventStore } = useStore();
 
-  let [user, setUser] = useState([])
   const [loaded, setLoaded] = useState(false)
   const test = () => setLoaded(true)
 
@@ -41,7 +40,11 @@ function App() {
     commentStore.loadMessages()
     userStore.loadUsers(0);
     userStore.loadUsers(1);
-    eventStore.loadMatches();
+    const loadEvents = async () => {
+      await eventStore.loadMatches();
+    }
+    loadEvents();
+    
     if (localStorage.getItem("token")) {
       getCurrentUser();
     }
@@ -49,10 +52,14 @@ function App() {
 
   const getCurrentUser = async () => {
     const response = await authStore.getCurrentUser()
-    if (response !== undefined) {
-      setLoaded(true)
+    const user = await userStore.loadUser(authStore.user?.id);
+    if (user.userType === 0) {
+      authStore.isCaster = true;
+      authStore.isOrg = false;
+    } else {
+      authStore.isCaster = false;
+      authStore.isOrg = true;
     }
-
     return response;
   }
 
@@ -73,20 +80,20 @@ function App() {
       {{ loaded } ?
 
         <div className="App">
+
           <Router>
+            <Navbar />
             <Routes>
               {["/Contact"].map((path, index) =>
                 <Route path={path} element={<Navbar />} key={index} />
               )}
               <Route path="/" element={
                 <>
-                  <Navbar />
                   <FrontPage />
                 </>}>
               </Route>
               <Route path="/About" element={
                 <>
-                  <Navbar />
                   <AboutPage />
                 </>}>
               </Route>
@@ -99,14 +106,12 @@ function App() {
               </Route>
               <Route path='/Login' element={<LoginPage />}>
               </Route>
-              <Route path='/createMatch' element={authStore.isOrg ? <CreateMatchPage /> : <InaccessiblePage />}>
+              <Route path='/createMatch' element={<CreateMatchPage />}>
               </Route>
               <Route path='/Register' element={<RegisterPage />}></Route>
               <Route path='/Matches' element={
                 <>
-                  <Navbar />
                   <MatchesPage />
-                  <Footer />
                 </>
               }>
               </Route>
@@ -120,7 +125,9 @@ function App() {
               <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
               <Route path="/Org/:id" element={<OrgProfilePage />}></Route>
             </Routes>
+            <Footer />
           </Router>
+
         </div>
         : null}
     </>

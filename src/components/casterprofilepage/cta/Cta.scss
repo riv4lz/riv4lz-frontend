@@ -1,4 +1,4 @@
-@import '../../../index.scss';
+@import "../../../index.scss";
 
 .Cta {
     background-color: $Dark_Grey;
@@ -6,16 +6,31 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
-    grid-template-areas:
-        "text image";
+    grid-template-areas: "text image";
     align-items: center;
     justify-items: center;
     text-align: center;
     gap: 50px;
-    .Cta_ImageContainer{
+    .Cta_ImageContainer {
+        position: relative;
         width: 100%;
         height: 390px;
+        display: flex;
+        align-items: center;
+        .overlay {
+            position: absolute;
+            top: 0%;
+            width: 100%;
+            max-width: 1fr;
+            height: 390px;
+            transition: 0.2s ease-in-out;
+            opacity: 0;
+            background-color: rgba($color: $clr_primary, $alpha: 0.5);
+        }
 
+        .test:hover .overlay {
+            opacity: 1;
+        }
     }
     .Cta__Text {
         grid-area: text;
@@ -23,43 +38,35 @@
         display: flex;
         flex-direction: column;
         height: 390px;
-        
 
         .Cta__Text__Title {
-
         }
         .Cta__Text_SubTitle {
-            font-family: 'Oxanium';
+            font-family: "Oxanium";
             font-style: normal;
             font-weight: 700;
             font-size: 28px;
             line-height: 35px;
             text-align: center;
             text-transform: capitalize;
-            color: #FFFFFF;
-
-
+            color: #ffffff;
         }
-        .Cta_Buttons{
+        .Cta_Buttons {
             gap: 20px;
             grid-template-columns: repeat(2, 1fr);
         }
 
         .Cta__Text__MainText {
-
         }
 
         .btn_CallToAction_Blue {
-
         }
         .btn_CallToAction_White {
-
         }
     }
     .Cta__Image {
         grid-area: image;
 
         justify-items: center;
-
     }
 }

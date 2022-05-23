@@ -1,0 +1,122 @@
+@import "../../../index.scss";
+
+.Event_Container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+
+    .Event_Wrapper {
+        position: fixed;
+        background: #1f1f1f;
+        width: 1100px;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 15px;
+        flex-direction: column;
+
+        .Event_Title {
+            width: 100%;
+            height: auto;
+            margin-top: 50px;
+        }
+
+        .Event_DetailsContainer {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            height: 300px;
+
+            .Event_HiringInfo {
+                width: 100%;
+                margin-left: 25px;
+                .Participants{
+                    height: 100%;
+                    flex-direction: column;
+
+                    .Info{
+                        select{
+                            height: 50px;
+                            width: 100%;
+                        }
+                        select:focus{
+                            outline: none;
+                        }
+                    }
+                }
+
+                .Info {
+                    flex-direction: row;
+                    text-align: start;
+                    margin-bottom: 20px;
+                    gap: 20px;
+                    flex: 1;
+
+                    .Logo {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        border: 1px solid white;
+
+                        img {
+                            border-radius: 50%;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+
+            .Event_GameDetails {
+                margin-right: 25px;
+
+                .Info {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .Component_Title {
+                margin-bottom: 10px;
+            }
+
+            .Component_Container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                height: 0;
+
+                .Info_component {
+                    flex-direction: column;
+                    .Info{
+                        input{
+                            height: 50px;
+                            width: 100%;
+
+                        }
+
+                        input:focus{
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .Title {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid white;
+        }
+
+        .Event_button {
+            width: 100%;
+            height: auto;
+            margin-bottom: 50px;
+            margin-top: 70px;
+        }
+    }
+}

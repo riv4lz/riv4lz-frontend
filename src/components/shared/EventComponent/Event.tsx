@@ -6,6 +6,10 @@ import Astralis from '../../../assets/images/Esports-orgs/Astralis.svg'
 import './Event.scss'
 
 const Event = ({ E, show }: any) => {
+    const format = (time: any) => {
+        return new Date(time).toLocaleString()
+    }
+
     return (
         <div className='matches_Component Flex Justify_Center Align_Center'>
             <div className='matches_ComponentWrapper Flex Justify_Evenly Align_Center'>
@@ -17,7 +21,7 @@ const Event = ({ E, show }: any) => {
                         {E.teams[0].name} VS {E.teams[1].name}
                     </div>
                     <div className='matches_InfoDate P3_Oxanium Medium'>
-                        {E.time}
+                        {format(E.time)}
                     </div>
                     <div className='matches_InfoSocials Flex Justify_Center Align_Center'>
                         <img src={Youtube} alt="Astralis" />

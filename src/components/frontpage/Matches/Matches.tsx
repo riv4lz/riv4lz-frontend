@@ -7,19 +7,29 @@ import Youtube from '../../../assets/icons/social-media/youtube.svg'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
 import { useStore } from '../../../Stores/store'
+import { v4 as uuidv4 } from 'uuid';
+import { Match } from '../../../Stores/eventStore'
 
 const Matches = () => {
 
     const { eventStore } = useStore();
 
     useEffect(() => {
-        eventStore.loadMatches();
-        console.log(eventStore.matches);
+        const loadMatches = async () => {
+            if (eventStore.matches.length <= 0) {
+                await eventStore.loadMatches();
+            }
+            setUpcomingMatches(await eventStore.filterMatches(true));
+            setFinishedMatches(await eventStore.filterMatches(false));
+        }
+        loadMatches();
 
     }, [])
 
     const [upcomingState, setUpcommingState] = useState(true);
     const [finishedState, setFinishedState] = useState(false);
+    const [upcomingMatches, setUpcomingMatches] = useState<Match[]>([]);
+    const [finishedMatches, setFinishedMatches] = useState<Match[]>([]);
     const [eventDetails, setEventDetails] = useState<IEventDetails>({
         organiser: '',
         description: '',
@@ -67,7 +77,7 @@ const Matches = () => {
 
                     <div className='matches_MatchContainer Grid Justify_Center Align_Center'>
 
-                        {upcomingState === true ? <Upcoming events={eventStore.matches} show={(value: any) => show(value)} /> : <Finished events={eventStore.matches} show={(value: any) => show(value)} />}
+                        {upcomingState === true ? <Upcoming events={upcomingMatches} show={(value: any) => show(value)} /> : <Finished events={finishedMatches} show={(value: any) => show(value)} />}
 
                     </div>
                 </div>
@@ -81,7 +91,8 @@ const Upcoming = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
         for (let i = 0; i < events.length && i < 4; i++) {
-            //content.push(<Event E={events[i]} show={show} />);
+            const k = uuidv4();
+            content.push(<Event key={k} E={events[i]} show={show} />);
         }
         return content;
     }
@@ -98,7 +109,8 @@ const Finished = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
         const content = [];
         for (let i = 0; i < events.length && i < 4; i++) {
-            //content.push(<Event E={events[i]} show={show} />);
+            const k = uuidv4();
+            content.push(<Event key={k} E={events[i]} show={show} />);
         }
         return content;
     }

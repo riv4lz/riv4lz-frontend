@@ -19,7 +19,7 @@ const Register = () => {
         setOrgState(false);
         setPageNumber(pageNumber + 1);
         console.log(uuid);
-        
+
     }
 
     const onOrg = () => {
@@ -40,7 +40,7 @@ const Register = () => {
     }
 
     const complete = () => {
-        if(localStorage.getItem("token") !== null) {
+        if (localStorage.getItem("token") !== null) {
             setPageNumber(pageNumber + 1);
         } else {
             alert("Something went wrong, please try again");
@@ -139,8 +139,8 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
             name: username,
             userType: 0,
             description: '',
-            profileImage: '',
-            bannerImage: '',
+            profileImageUrl: '',
+            bannerImageUrl: '',
             facebookURL: '',
             twitterURL: '',
             discordURL: '',
@@ -242,8 +242,8 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
             name: username,
             userType: 1,
             description: '',
-            profileImage: '',
-            bannerImage: '',
+            profileImageUrl: '',
+            bannerImageUrl: '',
             facebookURL: '',
             twitterURL: '',
             discordURL: '',
@@ -266,7 +266,7 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
                 <div className='Title H3 Flex Justify_Center Align_Center'> BASIC INFO ORG</div>
             </div>
             <div className='add-form_Container Flex Justify_Start Align_Center'>
-            <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
+                <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Username</span>
                         <input type="text" id='inputUsername' className='Input' placeholder='Groundpound69' value={username} onChange={(e) => setUsername(e.target.value)}></input>
@@ -307,7 +307,7 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
     const onNext = () => {
         let caster = userStore.user
         const updatedCaster = {
-            ...caster, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImage: '', profileImage: '', websiteURL: website
+            ...caster, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImageUrl: '', profileImage: '', websiteURL: website
         }
         console.log(updatedCaster);
 
@@ -328,23 +328,23 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
                 <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitter</span>
-                        <input type="text" className='Input' placeholder='Jane Doe' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Twitter' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Facebook</span>
-                        <input type="text" className='Input' placeholder='username@gmail.com' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Facebook' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitch</span>
-                        <input type="text" className='Input' placeholder='Uzbekistan' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Twitch' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Discord</span>
-                        <input type="text" className='Input' placeholder='Skrrrrt lane 69' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Discord' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Website</span>
-                        <input type="text" className='Input' placeholder='Skrrrrt lane 69' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Website' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
                     </div>
                 </form>
             </div>
@@ -370,7 +370,7 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
     const onNext = () => {
         let org = userStore.user
         const updatedOrg = {
-            ...org, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImage: '', profileImage: '', websiteURL: website
+            ...org, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImageUrl: '', profileImage: '', websiteURL: website
         }
         console.log(updatedOrg);
 
@@ -390,23 +390,23 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
                 <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitter</span>
-                        <input type="text" className='Input' placeholder='Jane Doe' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Twitter' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Facebook</span>
-                        <input type="text" className='Input' placeholder='username@gmail.com' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Facebook' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitch</span>
-                        <input type="text" className='Input' placeholder='Uzbekistan' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Twitch' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Discord</span>
-                        <input type="text" className='Input' placeholder='Skrrrrt lane 69' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Discord' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Website</span>
-                        <input type="text" className='Input' placeholder='Skrrrrt lane 69' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
+                        <input type="text" className='Input' placeholder='Website' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
                     </div>
                 </form>
             </div>
@@ -503,7 +503,17 @@ const Step3_Org = ({ id, complete, prevPage }: any) => {
 const Done = () => {
 
     const navigate = useNavigate();
-    const onHome = () => {
+    const { userStore, authStore } = useStore();
+    const onHome = async () => {
+
+        const loadedUser = await userStore.loadUser(authStore.user?.id);
+        if (loadedUser.userType === 0) {
+            authStore.isCaster = true;
+            authStore.isOrg = false;
+        } else {
+            authStore.isCaster = false;
+            authStore.isOrg = true;
+        }
         navigate('/');
     }
     return (

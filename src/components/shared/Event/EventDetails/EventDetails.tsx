@@ -72,13 +72,13 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
                                     game
                                 </div>
                                 <div className='Info P4_Statewide_light'>
-                                    {Event.id}
+                                    {Event.game}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {casterState ? <Caster Event={Event} handleClose={handleClose} /> : organisationState ? <Organisation handleClose={handleClose} /> : null}
+                {casterState ? <Caster Event={Event} handleClose={handleClose} /> : organisationState && userStore.user.id === Event.organisationProfile.id ? <Organisation handleClose={handleClose} /> : null}
                 <div className='Event_button Flex Justify_Center Align_Center'>
                     <Public Close={handleClose} />
                 </div>
@@ -153,7 +153,7 @@ const Organisation = ({handleClose}: any ) => {
             <div className='Component_Container Flex Align_Start'>
                 {offerStore.offers.map((offer: any) => {
                     return (
-                        <div className='Component_Wrapper Flex Justify_Start Align_Center'>
+                        <div key={offer.id} className='Component_Wrapper Flex Justify_Start Align_Center'>
                             <div className='image Flex Justify_Center Align_Center'> <img src={offer.caster.profileImage !== null ? offer.caster.profileImage : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} alt="" /></div>
                             <div className='name_container Flex Justify_Around Align_Center'>
                                 <div className='name P1_Statewide_Bold Text_Secondary'>

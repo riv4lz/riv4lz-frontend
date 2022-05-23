@@ -20,19 +20,24 @@ function CasterProfilePage(props: any) {
 
 
   useEffect(() => {
-    userStore.loadUser(id);
+    const loadUser = async () => {
+      await userStore.loadUser(id);
+    }
+    loadUser();
+
+    
+    console.log(userStore.user);
+    console.log(userStore.user.profileImageUrl);
   });
 
 
 
   return useObserver(() => (
     <div className={"CasterProfilePage"}>
-      <Navbar />
-      <ProfileDetails />
-      <Cta />
+      <ProfileDetails id={id} />
+      <Cta id={id} />
       <Matches />
       <Highlights />
-      <Footer />
     </div>
   )
   );

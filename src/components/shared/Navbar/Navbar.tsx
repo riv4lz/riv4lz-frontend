@@ -52,7 +52,7 @@ const LoggedInNavbar = () => {
       <div className='LoggedIn_Wrapper Flex Justify_Center Align_Center'>
         <div className='information Flex Justify_End Align_Center'>
         <div className='username Flex Justify_End Align_Center P3_Oxanium Bold Text_Secondary'>
-          {authStore.user !== undefined ? authStore.user.email: 'Loading...'}
+          {userStore.user !== undefined ? userStore.user.name: 'Loading...'}
         </div>
         <div className='Wallet_Wrapper Flex Justify_End Align_Center'>
           <div className='amount P3_Oxanium Bold Text_Primary'>$10</div>
@@ -60,7 +60,7 @@ const LoggedInNavbar = () => {
         </div>
         </div>
         <div className='Profile_Pic' onClick={onClick}>
-          <img src={Tricked} alt="Tricked" />
+          <img src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="ProfileDetails__ProfileImage_Image" />          
         </div>
       </div>
     </div>
