@@ -9,7 +9,6 @@ import Discord from '../../../assets/icons/social-media/Discord_White.svg'
 import Telegram from '../../../assets/icons/social-media/Telegram_White.svg'
 import { useStore } from '../../../Stores/store';
 
-import { Cloudinary } from "@cloudinary/url-gen";
 import Axios from 'axios';
 
 const ProfileDetails = ({id} : any) => {

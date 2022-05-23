@@ -26,34 +26,42 @@ const Login = () => {
         return "Sign in"
     }
 
-    const loginRequest = async(user: any) => {
-        await authStore.attemptLogin(user);
-        const loadedUser = await userStore.loadUser(authStore.user?.id);
-        if(loadedUser.userType === 0) {
-            authStore.isCaster = true;
-            authStore.isOrg = false;
-        } else{
-            authStore.isCaster = false;
-            authStore.isOrg = true;
-        }
+    const loginRequest = async (user: any) => {
+        try {
+            await authStore.attemptLogin(user);
+            const loadedUser = await userStore.loadUser(authStore.user?.id);
+            if (loadedUser.userType === 0) {
+                authStore.isCaster = true;
+                authStore.isOrg = false;
+            } else {
+                authStore.isCaster = false;
+                authStore.isOrg = true;
+            }
 
-        console.log(loadedUser);
+            console.log(loadedUser);
 
 
 
-        if (authStore.user) {
-            localStorage.setItem("token", authStore.user.token);
-            console.log(authStore.getCurrentUser());
+            if (authStore.user) {
+                localStorage.setItem("token", authStore.user.token);
+                console.log(authStore.getCurrentUser());
 
-            navigate(path || "/");
+                navigate(path || "/");
+            }
+        } catch (e) {
+            console.log(e);
         }
     }
 
     const onSubmit = (e: any) => {
-        loginRequest({ email, password })
+        try {
+            loginRequest({ email, password })
 
-        setEmail('')
-        setPassword('')
+            setEmail('')
+            setPassword('')
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     return (
@@ -65,11 +73,11 @@ const Login = () => {
                 <form className="add-form" onSubmit={onSubmit}>
                     <div className='Login_Div_Email'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Email</span>
-                        <input type="text" className='Email_Input' placeholder='username@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                        <input type="text" id="test" className='Email_Input' placeholder='username@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
                     </div>
                     <div className='Login_Div_Email'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary'>Password</span>
-                        <input type="password" className='Email_Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                        <input type="password" id='pass' className='Email_Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
                     </div>
                     <div className='Login_Div_ForgotPass'>
                         <Link to="/Login/ForgotPassword" className='Half_opacity Forgot_Password P4_Statewide_light Text_Secondary'>Forgot Password?</Link>
@@ -95,7 +103,7 @@ const Login = () => {
                         </div>
 
                         <div className='Login_Div_Continue_Register'>
-                            <span className='Half_opacity P4_Statewide_light Text_Secondary'>Dont have an account yet? &nbsp;</span><Link className='Register P4_Statewide_Bold Text_Secondary' to="/Register"> Register for free</Link>
+                            <span className='Half_opacity P4_Statewide_light Text_Secondary'>Dont have an account yet? &nbsp;</span><Link id="register" className='Register P4_Statewide_Bold Text_Secondary' to="/Register"> Register for free</Link>
                         </div>
                     </div>
                 </div>

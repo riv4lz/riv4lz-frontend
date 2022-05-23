@@ -31,6 +31,30 @@ const CreateMatches = ({ show, handleClose }: any) => {
     const createEvent = async () => {
         const orgId = authStore.user !== undefined ? authStore.user?.id : ''
         const id = uuidv4().toString()
+        if (dateTime.length <= 0) {
+            alert("Date cannot be empty");
+            return;
+        }
+        if (new Date(dateTime) < new Date()) {
+            alert("Date cannot be in the past");
+            return;
+        }
+        if (description.length <= 0) {
+            alert("Description cannot be empty");
+            return;
+        }
+        if (price <= 0) {
+            alert("Price must be greater than 0");
+            return;
+        }
+        if (game.length <= 0) {
+            alert("Game cannot be empty");
+            return;
+        }
+        if (team1.id === team2.id) {
+            alert("Teams cannot be the same");
+            return;
+        }
 
         eventStore.createMatch({ id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: 'lol', eventStatus: 0 })
         handleClose()
@@ -49,13 +73,13 @@ const CreateMatches = ({ show, handleClose }: any) => {
                         <div className='Participants display-flex flex-direction-column'>
                             <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>Participants</div>
                             <div className='Info Flex Justify_Evenly Align_Center'>
-                                <select onChange={onChangeTeam1}>
+                                <select id='team1' onChange={onChangeTeam1}>
                                     {eventStore.teams.map((team: Team, index: any) => (
                                         <option value={index} key={index}>{team.name}</option>
                                     ))}
                                 </select>
                                 <div className='vs H3 Text_Primary'>VS</div>
-                                <select onChange={onChangeTeam2}>
+                                <select id='team2' onChange={onChangeTeam2}>
                                     {eventStore.teams.map((team: Team, index: any) => (
                                         <option value={index} key={index}>{team.name}</option>
                                     ))}
@@ -73,7 +97,7 @@ const CreateMatches = ({ show, handleClose }: any) => {
                                     Time
                                 </div>
                                 <div className='Info P4_Statewide_light'>
-                                    <input type="datetime-local" className='Email_Input' placeholder='time' value={dateTime} onChange={(e) => setDateTime(e.target.value)}></input>
+                                    <input id='date' type="datetime-local" className='Email_Input' placeholder='time' value={dateTime} onChange={(e) => setDateTime(e.target.value)}></input>
                                 </div>
                             </div>
                             <div className='Info_component Flex Justify_Center'>
@@ -81,7 +105,7 @@ const CreateMatches = ({ show, handleClose }: any) => {
                                     Description
                                 </div>
                                 <div className='Info P4_Statewide_light'>
-                                    <input type="text" className='Email_Input' placeholder='description' value={description} onChange={(e) => setDescription(e.target.value)}></input>
+                                    <input id='description' type="text" className='Email_Input' placeholder='description' value={description} onChange={(e) => setDescription(e.target.value)}></input>
                                 </div>
                             </div>
 
@@ -90,7 +114,7 @@ const CreateMatches = ({ show, handleClose }: any) => {
                                     Price
                                 </div>
                                 <div className='Info P4_Statewide_light'>
-                                    <input type="number" className='Email_Input' placeholder='price' value={price} onChange={(e) => setPrice(e.target.valueAsNumber)}></input>
+                                    <input id='price' type="number" className='Email_Input' placeholder='price' value={price} onChange={(e) => setPrice(e.target.valueAsNumber)}></input>
                                 </div>
                             </div>
                             <div className='Info_component Flex Justify_Center'>
@@ -98,7 +122,7 @@ const CreateMatches = ({ show, handleClose }: any) => {
                                     Game
                                 </div>
                                 <div className='Info P4_Statewide_light'>
-                                    <input type="text" className='Email_Input' placeholder='CS:GO' value={game} onChange={(e) => setGame(e.target.value)}></input>
+                                    <input id='game' type="text" className='Email_Input' placeholder='CS:GO' value={game} onChange={(e) => setGame(e.target.value)}></input>
                                 </div>
                             </div>
                         </div>

@@ -79,8 +79,8 @@ const Step0 = ({ caster, org }: any) => {
             </div>
             <div className='add-form_Container Flex Justify_Start Align_Center'>
                 <div className='add-form_Wrapper Grid Justify_Center Align_Center '>
-                    <div className='H3 CasterButtons' onClick={caster}>Caster</div>
-                    <div className='H3 CasterButtons' onClick={org}>Organisation</div>
+                    <div id='casterBtn' className='H3 CasterButtons' onClick={caster}>Caster</div>
+                    <div id='orgBtn' className='H3 CasterButtons' onClick={org}>Organisation</div>
                 </div>
             </div>
         </>
@@ -107,12 +107,13 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
             alert("Password cannot be empty");
             return
         }
+
         if (password !== repeatPassword) {
             alert("Passwords do not match");
             return;
         }
-        if (password.length < 8) {
-            alert("Password must be at least 8 characters long");
+        if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)) {
+            alert("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter and one number");
             return;
         }
         if (username.length < 3) {
@@ -127,7 +128,6 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
             alert("Email already taken");
             return;
         }
-
         authStore.registerUser({
             id: id,
             email: email,
@@ -166,19 +166,19 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
                 <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Username</span>
-                        <input type="text" className='Input' placeholder='Groundpound69' value={username} onChange={(e) => setUsername(e.target.value)}></input>
+                        <input type="text" id='inputUsername' className='Input' placeholder='Groundpound69' value={username} onChange={(e) => setUsername(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Email</span>
-                        <input type="email" className='Input' placeholder='username@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                        <input type="email" id='inputEmail' className='Input' placeholder='username@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
-                        <input type="password" className='Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                        <input type="password" id='inputPassword' className='Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
-                        <input type="password" className='Input' placeholder='Password' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}></input>
+                        <input type="password" id='inputRepeatPassword' className='Input' placeholder='Password' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}></input>
                     </div>
                 </form>
             </div>
@@ -215,7 +215,7 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
             alert("Passwords do not match");
             return;
         }
-        if (!password.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$")) {
+        if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)) {
             alert("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter and one number");
             return;
         }
@@ -231,7 +231,6 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
             alert("Email already taken");
             return;
         }
-
         authStore.registerUser({
             id: id,
             email: email,
@@ -270,19 +269,19 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
                 <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Username</span>
-                        <input type="text" className='Input' placeholder='Groundpound69' value={username} onChange={(e) => setUsername(e.target.value)}></input>
+                        <input type="text" id='inputUsername' className='Input' placeholder='Groundpound69' value={username} onChange={(e) => setUsername(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Email</span>
-                        <input type="email" className='Input' placeholder='username@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                        <input type="email" id='inputEmail' className='Input' placeholder='username@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
-                        <input type="password" className='Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                        <input type="password" id='inputPassword' className='Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
                     </div>
                     <div className='Register_Component'>
                         <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
-                        <input type="password" className='Input' placeholder='Password' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}></input>
+                        <input type="password" id='inputRepeatPassword' className='Input' placeholder='Password' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}></input>
                     </div>
                 </form>
             </div>

@@ -33,11 +33,11 @@ const MatchesPage = () => {
   return (
     <>
       {showState ?
-        <CreateMatches show={showState} handleClose={hide} /> : null
+        <CreateMatches  show={showState} handleClose={hide} /> : null
       }
       <Matches />
       {userStore.user.userType === 1 ? 
-      <div className='CreateMatch display-flex justify-content-center align-items-center cursor-pointer' onClick={show}>
+      <div id='createEvent' className='CreateMatch display-flex justify-content-center align-items-center cursor-pointer' onClick={show}>
         <p className='h3 font-poppins clr-darkblue'>+</p>
       </div>
       : null}
