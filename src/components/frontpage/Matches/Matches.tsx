@@ -16,14 +16,13 @@ const Matches = () => {
 
     useEffect(() => {
         const loadMatches = async () => {
-            if (eventStore.matches.length <= 0) {
-                await eventStore.loadMatches();
-            }
             setUpcomingMatches(await eventStore.filterMatches(true));
             setFinishedMatches(await eventStore.filterMatches(false));
         }
         loadMatches();
-
+        console.log(upcomingMatches);
+        
+        
     }, [])
 
     const [upcomingState, setUpcommingState] = useState(true);

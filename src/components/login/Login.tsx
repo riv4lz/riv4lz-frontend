@@ -26,34 +26,42 @@ const Login = () => {
         return "Sign in"
     }
 
-    const loginRequest = async(user: any) => {
-        await authStore.attemptLogin(user);
-        const loadedUser = await userStore.loadUser(authStore.user?.id);
-        if(loadedUser.userType === 0) {
-            authStore.isCaster = true;
-            authStore.isOrg = false;
-        } else{
-            authStore.isCaster = false;
-            authStore.isOrg = true;
-        }
+    const loginRequest = async (user: any) => {
+        try {
+            await authStore.attemptLogin(user);
+            const loadedUser = await userStore.loadUser(authStore.user?.id);
+            if (loadedUser.userType === 0) {
+                authStore.isCaster = true;
+                authStore.isOrg = false;
+            } else {
+                authStore.isCaster = false;
+                authStore.isOrg = true;
+            }
 
-        console.log(loadedUser);
+            console.log(loadedUser);
 
 
 
-        if (authStore.user) {
-            localStorage.setItem("token", authStore.user.token);
-            console.log(authStore.getCurrentUser());
+            if (authStore.user) {
+                localStorage.setItem("token", authStore.user.token);
+                console.log(authStore.getCurrentUser());
 
-            navigate(path || "/");
+                navigate(path || "/");
+            }
+        } catch (e) {
+            console.log(e);
         }
     }
 
     const onSubmit = (e: any) => {
-        loginRequest({ email, password })
+        try {
+            loginRequest({ email, password })
 
-        setEmail('')
-        setPassword('')
+            setEmail('')
+            setPassword('')
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     return (
