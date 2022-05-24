@@ -4,16 +4,16 @@ import logo from '../../../assets/images/Union.png';
 
 const Mission = () => {
     return (
-        <div className='mission_Container'>
-            <div className='mission_Wrapper'>
-                <div className='mission_Title H2 Text_Secondary'>
+        <div className='[ MissionAndVision ] width-full flex-flow'>
+            <div className='MissionAndVision__Wrapper    width-content flex-flow flex-direction-column'>
+                <div className='[ Title ]    h2 font-statewideBold clr-white'>
                     WHY ARE WE HERE?
                 </div>
-                <div className='mission_Component'>
-                    <div className='title H2 Text_Primary'>
+                <div className='[ Mission ]'>
+                    <div className='Mission__Title    h2 font-statewideBold clr-primary'>
                         MISSION
                     </div>
-                    <div className='paragraph P1_Poppins Text_Secondary'>
+                    <div className='Mission__Paragraph    p1 font-poppins clr-white'>
                         Our mission is to improve the esport industry for casters
                         and organisations alike by giving them a platform where
                         they easier can get in contact with eachother the goal
@@ -23,11 +23,11 @@ const Mission = () => {
                     </div>
                 </div>
                 <hr></hr>
-                <div className='vision_Component'>
-                    <div className='title H2 Text_Primary'>
+                <div className='[ Vision ]'>
+                    <div className='Vision__Title   h2 font-statewideBold clr-primary'>
                         VISION
                     </div>
-                    <div className='paragraph P1_Poppins'>
+                    <div className='Vision__Paragraph    p1 font-poppins clr-white'>
                         <span className='Text_Secondary'>The vision behind riv4lz is to impower casters of all levels
                             by providing a secure platform for growth and increasing the
                             chance to turn your passion into a full time job. In the
@@ -36,7 +36,7 @@ const Mission = () => {
                         <span className='Text_Primary'><b> TOGETHER </b></span>
                     </div>
                 </div>
-                <div className='mission_Footer H3 Text_Primary'>
+                <div className='[ EndQuote ]    h3 font-statewideBold clr-primary'>
                     together we shape the future of esports
                 </div>
             </div>

@@ -53,7 +53,7 @@ details, summary,
 fieldset, form, label, legend,
 table, caption,
 tbody, tfoot, thead,
-tr, th, td, .h3 {
+tr, th, td, {
   margin: 0;
   padding: 0;
   border: 0;
@@ -63,6 +63,12 @@ tr, th, td, .h3 {
 
 .flow > * + * {
   margin-top: var(--flow-space, 1em);
+}
+
+.flex-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 //-------------------------- Devices --------------------------
