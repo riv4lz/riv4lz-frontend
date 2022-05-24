@@ -127,10 +127,10 @@ $fontWeight-900: 900;
 $fontWeight-600: 600;
 
 //--------------------------Font-weight - CLASSES--------------------------
-.fontWeight-900{
+.fw-900{
   font-weight: $fontWeight-900;
 }
-.fontWeight-600{
+.fw-600{
   font-weight: $fontWeight-600;
 }
 
@@ -485,10 +485,10 @@ $content-width-phone: 300px;
     width: $content-width-phone;
   }
 }
-.width-max-content{
+.width-max-content {
   width: max-content;
 }
-.width-full{
+.width-full {
   width: 100%;
 }
 

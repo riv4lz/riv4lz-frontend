@@ -19,8 +19,9 @@ import ChatPage from "./pages/chatPage/ChatPage";
 import GuidePage from "./pages/guidePage/GuidePage";
 
 function RequireAuth({ children }) {
+  const { authStore } = useStore();
   const location = useLocation();
-  return localStorage.getItem("token") !== null ? (
+  return authStore.user !== undefined  ? (
       children
   ) : (
       <Navigate to="/Login" replace state={{ path: location.pathname }} />
@@ -44,7 +45,7 @@ function App() {
       await eventStore.loadMatches();
     }
     loadEvents();
-    
+
     if (localStorage.getItem("token")) {
       getCurrentUser();
     }
@@ -105,8 +106,6 @@ function App() {
                 </>}>
               </Route>
               <Route path='/Login' element={<LoginPage />}>
-              </Route>
-              <Route path='/createMatch' element={<CreateMatchPage />}>
               </Route>
               <Route path='/Register' element={<RegisterPage />}></Route>
               <Route path='/Matches' element={
