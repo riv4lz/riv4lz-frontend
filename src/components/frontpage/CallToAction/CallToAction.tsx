@@ -30,8 +30,8 @@ const CallToAction = () => {
 
                     </div>
                     <div className='ContentSection__Buttons'>
-                        <Btn onClick={onBecomeMember} children='Join Us Now' classes='btn_CallToAction_Blue P3_Oxanium Bold Text_Dark_Blue'></Btn>
-                        <Btn onClick={onFeatures} children='Read More' classes='btn_CallToAction_White P3_Oxanium Bold Text_Dark_Blue'></Btn>
+                        <Btn onClick={onBecomeMember} children='Join Us Now' classes='btn_CallToAction_Blue p3 font-oxanium fw-900 clr-darkblue'></Btn>
+                        <Btn onClick={onFeatures} children='Read More' classes='btn_CallToAction_White p3 font-oxanium fw-900 clr-darkblue'></Btn>
                     </div>
                     <div className='ContentSection__emptyDiv'>
                         &nbsp;
