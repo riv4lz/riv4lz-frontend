@@ -28,7 +28,7 @@ const Navbar = (props: any) => {
         <div className='Navbar_Links Flex Align_Center Justify_End'>
           <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/' ? "1" : "0.5" }} to='/'>Home</Link>
           <Link className='Links Text_Secondary P3_Oxanium Bold' id='navMatches' style={{ opacity: location.pathname === '/Matches' ? "1" : "0.5" }} to='/Matches'>Matches</Link>
-          <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Chat'>Guide</Link>
+          <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Guide'>Guide</Link>
           <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/About' ? "1" : "0.5" }} to='/About'>About</Link>
           <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/Contact' ? "1" : "0.5" }} to='/Contact'>Contact</Link>
           {authStore.user !== undefined ? <LoggedInNavbar /> : <Link className='Links Text_Dark_Blue P3_Oxanium Bold Flex Justify_Center Align_Center btn_Navlogin' to='/Login'>Login</Link>}
@@ -39,11 +39,11 @@ const Navbar = (props: any) => {
 }
 export default Navbar
 
-const LoggedInNavbar = () => { 
+const LoggedInNavbar = () => {
   const {authStore, userStore} = useStore();
   const navigate = useNavigate();
   const onClick = () => {
-    
+
     navigate(authStore.isCaster ? '/Caster/'+ authStore.user?.id : '/Org/' + authStore.user?.id);
   }
 
@@ -60,7 +60,7 @@ const LoggedInNavbar = () => {
         </div>
         </div>
         <div className='Profile_Pic' onClick={onClick}>
-          <img src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="ProfileDetails__ProfileImage_Image" />          
+          <img src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="ProfileDetails__ProfileImage_Image" />
         </div>
       </div>
     </div>

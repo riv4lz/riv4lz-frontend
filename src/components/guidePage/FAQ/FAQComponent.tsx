@@ -1,15 +1,15 @@
 import React from 'react'
 import './FAQComponent.scss'
 import Faq from 'react-faq-component';
-import FAQItemComponent from "./FAQItemComponent/FAQItemComponent";
+import FAQItem from "./FAQItem/FAQItem";
 import Image from "../../../assets/images/gig_Background.png"
 
 const data = {
-    title: <p className={"h3 font-statewideBold"}>How to optimize your profile</p>,
+    title: <p className={"{ h3 font-statewideBold }"}>How to optimize your profile</p>,
     rows: [
         {
-            title: <p className={"h4 font-statewideLight"}>How to register your profile</p>,
-            content: <FAQItemComponent
+            title: <p className={"{ h4 font-statewideLight }"}>How to register your profile</p>,
+            content: <FAQItem
                 step1Text={"Click the login button in the top right hand corner"}
                 step2Text={"Than click the REGISTER FOR FREE text"}
                 step3Text={"Next fill in your account info and finalize registration"}
@@ -17,8 +17,8 @@ const data = {
             />,
         },
         {
-            title: <p className={"h4 font-statewideLight"}>How to optimize your profile</p>,
-            content: <FAQItemComponent
+            title: <p className={"{ h4 font-statewideLight }"}>How to optimize your profile</p>,
+            content: <FAQItem
                 introText={"In order to ensure that organisations will be more likely to accept your offer personalizing" +
                     "your profile is a crucial part - The more you can showoff the aspect that make specifically you a " +
                     "unique caster the more likely you are to be accepted to cast their games"}
@@ -31,8 +31,8 @@ const data = {
             />,
         },
         {
-            title: <p className={"h4 font-statewideLight"}>How send an offer for a match</p>,
-            content: <FAQItemComponent
+            title: <p className={"{ h4 font-statewideLight }"}>How send an offer for a match</p>,
+            content: <FAQItem
                 step1Text={"Hej med jer"}
                 step2Text={"Hej med jer"}
                 step3Text={"Hej med jer"}
@@ -40,8 +40,8 @@ const data = {
             />,
         },
         {
-            title: <p className={"h4 font-statewideLight"}>How to check if the organisation accepted your offer</p>,
-            content: <FAQItemComponent
+            title: <p className={"{ h4 font-statewideLight }"}>How to check if the organisation accepted your offer</p>,
+            content: <FAQItem
                 step1Text={"Hej med jer"}
                 step2Text={"Hej med jer"}
                 step3Text={"Hej med jer"}
@@ -55,31 +55,27 @@ const styles = {
     titleTextColor: "white",
     rowTitleColor: "white",
     rowContentColor: "white",
-    // rowContentColor: 'grey',
-    // arrowColor: "red",
     arrowColor: "white"
 };
 
 const config = {
     animate: true,
-    //arrowIcon: "V",
     tabFocus: true
 };
 
-const FAQComponent = () => {
+const FAQ = () => {
 
     return (
-        <div className={"FAQComponent"}>
-            <div className={"FAQComponent__Wrapper margin-top-xxl margin-bottom-xxl"}>
+        <div className={"[ FAQ ]"}>
+            <div className={"FAQ__Wrapper    { margin-top-xxl margin-bottom-xxl }"}>
             <Faq
                 data={data}
                 styles={styles}
                 config={config}
-                className={"test"}
             />
             </div>
         </div>
     )
 }
 
-export default FAQComponent
+export default FAQ

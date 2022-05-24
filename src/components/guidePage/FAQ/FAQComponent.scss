@@ -1,16 +1,12 @@
 @import '../../../index.scss';
 
-.FAQComponent {
+.FAQ {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    .FAQComponent__Wrapper {
+    .FAQ__Wrapper {
         width: 1440px;
 
     }
-}
-
-.test {
-    color: red;
 }
