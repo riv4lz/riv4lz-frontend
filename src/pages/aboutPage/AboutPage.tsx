@@ -1,7 +1,7 @@
 import React from "react"
 import './AboutPage.scss';
-import CallToActionAbout from "../../components/aboutPage_Components/CallToActionAbout/CallToActionAbout";
-import MainSection from "../../components/aboutPage_Components/MainSection/MainSection";
+import CallToActionAbout from "../../components/aboutPage/CallToActionAbout/CallToActionAbout";
+import MainSection from "../../components/aboutPage/MainSection/MainSection";
 
 
 const AboutPage = () => {
