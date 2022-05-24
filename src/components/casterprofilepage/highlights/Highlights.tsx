@@ -11,7 +11,7 @@ const Highlights = () => {
     }
 
     return (
-        <div className='Highlights'>
+        <div className='[ Highlights ]'>
             <img src={VideoTemp1} className={"Highlights__One"}/>
             <img src={VideoTemp2} className={"Highlights__Two"}/>
             <img src={VideoTemp3} className={"Highlights__Three"}/>

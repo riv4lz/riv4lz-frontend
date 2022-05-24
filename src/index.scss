@@ -120,11 +120,11 @@ $Oxanium_font_family: "Oxanium", sans-serif;
 
 //--------------------------Font-style - CLASSES--------------------------
 
-.font-normal{
+.font-normal {
   font-style: normal;
 }
 
-.font-italic{
+.font-italic {
   font-style: italic;
 }
 
@@ -134,51 +134,51 @@ $fontWeight-600: 600;
 $fontWeight-300: 300;
 
 //--------------------------Font-weight - CLASSES--------------------------
-.fw-900{
+.fw-900 {
   font-weight: $fontWeight-900;
 }
-.fw-600{
+.fw-600 {
   font-weight: $fontWeight-600;
 }
-.fw-300{
+.fw-300 {
   font-weight: $fontWeight-300;
 }
 
 //-------------------------- Colors --------------------------
-$clr-primary: #279BBB;
-$clr-secoundary: #C1DCEB;
-$clr-white: #FFFFFF;
+$clr-primary: #279bbb;
+$clr-secoundary: #c1dceb;
+$clr-white: #ffffff;
 $clr-background: #111111;
-$clr-darkblue: #222C38;
+$clr-darkblue: #222c38;
 $clr-blue: #004893;
-$clr-lightblue: #0095E8;
-$clr-lighterblue: #8FFFFB;
-$clr-lightgrey: #C9C9C9;
-$clr-grey: #8692A6;
-$clr-neon: #11FFBF;
-$clr-footerbg: #29394E;
+$clr-lightblue: #0095e8;
+$clr-lighterblue: #8ffffb;
+$clr-lightgrey: #c9c9c9;
+$clr-grey: #8692a6;
+$clr-neon: #11ffbf;
+$clr-footerbg: #29394e;
 $clr-black: #000000;
 
 //-------------------------- Text color - CLASSES --------------------------
 .clr-primary {
   color: $clr-primary;
 }
-.clr-secondary{
-  color: $clr-secoundary
+.clr-secondary {
+  color: $clr-secoundary;
 }
-.clr-white{
+.clr-white {
   color: $clr-white;
 }
-.clr-darkblue{
+.clr-darkblue {
   color: $clr-darkblue;
 }
-.clr-blue{
+.clr-blue {
   color: $clr-blue;
 }
-.clr-lightblue{
+.clr-lightblue {
   color: $clr-lightblue;
 }
-.clr-lighterblue{
+.clr-lighterblue {
   color: $clr-lighterblue;
 }
 .clr-black {
@@ -186,10 +186,10 @@ $clr-black: #000000;
 }
 
 //-------------------------- Background color - CLASSES --------------------------
-.background-color{
+.background-color {
   background-color: $clr-background;
 }
-.background-white{
+.background-white {
   background-color: $clr-white;
 }
 .background-footer {
@@ -206,9 +206,12 @@ $attention_4_mobile: 40px;
 .a4 {
   font-size: $attention_4_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $attention_4_tablet; }
+    font-size: $attention_4_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $attention_4_desktop; }}
+    font-size: $attention_4_desktop;
+  }
+}
 
 //--------------------------Paragraph - VALUES --------------------------
 //--------------------------Paragraph 0 - VALUES--------------------------
@@ -231,40 +234,66 @@ $paragraph_3_mobile: 10px;
 $paragraph_4_desktop: 14px;
 $paragraph_4_tablet: 13px;
 $paragraph_4_mobile: 7px;
-
+//--------------------------Paragraph 5 - VALUES--------------------------
+$paragraph_5_desktop: 12px;
+$paragraph_5_tablet: 11px;
+$paragraph_5_mobile: 5px;
 
 //--------------------------Paragraph - CLASSES--------------------------
 .p0 {
   font-size: $paragraph_0_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $paragraph_0_tablet; }
+    font-size: $paragraph_0_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $paragraph_0_desktop; }}
+    font-size: $paragraph_0_desktop;
+  }
+}
 .p1 {
   font-size: $paragraph_1_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $paragraph_1_tablet; }
+    font-size: $paragraph_1_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $paragraph_1_desktop; }}
+    font-size: $paragraph_1_desktop;
+  }
+}
 .p2 {
   font-size: $paragraph_2_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $paragraph_2_tablet; }
+    font-size: $paragraph_2_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $paragraph_2_desktop; }}
+    font-size: $paragraph_2_desktop;
+  }
+}
 .p3 {
   font-size: $paragraph_3_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $paragraph_3_tablet; }
+    font-size: $paragraph_3_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $paragraph_3_desktop; }}
+    font-size: $paragraph_3_desktop;
+  }
+}
 .p4 {
   font-size: $paragraph_4_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $paragraph_4_tablet; }
+    font-size: $paragraph_4_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $paragraph_4_desktop; }}
-
+    font-size: $paragraph_4_desktop;
+  }
+}
+.p5 {
+  font-size: $paragraph_5_mobile;
+  @media only screen and (min-width: $phone) {
+    font-size: $paragraph_5_tablet;
+  }
+  @media only screen and (min-width: $desktop) {
+    font-size: $paragraph_5_desktop;
+  }
+}
 
 //--------------------------Header 1 - VALUES--------------------------
 $header_0_desktop: 105px;
@@ -285,221 +314,244 @@ $header_3_desktop: 29px;
 $header_3_tablet: 29px;
 $header_3_mobile: 20px;
 
-
 //--------------------------Header - CLASSES--------------------------
-.h0{
+.h0 {
   font-size: $header_0_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $header_0_tablet; }
+    font-size: $header_0_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $header_0_desktop; }}
+    font-size: $header_0_desktop;
+  }
+}
 
 .h1 {
   font-size: $header_1_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $header_1_tablet; }
+    font-size: $header_1_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $header_1_desktop; }}
+    font-size: $header_1_desktop;
+  }
+}
 
 .h2 {
   font-size: $header_2_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $header_2_tablet; }
+    font-size: $header_2_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $header_2_desktop; }}
+    font-size: $header_2_desktop;
+  }
+}
 
 .h3 {
   font-size: $header_3_mobile;
   @media only screen and (min-width: $phone) {
-    font-size: $header_3_tablet; }
+    font-size: $header_3_tablet;
+  }
   @media only screen and (min-width: $desktop) {
-    font-size: $header_3_desktop; }}
+    font-size: $header_3_desktop;
+  }
+}
 
 //--------------------------Padding - CLASSES--------------------------
-.padding-top-1{
+.padding-top-1 {
   padding-top: 0.5rem;
 }
-.padding-top-2{
+.padding-top-2 {
   padding-top: 1rem;
 }
-.padding-top-3{
+.padding-top-3 {
   padding-top: 1.5rem;
 }
-.padding-top-4{
-  padding-top: 2.0rem;
+.padding-top-4 {
+  padding-top: 2rem;
 }
-.padding-top-5{
+.padding-top-5 {
   padding-top: 2.5rem;
 }
+
+.padding-top-6 {
+  padding-top: 12rem;
+}
 //--------------------------Bottom
-.padding-bottom-1{
+.padding-bottom-1 {
   padding-bottom: 0.5rem;
 }
-.padding-bottom-2{
+.padding-bottom-2 {
   padding-bottom: 1rem;
 }
-.padding-bottom-3{
+.padding-bottom-3 {
   padding-bottom: 1.5rem;
 }
-.padding-bottom-4{
-  padding-bottom: 2.0rem;
+.padding-bottom-4 {
+  padding-bottom: 2rem;
 }
-.padding-bottom-5{
+.padding-bottom-5 {
   padding-bottom: 2.5rem;
 }
+.padding-bottom-6 {
+  padding-bottom: 4rem;
+}
 //--------------------------Right
-.padding-right-1{
+.padding-right-1 {
   padding-right: 0.5rem;
 }
-.padding-right-2{
+.padding-right-2 {
   padding-right: 1rem;
 }
-.padding-right-3{
+.padding-right-3 {
   padding-right: 1.5rem;
 }
-.padding-right-4{
-  padding-right: 2.0rem;
+.padding-right-4 {
+  padding-right: 2rem;
 }
-.padding-right-5{
+.padding-right-5 {
   padding-right: 2.5rem;
 }
 //--------------------------Left
-.padding-left-1{
+.padding-left-1 {
   padding-left: 0.5rem;
 }
-.padding-left-2{
+.padding-left-2 {
   padding-left: 1rem;
 }
-.padding-left-3{
+.padding-left-3 {
   padding-left: 1.5rem;
 }
-.padding-left-4{
-  padding-left: 2.0rem;
+.padding-left-4 {
+  padding-left: 2rem;
 }
-.padding-left-5{
+.padding-left-5 {
   padding-left: 2.5rem;
 }
 
 //--------------------------Margin-Top - CLASSES--------------------------
-.margin-top-xs{
+.margin-top-xs {
   margin-top: 0.5rem;
 }
-.margin-top-s{
+.margin-top-s {
   margin-top: 1rem;
 }
-.margin-top-m{
+.margin-top-m {
   margin-top: 1.25rem;
 }
-.margin-top-l{
+.margin-top-l {
   margin-top: 1.5rem;
 }
 
-.margin-top-xl{
-  margin-top: 2.0rem;
+.margin-top-xl {
+  margin-top: 2rem;
 }
-.margin-top-xxl{
+.margin-top-xxl {
   margin-top: 6rem;
 }
 
-.margin-top-xxxl{
+.margin-top-xxxl {
   margin-top: 20rem;
 }
 
 //--------------------------Margin-Buttom - CLASSES--------------------------
-.margin-bottom-xs{
+.margin-bottom-xs {
   margin-bottom: 0.5rem;
 }
-.margin-bottom-s{
+.margin-bottom-s {
   margin-bottom: 1rem;
 }
-.margin-bottom-m{
+.margin-bottom-m {
   margin-bottom: 1.25rem;
 }
-.margin-bottom-l{
+.margin-bottom-l {
   margin-bottom: 1.5rem;
 }
-.margin-bottom-xl{
-  margin-bottom: 2.0rem;
+.margin-bottom-xl {
+  margin-bottom: 2rem;
 }
-.margin-bottom-xxl{
+.margin-bottom-xxl {
   margin-bottom: 5rem;
 }
-.margin-bottom-xxxl{
+.margin-bottom-xxxl {
   margin-bottom: 20rem;
 }
 
 //--------------------------Padding-Top - CLASSES--------------------------
-.padding-top-xs{
+.padding-top-xs {
   padding-top: 0.5rem;
 }
-.padding-top-s{
+.padding-top-s {
   padding-top: 1rem;
 }
-.padding-top-m{
+.padding-top-m {
   padding-top: 1.25rem;
 }
-.padding-top-l{
+.padding-top-l {
   padding-top: 1.5rem;
 }
-.padding-top-xl{
-  padding-top: 2.0rem;
+.padding-top-xl {
+  padding-top: 2rem;
 }
-.padding-top-xxl{
+.padding-top-xxl {
   padding-top: 6rem;
 }
 
 //--------------------------Gap - CLASSES--------------------------
-.gap-1{
+.gap-1 {
   gap: 0.5rem;
 }
-.gap-2{
-  gap:1rem;
+.gap-2 {
+  gap: 1rem;
 }
-.gap-3{
+.gap-3 {
   gap: 1.5rem;
 }
-.gap-4{
-  gap: 2.0rem;
+.gap-4 {
+  gap: 2rem;
 }
-.gap-5{
+.gap-5 {
   gap: 2.5rem;
 }
 
-
 //--------------------------FLex - CLASSES--------------------------
-.display-flex{
+.display-flex {
   display: flex;
 }
-.display-grid{
+.display-grid {
   display: grid;
 }
-.flex-direction-column{
+.flex-direction-column {
   flex-direction: column;
 }
-.flex-direction-row{
+.flex-direction-row {
   flex-direction: row;
 }
 .margin-auto {
   margin: auto;
 }
-.justify-content-center{
+.justify-content-center {
   justify-content: center !important;
 }
-.justify-content-space-between{
+.justify-content-space-between {
   justify-content: space-between !important;
 }
-.align-items-center{
+.justify-content-space-evenly {
+  justify-content: space-evenly !important;
+}
+.align-items-center {
   align-items: center !important;
 }
-.flex-wrap-wrap{
+.align-items-start {
+  align-items: start !important;
+}
+.flex-wrap-wrap {
   flex-wrap: wrap;
 }
 
 //--------------------------Height - CLASSES--------------------------
-.height-max-content{
+.height-max-content {
   height: max-content;
 }
-.height-full{
+.height-full {
   height: 100%;
 }
 
@@ -530,31 +582,31 @@ $content-width-phone: 300px;
 }
 
 //--------------------------Cursor - CLASSES--------------------------
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 
 //--------------------------Object-Fit - CLASSES--------------------------
-.object-fit-contain{
+.object-fit-contain {
   object-fit: contain;
 }
 
 //--------------------------Overflow_Y_X - CLASSES--------------------------
-.overflow-y-scroll{
+.overflow-y-scroll {
   overflow-y: scroll;
 }
-.overflow-y-hidden{
+.overflow-y-hidden {
   overflow-y: hidden;
 }
-.overflowx-scroll{
+.overflowx-scroll {
   overflow-x: scroll;
 }
-.overflow-x-hidden{
+.overflow-x-hidden {
   overflow-x: hidden;
 }
 
 //--------------------------Border - CLASSES--------------------------
-.boorder-none{
+.boorder-none {
   border: none;
 }
 
@@ -563,7 +615,7 @@ $border-squared: 5px;
 $border-round: 20px;
 
 @mixin btn-general($bg-clr, $border-clr, $text-clr, $border-radius) {
-  font-family: 'Quicksand';
+  font-family: "Quicksand";
   font-style: normal;
   text-align: center;
   font-weight: 700;
@@ -575,7 +627,9 @@ $border-round: 20px;
   color: $text-clr;
   border-radius: $border-radius;
 
-  &:focus, &:focus, [type="submit"]:focus {
+  &:focus,
+  &:focus,
+  [type="submit"]:focus {
     outline: none;
   }
 }
@@ -685,7 +739,6 @@ $border-round: 20px;
   @include icon-general();
   width: 18px;
   height: 18px;
-
 }
 .icon-md {
   @include icon-general();
@@ -696,7 +749,6 @@ $border-round: 20px;
     width: 18px;
     height: 18px;
   }
-
 }
 .icon-lg {
   @include icon-general();
@@ -706,29 +758,29 @@ $border-round: 20px;
 
 //--------------------------Line height phone - CLASS--------------------------
 
-.line-height-1{
+.line-height-1 {
   @media only screen and (max-width: $phone) {
     line-height: 1;
   }
 }
-.line-height-1_5{
+.line-height-1_5 {
   line-height: 1.5;
 }
 
 //--------------------------Background position - CLASSES--------------------------
 
-.background-no-repeat{
+.background-no-repeat {
   background-repeat: no-repeat;
 }
-.background-size-contain{
+.background-size-contain {
   background-size: contain;
 }
-.background-position{
+.background-position {
   background-position: top;
 }
 
 //--------------------------Display - CLASSES--------------------------
 
-.display-inline{
+.display-inline {
   display: inline;
 }

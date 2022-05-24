@@ -55,40 +55,39 @@ const ProfileDetails = ({id} : any) => {
     }
 
     return (
-        <div className='ProfileDetails'>
+        <div className='[ ProfileDetails ]    { padding-top-6 padding-bottom-6 justify-content-center }'>
             <input type="file" ref={inputFile} onChange={(e) => uploadImage(e.target.files)} style={{display: 'none'}} />
-            <div className='ProfileDetails__ProfileImage'>
-                <div className='test'>
-                    <img src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="ProfileDetails__ProfileImage_Image" />
+            <div className='ProfileDetails__ProfileImage__Wrapper'>
+                <div className='[ Overlay ]'>
+                    <img src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="Overlay__Profile_Image" />
                     {authStore.user?.id === id ?
-                        <div className="overlay display-flex justify-content-center align-items-center cursor-pointer" onClick={changeProfileImage}>
-                            <div className="p1 font-poppins clr-secondary">Change profile Picture</div>
+                        <div className="Overlay__ChangeProfilePic    { margin-bottom-xs display-flex justify-content-center align-items-center cursor-pointer }" onClick={changeProfileImage}>
+                            <div className="{ p1 font-poppins clr-secondary }">Change profile Picture</div>
                         </div>
                         : null}
                 </div>
-                <Btn onClick={request} classes={"btn_Profile_Collaborator P5_Statewide_Bold Text_Dark_Blue"}>Request as Collaborator</Btn>
+                <Btn onClick={request} classes={"btn_Profile_Collaborator    { p5 font-statewideBold darkblue }"}>Request as Collaborator</Btn>
             </div>
-            <div className={"ProfileDetails__Description"}>
-                <span className={"ProfileDetails__Description__GamerTag H1 Text_Secondary"}>{userStore.user?.name}</span>
-                <span className={"ProfileDetails__Description__RealName P1_Statewide_light Text_Secondary"}>
+            <div className={"[ Description ]    { align-items-center }"}>
+                <span className={"Description__GamerTag    { h1 font-statewideBold clr-white }"}>{userStore.user?.name}</span>
+                <span className={"Description__RealName    { p1 font-statewideBold clr-white fw-300 }"}>
                     {userStore.user?.name}</span>
-                <div className={"ProfileDetails__Description__SocialIcons"}>
+                <div className={"Description__SocialIcons"}>
                     <a href={userStore.user?.facebookURL}>
-                        <img src={Facebook} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
+                        <img src={Facebook} className={"Description__SocialIcons__Icon    { padding-right-1 }"}></img></a>
                     <a href={userStore.user?.twitterURL}>
-                        <img src={Twitter} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
+                        <img src={Twitter} className={"Description__SocialIcons__Icon     { padding-right-1 }"}></img></a>
                     <a href={userStore.user?.twitchURL}>
-                        <img src={Instagram} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
+                        <img src={Instagram} className={"Description__SocialIcons__Icon    { padding-right-1 }"}></img></a>
                     <a href={userStore.user?.discordURL}>
-                        <img src={Discord} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
+                        <img src={Discord} className={"Description__SocialIcons__Icon    { padding-right-1 }"}></img></a>
                     <a href={userStore.user?.facebookURL}>
-                        <img src={Telegram} className={"ProfileDetails__Description__SocialIcons__Icon"}></img></a>
+                        <img src={Telegram} className={"Description__SocialIcons__Icon     { padding-right-1 }"}></img></a>
                 </div>
-                <span className={"ProfileDetails__Description__Description P3_Poppins Text_Secondary"}>
+                <span className={"Description__Description    { p3 font-poppins clr-white margin-top-l }"}>
                     {userStore.user?.description}
                 </span>
             </div>
-            <div className={"ProfileDetails__AdditionalDetails"}></div>
         </div>
     )
 }

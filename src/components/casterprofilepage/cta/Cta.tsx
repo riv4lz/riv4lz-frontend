@@ -49,30 +49,32 @@ const Cta = ({ id }: any) => {
     }
 
     return (
-        <div className='Cta'>
+        <div className='[ Cta ]    { display-grid justify-content-center align-items-center }'>
             <input type="file" ref={inputFile} onChange={(e) => uploadImage(e.target.files)} style={{ display: 'none' }} />
-            <div className={"Cta__Text"}>
-                <span className={"Cta__Text__Title H3 Text_Secondary"}>hire {userStore.user?.name}</span>
-                <span className={"Cta__Text_SubTitle "}>Send a match request</span>
-                <span className={"Cta__Text__MainText P4_Poppins Text_Secondary"}>
+            <div className={"[ Text ]    { display-flex flex-direction-column justify-content-space-evenly }"}>
+                <span className={"Text__Title    { h3 font-statewideBold clr-white }"}>hire {userStore.user?.name}</span>
+                <span className={"Text_SubTitle    { font-oxanium fw-600 p0}"}>Send a match request</span>
+                <span className={"Text__MainText    { p4 font-poppins clr-white }"}>
                     As an organisation or a tournament organisor you can request a specfic caster
                     for a specific match. <br /><br />
                     This can help you get the perfect that for your specfic needs and tailor your
                     event after it.
                 </span>
-                <div className='Cta_Buttons Grid'>
-                    <Btn onClick={test} classes={"btn_Profile_CheckAvailability P4_Statewide_Bold Text_Secondary"} >check availability</Btn>
-                    <Btn onClick={test} classes={"btn_Profile_SetupBooking P5_Statewide_Bold Text_Dark_Blue"}>setup booking request</Btn>
+                <div className='Text__Buttons    { display-grid }'>
+                    <Btn onClick={test} classes={"btn_Profile_CheckAvailability    { p4 font-statewideBold clr-white }"} >check availability</Btn>
+                    <Btn onClick={test} classes={"btn_Profile_SetupBooking    { p5 font-statewideBold clr-dark-blue }"}>setup booking request</Btn>
                 </div>
             </div>
-            <div className='Cta_ImageContainer '>
-                <div className='test'>
-                    <img src={userStore.user?.bannerImageUrl !== null ? userStore.user?.bannerImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="ProfileDetails__ProfileImage_Image" />
-                    {authStore.user?.id === id ?
-                        <div className="overlay display-flex justify-content-center align-items-center cursor-pointer" onClick={changeProfileImage}>
-                            <div className="p1 font-poppins clr-secondary">Change Banner Image</div>
-                        </div>
-                        : null}
+            <div className='[ Banner ]    { display-flex align-items-center justify-content-center }'>
+                <div className='Banner__Wrapper'>
+                    <div className='[ Overlay ]'>
+                        <img src={userStore.user?.bannerImageUrl !== null ? userStore.user?.bannerImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="Overlay__BannerImage" />
+                        {authStore.user?.id === id ?
+                            <div className="Overlay__ChangeBannerImage    { display-flex justify-content-center align-items-center cursor-pointer }" onClick={changeProfileImage}>
+                                <div className="p1 font-poppins clr-secondary">Change Banner Image</div>
+                            </div>
+                            : null}
+                    </div>
                 </div>
             </div>
         </div>
