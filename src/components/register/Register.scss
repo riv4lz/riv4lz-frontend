@@ -26,7 +26,7 @@
                 height: 100%;
                 grid-template-columns: repeat(auto-fill, 200px);
                 row-gap: 50px;
-                
+
             }
 
             .add-form_Description{
@@ -142,25 +142,6 @@
     cursor: pointer;
 }
 
-.Login_Div_Continue_Buttons_Container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    .Buttons {
-        padding: 5px 20px;
-        background-color: $Secondary;
-        border-radius: 40px;
-        margin: 10px 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-}
 
 .Login_Div_Continue_Register {
     padding-top: 20px;

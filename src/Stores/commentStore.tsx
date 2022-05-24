@@ -38,7 +38,7 @@ export default class CommentStore{
     editMode = false;
     loading = false;
     loadingInitial = false;
-    @observable test: any = [];
+    @observable ChatRooms: any = [];
     @observable test2: any = [];
     @observable test3: any = [];
 
@@ -70,11 +70,11 @@ export default class CommentStore{
             runInAction(() => {
                 if (this.chatRooms.length <= 0) {
                     this.chatRooms.push(chatRoom);
-                    this.test = chatRoom;
+                    this.ChatRooms = chatRoom;
                 }
                 console.log("fisk 4");
                 console.log(toJS(this.chatRooms));
-                console.log(this.test);
+                console.log(this.ChatRooms);
             });
         });
 

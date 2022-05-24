@@ -76,7 +76,7 @@ const ChatComponent = () => {
             <div className={"Chat"}>
                 <div className={"Chat__Sidebar"}>
                     <p className={"Chat__Sidebar__Title Text_Secondary H3"}>ROOMS</p>
-                    {commentStore.test.map((chatRoom: ChatRoom) => (
+                    {commentStore.ChatRooms.map((chatRoom: ChatRoom) => (
                         <div className={"Chat__Sidebar__RoomContainer"} key={chatRoom.id}>
                             <div className={getGameImage(chatRoom.name)} onClick={() => enterRoom(chatRoom.id)}></div>
                         </div>

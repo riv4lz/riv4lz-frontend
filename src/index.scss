@@ -186,6 +186,11 @@ $clr-black: #000000;
   color: $clr-black;
 }
 
+// Half visible text
+.half-opacity{
+  opacity: 0.5;
+}
+
 //-------------------------- Background color - CLASSES --------------------------
 .background-color{
   background-color: $clr-background;
