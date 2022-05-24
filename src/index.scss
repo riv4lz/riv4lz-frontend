@@ -738,3 +738,25 @@ $border-round: 20px;
 .display-inline{
   display: inline;
 }
+
+//--------------------------Scroll Bar --------------------------
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $Dark_Grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $Primary;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $Dark_Blue;
+}
