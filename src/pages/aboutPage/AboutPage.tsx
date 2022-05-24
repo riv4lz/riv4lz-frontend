@@ -1,14 +1,14 @@
 import React from "react"
 import './AboutPage.scss';
 import CallToActionAbout from "../../components/aboutPage/CallToActionAbout/CallToActionAbout";
-import MainSection from "../../components/aboutPage/MainSection/MainSection";
+import AboutMain from "../../components/aboutPage/AboutMain/AboutMain";
 
 
 const AboutPage = () => {
     return (
         <>
             <CallToActionAbout></CallToActionAbout>
-            <MainSection></MainSection>
+            <AboutMain></AboutMain>
         </>
     )
 }

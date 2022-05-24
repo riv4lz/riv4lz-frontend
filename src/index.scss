@@ -29,6 +29,7 @@ body {
   margin: 0;
   position: relative;
   background-color: #111111;
+  overflow-x: hidden;
 }
 
 //-------------------------- Reset --------------------------
@@ -183,6 +184,11 @@ $clr-black: #000000;
 }
 .clr-black {
   color: $clr-black;
+}
+
+// Half visible text
+.half-opacity{
+  opacity: 0.5;
 }
 
 //-------------------------- Background color - CLASSES --------------------------
@@ -797,3 +803,24 @@ $border-round: 20px;
 }
 
 
+//--------------------------Scroll Bar --------------------------
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $Dark_Grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $Primary;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $Dark_Blue;
+}

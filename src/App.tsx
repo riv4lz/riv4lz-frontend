@@ -100,9 +100,7 @@ function App() {
               </Route>
               <Route path="/Guide" element={
                 <>
-                  <Navbar />
                   <GuidePage />
-                  <Footer />
                 </>}>
               </Route>
               <Route path='/Login' element={<LoginPage />}>

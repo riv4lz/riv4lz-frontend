@@ -11,11 +11,11 @@
         grid-template-areas:
         "text visual";
 
-        .FAQItemComponent__Text {
+        .FAQItemComponentText {
             grid-area: text;
             text-align: start;
         }
-        .FAQItemComponent__Visual {
+        .FAQItemComponentVisual {
             grid-area: visual;
             justify-self: center;
             align-self: center;

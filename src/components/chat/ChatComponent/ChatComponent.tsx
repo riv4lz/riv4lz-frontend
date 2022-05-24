@@ -72,35 +72,40 @@ const ChatComponent = () => {
     }
 
     return useObserver(() => (
-        <div className={"Chat_Container"}>
-            <div className={"Chat"}>
-                <div className={"Chat__Sidebar"}>
-                    <p className={"Chat__Sidebar__Title Text_Secondary H3"}>ROOMS</p>
-                    {commentStore.test.map((chatRoom: ChatRoom) => (
-                        <div className={"Chat__Sidebar__RoomContainer"} key={chatRoom.id}>
+        <div className={"[ ChatComponent ]"}>
+            <div className={"ChatComponent__Wrapper    { margin-bottom-xxl }"}>
+                <div className={"[ ChatSideBar ]"}>
+                    <p className={"ChatSideBar__Title    { clr-white h3 font-statewideBold }"}>ROOMS</p>
+                    {commentStore.ChatRooms.map((chatRoom: ChatRoom) => (
+                        <div className={"[ ChatRoomContainer ]"} key={chatRoom.id}>
                             <div className={getGameImage(chatRoom.name)} onClick={() => enterRoom(chatRoom.id)}></div>
                         </div>
                     ))}
                 </div>
-                <div className={"Chat__ChatSection"}>
-                    <div className={"Chat__ChatSection__Header H3 Text_Secondary"}>
-                        <p className={"Chat__ChatSection__Header_Title"}>{commentStore.test2.name}</p>
+                <div className={"[ ChatSection ]"}>
+                    <div className={"[ ChatSectionHeader ]    { H3 Text_Secondary"}>
+                        <p className={"ChatSectionHeader__Title"}>{commentStore.test2.name}</p>
                     </div>
-                    <div className={"Chat__ChatSection__Body"}>
+                    <div className={"[ ChatSectionBody ]"}>
                             {commentStore.test3.map((message: message, index: number) => (
-                                <div className={"Chat__ChatSection__Body__Message"} key={index}>
-                                    <img className={"Chat__ChatSection__Body__Message__ProfileImg"} src={profileImg}></img>
-                                    <div className={"Chat__ChatSection__Body__Message__TextContainer Text_Secondary"}>
-                                        <p className={"Chat__ChatSection__Body__Message__TextContainer__UserName P0_Oxanium"}>{message.username}</p>
-                                        <p className={"Chat__ChatSection__Body__Message__TextContainer__TextMessage P4_Poppins"} >{message.text}</p>
+                                <div className={"[ ChatMessage ]"} key={index}>
+                                    <img className={"ChatMessage__ProfileImg"} src={profileImg}></img>
+                                    <div className={"[ ChatMessageText ]    { Text_Secondary"}>
+                                        <p className={"ChatMessageText__Username    { P0_Oxanium"}>{message.username}</p>
+                                        <p className={"ChatMessageText__TextMsg    { P4_Poppins"} >{message.text}</p>
                                     </div>
                                 </div>
                             ))}
                     </div>
-                    <div className={"Chat__ChatSection__InputArea P4_Poppins Text_Secondary"}>
-                        <input className={"Chat__ChatSection__InputArea__InputField P4_Poppins Text_Secondary"} type="text" placeholder="Enter message here.." onChange={e => setLocalMessage(e.target.value)} />
-                        <Btn onClick={() => sendMessage()} classes="Chat__ChatSection__InputArea__InputField__SendBtn">
-                            <FaTelegramPlane className={"Chat__ChatSection__InputArea__InputField__SendBtn__Icon"} />
+                    <div className={"[ ChatInputArea ]    { P4_Poppins Text_Secondary"}>
+                        <input
+                            className={"ChatInputArea__InputField    { P4_Poppins Text_Secondary"}
+                            type="text"
+                            placeholder="Enter message here.."
+                            onChange={e => setLocalMessage(e.target.value)}
+                        />
+                        <Btn onClick={() => sendMessage()} classes="ChatInputArea__SendBtn">
+                            <FaTelegramPlane className={"ChatInputArea__SendBtn__Icon"} />
                         </Btn>
                     </div>
                 </div>
