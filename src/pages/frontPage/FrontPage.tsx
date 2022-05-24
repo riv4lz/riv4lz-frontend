@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import CallToAction from '../../components/frontpage/CallToAction/CallToAction'
 import Guide from '../../components/frontpage/Guide/Guide'
-import Mission from '../../components/frontpage/Mission/Mission'
+import MissionAndVision from '../../components/frontpage/MissionAndVision/MissionAndVision'
 import Testimonies from '../../components/frontpage/Testimonies/Testimonies'
 import Orgs from '../../components/frontpage/Orgs/Orgs'
 import Stats from '../../components/frontpage/Stats/Stats'
@@ -24,7 +24,7 @@ const FrontPage = () => {
         <>
             <CallToAction />
             <Orgs />
-            <Mission />
+            <MissionAndVision />
             <Guide />
             <Stats />
             <Matches />

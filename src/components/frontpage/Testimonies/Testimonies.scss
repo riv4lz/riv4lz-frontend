@@ -34,12 +34,12 @@
             border-radius: 14px;
             flex-direction: column;
             gap: 10px;
-            .TestimoniesComponent_Rating {
+            .TestimoniesComponent__Rating {
                 flex-direction: row;
                 justify-content: space-between;
                 gap: 5px;
             }
-            .TestimoniesComponent_Text {
+            .TestimoniesComponent__Text {
                 padding: 0 20px;
             }
         }

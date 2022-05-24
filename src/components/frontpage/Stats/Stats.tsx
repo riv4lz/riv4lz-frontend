@@ -3,9 +3,9 @@ import './Stats.scss'
 
 const Stats = () => {
     return (
-        <div className='[ Stats ]    flex-flow'>
-            <div className='Stats__Wrapper    flex-flow'>
-                <div className='[ StatsComponent ]    flex-flow p1 font-oxanium fw-900 clr-white'>
+        <div className='[ Stats ]    { flex-flow }'>
+            <div className='Stats__Wrapper    { flex-flow }'>
+                <div className='[ StatsComponent ]    { flex-flow p1 font-oxanium fw-900 clr-white }'>
                     <div className='StatsComponent__Title'>
                         300+
                     </div>
@@ -13,7 +13,7 @@ const Stats = () => {
                         Happy Clients
                     </div>
                 </div>
-                <div className='[ StatsComponent ]    flex-flow p1 font-oxanium fw-900 clr-white'>
+                <div className='[ StatsComponent ]    { flex-flow p1 font-oxanium fw-900 clr-white }'>
                     <div className='StatsComponent__Title'>
                         800+
                     </div>
@@ -21,7 +21,7 @@ const Stats = () => {
                         Casters
                     </div>
                 </div>
-                <div className='[ StatsComponent ]    flex-flow p1 font-oxanium fw-900 clr-white'>
+                <div className='[ StatsComponent ]    { flex-flow p1 font-oxanium fw-900 clr-white }'>
                     <div className='StatsComponent__Title'>
                         100+
                     </div>
@@ -29,7 +29,7 @@ const Stats = () => {
                         Organisations
                     </div>
                 </div>
-                <div className='[ StatsComponent ]    flex-flow P1_Oxanium Bold Text_Secondary'>
+                <div className='[ StatsComponent ]    { flex-flow P1_Oxanium Bold Text_Secondary }'>
                     <div className='StatsComponent__Title'>
                         15+
                     </div>

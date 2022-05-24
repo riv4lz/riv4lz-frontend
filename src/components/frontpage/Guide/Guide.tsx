@@ -21,17 +21,17 @@ const Guide = () => {
 
     return (
         <div className='[ Guide ]'>
-            <div className='Guide__Wrapper    display-grid justify-content-center align-items-center'>
+            <div className='Guide__Wrapper    { display-grid justify-content-center align-items-center }'>
                 <div className='[ ContentContainer ]'>
-                    <div className='ContentContainer__Title    h2 font-statewideBold clr-white'> how does it work?</div>
-                    <div className='ContentContainer__Buttons    p1 font-oxanium fw-900 flex-flow'>
+                    <div className='ContentContainer__Title    { h2 font-statewideBold clr-white }'> how does it work?</div>
+                    <div className='ContentContainer__Buttons    { p1 font-oxanium fw-900 flex-flow }'>
                         <div style={{ color: casterState === true ? '#279BBB' : 'white' }} onClick={onCaster}>Caster</div>
                         <div style={{ color: orgState === true ? '#279BBB' : 'white' }} onClick={onOrg}>Organisation</div>
                     </div>
                     {casterState === true ? <Caster /> : <Org />}
                 </div>
-                <div className='[ VideoContainer ]    flex-flow'>
-                    <div className='VideoContainer__Wrapper    flex-flow'>
+                <div className='[ VideoContainer ]    { flex-flow }'>
+                    <div className='VideoContainer__Wrapper    { flex-flow }'>
                         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
                     </div>
                 </div>
