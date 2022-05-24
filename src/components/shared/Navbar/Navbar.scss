@@ -34,40 +34,82 @@
     margin: 0 1em;
 }
 
-.LoggedIn_Container{
+.LoggedIn_Container {
     width: 150px;
     height: 100%;
     background-color: transparent;
-    flex-direction: row;
-    .LoggedIn_Wrapper{
+    flex-direction: column;
+    position: relative;
+    .LoggedIn_Wrapper {
         flex-direction: row;
         width: 100%;
         height: 100%;
         text-align: end;
         gap: 5px;
-        .information{
+        .information {
             flex-direction: column;
             flex: 2;
-            .username{
+            .username {
                 width: 100%;
-                height: auto
+                height: auto;
             }
-            .Wallet_Wrapper{
+            .Wallet_Wrapper {
                 width: 100%;
                 height: auto;
                 flex-direction: row;
                 gap: 5px;
-
             }
         }
-        .Profile_Pic{
+        .Profile_Pic {
             flex-direction: row;
-            img{
+            img {
                 border-radius: 50%;
                 width: 40px;
                 height: 40px;
                 background-color: #111;
             }
+        }
+    }
+    .Dropdown {
+        position: absolute;
+        top: 120%;
+        width: 100%;
+        height: auto;
+        background-color: rgba($color: #fff, $alpha: 0.1);
+        border: 1px solid rgba($color: #fff, $alpha: 0.2);
+        color: #fff;
+        text-align: end;
+        border-radius: 5px;
+
+        .Dropdown__option {
+            width: 100%;
+            height: 30px;
+            text-align: end;
+            border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
+            border-radius: 5px 5px 0 0;
+            transition: 0.2s;
+            .Dropdown__option__text {
+                margin-right: 10px;
+            }
+        }
+
+        .Dropdown__option:hover {
+            background-color: rgba($color: #279bbb, $alpha: 0.5);
+        }
+
+        .Dropdown__Logout {
+            width: 100%;
+            height: 30px;
+            text-align: end;
+            border-radius: 0 0 5px 5px;
+            transition: 0.2s;
+            .Dropdown__option__text {
+                margin-right: 10px;
+            }
+        }
+
+        .Dropdown__Logout:hover {
+            background-color: rgba($color: rgb(170, 46, 46), $alpha: 0.5);
         }
     }
 }

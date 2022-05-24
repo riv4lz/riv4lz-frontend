@@ -41,6 +41,12 @@ export class AuthStore {
         return response.data;
     }
 
+    @action
+    logout = () => {
+        localStorage.clear();
+        this.user = undefined;
+    }
+
     constructor() {
         makeAutoObservable(this);
     }
