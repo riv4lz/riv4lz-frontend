@@ -211,6 +211,10 @@ $attention_4_mobile: 40px;
     font-size: $attention_4_desktop; }}
 
 //--------------------------Paragraph - VALUES --------------------------
+//--------------------------Paragraph 0 - VALUES--------------------------
+$paragraph_0_desktop: 24px;
+$paragraph_0_tablet: 24px;
+$paragraph_0_mobile: 18px;
 //--------------------------Paragraph 1 - VALUES--------------------------
 $paragraph_1_desktop: 20px;
 $paragraph_1_tablet: 19px;
@@ -230,6 +234,12 @@ $paragraph_4_mobile: 7px;
 
 
 //--------------------------Paragraph - CLASSES--------------------------
+.p0 {
+  font-size: $paragraph_0_mobile;
+  @media only screen and (min-width: $phone) {
+    font-size: $paragraph_0_tablet; }
+  @media only screen and (min-width: $desktop) {
+    font-size: $paragraph_0_desktop; }}
 .p1 {
   font-size: $paragraph_1_mobile;
   @media only screen and (min-width: $phone) {

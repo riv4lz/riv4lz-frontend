@@ -1,45 +1,46 @@
 @import "../../../index.scss";
 
-.testimonies_Container {
+.Testimonies {
     width: 100%;
     height: 750px;
     background-image: url("../../../assets/images/testimonies_background.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    .Testimonies__Wrapper {
+        width: 1440px;
+        height: 100%;
+        flex-direction: column;
+    }
 }
 
-.testimonies_Wrapper {
-    width: 1440px;
-    height: 100%;
-    flex-direction: column;
-    .testimonies_Title {
-        font-size: 48px !important;
-        margin-bottom: 30px;
-    }
-    .testimonies_ComponentContainer {
-        flex-direction: row;
+.TestimoniesTitle {
+    font-size: 48px !important;
+    margin-bottom: 30px;
+}
+
+.TestimoniesComponentContainer {
+    flex-direction: row;
+    gap: 25px;
+    .TestimoniesComponentContainer__Wrapper {
+        width: 100%;
+        height: auto;
         gap: 25px;
-        .testimonies_ComponentWrapper {
-            width: 100%;
-            height: auto;
-            gap: 25px;
-            .testimonie_Component { 
-                width: 300px;
-                height: 350px;
-                background-color: $Dark_Grey;
-                box-shadow: 0px 2px 8px rgba(7, 23, 55, 0.24);
-                border-radius: 14px;
-                flex-direction: column;
-                gap: 10px;
-                .testimonie_Rating {
-                    flex-direction: row;
-                    justify-content: space-between;
-                    gap: 5px;
-                }
-                .testimonie_Text {
-                    padding: 0 20px;
-                }
+        .TestimoniesComponent {
+            width: 300px;
+            height: 350px;
+            background-color: $Dark_Grey;
+            box-shadow: 0px 2px 8px rgba(7, 23, 55, 0.24);
+            border-radius: 14px;
+            flex-direction: column;
+            gap: 10px;
+            .TestimoniesComponent_Rating {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 5px;
+            }
+            .TestimoniesComponent_Text {
+                padding: 0 20px;
             }
         }
     }
