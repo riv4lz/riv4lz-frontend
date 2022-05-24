@@ -48,15 +48,15 @@ const Register = () => {
     }
 
     return (
-        <div className='Register_Container Flex Justify_Between Align_Center'>
-            <div className='Register_Wrapper Flex'>
+        <div className='[ Register ]    { display-flex justify-content-space-between align-items-center }'>
+            <div className='Register__Wrapper    { display-flex }'>
                 {pageNumber === 0 ? <Step0 caster={onCaster} org={onOrg} /> : null}
                 {pageNumber === 1 ? casterState ? <Step1_Caster id={uuid} nextPage={nextPage} prevPage={prevPage} /> : <Step1_Org id={uuid} nextPage={nextPage} prevPage={prevPage} /> : null}
                 {pageNumber === 2 ? casterState ? <Step2_Caster id={uuid} nextPage={nextPage} prevPage={prevPage} /> : <Step2_Org id={uuid} nextPage={nextPage} prevPage={prevPage} /> : null}
                 {pageNumber === 3 ? casterState ? <Step3_Caster id={uuid} complete={complete} prevPage={prevPage} /> : <Step3_Org id={uuid} complete={complete} prevPage={prevPage} /> : null}
                 {pageNumber === 4 ? <Done /> : null}
             </div>
-            <div className='Step_Counter Grid'>
+            <div className='[ Steps ]    { display-grid }'>
                 <div className={pageNumber === 0 ? "Step_Div_Active" : "Step_Div"}>&nbsp;</div>
                 <div className={pageNumber === 1 ? "Step_Div_Active" : "Step_Div"}>&nbsp;</div>
                 <div className={pageNumber === 2 ? "Step_Div_Active" : "Step_Div"}>&nbsp;</div>
@@ -71,16 +71,16 @@ const Step0 = ({ caster, org }: any) => {
 
     return (
         <>
-            <div className='Register_Header Text_Secondary Flex Justify_Start Align_Center'>
-                <div className='Step H1 Flex Justify_Center Align_Center'>
+            <div className='Register__Header    {    clr-white display-flex justify-content-start align-items-center }'>
+                <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     1
                 </div>
-                <div className='Title H3 Flex Justify_Center Align_Center'> Caster or org?</div>
+                <div className='Register__Header__Title    {  h3 font-statewideBold flex-flow }'> Caster or org?</div>
             </div>
-            <div className='add-form_Container Flex Justify_Start Align_Center'>
-                <div className='add-form_Wrapper Grid Justify_Center Align_Center '>
-                    <div id='casterBtn' className='H3 CasterButtons' onClick={caster}>Caster</div>
-                    <div id='orgBtn' className='H3 CasterButtons' onClick={org}>Organisation</div>
+            <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
+                <div className='Inputs__Wrapper__CasterButtons    { display-grid justify-content-center align-items-center }'>
+                    <div id='casterBtn' className='Inputs__Wrapper_CasterButtons    { h3 font-statewideBold cursor-pointer }' onClick={caster}>Caster</div>
+                    <div id='orgBtn' className='Inputs__Wrapper_CasterButtons    { h3 font-statewideBold cursor-pointer }' onClick={org}>Organisation</div>
                 </div>
             </div>
         </>
@@ -156,35 +156,35 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
 
     return (
         <>
-            <div className='Register_Header Text_Secondary Flex Justify_Start Align_Center'>
-                <div className='Step H1 Flex Justify_Center Align_Center'>
+            <div className='Register__Header    {    clr-white display-flex justify-content-start align-items-center }'>
+                <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     2
                 </div>
-                <div className='Title H2 Flex Justify_Center Align_Center'> BASIC INFO</div>
+                <div className='Register__Header__Title    { H2 flex-flow }'> BASIC INFO</div>
             </div>
-            <div className='add-form_Container Flex Justify_Start Align_Center'>
-                <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Username</span>
+            <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
+                <form className="Inputs__Form    { display-grid justify-content-space-around align-items-center }" onSubmit={onNext}>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Username</span>
                         <input type="text" id='inputUsername' className='Input' placeholder='Groundpound69' value={username} onChange={(e) => setUsername(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Email</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Email</span>
                         <input type="email" id='inputEmail' className='Input' placeholder='username@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Password</span>
                         <input type="password" id='inputPassword' className='Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Password</span>
                         <input type="password" id='inputRepeatPassword' className='Input' placeholder='Password' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}></input>
                     </div>
                 </form>
             </div>
-            <div className='Register_Buttons Flex Justify_Center Align_Center'>
-                <Btn onClick={onPrev} classes="Btn_LoginOutline P3_Statewide_Bold Text_Secondary" children="PREVIOUS STEP" />
-                <Btn onClick={onNext} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="NEXT STEP" />
+            <div className='[ Buttons ]    { flex-flow }'>
+                <Btn onClick={onPrev} classes="Btn_LoginOutline { p1 font-statewideBold clr-white }" children="PREVIOUS Step" />
+                <Btn onClick={onNext} classes="Btn_Login { p1 font-statewideBold clr-white }" children="NEXT Step" />
             </div>
         </>
     )
@@ -259,35 +259,35 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
 
     return (
         <>
-            <div className='Register_Header Text_Secondary Flex Justify_Start Align_Center'>
-                <div className='Step H1 Flex Justify_Center Align_Center'>
+            <div className='Register__Header    { clr-white display-flex justify-content-start align-items-center }'>
+                <div className='Register__Header__Step    { h1 font-statewideBold flex-flow }'>
                     2
                 </div>
-                <div className='Title H3 Flex Justify_Center Align_Center'> BASIC INFO ORG</div>
+                <div className='Register__Header__Title    { h3 font-statewideBold flex-flow }'> BASIC INFO ORG</div>
             </div>
-            <div className='add-form_Container Flex Justify_Start Align_Center'>
-                <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Username</span>
+            <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
+                <form className="Inputs__Form    { display-grid justify-content-space-around align-items-center }" onSubmit={onNext}>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Username</span>
                         <input type="text" id='inputUsername' className='Input' placeholder='Groundpound69' value={username} onChange={(e) => setUsername(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Email</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Email</span>
                         <input type="email" id='inputEmail' className='Input' placeholder='username@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Password</span>
                         <input type="password" id='inputPassword' className='Input' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Password</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Password</span>
                         <input type="password" id='inputRepeatPassword' className='Input' placeholder='Password' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}></input>
                     </div>
                 </form>
             </div>
-            <div className='Register_Buttons Flex Justify_Center Align_Center'>
-                <Btn onClick={onPrev} classes="Btn_LoginOutline P3_Statewide_Bold Text_Secondary" children="PREVIOUS STEP" />
-                <Btn onClick={onNext} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="NEXT STEP" />
+            <div className='[ Buttons ]    { flex-flow }'>
+                <Btn onClick={onPrev} classes="Btn_LoginOutline { p1 font-statewideBold clr-white }" children="PREVIOUS Step" />
+                <Btn onClick={onNext} classes="Btn_Login { p1 font-statewideBold clr-white }" children="NEXT Step" />
             </div>
         </>
     )
@@ -318,39 +318,39 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
 
     return (
         <>
-            <div className='Register_Header Text_Secondary Flex Justify_Start Align_Center'>
-                <div className='Step H1 Flex Justify_Center Align_Center'>
+            <div className='Register__Header    {    clr-white display-flex justify-content-start align-items-center }'>
+                <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     3
                 </div>
-                <div className='Title H2 Flex Justify_Center Align_Center'> SOCIALS</div>
+                <div className='Register__Header__Title    { H2 flex-flow }'> SOCIALS</div>
             </div>
-            <div className='add-form_Container Flex Justify_Start Align_Center'>
-                <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitter</span>
+            <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
+                <form className="Inputs_Wrapper   { display-grid justify-content-space-around align-items-center }" onSubmit={onNext}>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Twitter</span>
                         <input type="text" className='Input' placeholder='Twitter' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Facebook</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Facebook</span>
                         <input type="text" className='Input' placeholder='Facebook' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitch</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Twitch</span>
                         <input type="text" className='Input' placeholder='Twitch' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Discord</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Discord</span>
                         <input type="text" className='Input' placeholder='Discord' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Website</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Website</span>
                         <input type="text" className='Input' placeholder='Website' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
                     </div>
                 </form>
             </div>
-            <div className='Register_Buttons Flex Justify_Center Align_Center'>
-                <Btn onClick={onPrev} classes="Btn_LoginOutline P3_Statewide_Bold Text_Secondary" children="PREVIOUS STEP" />
-                <Btn onClick={onNext} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="NEXT STEP" />
+            <div className='[ Buttons ]    { flex-flow }'>
+                <Btn onClick={onPrev} classes="Btn_LoginOutline { p1 font-statewideBold clr-white }" children="PREVIOUS Step" />
+                <Btn onClick={onNext} classes="Btn_Login { p1 font-statewideBold clr-white }" children="NEXT Step" />
             </div>
         </>
     )
@@ -380,39 +380,39 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
     }
     return (
         <>
-            <div className='Register_Header Text_Secondary Flex Justify_Start Align_Center'>
-                <div className='Step H1 Flex Justify_Center Align_Center'>
+            <div className='Register__Header    {    clr-white display-flex justify-content-start align-items-center }'>
+                <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     3
                 </div>
-                <div className='Title H2 Flex Justify_Center Align_Center'> SOCIALS</div>
+                <div className='Register__Header__Title    { H2 flex-flow }'> SOCIALS</div>
             </div>
-            <div className='add-form_Container Flex Justify_Start Align_Center'>
-                <form className="add-form Grid Justify_Around Align_Center" onSubmit={onNext}>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitter</span>
+            <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
+                <form className="Inputs__Form    { display-grid justify-content-space-around align-items-center }" onSubmit={onNext}>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Twitter</span>
                         <input type="text" className='Input' placeholder='Twitter' value={twitter} onChange={(e) => setTwitter(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Facebook</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Facebook</span>
                         <input type="text" className='Input' placeholder='Facebook' value={facebook} onChange={(e) => setFacebook(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Twitch</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Twitch</span>
                         <input type="text" className='Input' placeholder='Twitch' value={twitch} onChange={(e) => setTwitch(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Discord</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Discord</span>
                         <input type="text" className='Input' placeholder='Discord' value={discord} onChange={(e) => setDiscord(e.target.value)}></input>
                     </div>
-                    <div className='Register_Component'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Website</span>
+                    <div className='Inputs__Form__Component'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Website</span>
                         <input type="text" className='Input' placeholder='Website' value={website} onChange={(e) => setWebsite(e.target.value)}></input>
                     </div>
                 </form>
             </div>
-            <div className='Register_Buttons Flex Justify_Center Align_Center'>
-                <Btn onClick={onPrev} classes="Btn_LoginOutline P3_Statewide_Bold Text_Secondary" children="PREVIOUS STEP" />
-                <Btn onClick={onNext} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="NEXT STEP" />
+            <div className='[ Buttons ]    { flex-flow }'>
+                <Btn onClick={onPrev} classes="Btn_LoginOutline { p1 font-statewideBold clr-white }" children="PREVIOUS Step" />
+                <Btn onClick={onNext} classes="Btn_Login { p1 font-statewideBold clr-white }" children="NEXT Step" />
             </div>
         </>
     )
@@ -438,21 +438,21 @@ const Step3_Caster = ({ id, complete, prevPage }: any) => {
     }
     return (
         <>
-            <div className='Register_Header Text_Secondary Flex Justify_Start Align_Center'>
-                <div className='Step H1 Flex Justify_Center Align_Center'>
+            <div className='Register__Header    {    clr-white display-flex justify-content-start align-items-center }'>
+                <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     4
                 </div>
-                <div className='Title H2 Flex Justify_Center Align_Center'> description</div>
+                <div className='Register__Header__Title    { H2 flex-flow }'> description</div>
             </div>
-            <div className='add-form_Container Flex Justify_Start Align_Center'>
-                <div className='Register_Component_Description Flex'>
-                    <span className='Half_opacity P4_Statewide_light Text_Secondary' >Descripe yourself</span>
+            <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
+                <div className='Inputs__Form__Component_Description Flex'>
+                    <span className='{ half-opacity p4 font-statewideLight clr-white }' >Descripe yourself</span>
                     <textarea className='Input_Description' placeholder='Tell us something great' value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                 </div>
             </div>
-            <div className='Register_Buttons Flex Justify_Center Align_Center'>
-                <Btn onClick={onPrev} classes="Btn_LoginOutline P3_Statewide_Bold Text_Secondary" children="PREVIOUS STEP" />
-                <Btn onClick={onComplete} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="COMPLETE" />
+            <div className='[ Buttons ]    { flex-flow }'>
+                <Btn onClick={onPrev} classes="Btn_LoginOutline { p1 font-statewideBold clr-white }" children="PREVIOUS Step" />
+                <Btn onClick={onComplete} classes="Btn_Login { p1 font-statewideBold clr-white }" children="COMPLETE" />
             </div>
         </>
     )
@@ -478,23 +478,23 @@ const Step3_Org = ({ id, complete, prevPage }: any) => {
     }
     return (
         <>
-            <div className='Register_Header Text_Secondary Flex Justify_Start Align_Center'>
-                <div className='Step H1 Flex Justify_Center Align_Center'>
+            <div className='Register__Header    {    clr-white display-flex justify-content-start align-items-center }'>
+                <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     4
                 </div>
-                <div className='Title H3 Flex Justify_Center Align_Center'> description Org</div>
+                <div className='Register__Header__Title    {  h3 font-statewideBold flex-flow }'> description Org</div>
             </div>
-            <div className='add-form_Container Flex Justify_Start Align_Center'>
-                <form className="add-form_Description Flex Justify_Start Align_Center" onSubmit={onComplete}>
-                    <div className='Register_Component_Description Flex'>
-                        <span className='Half_opacity P4_Statewide_light Text_Secondary' >Descripe your organisation</span>
+            <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
+                <form className="Inputs__Form_Description    { display-flex justify-content-start align-items-center }" onSubmit={onComplete}>
+                    <div className='Inputs__Form__Component_Description    { Flex }'>
+                        <span className='{ half-opacity p4 font-statewideLight clr-white }' >Descripe your organisation</span>
                         <textarea className='Input_Description' placeholder='Tell us something great' value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                     </div>
                 </form>
             </div>
-            <div className='Register_Buttons Flex Justify_Center Align_Center'>
-                <Btn onClick={onPrev} classes="Btn_LoginOutline P3_Statewide_Bold Text_Secondary" children="PREVIOUS STEP" />
-                <Btn onClick={onComplete} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="COMPLETE" />
+            <div className='[ Buttons ]    { flex-flow }'>
+                <Btn onClick={onPrev} classes="Btn_LoginOutline { p1 font-statewideBold clr-white }" children="PREVIOUS Step" />
+                <Btn onClick={onComplete} classes="Btn_Login { p1 font-statewideBold clr-white }" children="COMPLETE" />
             </div>
         </>
     )
@@ -518,15 +518,15 @@ const Done = () => {
     }
     return (
         <>
-            <div className='Register_Header Text_Secondary Flex Justify_Center Align_Center'>
-                <div className='Title H3 Flex Justify_Center Align_Center'> Finished</div>
+            <div className='Register__Header Text_Secondary flex-flow'>
+                <div className='Register__Header__Title    {  h3 font-statewideBold flex-flow }'> Finished</div>
             </div>
-            <div className='Finished_Container Flex Justify_Start Align_Center Text_Secondary P1_Oxanium Bold'>
+            <div className='Finished_Container    { display-flex justify-content-start align-items-center Text_Secondary P1_Oxanium Bold }'>
                 Congratulations! You have successfully created your account.
                 To continue please press the button below, we've already logged you in to your account.
             </div>
-            <div className='Register_Buttons Flex Justify_Center Align_Center'>
-                <Btn onClick={onHome} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="Back to home" />
+            <div className='[ Buttons ]    { flex-flow }'>
+                <Btn onClick={onHome} classes="Btn_Login { p1 font-statewideBold clr-white }" children="Back to home" />
             </div>
         </>
     )

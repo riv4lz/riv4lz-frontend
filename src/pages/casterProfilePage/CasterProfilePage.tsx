@@ -25,7 +25,7 @@ function CasterProfilePage(props: any) {
     }
     loadUser();
 
-    
+
     console.log(userStore.user);
     console.log(userStore.user.profileImageUrl);
   });
@@ -33,12 +33,12 @@ function CasterProfilePage(props: any) {
 
 
   return useObserver(() => (
-    <div className={"CasterProfilePage"}>
+    <>
       <ProfileDetails id={id} />
       <Cta id={id} />
       <Matches />
       <Highlights />
-    </div>
+    </>
   )
   );
 }

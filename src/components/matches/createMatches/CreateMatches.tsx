@@ -63,22 +63,22 @@ const CreateMatches = ({ show, handleClose }: any) => {
     }
 
     return (
-        <div className='Event_Container' style={{ display: show ? 'block' : 'none' }}>
-            <div className='Event_Wrapper Flex Text_Secondary'>
-                <div className='Event_Title Flex Justify_Center Align_Center H2'>
+        <div className='[ Event ]' style={{ display: show ? 'block' : 'none' }}>
+            <div className='Event__Wrapper   { display-flex clr-white }'>
+                <div className='Event__Title    { flex-flow h2 font-statewideBold }'>
                     Create event
                 </div>
-                <div className='Event_DetailsContainer Grid'>
-                    <div className='Event_HiringInfo'>
-                        <div className='Participants display-flex flex-direction-column'>
-                            <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>Participants</div>
-                            <div className='Info Flex Justify_Evenly Align_Center'>
+                <div className='[ Details ]    { Grid }'>
+                    <div className='[ Teams ]'>
+                        <div className='Teams__Participants    { display-flex flex-direction-column }'>
+                            <div className='Teams__Participants_Title    { p1-statewideBold flex-flow }'>Participants</div>
+                            <div className='Teams__Participants__Info    { display-flex justify-content-space-evenly align-content-center }'>
                                 <select id='team1' onChange={onChangeTeam1}>
                                     {eventStore.teams.map((team: Team, index: any) => (
                                         <option value={index} key={index}>{team.name}</option>
                                     ))}
                                 </select>
-                                <div className='vs H3 Text_Primary'>VS</div>
+                                <div className='{ h3 font-statewideBold clr-primary }'>VS</div>
                                 <select id='team2' onChange={onChangeTeam2}>
                                     {eventStore.teams.map((team: Team, index: any) => (
                                         <option value={index} key={index}>{team.name}</option>
@@ -87,50 +87,50 @@ const CreateMatches = ({ show, handleClose }: any) => {
                             </div>
                         </div>
                     </div>
-                    <div className='Event_GameDetails'>
-                        <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>
+                    <div className='[ GameDetails ]'>
+                        <div className='GameDetails__Title    { P1_Statewide_Bold flex-flow }'>
                             DETAILS
                         </div>
-                        <div className='Component_Container Grid'>
-                            <div className='Info_component Flex Justify_Center'>
-                                <div className='Component_Title P2_Statewide_Bold'>
+                        <div className='[ Components ]    { Grid }'>
+                            <div className='Components__InfoComponent    { display-flex justify-content-center }'>
+                                <div className='Component_Title    { p2 font-statewideBold }'>
                                     Time
                                 </div>
-                                <div className='Info P4_Statewide_light'>
+                                <div className='Components__InfoComponent__Info    { p4 font-statewideLight }'>
                                     <input id='date' type="datetime-local" className='Email_Input' placeholder='time' value={dateTime} onChange={(e) => setDateTime(e.target.value)}></input>
                                 </div>
                             </div>
-                            <div className='Info_component Flex Justify_Center'>
-                                <div className='Component_Title P2_Statewide_Bold'>
+                            <div className='Components__InfoComponent    { display-flex justify-content-center }'>
+                                <div className='Component_Title    { p2 font-statewideBold }'>
                                     Description
                                 </div>
-                                <div className='Info P4_Statewide_light'>
+                                <div className='Components__InfoComponent__Info    { p4 font-statewideLight }'>
                                     <input id='description' type="text" className='Email_Input' placeholder='description' value={description} onChange={(e) => setDescription(e.target.value)}></input>
                                 </div>
                             </div>
 
-                            <div className='Info_component Flex Justify_Center'>
-                                <div className='Component_Title P2_Statewide_Bold'>
+                            <div className='Components__InfoComponent    { display-flex justify-content-center }'>
+                                <div className='Component_Title'>
                                     Price
                                 </div>
-                                <div className='Info P4_Statewide_light'>
+                                <div className='Components__InfoComponent__Info    { p4 font-statewideLight }'>
                                     <input id='price' type="number" className='Email_Input' placeholder='price' value={price} onChange={(e) => setPrice(e.target.valueAsNumber)}></input>
                                 </div>
                             </div>
-                            <div className='Info_component Flex Justify_Center'>
-                                <div className='Component_Title P2_Statewide_Bold'>
+                            <div className='Components__InfoComponent    { display-flex justify-content-center }'>
+                                <div className='Component_Title    { p2 font-statewideBold }'>
                                     Game
                                 </div>
-                                <div className='Info P4_Statewide_light'>
+                                <div className='Components__InfoComponent__Info     { p4 font-statewideLight }'>
                                     <input id='game' type="text" className='Email_Input' placeholder='CS:GO' value={game} onChange={(e) => setGame(e.target.value)}></input>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='Event_button gap-2 Flex Justify_Center Align_Center'>
-                    <Btn onClick={handleClose} children='Close' classes='btn_CallToAction_White P3_Oxanium Bold Text_Dark_Blue' />
-                    <Btn onClick={createEvent} children='Create' classes='btn_CallToAction_Blue P3_Oxanium Bold Text_Dark_Blue' />
+                <div className='[ Buttons ]    { gap-2 flex-flow }'>
+                    <Btn onClick={handleClose} children='Close' classes='btn_CallToAction_White    { p3 font-oxanium fw-600 clr-darkblue }' />
+                    <Btn onClick={createEvent} children='Create' classes='btn_CallToAction_Blue    { p3 font-oxanium fw-600 clr-darkblue }' />
                 </div>
             </div>
         </div>
