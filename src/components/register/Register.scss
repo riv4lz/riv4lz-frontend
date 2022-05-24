@@ -1,64 +1,64 @@
 @import "../../index.scss";
 
 @media only screen and (min-width: $Desktop) {
-    .Register_Container {
+    .Register {
         width: 80%;
         max-width: 100% !important;
         min-height: 90%;
         max-height: 90%;
         border-radius: 0.2rem;
-        background-color: $Dark_Grey;
+        background-color: $clr-background;
         backdrop-filter: blur(30px);
         height: auto;
         flex-direction: column;
     }
 
-    .Register_Wrapper {
+    .Register__Wrapper {
         width: 80%;
         flex: 1;
         flex-direction: column;
-        .add-form_Container {
+        .Inputs {
             width: 100%;
             height: 100%;
             flex: 1;
-            .add-form {
+            .Inputs__Form {
                 width: 100%;
                 height: 100%;
                 grid-template-columns: repeat(auto-fill, 200px);
-                row-gap: 50px;
-                
+                gap: 50px;
             }
 
-            .add-form_Description{
+            .Inputs__Form_Description {
                 flex-direction: row;
                 width: 100%;
                 height: 100%;
             }
-            .add-form_Wrapper{
+            .Inputs__Wrapper__CasterButtons {
                 height: 100%;
                 width: 100%;
                 grid-template-columns: repeat(2, 1fr);
-                .CasterButtons{
-                    color: $Secondary;
+                .Inputs__Wrapper_CasterButtons {
+                    color: $clr-white;
                     transition: 0.2s;
                     user-select: none;
                 }
 
-                .CasterButtons:hover{
-                    color: $Primary;
+                .Inputs__Wrapper_CasterButtons:hover {
+                    color: $clr-primary;
                 }
             }
         }
-    }
-
-    .Register_Header {
-        width: 100%;
-        height: fit-content;
-        flex-direction: row;
-        gap: 25px;
-        margin-top: 80px;
-        .Step {
-            font-size: 80px !important;
+        .Register__Header {
+            width: 100%;
+            height: fit-content;
+            flex-direction: row;
+            gap: 25px;
+            .Register__Header__Step {
+                font-size: 80px !important;
+            }
+            .Register__Header__Title {
+                margin-top: 0;
+            }
         }
     }
 }
@@ -86,7 +86,7 @@
     align-items: center;
 }
 
-.Register_Component {
+.Inputs__Form__Component {
     display: flex;
     margin-top: 10px;
     flex-direction: column;
@@ -97,25 +97,23 @@
         max-width: 100%;
         height: 50px;
         border-radius: 5px;
-        background-color: $Secondary;
+        background-color: $clr-white;
         padding-left: 20px;
     }
     .Input::placeholder {
         color: $Black;
     }
-
-
 }
 
-.Register_Component_Description{
+.Inputs__Form__Component_Description {
     width: 100%;
     height: 100%;
     flex-direction: column;
     text-align: start;
     gap: 10px;
-    .Input_Description{
+    .Input_Description {
         border-radius: 5px;
-        background-color: $Secondary;
+        background-color: $clr-white;
         padding-left: 20px;
         height: 300px;
         max-width: 100%;
@@ -123,73 +121,14 @@
     }
 }
 
-.Register_Buttons {
+.Buttons {
     width: 100%;
     height: 100%;
     flex-direction: row;
     gap: 20px;
 }
 
-.Login_Button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    background-color: $Primary;
-    border-radius: 5px;
-    margin: 40px 0;
-    cursor: pointer;
-}
-
-.Login_Div_Continue_Buttons_Container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    .Buttons {
-        padding: 5px 20px;
-        background-color: $Secondary;
-        border-radius: 40px;
-        margin: 10px 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-}
-
-.Login_Div_Continue_Register {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    .Register {
-        text-decoration: none;
-    }
-}
-
-.Half_opacity {
-    opacity: 0.5;
-}
-
-.Login_Button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    background-color: $Primary;
-    border-radius: 5px;
-    margin: 40px 0;
-    cursor: pointer;
-}
-.Step_Counter {
+.Steps {
     width: 95%;
     height: auto;
     grid-template-columns: repeat(4, 1fr);
@@ -198,17 +137,17 @@
     .Step_Div {
         width: 100%;
         height: 15px;
-        background-color: $Secondary;
+        background-color: $clr-white;
     }
 
     .Step_Div_Active {
         width: 100%;
         height: 15px;
-        background-color: $Primary;
+        background-color: $clr-primary;
     }
 }
 
-.finished_Container{
+.finished_Container {
     width: 100%;
     flex: 1;
     display: flex;

@@ -537,6 +537,9 @@ $header_3_mobile: 20px;
 .justify-content-space-evenly {
   justify-content: space-evenly !important;
 }
+.justify-content-space-around {
+  justify-content: space-around !important;
+}
 .align-items-center {
   align-items: center !important;
 }
@@ -784,3 +787,10 @@ $border-round: 20px;
 .display-inline {
   display: inline;
 }
+
+//--------------------------Opacity - CLASSES--------------------------
+.half-opacity {
+  opacity: 0.5;
+}
+
+
