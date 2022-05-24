@@ -1,0 +1,62 @@
+@import url(../../../../index.scss);
+
+.FooterMain {
+    width: 100%;
+    height: 450px;
+    background-image: url('../../../../assets/images/tanks.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+
+    .FooterMain_Wrapper {
+        width: 1440px;
+        height: 100%;
+        grid-template-columns: 2fr 1fr 1fr 2fr;
+        gap: 30px;
+        text-align: start;
+    }
+}
+
+.LogoAndDetails {
+    flex-direction: column;
+
+    .Paragraph {
+        text-align: justify;
+        margin-bottom: 30px;
+    }
+}
+
+.Socials_Container{
+    flex-direction: row;
+}
+.TBA_Games{
+
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2,1fr);
+    gap: 10px;
+    img{
+        border-radius: 4px;
+    }
+}
+
+
+.Title {
+    margin-bottom: 25px;
+}
+
+.FooterLinks {
+    gap: 25px;
+    flex-direction: column;
+    margin: 0 !important;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.CopyrightContainer {
+    width: 100%;
+    height: 80px;
+    background-color: #111;
+}
