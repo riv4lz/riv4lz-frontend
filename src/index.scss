@@ -237,7 +237,7 @@ $header_0_desktop: 105px;
 $header_0_tablet: 70px;
 $header_0_mobile: 36px;
 
-$header_1_desktop: 53px;
+$header_1_desktop: 60px;
 $header_1_tablet: 53px;
 $header_1_mobile: 19px;
 
@@ -468,7 +468,7 @@ $header_3_mobile: 20px;
 
 //--------------------------Width - content sizes -------------------
 $content-width-desktop: 1440px;
-$content-width-laptop: 900px;
+$content-width-laptop: 1200px;
 $content-width-tablet: 600px;
 $content-width-phone: 300px;
 
@@ -489,7 +489,7 @@ $content-width-phone: 300px;
   width: max-content;
 }
 .width-full {
-  width: 100%;
+  width: 100vw;
 }
 
 //--------------------------Cursor - CLASSES--------------------------

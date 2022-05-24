@@ -1,32 +1,30 @@
 @import '../../../index.scss';
 
-.Orgs_Container{
+.Orgs {
     height: 310px;
-    width: 100%;
     background-color: $Dark_Grey;
 
-}
-.Orgs_Wrapper{
-    width: 1440px;
-    height: 100%;
-    flex-direction: column;
-}
+    .OrgsContent {
 
-.Orgs_Title{
-    margin-bottom: 40px;
-}
+        .OrgsContent__Title {
+        }
 
-.Orgs_Logos{
-    flex-direction: row;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    img{
-        filter: grayscale(100%);
-        transition: 0.2s;
+        .OrgsContent__Logos {
+            gap: 10px;
+
+            img{
+                filter: grayscale(100%);
+                transition: 0.2s;
+            }
+
+            img:hover{
+                filter: grayscale(0%);
+            }
+        }
+
     }
 
-    img:hover{
-        filter: grayscale(0%);
-    }
 }
+
+
+

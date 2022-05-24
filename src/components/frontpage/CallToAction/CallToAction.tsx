@@ -15,8 +15,8 @@ const CallToAction = () => {
     }
 
     return (
-        <div className='[ CallToAction ] '>
-            <div className='CallToAction__Wrapper'>
+        <div className='[ CallToAction ]    width-full display-flex justify-content-center align-items-center'>
+            <div className='CallToAction__Wrapper   width-content justify-content-center align-items-center'>
                 <div className='[ ContentSection ]'>
                     <div className='ContentSection__Title   h1 clr-white font-statewideBold'>
                         CASTING MADE
@@ -24,14 +24,17 @@ const CallToAction = () => {
                     <div className='ContentSection__HighlightedTitle    h0 clr-primary font-statewideBold'>
                         MODERN
                     </div>
-                    <div className='ContentSection__Paragraph   p2 clr-white font-poppins fontWeight-900'>
-                        <span className='ContentSection__Paragraph__Text'> Discover our innovative platform for casters and organisations alike - </span>
-                        <span className='ContentSection__Paragraph__HighlightedText clr-primary'>“imagine if booking a caster was as easy as ordering a pizza”</span>
-
+                    <div className='ContentSection__Paragraph   p2 clr-white font-poppins fontWeight-900 margin-top-m'>
+                        <span className='ContentSection__Paragraph__Text'>
+                            Discover our innovative platform for casters and organisations alike -
+                        </span>
+                        <span className='ContentSection__Paragraph__HighlightedText    clr-primary'>
+                            “imagine if booking a caster was as easy as ordering a pizza”
+                        </span>
                     </div>
                     <div className='ContentSection__Buttons'>
-                        <Btn onClick={onBecomeMember} children='Join Us Now' classes='btn_CallToAction_Blue p3 font-oxanium fw-900 clr-darkblue'></Btn>
-                        <Btn onClick={onFeatures} children='Read More' classes='btn_CallToAction_White p3 font-oxanium fw-900 clr-darkblue'></Btn>
+                        <Btn onClick={onBecomeMember} children='Join Us Now' classes='btn_CallToAction_Blue    p3 font-oxanium fw-900 clr-darkblue'></Btn>
+                        <Btn onClick={onFeatures} children='Read More' classes='btn_CallToAction_White    p3 font-oxanium fw-900 clr-darkblue'></Btn>
                     </div>
                     <div className='ContentSection__emptyDiv'>
                         &nbsp;
@@ -42,4 +45,4 @@ const CallToAction = () => {
     )
 }
 
-export default CallToAction
+export default CallToAction;

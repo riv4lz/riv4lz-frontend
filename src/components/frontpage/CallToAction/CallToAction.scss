@@ -1,26 +1,31 @@
 @import '../../../index.scss';
 
 .CallToAction {
-    width: 100%;
     height: 900px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $Grey;
     background-image: url('../../../assets/images/callToAction.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    .CallToAction__Wrapper{
+        @media (min-width: $phone) {}
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 540px);
+        justify-content: start;
+        align-items: center;
+    }
 }
 
-.CallToAction__Wrapper{
-    width: 1440px;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 540px);
-    justify-content: start;
-    align-items: center;
+.ContentSection__HighlightedTitle {
+    line-height: 98px;
+    margin-top: -10px;
 }
+
+.ContentSection__Title {
+    line-height: 88px;
+}
+
+
 
 
 .ContentSection__Paragraph{

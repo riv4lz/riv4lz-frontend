@@ -10,12 +10,12 @@ import AGF from '../../../assets/images/Esports-orgs/AGF.svg'
 
 const Orgs = () => {
   return (
-      <div className='Orgs_Container Flex Justify_Center Align_Center'>
-          <div className='Orgs_Wrapper Flex Justify_Center Align_Center'>
-              <div className='Orgs_Title H2 Text_Secondary Flex Justify_Center Align_Center'>
+      <div className='[ Orgs ]    width-full display-flex justify-content-center align-items-center'>
+          <div className='[ OrgsContent ]    flex-direction-column width-content display-flex justify-content-center align-items-center'>
+              <div className='OrgsContent__Title    margin-bottom-xl h2 clr-white font-statewideBold display-flex justify-content-center align-items-center'>
               Organisations already signed up
               </div>
-              <div className='Orgs_Logos Flex Justify_Center Align_Center'>
+              <div className='OrgsContent__Logos    flex-direction-row display-flex justify-content-center align-items-center'>
                   <img src={Astralis} alt="Astralis" />
                   <img src={Cepter} alt="Cepter" />
                   <img src={Tricked} alt="Astralis" />
