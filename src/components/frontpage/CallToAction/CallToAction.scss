@@ -7,7 +7,9 @@
     background-size: cover;
     background-position: center;
     .CallToAction__Wrapper{
-        @media (min-width: $phone) {}
+        @media (max-width: $desktop) {
+            display: flex;
+        }
         height: 100%;
         display: grid;
         grid-template-columns: repeat(2, 540px);
