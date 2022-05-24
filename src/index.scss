@@ -131,6 +131,7 @@ $Oxanium_font_family: "Oxanium", sans-serif;
 //--------------------------Font-weight - values--------------------------
 $fontWeight-900: 900;
 $fontWeight-600: 600;
+$fontWeight-300: 300;
 
 //--------------------------Font-weight - CLASSES--------------------------
 .fw-900{
@@ -138,6 +139,9 @@ $fontWeight-600: 600;
 }
 .fw-600{
   font-weight: $fontWeight-600;
+}
+.fw-300{
+  font-weight: $fontWeight-300;
 }
 
 //-------------------------- Colors --------------------------
@@ -191,6 +195,20 @@ $clr-black: #000000;
 .background-footer {
   background-color: $clr-footerbg;
 }
+
+//--------------------------Attention - VALUES --------------------------
+//--------------------------Attention 4 - VALUES--------------------------
+$attention_4_desktop: 80px;
+$attention_4_tablet: 80px;
+$attention_4_mobile: 40px;
+
+//--------------------------Attention - CLASSES--------------------------
+.a4 {
+  font-size: $attention_4_mobile;
+  @media only screen and (min-width: $phone) {
+    font-size: $attention_4_tablet; }
+  @media only screen and (min-width: $desktop) {
+    font-size: $attention_4_desktop; }}
 
 //--------------------------Paragraph - VALUES --------------------------
 //--------------------------Paragraph 1 - VALUES--------------------------
@@ -441,6 +459,9 @@ $header_3_mobile: 20px;
 //--------------------------FLex - CLASSES--------------------------
 .display-flex{
   display: flex;
+}
+.display-grid{
+  display: grid;
 }
 .flex-direction-column{
   flex-direction: column;

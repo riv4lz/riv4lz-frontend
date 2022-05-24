@@ -1,6 +1,5 @@
 import React from 'react'
 import './Mission.scss'
-import logo from '../../../assets/images/Union.png';
 
 const Mission = () => {
     return (
