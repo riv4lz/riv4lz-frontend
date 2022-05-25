@@ -7,6 +7,11 @@ pipeline {
     nodejs 'Node 14'
     }
     stages {
+        when {
+          anyOf {
+            changeset "src/**"
+          }
+        }
         stage("Build") {
             
             steps {
@@ -22,12 +27,7 @@ pipeline {
               }
             }
         }
-        stage("Testing") {
-            when {
-                anyOf {
-                    changeset "src/**"
-                }
-            }
+        stage("Testing") { 
             steps {
                 script {
                   sh 'Testcafe chrome:headless ./src/tests/'
