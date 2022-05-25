@@ -31,6 +31,9 @@ pipeline {
                 }
             }
         }
+        stage("Clean Containers"){
+          sh "docker rm -f riv4lz-frontend"
+        }
         stage("Deployment to Test environment") {
             steps {
                 
