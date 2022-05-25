@@ -1,7 +1,70 @@
 @import '../../../index.scss';
 
-.Matches_Container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center ;
+.Matches {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../../assets/images/MatchesPage_Background.png");
+
+    .Matches__Wrapper {
+        padding-top: 125px;
+        .Matches__Title {
+            width: 100%;
+        }
+        .Input {
+            width: 100%;
+            .Input__Component {
+                width: 600px;
+                .Input__ComponentTitle {
+                    width: 100%;
+                    text-align: start;
+                }
+                .Input__ComponentInput {
+                    width: 100%;
+                    height: 50px;
+                    background-color: $Dark_Grey;
+                    border: none;
+                    border-radius: 5px;
+                }
+                .Input__ComponentInput:focus{
+                    outline: none;
+                }
+                .Input__ComponentInput::placeholder {
+                    color: $clr-lightgrey;
+                }
+            }
+        }
+
+        .Components {
+            width: calc(100% - 25px);
+            height: 500px;
+            max-height: 500px;
+            div{
+                justify-self: start !important;
+                margin-right: 25px;
+                background-color: $clr-background;
+            }
+        }
+    }
+}
+.Buttons {
+    width: 100%;
+}
+
+#Matches::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: $clr-background;
+}
+
+#Matches::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: transparent;
+}
+
+#Matches::-webkit-scrollbar-thumb
+{
+	border-radius: 4px;
+	background-color: $clr-primary;
 }

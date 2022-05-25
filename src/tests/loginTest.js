@@ -1,6 +1,6 @@
 import { ClientFunction, Selector } from 'testcafe';
 
-fixture`Login`.page`localhost:3000/login`;
+fixture`Login`.page`http://165.227.144.141:4004/login`;
 
 test('Successful Login', async t => {
     await t

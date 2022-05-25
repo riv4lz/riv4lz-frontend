@@ -71,8 +71,8 @@ const CreateMatches = ({ show, handleClose }: any) => {
                 <div className='[ Details ]    { Grid }'>
                     <div className='[ Teams ]'>
                         <div className='Teams__Participants    { display-flex flex-direction-column }'>
-                            <div className='Teams__Participants_Title    { p1-statewideBold flex-flow }'>Participants</div>
-                            <div className='Teams__Participants__Info    { display-flex justify-content-space-evenly align-content-center }'>
+                            <div className='Teams__Participants__Title    { p1 font-statewideBold flex-flow }'>Participants</div>
+                            <div className='Teams__Participants__Info    { display-flex justify-content-space-evenly align-items-center }'>
                                 <select id='team1' onChange={onChangeTeam1}>
                                     {eventStore.teams.map((team: Team, index: any) => (
                                         <option value={index} key={index}>{team.name}</option>
@@ -88,7 +88,7 @@ const CreateMatches = ({ show, handleClose }: any) => {
                         </div>
                     </div>
                     <div className='[ GameDetails ]'>
-                        <div className='GameDetails__Title    { P1_Statewide_Bold flex-flow }'>
+                        <div className='GameDetails__Title    { p1 font-statewideBold flex-flow }'>
                             DETAILS
                         </div>
                         <div className='[ Components ]    { Grid }'>

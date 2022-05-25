@@ -70,15 +70,15 @@ const ProfileDetails = ({ id }: any) => {
             <span className={"Description__RealName    { p1 font-statewideBold clr-white fw-300 }"}>
                 {userStore.user?.name}</span>
             <div className={"Description__SocialIcons"}>
-                <a href={userStore.user?.facebookURL}>
+                <a href={userStore.user?.facebookUrl}>
                     <img src={Facebook} className={"Description__SocialIcons__Icon    { padding-right-1 }"}></img></a>
-                <a href={userStore.user?.twitterURL}>
+                <a href={userStore.user?.twitterUrl}>
                     <img src={Twitter} className={"Description__SocialIcons__Icon     { padding-right-1 }"}></img></a>
-                <a href={userStore.user?.twitchURL}>
+                <a href={userStore.user?.twitchUrl}>
                     <img src={Instagram} className={"Description__SocialIcons__Icon    { padding-right-1 }"}></img></a>
-                <a href={userStore.user?.discordURL}>
+                <a href={userStore.user?.discordUrl}>
                     <img src={Discord} className={"Description__SocialIcons__Icon    { padding-right-1 }"}></img></a>
-                <a href={userStore.user?.facebookURL}>
+                <a href={userStore.user?.facebookUrl}>
                     <img src={Telegram} className={"Description__SocialIcons__Icon     { padding-right-1 }"}></img></a>
             </div>
             <span className={"Description__Description    { p3 font-poppins clr-white margin-top-l }"}>
