@@ -31,7 +31,7 @@ const Navbar = (props: any) => {
           <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Guide'>Guide</Link>
           <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/About' ? "1" : "0.5" }} to='/About'>About</Link>
           <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Contact' ? "1" : "0.5" }} to='/Contact'>Contact</Link>
-          {authStore.user !== undefined ? <LoggedInNavbar /> : <Link className='Links Text_Dark_Blue P3_Oxanium Bold Flex Justify_Center Align_Center btn_Navlogin' to='/Login'>Login</Link>}
+          {authStore.user !== undefined ? <LoggedInNavbar /> : <Link className='NavbarMenu__Links    { clr-darkblue p3 font-oxanium fw-900 display-flex justify-content-center align-items-center btn_Navlogin }' to='/Login'>Login</Link>}
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@ const LoggedInNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Link className='Links    { clr p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Chat' ? "1" : "0.5" }} to='/Chat'>Chat</Link>
+      <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Chat' ? "1" : "0.5" }} to='/Chat'>Chat</Link>
       <div className='LoggedIn_Container    { flex-flow }' onClick={onClick}>
         <div className='LoggedIn_Wrapper    { flex-flow }'>
           <div className='information    { display-flex justify-content-flex-end align-items-center }'>
