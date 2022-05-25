@@ -7,13 +7,13 @@ pipeline {
     nodejs 'Node 14'
     }
     stages {
-        when {
-          anyOf {
-            changeset "src/**"
-          }
-        }
+        
         stage("Build") {
-            
+            when {
+              anyOf {
+                changeset "src/**"
+            }
+        }
             steps {
               sh 'npm install'
               
@@ -28,6 +28,10 @@ pipeline {
             }
         }
         stage("Testing") { 
+            when {
+              anyOf {
+                changeset "src/**"
+            }
             steps {
                 script {
                   sh 'Testcafe chrome:headless ./src/tests/'
@@ -40,6 +44,10 @@ pipeline {
             }
         }
         stage("Deliver") {
+            when {
+              anyOf {
+                changeset "src/**"
+            }
             steps {
                 
               withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
@@ -54,11 +62,19 @@ pipeline {
             }
         }
         stage("Clean Containers"){
+          when {
+              anyOf {
+                changeset "src/**"
+          }
           steps{
             sh "docker rm -f riv4lz-frontend"
           }
         }
         stage("Deployment to Test environment") {
+            when {
+              anyOf {
+                changeset "src/**"
+            }
             steps {    
               sh "docker run -d --rm -p 3000:3000 --name riv4lz-frontend frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
             }
