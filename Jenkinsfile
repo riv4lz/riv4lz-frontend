@@ -8,11 +8,7 @@ pipeline {
     }
     stages {
         stage("Build") {
-            when {
-                anyOf {
-                    changeset "src/**"
-                }
-            }
+            
             steps {
               sh 'npm install'
               
