@@ -4,6 +4,9 @@ pipeline {
     nodejs 'Node 14'
     }
     stages {
+        stage("Clean"){
+          sh "docker rm -f riv4lz-frontend-prod"
+        }
         stage("Build") {
             steps {
               sh 'npm install'
