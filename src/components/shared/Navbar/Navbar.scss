@@ -1,6 +1,6 @@
 @import url(../../../index.scss);
 
-.Navbar_Container {
+.Navbar {
     position: absolute;
     top: 0;
     left: 0;
@@ -10,25 +10,25 @@
     z-index: 999;
 }
 
-.Navbar_Wrapper {
+.Navbar__Wrapper {
     width: 1440px; //LAV CONTENT WIDTH PÅ LAYOUT SHEET
     height: 100%;
 }
 
-.Navbar_Logo {
+.NavbarLogo {
     width: 125px;
     height: 125px;
-    .logo {
+    .NavbarLogo_Logo {
         text-decoration: none;
     }
 }
 
-.Navbar_Links {
+.NavbarMenu {
     max-width: 100%;
     width: 100%;
 }
 
-.Links {
+.NavbarMenu__Links {
     justify-content: center;
     text-decoration: none;
     margin: 0 1em;

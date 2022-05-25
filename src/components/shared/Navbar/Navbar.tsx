@@ -18,19 +18,19 @@ const Navbar = (props: any) => {
   const { authStore } = useStore();
 
   return (
-    <div className='Navbar_Container Flex Align_Center Justify_Center Full_Width'>
-      <div className='Navbar_Wrapper Flex Align_Center Justify_Center Content_Width'>
-        <div className='Navbar_Logo Flex Align_Center '>
-          <Link className='logo' to='/'>
+    <div className='[ Navbar ]    { flex-flow width-full }'>
+      <div className='Navbar__Wrapper    { flex-flow width-content }'>
+        <div className='[ NavbarLogo ]    { display-flex align-items-center }'>
+          <Link className='NavbarLogo_Logo' to='/'>
             <Logo />
           </Link>
         </div>
-        <div className='Navbar_Links Flex Align_Center Justify_End'>
-          <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/' ? "1" : "0.5" }} to='/'>Home</Link>
-          <Link className='Links Text_Secondary P3_Oxanium Bold' id='navMatches' style={{ opacity: location.pathname === '/Matches' ? "1" : "0.5" }} to='/Matches'>Matches</Link>
-          <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Guide'>Guide</Link>
-          <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/About' ? "1" : "0.5" }} to='/About'>About</Link>
-          <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/Contact' ? "1" : "0.5" }} to='/Contact'>Contact</Link>
+        <div className='[ NavbarMenu ]    { display-flex align-items-center justify-content-flex-end }'>
+          <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/' ? "1" : "0.5" }} to='/'>Home</Link>
+          <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' id='navMatches' style={{ opacity: location.pathname === '/Matches' ? "1" : "0.5" }} to='/Matches'>Matches</Link>
+          <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Guide'>Guide</Link>
+          <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/About' ? "1" : "0.5" }} to='/About'>About</Link>
+          <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Contact' ? "1" : "0.5" }} to='/Contact'>Contact</Link>
           {authStore.user !== undefined ? <LoggedInNavbar /> : <Link className='Links Text_Dark_Blue P3_Oxanium Bold Flex Justify_Center Align_Center btn_Navlogin' to='/Login'>Login</Link>}
         </div>
       </div>
@@ -58,15 +58,15 @@ const LoggedInNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Link className='Links Text_Secondary P3_Oxanium Bold' style={{ opacity: location.pathname === '/Chat' ? "1" : "0.5" }} to='/Chat'>Chat</Link>
-      <div className='LoggedIn_Container Flex Justify_Center Align_Center' onClick={onClick}>
-        <div className='LoggedIn_Wrapper Flex Justify_Center Align_Center'>
-          <div className='information Flex Justify_End Align_Center'>
-            <div className='username Flex Justify_End Align_Center P3_Oxanium Bold Text_Secondary'>
+      <Link className='Links    { clr p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Chat' ? "1" : "0.5" }} to='/Chat'>Chat</Link>
+      <div className='LoggedIn_Container    { flex-flow }' onClick={onClick}>
+        <div className='LoggedIn_Wrapper    { flex-flow }'>
+          <div className='information    { display-flex justify-content-flex-end align-items-center }'>
+            <div className='username    { display-flex justify-content-flex-end align-items-center p3 font-oxanium fw-900 clr-white }'>
               {userStore.user !== undefined ? userStore.user.name : 'Loading...'}
             </div>
-            <div className='Wallet_Wrapper Flex Justify_End Align_Center'>
-              <div className='amount P3_Oxanium Bold Text_Primary'>$10</div>
+            <div className='Wallet_Wrapper    { display-flex justify-content-flex-end align-items-center }'>
+              <div className='amount    { p3 font-oxanium fw-900 clr-white }'>$10</div>
               <div className='walleticon'><img src={Wallet} alt="Wallet" /></div>
             </div>
           </div>
