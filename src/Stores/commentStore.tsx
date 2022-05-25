@@ -49,7 +49,7 @@ export default class CommentStore{
     createHubConnection = () => {
         console.log("trying to connect");
         this.hubConnection = new HubConnectionBuilder()
-            .withUrl('http://localhost:5000/chat')
+            .withUrl(process.env.REACT_APP_CHAT !== undefined ? process.env.REACT_APP_CHAT : "http://localhost:5000/chat")
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();
