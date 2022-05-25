@@ -39,7 +39,7 @@ pipeline {
         stage("Deployment to Test environment") {
             steps {
                 
-              sh "docker run -d --rm -p 3000:80 --name riv4lz-frontend frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
+              sh "docker run -d --rm -p 3000:3000 --name riv4lz-frontend frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
               discordSend description: "JProduction stage", footer: "Footer Text", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/958687917100892181/Ywqi7Cv9vZ9UTFwvP9vezRxnBgWo_iXHhzFqNWqG8pv0i1gRyT3kiCihM09JOn4KB0le"
             }
         }
