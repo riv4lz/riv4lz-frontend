@@ -128,25 +128,42 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
             alert("Email already taken");
             return;
         }
-        authStore.registerUser({
+        await authStore.registerUser({
             id: id,
             email: email,
             password: password,
             userType: 0
         })
-        userStore.createUserProfile({
+        await userStore.createUserProfile({
             id: id,
             name: username,
             userType: 0,
             description: '',
             profileImageUrl: '',
             bannerImageUrl: '',
-            facebookURL: '',
-            twitterURL: '',
-            discordURL: '',
-            twitchURL: '',
-            websiteURL: ''
+            facebookUrl: '',
+            twitterUrl: '',
+            discordUrl: '',
+            twitchUrl: '',
+            websiteUrl: ''
         })
+
+        await authStore.attemptLogin({ email: email, password: password });
+        const loadedUser = await userStore.loadUser(authStore.user?.id);
+        if (loadedUser.userType === 0) {
+            authStore.isCaster = true;
+            authStore.isOrg = false;
+        } else {
+            authStore.isCaster = false;
+            authStore.isOrg = true;
+        }
+
+        console.log(loadedUser);
+
+        if (authStore.user) {
+            localStorage.setItem("token", authStore.user.token);
+        }
+
         nextPage()
     }
 
@@ -244,12 +261,28 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
             description: '',
             profileImageUrl: '',
             bannerImageUrl: '',
-            facebookURL: '',
-            twitterURL: '',
-            discordURL: '',
-            twitchURL: '',
-            websiteURL: ''
+            facebookUrl: '',
+            twitterUrl: '',
+            discordUrl: '',
+            twitchUrl: '',
+            websiteUrl: ''
         })
+
+        await authStore.attemptLogin({ email: email, password: password });
+        const loadedUser = await userStore.loadUser(authStore.user?.id);
+        if (loadedUser.userType === 0) {
+            authStore.isCaster = true;
+            authStore.isOrg = false;
+        } else {
+            authStore.isCaster = false;
+            authStore.isOrg = true;
+        }
+
+        console.log(loadedUser);
+
+        if (authStore.user) {
+            localStorage.setItem("token", authStore.user.token);
+        }
         nextPage()
     }
 
@@ -307,7 +340,7 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
     const onNext = () => {
         let caster = userStore.user
         const updatedCaster = {
-            ...caster, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImageUrl: '', profileImage: '', websiteURL: website
+            ...caster, twitterUrl: twitter, facebookUrl: facebook, twitchUrl: twitch, discordUrl: discord, bannerImageUrl: '', profileImage: '', websiteUrl: website
         }
         console.log(updatedCaster);
 
@@ -370,7 +403,7 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
     const onNext = () => {
         let org = userStore.user
         const updatedOrg = {
-            ...org, twitterURL: twitter, facebookURL: facebook, twitchURL: twitch, discordURL: discord, bannerImageUrl: '', profileImage: '', websiteURL: website
+            ...org, twitterUrl: twitter, facebookUrl: facebook, twitchUrl: twitch, discordUrl: discord, bannerImageUrl: '', profileImage: '', websiteUrl: website
         }
         console.log(updatedOrg);
 

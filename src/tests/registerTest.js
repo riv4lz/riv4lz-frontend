@@ -1,12 +1,15 @@
 import { ClientFunction, Selector } from 'testcafe';
 
-fixture`Register`.page`localhost:3000/Register`;
+fixture`Register`.page`http://165.227.144.141:4004/Register`;
 
 test('register caster user', async t => {
+    const randomusername = Math.random().toString(36).substring(0, 5);
+    const randomemail = Math.random().toString(36).substring(0, 5) + '@gmail.com';
+
     await t
         .click('#casterBtn')
-        .typeText('#inputUsername', 'test')
-        .typeText('#inputEmail', 't@asdaasd.dk')
+        .typeText('#inputUsername', randomusername)
+        .typeText('#inputEmail', randomemail)
         .typeText('#inputPassword', 'Password123')
         .typeText('#inputRepeatPassword', 'Password123')
         .click('.Btn_Login')
@@ -215,10 +218,13 @@ test('register caster user with empty repeat password', async t => {
 
 //test register organisation user
 test('register organisation user', async t => {
+    const randomusername = Math.random().toString(36).substring(0, 5);
+    const randomemail = Math.random().toString(36).substring(0, 5) + '@gmail.com';
+
     await t
         .click('#orgBtn')
-        .typeText('#inputUsername', 'test')
-        .typeText('#inputEmail', 'orgetest@org.dk')
+        .typeText('#inputUsername', randomusername)
+        .typeText('#inputEmail', randomemail)
         .typeText('#inputPassword', 'Password123')
         .typeText('#inputRepeatPassword', 'Password123')
         .click('.Btn_Login')

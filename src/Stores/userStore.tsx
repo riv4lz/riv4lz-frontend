@@ -8,11 +8,11 @@ export interface User {
     description: string
     profileImageUrl?: string
     bannerImageUrl?: string
-    facebookURL: string
-    twitterURL: string
-    discordURL: string
-    twitchURL: string
-    websiteURL: string
+    facebookUrl: string
+    twitterUrl: string
+    discordUrl: string
+    twitchUrl: string
+    websiteUrl: string
 }
 
 
@@ -26,11 +26,11 @@ export class UserStore {
         description: '',
         profileImageUrl: '',
         bannerImageUrl: '',
-        facebookURL: '',
-        twitterURL: '',
-        discordURL: '',
-        twitchURL: '',
-        websiteURL: ''
+        facebookUrl: '',
+        twitterUrl: '',
+        discordUrl: '',
+        twitchUrl: '',
+        websiteUrl: ''
     };
 
 

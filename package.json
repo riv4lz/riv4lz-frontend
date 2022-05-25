@@ -32,7 +32,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "nodenv .",
+    "test1": "nodenv -E test/.env test/test.js"
   },
   "eslintConfig": {
     "extends": [
