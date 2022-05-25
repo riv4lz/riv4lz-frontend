@@ -18,61 +18,61 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
     }, [])
 
     return (
-        <div className='Event_Container' style={{ display: show ? 'block' : 'none' }}>
-            <div className='Event_Wrapper Flex Text_Secondary'>
-                <div className='Event_Title Flex Justify_Center Align_Center H2'>
+        <div className='[ EventDetails ]' style={{ display: show ? 'block' : 'none' }}>
+            <div className='EventDetails__Wrapper    { display-flex clr-white flex-direction-column }'>
+                <div className='EventDetails_Title    { flex-flow h2 font-statewideBold margin-top-xl }'>
                     MATCH OVERVIEW
                 </div>
-                <div className='Event_DetailsContainer Grid'>
-                    <div className='Event_HiringInfo'>
-                        <div className='Hiring'>
-                            <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>hiring organisation</div>
-                            <div className='Info Flex Justify_Start Align_Center'>
-                                <div className='Logo'>
+                <div className='[ Details ]    { display-grid gap-5 }'>
+                    <div className='Details__HiringInfo'>
+                        <div className='Details__Hiring'>
+                            <div className='Details__HiringTitle    { p1 font-statewideBold flex-flow margin-bottom-s }'>hiring organisation</div>
+                            <div className='Details__HiringText    { gap-3 margin-bottom-m display-flex justify-content-start align-items-center }'>
+                                <div className='Details__HiringLogo'>
                                     <img src={userStore.user.profileImageUrl !== null || undefined ? userStore.user.profileImageUrl : Tricked} alt='Profile Pic' />
                                 </div>
-                                <div className='Info_Container '>
-                                    <div className='name P2_Statewide_Bold Text_Secondary'>{Event.organisationProfile.name}</div>
-                                    <div className='tag P4_Statewide_light Text_Secondary'>{Event.organisationProfile.description}</div>
+                                <div className='Details__InfoText '>
+                                    <div className='Details__name    { p2 font-statewideBold clr-white }'>{Event.organisationProfile.name}</div>
+                                    <div className='Details__tag    { p4 font-statewideLight clr-white }'>{Event.organisationProfile.description}</div>
                                 </div>
                             </div>
                         </div>
-                        <div className='Participants '>
-                            <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>Participants</div>
-                            <div className='Info Flex Justify_Evenly Align_Center'>
-                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.teams[0].name}</div>
-                                <div className='vs H3 Text_Primary'>VS</div>
-                                <div className='team P2_Statewide_Bold Text_Secondary'>{Event.teams[1].name}</div>
+                        <div className='[ Participants ] '>
+                            <div className='Participants__Title    { p1 font-statewideBold flex-flow }'>Participants</div>
+                            <div className='Participants__Info    { display-flex justify-content-space-evenly align-items-center }'>
+                                <div className='Participants__team    { p2 font-statewideBold clr-white }'>{Event.teams[0].name}</div>
+                                <div className='Participants__vs     { h3 font-statewideBold clr-primary }'>VS</div>
+                                <div className='Participants__team    { p2 font-statewideBold clr-white }'>{Event.teams[1].name}</div>
                             </div>
                         </div>
                     </div>
-                    <div className='Event_GameDetails'>
-                        <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>
+                    <div className='[ GameDetails ]'>
+                        <div className='GameDetails__Title    { p1 font-statewideBold flex-flow }'>
                             DETAILS
                         </div>
-                        <div className='Component_Container Grid'>
-                            <div className='Info_component Flex Justify_Center'>
-                                <div className='Component_Title P2_Statewide_Bold'>
+                        <div className='GameDetails__Components    { display-grid }'>
+                            <div className='GameDetails__Infocomponent    { display-flex justify-content-center flex-direction-column }'>
+                                <div className='GameDetails__InfocomponentTitle     { p2 font-statewideBold margin-bottom-xs }'>
                                     Time
                                 </div>
-                                <div className='Info P4_Statewide_light'>
+                                <div className='GameDetails__InfocomponentInfo    { p4 font-statewideLight margin-bottom-xs }'>
                                     {Event.time}
                                 </div>
                             </div>
-                            <div className='Info_component Flex Justify_Center'>
-                                <div className='Component_Title P2_Statewide_Bold'>
+                            <div className='GameDetails__Infocomponent    { display-flex justify-content-center flex-direction-column }'>
+                                <div className='GameDetails__InfocomponentTitle    { p2 font-statewideBold margin-bottom-xs }'>
                                     Channel
                                 </div>
-                                <div className='Info P4_Statewide_light'>
-                                    {Event.organisationProfile.twitchURL}
+                                <div className='GameDetails__InfocomponentInfo     { p4 font-statewideLight margin-bottom-xs }'>
+                                    {Event.organisationProfile.twitchUrl}
                                 </div>
                             </div>
 
-                            <div className='Info_component Game Flex Justify_Center'>
-                                <div className='Component_Title P2_Statewide_Bold'>
+                            <div className='GameDetails__InfocomponentGame    { display-flex justify-content-center flex-direction-column }'>
+                                <div className='GameDetails__InfocomponentTitle    { p2 font-statewideBold }'>
                                     game
                                 </div>
-                                <div className='Info P4_Statewide_light'>
+                                <div className='GameDetails__InfocomponentInfo    { p4 font-statewideLight margin-bottom-xs }'>
                                     {Event.game}
                                 </div>
                             </div>
@@ -80,7 +80,7 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
                     </div>
                 </div>
                 {casterState ? <Caster Event={Event} handleClose={handleClose} /> : organisationState && userStore.user.id === Event.organisationProfile.id ? <Organisation handleClose={handleClose} /> : null}
-                <div className='Event_button Flex Justify_Center Align_Center'>
+                <div className='[ CloseButton ]    { flex-flow margin-bottom-xl margin-top-xxl }'>
                     <Public Close={handleClose} />
                 </div>
             </div>
@@ -91,7 +91,7 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
 
 const Public = ({ Close }: any) => {
     return (
-        <Btn onClick={Close} children='Close' classes='btn_CallToAction_Blue P3_Oxanium Bold Text_Dark_Blue' />
+        <Btn onClick={Close} children='Close' classes='{ btn_CallToAction_Blue p3 font-oxanium fw-900 clr-darkblue }' />
     )
 }
 
@@ -107,19 +107,19 @@ const Caster = ({ Event, handleClose }: any) => {
         alert("Offer sent!");
     }
     return (
-        <div className='Caster_Container Flex Justify_Center Align_Center'>
+        <div className='[ Caster ]   { flex-flow margin-top-xl flex-direction-column }'>
 
-            <div className='Caster_Title Flex Justify_Center Align_Center P1_Statewide_Bold Text_Secondary'>Send Offer</div>
-            <div className='Caster_Paragraph Flex Justify_Center Align_Center P4_Statewide_light'>If you exceed the povided min and maximum values by the organisation, your acceptance rate will be significantly lower</div>
-            <div className='Caster_Component_Container Grid'>
-                <div className='Budget'>
-                    <div className='Title P1_Statewide_Bold'>Organisation budget</div>
-                    <div className='Info Flex Justify_Center Align_Center P1_Oxanium Bold'> {Event.price} </div>
+            <div className='Caster_Title    { flex-flow p1 font-statewideBold clr-white }'>Send Offer</div>
+            <div className='Caster_Paragraph    { flex-flow p4 font-statewideLight }'>If you exceed the povided min and maximum values by the organisation, your acceptance rate will be significantly lower</div>
+            <div className='[ Caster_Component ]    { display-grid margin-top-s gap-2 }'>
+                <div className='Caster_Component__Budget'>
+                    <div className='Caster_Component__BudgetTitle    { p1 font-statewideBold }'>Organisation budget</div>
+                    <div className='Caster_Component__BudgetInfo    { flex-flow P1_Oxanium fw-900 }'> {Event.price} </div>
                 </div>
-                <div className='Offer P1_Statewide_Bold'>
-                    <div className='Title'>Your Offer</div>
-                    <div className='input_Container Flex Justify_Center Align_Center'>
-                        <Btn classes='btn_Offer_Solid P3_Oxanium Bold Text_Dark_Blue' children='Send Offer' onClick={onSendOffer} />
+                <div className='[ OfferComponent ]    { p1 font-statewideBold }'>
+                    <div className='OfferComponent__Title'>Your Offer</div>
+                    <div className='OfferComponent__inputContainer    { flex-flow gap-2 flex-direction-row }'>
+                        <Btn classes='{ btn_Offer_Solid p3 font-oxanium fw-900 clr-darkblue }' children='Send Offer' onClick={onSendOffer} />
                     </div>
                 </div>
             </div>
@@ -148,24 +148,24 @@ const Organisation = ({handleClose}: any ) => {
     }
 
     return (
-        <div className='Offer_Container Flex Justify_Center Align_Center'>
-            <div className='Offer_Title Flex Justify_Start Align_Center P1_Statewide_Bold Text_Secondary'>Caster Applications</div>
-            <div className='Component_Container Flex Align_Start'>
+        <div className='[ Org ]    { flex-flow margin-top-xl flex-direction-column }'>
+            <div className='Org__Title    { margin-bottom-s display-flex justify-content-start align-items-center p1 font-statewideBold clr-white }'>Caster Applications</div>
+            <div className='[ OrgComponent ]    { display-flex Align_Start flex-direction-column gap-2 overflow-y-scroll }'>
                 {offerStore.offers.map((offer: any) => {
                     return (
-                        <div key={offer.id} className='Component_Wrapper Flex Justify_Start Align_Center'>
-                            <div className='image Flex Justify_Center Align_Center'> <img src={offer.caster.profileImage !== null ? offer.caster.profileImage : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} alt="" /></div>
-                            <div className='name_container Flex Justify_Around Align_Center'>
-                                <div className='name P1_Statewide_Bold Text_Secondary'>
+                        <div key={offer.id} className='OrgComponent__Wrapper    { flex-direction-row display-flex justify-content-start align-items-center }'>
+                            <div className='OrgComponent__Image    { flex-flow }'> <img src={offer.caster.profileImage !== null ? offer.caster.profileImage : 'https://i.imgur.com/sh2 font-statewideBoldIN1A_d.webp?maxwidth=760&fidelity=grand'} alt="" /></div>
+                            <div className='OrgComponent__NameContainer    { display-flex flex-direction-column Justify_Around align-items-center }'>
+                                <div className='OrgComponent__Name    { p1 font-statewideBold clr-white }'>
                                     {offer.caster.name}
                                 </div>
-                                <div className='description P4_Statewide_Bold Text_Secondary'>
+                                <div className='OrgComponent__Description    { p4 font-statewideBold clr-white }'>
                                     {offer.caster.description}
                                 </div>
                             </div>
-                            <div className='offer_container Flex Justify_End Align_Center'>
-                                <div className='accept btn_Offer_Solid' onClick={() => onAcceptOffer(offer)}>Accept</div>
-                                <div className='decline btn_Offer_Outline' onClick={() => onDeclineOffer(offer)}>Decline</div>
+                            <div className='OrgComponent__OfferContainer    { flex-direction-row gap-2 display-flex Justify_End align-items-center }'>
+                                <div className='OrgComponent__accept   { btn_Offer_Solid }' onClick={() => onAcceptOffer(offer)}>Accept</div>
+                                <div className='OrgComponent__decline    { btn_Offer_Outline }' onClick={() => onDeclineOffer(offer)}>Decline</div>
                             </div>
                         </div>
                     )

@@ -37,6 +37,13 @@
                 .Teams__Participants {
                     height: 100%;
                     flex-direction: column;
+                    
+                    .Teams__Participants__Title{
+                        width: 100%;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                        margin: 0 15px 25px;
+                    }
 
                     .Teams__Participants__Info {
                         flex: 1;
