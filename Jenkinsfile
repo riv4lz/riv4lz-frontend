@@ -12,8 +12,8 @@ pipeline {
             when {
               anyOf {
                 changeset "src/**"
+              }
             }
-        }
             steps {
               sh 'npm install'
               
@@ -31,6 +31,7 @@ pipeline {
             when {
               anyOf {
                 changeset "src/**"
+              }
             }
             steps {
                 script {
@@ -47,6 +48,7 @@ pipeline {
             when {
               anyOf {
                 changeset "src/**"
+              }
             }
             steps {
                 
@@ -65,6 +67,7 @@ pipeline {
           when {
               anyOf {
                 changeset "src/**"
+              }
           }
           steps{
             sh "docker rm -f riv4lz-frontend"
@@ -74,6 +77,7 @@ pipeline {
             when {
               anyOf {
                 changeset "src/**"
+              }
             }
             steps {    
               sh "docker run -d --rm -p 3000:3000 --name riv4lz-frontend frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
