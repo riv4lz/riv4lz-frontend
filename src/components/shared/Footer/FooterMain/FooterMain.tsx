@@ -15,17 +15,17 @@ import Witcher from '../../../../assets/images/Witcher.png';
 
 const FooterMain = () => {
     return (
-        <div className='[ FooterMain ]    { Flex Justify_Center Align_Center Text_Secondary'>
-            <div className='FooterMain_Wrapper    { Grid Justify_Center Align_Center'>
-                <div className='[ LogoAndDetails ] Component    { Flex Justify_Between'>
+        <div className='[ FooterMain ]    { flex-flow clr-white }'>
+            <div className='FooterMain_Wrapper    { display-grid justify-content-center align-items-center }'>
+                <div className='[ LogoAndDetails ] Component    { display-flex justify-content-space-between }'>
                     <div className='Title'>
                         <Logo />
                     </div>
-                    <div className='Paragraph    { P4_Oxanium Medium '>
+                    <div className='Paragraph    { p4 font-oxanium fw-300 '>
                         Warzone
                         Upropriate brand economca sound technolog after covalent technology encdable prospective wastng markets whereas propriate and brand economca sound technolog
                     </div>
-                    <div className='Socials_Container    { Flex Justify_Between Align_Center'>
+                    <div className='Socials_Container    { display-flex justify-content-space-between align-items-center }'>
                         <img src={Facebook} alt="Facebook" />
                         <img src={Twitter} alt="Twitter" />
                         <img src={Instagram} alt="Instagram" />
@@ -35,8 +35,8 @@ const FooterMain = () => {
                     </div>
                 </div>
                 <div className='[ UsefulLinks ] Component'>
-                    <div className='Title    { P0_Oxanium Bold'>Useful links</div>
-                    <div className='FooterLinks    { Flex Justify_Evenly P3_Oxamium Semi_Bold'>
+                    <div className='Title    { p0 font-oxanium fw-900 }'>Useful links</div>
+                    <div className='FooterLinks    { display-flex justify-content-space-evenly p3 font-oxanium fw-600 }'>
                         <a className='{ Text_Secondary' href='#'>About us</a>
                         <a className='{ Text_Secondary' href='#'>Games</a>
                         <a className='{ Text_Secondary' href='#'>Matches</a>
@@ -45,9 +45,9 @@ const FooterMain = () => {
                     </div>
                 </div>
                 <div className='[ SocialContact ] Component'>
-                    <div className='Title    { P0_Oxanium Bold'>Social Contact</div>
+                    <div className='Title    { p0 font-oxanium fw-900 }'>Social Contact</div>
 
-                    <div className='FooterLinks    { Flex Justify_Evenly P3_Oxamium Semi_Bold'>
+                    <div className='FooterLinks    { display-flex justify-content-space-evenly p3 font-oxanium fw-600 }'>
                         <a className='{ Text_Secondary' href='#'>Facebook</a>
                         <a className='{ Text_Secondary' href='#'>Twitter</a>
                         <a className='{ Text_Secondary' href='#'>instagram</a>
@@ -56,8 +56,8 @@ const FooterMain = () => {
                     </div>
                 </div>
                 <div className='[ Photos ] Component'>
-                    <div className='Title    { P0_Oxanium Bold'>TBA</div>
-                    <div className='TBA_Games    { Grid Justify_Start Align_Center'>
+                    <div className='Title    { p0 font-oxanium fw-900 }'>TBA</div>
+                    <div className='TBA_Games    { display-grid justify-content-flex-start align-items-center'>
                         <img src={Pubg} alt="Pubg" />
                         <img src={FreeFire} alt="FreeFire" />
                         <img src={Destiny} alt="Destiny" />
