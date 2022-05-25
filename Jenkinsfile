@@ -35,6 +35,7 @@ pipeline {
             }
             steps {
                 script {
+                  sh "npm install testcafe"
                   sh 'Testcafe chrome:headless ./src/tests/'
                 }
             }

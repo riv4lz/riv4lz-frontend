@@ -30,7 +30,7 @@ class AuthService {
         });
     }
 
-    // comment to trigger testttt
+    // comment to trigger test
     async isEmailTaken(email: string) {
         return http.get<boolean>(`/Auth/IsEmailTaken?email=${email}`);
     }
