@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    tools {
+    nodejs 'Node 14'
+    }
+    stages {
+        stage("Clean"){
+          steps{
+            sh "docker rm -f riv4lz-frontend-prod"
+          }
+        }
+        stage("Build") {
+            steps {
+              sh 'npm install'
+              sh "docker build . -t frederikotto/riv4lz-frontend:${BUILD_NUMBER}"       
+            }
+        }  
+        stage("Deployment to Production environment") {
+            steps {
+                
+              sh "docker run -d --rm -p 4004:4004 --name riv4lz-frontend-prod frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
+            }
+        }
+    }
+}

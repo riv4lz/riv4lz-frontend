@@ -17,6 +17,8 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
         setOffers(offerStore.offers);
     }, [])
 
+    const getImageService = new GetImageService();
+
     return (
         <div className='[ EventDetails ]' style={{ display: show ? 'block' : 'none' }}>
             <div className='EventDetails__Wrapper    { display-flex clr-white flex-direction-column }'>
