@@ -5,7 +5,9 @@ pipeline {
     }
     stages {
         stage("Clean"){
-          sh "docker rm -f riv4lz-frontend-prod"
+          steps{
+            sh "docker rm -f riv4lz-frontend-prod"
+          }
         }
         stage("Build") {
             steps {
