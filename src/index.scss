@@ -33,28 +33,71 @@ body {
 }
 
 //-------------------------- Reset --------------------------
-html, body,
-h1, h2, h3, h4, h5, h6,
-a, p, span,
-em, small, strong,
-sub, sup,
-mark, del, ins, strike,
-abbr, dfn,
-blockquote, q, cite,
-code, pre,
-ol, ul, li, dl, dt, dd,
-div, section, article,
-main, aside, nav,
-header, hgroup, footer,
-img, figure, figcaption,
-address, time,
-audio, video,
-canvas, iframe,
-details, summary,
-fieldset, form, label, legend,
-table, caption,
-tbody, tfoot, thead,
-tr, th, td, {
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+em,
+small,
+strong,
+sub,
+sup,
+mark,
+del,
+ins,
+strike,
+abbr,
+dfn,
+blockquote,
+q,
+cite,
+code,
+pre,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+div,
+section,
+article,
+main,
+aside,
+nav,
+header,
+hgroup,
+footer,
+img,
+figure,
+figcaption,
+address,
+time,
+audio,
+video,
+canvas,
+iframe,
+details,
+summary,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
   margin: 0;
   padding: 0;
   border: 0;
@@ -187,7 +230,7 @@ $clr-black: #000000;
 }
 
 // Half visible text
-.half-opacity{
+.half-opacity {
   opacity: 0.5;
 }
 
@@ -534,13 +577,13 @@ $header_3_mobile: 20px;
 .margin-auto {
   margin: auto;
 }
-.justify-content-flex-start{
+.justify-content-flex-start {
   justify-content: flex-start !important;
 }
 .justify-content-center {
   justify-content: center !important;
 }
-.justify-content-flex-end{
+.justify-content-flex-end {
   justify-content: flex-end !important;
 }
 .justify-content-space-between {
@@ -804,7 +847,6 @@ $border-round: 20px;
 .half-opacity {
   opacity: 0.5;
 }
-
 
 //--------------------------Scroll Bar --------------------------
 /* width */
