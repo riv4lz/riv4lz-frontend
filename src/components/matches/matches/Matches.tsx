@@ -83,16 +83,16 @@ const Matches = () => {
                         <EventDetails isOrg={authStore.isOrg} isCaster={authStore.isCaster} show={showState} handleClose={hide} Event={eventDetails} /> : null
                     }
                     <div className='[ Matches ]    { flex-flow flex-direction-column }'>
-                        <div className='Matches__Wrapper    { display-flex width-content flex-direction-column } '>
+                        <div className='Matches__Wrapper    { flex-flow width-content flex-direction-column } '>
                             <div className='Matches__Title    { h2 font-statewideBold clr-white flex-direction-column }'>
                                 MATCHES
                             </div>
                             <div className='[ Input ]    { display-flex justify-content-space-evenly align-items-center flex-direction-row margin-top-xl margin-bottom-xl }'>
                                 <div className='Input__Component'>
-                                    <div className='Input__ComponentTitle {p1 font-oxanium fw-600 clr-white padding-left-1 }'>
+                                    <div className='Input__ComponentTitle {p1 font-oxanium fw-600 clr-white }'>
                                         Filter Matches
                                     </div>
-                                    <input className='Input__ComponentInput { p4 font-oxanium clr-white }' type='text' placeholder='Search based on: Game, Teams or Date' onChange={e => setSearchValue(e.target.value)} />
+                                    <input className='Input__ComponentInput { padding-left-1 p4 font-oxanium clr-white }' type='text' placeholder='Search based on: Game, Teams or Date' onChange={e => setSearchValue(e.target.value)} />
                                 </div>
                             </div>
                             <div className='[ Buttons ]    { p1 font-oxanium fw-600 flex-flow margin-top-xl margin-bottom-xxl gap-3 }'>
