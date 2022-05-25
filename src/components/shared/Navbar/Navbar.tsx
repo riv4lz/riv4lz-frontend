@@ -58,7 +58,7 @@ const LoggedInNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Link className='Links    { clr p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Chat' ? "1" : "0.5" }} to='/Chat'>Chat</Link>
+      <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Chat' ? "1" : "0.5" }} to='/Chat'>Chat</Link>
       <div className='LoggedIn_Container    { flex-flow }' onClick={onClick}>
         <div className='LoggedIn_Wrapper    { flex-flow }'>
           <div className='information    { display-flex justify-content-flex-end align-items-center }'>
