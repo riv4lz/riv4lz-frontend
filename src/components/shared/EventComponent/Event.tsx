@@ -14,8 +14,8 @@ const Event = ({ E, show }: any) => {
     return (
         <div className='[ MatchEvent ]    { flex-flow margin-bottom-m flex-direction-row }'>
             <div className='MatchEvent__Wrapper    { display-flex flex-direction-row justify-content-space-evenly align-itemns-center }'>
-                <div className='e    { flex-flow }'>
-                    <img className='test' src={getImageService.getImage(E.teams[0].name)} alt={E.teams[0].name} />
+                <div className='MatchEvent__WrapperLogo    { flex-flow }'>
+                    <img className='MatchEvent__Logo' src={getImageService.getImage(E.teams[0].name)} alt={E.teams[0].name} />
                 </div>
                 <div className='[ EventInfo ]    { display-flex flex-direction-column justify-content-space-evenly align-items-center clr-white }'>
                     <div className='EventInfo__Title    { p1 font-oxanium fw-900 } '>
@@ -32,8 +32,8 @@ const Event = ({ E, show }: any) => {
                         See more
                     </div>
                 </div>
-                <div className='e    { flex-flow }'>
-                    <img className='test' src={getImageService.getImage(E.teams[1].name)} alt={E.teams[1].name} />
+                <div className='MatchEvent__WrapperLogo    { flex-flow }'>
+                    <img className='MatchEvent__Logo' src={getImageService.getImage(E.teams[1].name)} alt={E.teams[1].name} />
                 </div>
             </div>
         </div>

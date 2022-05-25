@@ -8,13 +8,13 @@
     .MatchEvent__Wrapper {
         width: 100%;
         height: 80%;
-        .e {
+        .MatchEvent__WrapperLogo {
             width: 120px;
             height: auto;
-            .test {
+            .MatchEvent__Logo {
                 width: 100%;
                 height: 100%;
-                object-fit:contain;
+                object-fit: contain;
             }
         }
         .EventInfo {
