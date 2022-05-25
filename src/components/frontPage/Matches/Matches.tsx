@@ -9,6 +9,7 @@ import Event from '../../shared/EventComponent/Event'
 import { useStore } from '../../../Stores/store'
 import { v4 as uuidv4 } from 'uuid';
 import { Match } from '../../../Stores/eventStore'
+import { useObserver } from 'mobx-react-lite'
 
 const Matches = () => {
 
@@ -21,8 +22,8 @@ const Matches = () => {
         }
         loadMatches();
         console.log(upcomingMatches);
-        
-        
+
+
     }, [])
 
     const [upcomingState, setUpcommingState] = useState(true);
@@ -59,7 +60,7 @@ const Matches = () => {
         setShowState(false);
     }
 
-    return (
+    return useObserver(() => 
         <>
             {showState ?
                 <EventDetails show={showState} handleClose={hide} Event={eventDetails} /> : null
@@ -88,7 +89,7 @@ const Matches = () => {
 const Upcoming = ({ events, show }: any) => {
 
     const getEvents = (events: IEventDetails[]) => {
-        const content:any[] = [];
+        const content: any[] = [];
         for (let i = 0; i < events.length && i < 4; i++) {
             const k = uuidv4();
             content.push(<Event key={k} E={events[i]} show={show} />);
@@ -97,7 +98,7 @@ const Upcoming = ({ events, show }: any) => {
     }
 
 
-    return (
+    return useObserver(() =>
         <>
             {getEvents(events)}
         </>
@@ -106,7 +107,7 @@ const Upcoming = ({ events, show }: any) => {
 
 const Finished = ({ events, show }: any) => {
     const getEvents = (events: IEventDetails[]) => {
-        const content:any[] = [];
+        const content: any[] = [];
         for (let i = 0; i < events.length && i < 4; i++) {
             const k = uuidv4();
             content.push(<Event key={k} E={events[i]} show={show} />);

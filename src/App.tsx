@@ -34,9 +34,10 @@ function App() {
   const [loaded, setLoaded] = useState(false)
   const test = () => setLoaded(true)
 
-  setTimeout(test, 500)
 
   useEffect(() => {
+    console.log(process.env.REACT_APP_API);
+    
     commentStore.loadMessages()
     userStore.loadUsers(0);
     userStore.loadUsers(1);
@@ -45,6 +46,7 @@ function App() {
     }
     loadEvents();
 
+    setTimeout(test, 500)
     if (localStorage.getItem("token")) {
       getCurrentUser();
     }
@@ -77,7 +79,7 @@ function App() {
 
   return (
     <>
-      {{ loaded } ?
+      { loaded  ?
 
         <div className="App">
 

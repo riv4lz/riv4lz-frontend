@@ -5,6 +5,7 @@ import Btn from '../../../button/Btn'
 import { useStore } from '../../../../Stores/store'
 import { OrgStore } from '../../../../Stores/orgStore'
 import { v4 as uuidv4 } from 'uuid';
+import GetImageService from '../../../../services/getImageService'
 
 const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
     const { userStore, offerStore } = useStore()
@@ -15,6 +16,8 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
     useEffect(() => {
         setOffers(offerStore.offers);
     }, [])
+
+    const getImageService = new GetImageService();
 
     return (
         <div className='Event_Container' style={{ display: show ? 'block' : 'none' }}>
@@ -28,7 +31,7 @@ const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
                             <div className='Title P1_Statewide_Bold Flex Justify_Center Align_Center'>hiring organisation</div>
                             <div className='Info Flex Justify_Start Align_Center'>
                                 <div className='Logo'>
-                                    <img src={Tricked} alt='Tricked' />
+                                    <img src={userStore.user.profileImageUrl !== null || undefined ? userStore.user.profileImageUrl : Tricked} alt='Profile Pic' />
                                 </div>
                                 <div className='Info_Container '>
                                     <div className='name P2_Statewide_Bold Text_Secondary'>{Event.organisationProfile.name}</div>

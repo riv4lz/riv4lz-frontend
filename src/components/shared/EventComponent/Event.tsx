@@ -1,20 +1,21 @@
 import React from 'react'
 import Twitch from '../../../assets/icons/social-media/twitch.svg'
 import Youtube from '../../../assets/icons/social-media/youtube.svg'
-import Tricked from '../../../assets/images/Esports-orgs/Tricked.svg'
-import Astralis from '../../../assets/images/Esports-orgs/Astralis.svg'
 import './Event.scss'
+import GetImageService from '../../../services/getImageService'
 
 const Event = ({ E, show }: any) => {
     const format = (time: any) => {
         return new Date(time).toLocaleString()
     }
 
+    const getImageService = new GetImageService();
+    
     return (
         <div className='matches_Component Flex Justify_Center Align_Center'>
             <div className='matches_ComponentWrapper Flex Justify_Evenly Align_Center'>
                 <div className='matches_Logo Flex Justify_Center Align_Center'>
-                    <img src={Astralis} alt="Astralis" />
+                    <img src={getImageService.getImage(E.teams[0].name)} alt={E.teams[0].name} />
                 </div>
                 <div className='matches_Info Flex Justify_Evenly Align_Center Text_Secondary'>
                     <div className='matches_InfoTitle P1_Oxanium Bold '>
@@ -32,7 +33,7 @@ const Event = ({ E, show }: any) => {
                     </div>
                 </div>
                 <div className='matches_Logo Flex Justify_Center Align_Center'>
-                    <img src={Tricked} alt="Tricked" />
+                    <img src={getImageService.getImage(E.teams[1].name)} alt={E.teams[1].name} />
                 </div>
             </div>
         </div>
