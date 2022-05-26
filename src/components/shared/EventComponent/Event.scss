@@ -1,36 +1,32 @@
 @import "../../../index.scss";
 
-.matches_Component {
+.MatchEvent {
     max-width: 100%;
     height: 250px;
     border-radius: 4px;
-    background-color: $Grey;
-    flex-direction: row;
-    margin-bottom: 20px;
-    .matches_ComponentWrapper {
+    background-color: $clr-darkgrey;
+    .MatchEvent__Wrapper {
         width: 100%;
         height: 80%;
-        flex-direction: row;
-        .matches_Logo {
+        .MatchEvent__WrapperLogo {
             width: 120px;
             height: auto;
-            img {
+            .MatchEvent__Logo {
                 width: 100%;
                 height: 100%;
+                object-fit: contain;
             }
         }
-        .matches_Info {
-            flex-direction: column;
+        .EventInfo {
             height: 100%;
-            .matches_InfoSocials {
-                flex-direction: row;
+            .EventInfo__Socials {
                 gap: 15px;
             }
-            .matches_InfoButton {
+            .EventInfo__Button {
                 width: 125px;
                 height: 40px;
                 border-radius: 2px;
-                background-color: $Primary;
+                background-color: $clr-primary;
             }
         }
     }

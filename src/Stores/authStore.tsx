@@ -30,6 +30,7 @@ export class AuthStore {
 
     @action
     registerUser = async (data: registerDto) => {
+        localStorage.clear();
         const response = await authService.registerUser(data);
         this.user = response.data;
         console.log(this.user);

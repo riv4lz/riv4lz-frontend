@@ -1,6 +1,6 @@
 @import url(../../../../styles/utility/colors.scss);
 
-.Event_Container {
+.EventDetails {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
     background: rgba(0, 0, 0, 0.6);
     z-index: 999;
 
-    .Event_Wrapper {
+    .EventDetails__Wrapper {
         position: fixed;
         background: #1f1f1f;
         width: 1100px;
@@ -18,37 +18,30 @@
         left: 50%;
         transform: translate(-50%, -50%);
         border-radius: 15px;
-        flex-direction: column;
 
-        .Event_Title {
+        .EventDetails_Title {
             width: 100%;
             height: auto;
-            margin-top: 50px;
         }
 
-        .Event_DetailsContainer {
+        .Details {
             grid-template-columns: repeat(2, 1fr);
-            gap: 50px;
 
-            .Title {
-                width: 100%;
-                height: 50px;
-                margin-bottom: 15px;
-                border-bottom: 1px solid white;
-                margin-top: 0 !important;
-            }
-
-            .Event_HiringInfo {
+            .Details__HiringInfo {
                 width: 100%;
                 margin-left: 25px;
 
-                .Info {
+                .Details__HiringTitle {
+                    width: 100%;
+                    height: 50px;
+                    border-bottom: 1px solid white;
+                }
+
+                .Details__HiringText {
                     flex-direction: row;
                     text-align: start;
-                    margin-bottom: 20px;
-                    gap: 20px;
 
-                    .Logo {
+                    .Details__HiringLogo {
                         width: 80px;
                         height: 80px;
                         border-radius: 50%;
@@ -63,49 +56,34 @@
                 }
             }
 
-            .Event_GameDetails {
+            .GameDetails {
                 margin-right: 25px;
-
-                .Info {
-                    margin-bottom: 10px;
-                }
             }
 
-            .Component_Title {
-                margin-bottom: 10px;
-            }
-
-            .Component_Container {
+            .GameDetails__Components {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
                 height: 100%;
 
-                .Info_component {
+                .GameDetails__InfocomponentGame {
                     flex-direction: column;
-                }
-
-                .Game {
                     grid-column-start: 1;
                     grid-column-end: 3;
                 }
             }
         }
 
-        .Event_button {
+        .CloseButton {
             width: 100%;
             height: auto;
-            margin-bottom: 50px;
-            margin-top: 70px;
         }
     }
 }
 
-.Caster_Container {
+.Caster {
     width: calc(100% - 50px);
     height: 150px;
     margin: 0 25px;
-    margin-top: 50px;
-    flex-direction: column;
     .Caster_Title {
         width: 100%;
         height: 50px;
@@ -118,21 +96,17 @@
         margin: 0 15px;
     }
 
-    .Caster_Component_Container {
+    .Caster_Component {
         width: 100%;
         height: auto;
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        margin-top: 15px;
-        .Budget {
-            .Info {
+        .Caster_Component__Budget {
+            .Caster_Component__BudgetInfo {
                 height: 50px;
             }
         }
-        .Offer {
-            .input_Container {
-                flex-direction: row;
-                gap: 15px;
+        .OfferComponent {
+            .OfferComponent__inputContainer {
                 input {
                     text-align: center;
                     width: 50%;
@@ -150,38 +124,31 @@
     }
 }
 
-.Offer_Container {
+.Org {
     margin: 0 25px;
     height: 250px;
-    flex-direction: column;
     width: calc(100% - 50px);
-    margin-top: 50px;
 
-    .Offer_Title {
+    .Org__Title {
         width: calc(100%);
         height: 50px;
         margin-left: 25px;
         margin-right: 25px;
-        margin-bottom: 15px;
         border-bottom: 1px solid white;
     }
 
-    .Component_Container {
+    .OrgComponent {
         width: 100%;
         height: 100%;
-        flex-direction: column;
-        gap: 15px;
-        overflow-y: scroll;
 
-        .Component_Wrapper {
+        .OrgComponent__Wrapper {
             width: 95%;
             min-height: 170px;
             border-radius: 15px;
             background-color: #111111;
             border: 2px solid white;
-            flex-direction: row;
 
-            .image {
+            .OrgComponent__Image {
                 width: 80px;
                 height: 80;
                 border-radius: 50%;
@@ -196,32 +163,41 @@
                 }
             }
 
-            .name_container {
-                flex-direction: column;
+            .OrgComponent__NameContainer {
+                
                 height: 80px;
                 width: auto;
 
-                .name {
+                .OrgComponent__Name {
                     width: 100%;
                     text-align: start;
                 }
 
-                .description {
+                .OrgComponent__Description {
                     width: 100%;
                     text-align: start;
                 }
             }
 
-            .offer_container {
-                flex-direction: row;
+            .OrgComponent__OfferContainer {
                 height: 80px;
                 flex: 1;
-                gap: 15px;
                 padding-right: 15px;
-                .offer {
-                    text-align: start;
-                }
             }
         }
     }
+}
+
+.Participants__Title{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid white;
+    margin: 0 15px 25px;
+}
+
+.GameDetails__Title {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid white;
+    margin: 0 15px 25px;
 }
