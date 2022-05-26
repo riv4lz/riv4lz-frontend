@@ -45,7 +45,36 @@ pipeline {
               }
             }
         }
-        stage("Deliver") {
+        
+        stage("Clean Containers"){
+          when {
+              anyOf {
+                changeset "src/**"
+              }
+          }
+          steps{
+            sh "docker rm -f riv4lz-frontend"
+          }
+        }
+        stage("Deploy to Test Environment") {
+            when {
+              anyOf {
+                changeset "src/**"
+              }
+            }
+            steps {    
+              sh "docker run -d --rm -p 3000:3000 --name riv4lz-frontend frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
+            }
+            post{
+              success{
+                discordSend description: "Deployment stage SUCCESS", footer: "Good job!", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/958687917100892181/Ywqi7Cv9vZ9UTFwvP9vezRxnBgWo_iXHhzFqNWqG8pv0i1gRyT3kiCihM09JOn4KB0le"
+              }
+              failure{
+                discordSend description: "Build Stage FAILED", footer: "Please correct errors", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/958687917100892181/Ywqi7Cv9vZ9UTFwvP9vezRxnBgWo_iXHhzFqNWqG8pv0i1gRyT3kiCihM09JOn4KB0le"
+              }
+            }
+        }
+        stage("Push to Docker Hub") {
             when {
               anyOf {
                 changeset "src/**"
@@ -61,34 +90,6 @@ pipeline {
             post{
               failure{
                 discordSend description: "Delivery Stage FAILED", footer: "Please correct errors", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/958687917100892181/Ywqi7Cv9vZ9UTFwvP9vezRxnBgWo_iXHhzFqNWqG8pv0i1gRyT3kiCihM09JOn4KB0le"
-              }
-            }
-        }
-        stage("Clean Containers"){
-          when {
-              anyOf {
-                changeset "src/**"
-              }
-          }
-          steps{
-            sh "docker rm -f riv4lz-frontend"
-          }
-        }
-        stage("Deployment to Test environment") {
-            when {
-              anyOf {
-                changeset "src/**"
-              }
-            }
-            steps {    
-              sh "docker run -d --rm -p 3000:3000 --name riv4lz-frontend frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
-            }
-            post{
-              success{
-                discordSend description: "Deployment stage SUCCESS", footer: "Good job!", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/958687917100892181/Ywqi7Cv9vZ9UTFwvP9vezRxnBgWo_iXHhzFqNWqG8pv0i1gRyT3kiCihM09JOn4KB0le"
-              }
-              failure{
-                discordSend description: "Build Stage FAILED", footer: "Please correct errors", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/958687917100892181/Ywqi7Cv9vZ9UTFwvP9vezRxnBgWo_iXHhzFqNWqG8pv0i1gRyT3kiCihM09JOn4KB0le"
               }
             }
         }
