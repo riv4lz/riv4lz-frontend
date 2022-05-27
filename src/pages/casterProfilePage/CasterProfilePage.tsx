@@ -25,9 +25,6 @@ function CasterProfilePage(props: any) {
     }
     loadUser();
 
-
-    console.log(userStore.user);
-    console.log(userStore.user.profileImageUrl);
   });
 
 

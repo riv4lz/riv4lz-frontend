@@ -31,9 +31,6 @@ const Matches = () => {
             setFinished(await eventStore.filterMatches(false))
         }
         t();
-        console.log(eventStore.matches);
-        console.log(authStore.isCaster);
-        console.log(authStore.isOrg);
 
 
     }, [])
@@ -64,10 +61,8 @@ const Matches = () => {
     const [showState, setShowState] = useState(false);
     const show = async (event: any) => {
         setEventDetails(event);
-        console.log(event.id);
         await offerStore.getOffers(event.id);
         setTimeout(load, 10)
-        console.log(offerStore.offers);
 
     }
 

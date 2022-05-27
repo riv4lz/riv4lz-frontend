@@ -24,8 +24,6 @@ const ChatComponent = () => {
 
     useEffect(() => {
         commentStore.createHubConnection();
-        console.log(commentStore.test3.messages);
-        console.log(commentStore.test2);
         //casterStore.loadCaster(authStore.user?.id).then(r => console.log(r));
         return () => {
             commentStore.clearComments();
@@ -41,22 +39,16 @@ const ChatComponent = () => {
         }
         commentStore.addComment(message).then(() => {
         });
-        console.log(commentStore.comments)
     }
 
     const enterRoom = (id: string, ) => {
         setCurrentRoomId("ad4cff79-928d-4efc-9e28-a86151a95436");
         commentStore.joinRoom(id, currentRoomId).then(() => {
         });
-        console.log(commentStore.test2.id);
-        console.log(commentStore.test2.name);
-        console.log(commentStore.test2.messages);
-        console.log(uuidv4());
 
     }
 
     const getGameImage = (name: string) => {
-        console.log(name);
         switch(name) {
             case "general":
                 return "VALORANT";

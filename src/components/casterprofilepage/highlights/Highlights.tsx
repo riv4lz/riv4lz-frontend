@@ -7,7 +7,6 @@ import VideoTemp4 from "../../../assets/images/Temp/VideoTemp4.png";
 
 const Highlights = () => {
     const test = () => {
-        console.log("Success");
     }
 
     return (

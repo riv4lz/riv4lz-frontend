@@ -21,7 +21,6 @@ const Matches = () => {
             setFinishedMatches(await eventStore.filterMatches(false));
         }
         loadMatches();
-        console.log(upcomingMatches);
 
 
     }, [])

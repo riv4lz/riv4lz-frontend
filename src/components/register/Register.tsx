@@ -18,7 +18,6 @@ const Register = () => {
         setCasterState(true);
         setOrgState(false);
         setPageNumber(pageNumber + 1);
-        console.log(uuid);
 
     }
 
@@ -30,13 +29,11 @@ const Register = () => {
 
     const nextPage = () => {
         setPageNumber(pageNumber + 1);
-        console.log(pageNumber);
 
     }
 
     const prevPage = () => {
         setPageNumber(pageNumber - 1);
-        console.log(pageNumber);
     }
 
     const complete = () => {
@@ -158,8 +155,6 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
             authStore.isOrg = true;
         }
 
-        console.log(loadedUser);
-
         if (authStore.user) {
             localStorage.setItem("token", authStore.user.token);
         }
@@ -278,8 +273,6 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
             authStore.isOrg = true;
         }
 
-        console.log(loadedUser);
-
         if (authStore.user) {
             localStorage.setItem("token", authStore.user.token);
         }
@@ -342,7 +335,6 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
         const updatedCaster = {
             ...caster, twitterUrl: twitter, facebookUrl: facebook, twitchUrl: twitch, discordUrl: discord, bannerImageUrl: '', profileImage: '', websiteUrl: website
         }
-        console.log(updatedCaster);
 
         userStore.updateUserProfile(updatedCaster);
         userStore.setUser(updatedCaster);
@@ -405,7 +397,6 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
         const updatedOrg = {
             ...org, twitterUrl: twitter, facebookUrl: facebook, twitchUrl: twitch, discordUrl: discord, bannerImageUrl: '', profileImage: '', websiteUrl: website
         }
-        console.log(updatedOrg);
 
         userStore.updateUserProfile(updatedOrg);
         userStore.setUser(updatedOrg);
@@ -463,7 +454,6 @@ const Step3_Caster = ({ id, complete, prevPage }: any) => {
         const updatedCaster = {
             ...caster, description: description
         }
-        console.log(updatedCaster);
 
         userStore.updateUserProfile(updatedCaster);
         userStore.setUser(updatedCaster);
@@ -503,7 +493,6 @@ const Step3_Org = ({ id, complete, prevPage }: any) => {
         const updatedOrg = {
             ...org, description: description
         }
-        console.log(updatedOrg);
 
         userStore.updateUserProfile(updatedOrg);
         userStore.setUser(updatedOrg);

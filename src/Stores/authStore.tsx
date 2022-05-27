@@ -18,14 +18,12 @@ export class AuthStore {
         localStorage.clear();
         const response = await authService.attemptLogin(data);
         this.user = response.data;
-        console.log(this.user);
     }
 
     @action
     getCurrentUser = async () => {
         const response = await authService.getCurrentUser()
         this.user = response.data;
-        console.log(this.user);
     }
 
     @action
@@ -33,7 +31,6 @@ export class AuthStore {
         localStorage.clear();
         const response = await authService.registerUser(data);
         this.user = response.data;
-        console.log(this.user);
     }
 
     @action

@@ -47,22 +47,18 @@ export default class CommentStore{
     }
 
     createHubConnection = () => {
-        console.log("trying to connect");
         this.hubConnection = new HubConnectionBuilder()
             .withUrl(process.env.REACT_APP_CHAT !== undefined ? process.env.REACT_APP_CHAT : "http://localhost:5000/chat")
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();
 
-        this.hubConnection.start().catch(error =>
-            console.log('Error establishing the connection', error));
+        this.hubConnection.start().catch(error => {});
 
         this.hubConnection.on('LoadMessages', (comments: room) => {
             runInAction(() => {
-                console.log(comments);
                 this.test2 = comments;
                 this.test3 = comments.messages;
-                console.log("TEXT DATA " + this.test3);
             });
         });
 
@@ -72,9 +68,6 @@ export default class CommentStore{
                     this.chatRooms.push(chatRoom);
                     this.ChatRooms = chatRoom;
                 }
-                console.log("fisk 4");
-                console.log(toJS(this.chatRooms));
-                console.log(this.ChatRooms);
             });
         });
 
@@ -83,13 +76,12 @@ export default class CommentStore{
                 this.comments.push(comment);
                 this.test2.messages.push(comment);
                 this.test3.push(comment);
-                console.log(comment)
             });
         });
     }
 
     stopHubConnection = () => {
-        this.hubConnection?.stop().catch(error => console.log('Error stopping the connection', error));
+        this.hubConnection?.stop().catch(error => {});
     }
 
     clearComments = () => {
@@ -101,39 +93,33 @@ export default class CommentStore{
         try {
             await this.hubConnection?.invoke('SendMessage', message);
         } catch (error) {
-            console.log('Error sending message', error);
         }
     }
 
     loadMessages = async () => {
-        console.log("fisk 14");
         this.loadingInitial = true;
         this.hubConnection?.invoke('LoadMessages')
             .then(() => {
                 this.loadingInitial = false;
             })
-            .catch(error => console.log('Error loading messages', error));
+            .catch(error => {});
     }
 
     sendMessage = async (values: any) => {
         this.hubConnection?.invoke('SendMessage', values)
-            .catch(error => console.log('Error sending message', error));
+            .catch(error => {});
     }
 
     joinRoom = async (roomId: string, previousRoomId: string) => {
-        console.log(this.comments);
         this.hubConnection?.invoke('JoinRoom', roomId, previousRoomId).then(() => {
-            console.log("fisk");
-            console.log(this.test2);
+
         })
-            .catch(error => console.log('Error sending message', error));
+            .catch(error => {});
     }
 
     loadRooms = async () => {
-        console.log("commentstore");
-        console.log(toJS(this.chatRooms));
         this.hubConnection?.invoke('LoadRooms')
-            .catch(error => console.log('Error sending message', error));
+            .catch(error => {});
         return toJS(this.chatRooms);
     }
 

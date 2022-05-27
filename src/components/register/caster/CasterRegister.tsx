@@ -23,7 +23,6 @@ const Step1 = () => {
     const [gamertag, setGamertag] = useState('')
     
     const onStep2 = () => {
-        console.log("step2")
     }
 
     return (
