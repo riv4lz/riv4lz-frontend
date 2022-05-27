@@ -5,15 +5,12 @@ import Test_Blog from '../../../assets/images/test_blog.jpg'
 const Blog = () => {
 
     const onBlog1Click = () => {
-        console.log('Blog 1 clicked')
     }
 
     const onBlog2Click = () => {
-        console.log('Blog 2 clicked')
     }
 
     const onBlog3Click = () => {
-        console.log('Blog 3 clicked')
     }
 
     return (

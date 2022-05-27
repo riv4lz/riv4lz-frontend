@@ -18,12 +18,10 @@ const ProfileDetails = ({id} : any) => {
 
     const reload = () => window.location.reload();
     
-    const request = () => console.log('request');
+    const request = () => {};
     
 
     const uploadImage = async (event: any) => {
-        console.log(event);
-
         const formData = new FormData();
         formData.append('file', event[0]);
         formData.append('upload_preset', 'profileImage');

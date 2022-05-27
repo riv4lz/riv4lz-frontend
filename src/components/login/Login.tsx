@@ -17,15 +17,6 @@ const Login = () => {
 
     const [password, setPassword] = useState('')
 
-
-    const test = () => {
-        console.log("Success");
-    }
-
-    const loginText = () => {
-        return "Sign in"
-    }
-
     const loginRequest = async (user: any) => {
         try {
             await authStore.attemptLogin(user);
@@ -38,18 +29,13 @@ const Login = () => {
                 authStore.isOrg = true;
             }
 
-            console.log(loadedUser);
-
-
-
             if (authStore.user) {
                 localStorage.setItem("token", authStore.user.token);
-                console.log(authStore.getCurrentUser());
 
                 navigate(path || "/");
             }
         } catch (e) {
-            console.log(e);
+
         }
     }
 
@@ -60,7 +46,6 @@ const Login = () => {
             setEmail('')
             setPassword('')
         } catch (e) {
-            console.log(e);
         }
     }
 

@@ -36,8 +36,6 @@ function App() {
 
 
   useEffect(() => {
-    console.log(process.env.REACT_APP_API);
-    
     commentStore.loadMessages()
     userStore.loadUsers(0);
     userStore.loadUsers(1);

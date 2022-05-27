@@ -18,13 +18,11 @@ const CreateMatches = ({ show, handleClose }: any) => {
 
     const onChangeTeam1 = (e: any) => {
         setTeam1(eventStore.teams[e.target.value]);
-        console.log(eventStore.teams[e.target.value]);
 
     }
 
     const onChangeTeam2 = (e: any) => {
         setTeam2(eventStore.teams[e.target.value]);
-        console.log(eventStore.teams[e.target.value]);
 
     }
 

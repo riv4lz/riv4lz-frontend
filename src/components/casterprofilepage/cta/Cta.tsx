@@ -9,14 +9,11 @@ import Axios from 'axios';
 const Cta = ({ id }: any) => {
     const { userStore, authStore, imageStore } = useStore();
     const test = () => {
-        console.log("Success");
     }
 
     const reload = () => window.location.reload();
 
     const uploadImage = async (event: any) => {
-        console.log(event);
-
         const formData = new FormData();
         formData.append('file', event[0]);
         formData.append('upload_preset', 'profileImage');
@@ -36,8 +33,6 @@ const Cta = ({ id }: any) => {
         }
 
         getUser();
-        console.log(userStore.user.bannerImageUrl)
-
     }, [])
 
     const inputFile = createRef<HTMLInputElement>();

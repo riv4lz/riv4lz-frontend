@@ -37,7 +37,6 @@ export class CasterStore {
     loadCasters = () => {
         casterService.getAll().then((response: any) => {
             this.casters = response.data;
-            console.log(this.casters);
         })
     }
 
@@ -45,7 +44,6 @@ export class CasterStore {
     loadCaster = (id: any) => {
         casterService.get(id).then((response: any) => {
             this.caster = response.data;
-            console.log(this.caster);
             
         })
     }
@@ -67,7 +65,6 @@ export class CasterStore {
     createCasterProfile = async (caster: Caster) => {
         const response = await casterService.create(caster)
         this.caster = response.data;
-        console.log(this.caster);
     }
 
     @action

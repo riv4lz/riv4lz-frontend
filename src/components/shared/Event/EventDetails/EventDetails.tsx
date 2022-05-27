@@ -104,7 +104,6 @@ const Caster = ({ Event, handleClose }: any) => {
     const onSendOffer = () => {
 
         offerStore.sendOffer({id: uuidv4(), offerStatus: 0, eventId: Event.id, casterId: authStore.user?.id ? authStore.user.id : ""});
-        console.log(offerStore.offers);
         handleClose();
         alert("Offer sent!");
     }
@@ -139,13 +138,13 @@ const Organisation = ({handleClose}: any ) => {
 
     const onAcceptOffer = async (offer: any) => {
         const status = await offerStore.acceptOffer({id: offer.id, offerStatus: 1});
-        console.log(status);
+        
         
     }
 
     const onDeclineOffer = async (offer: any) => {
         const status = await offerStore.declineOffer({id: offer.id, offerStatus: 2});
-        console.log(status);
+        
         
     }
 

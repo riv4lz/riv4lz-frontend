@@ -78,7 +78,6 @@ export class EventStore {
 
     @action
     createMatch = (data: createMatchDTO) => {
-        console.log(data);
 
         matchesService.create(data)
     }
@@ -87,7 +86,6 @@ export class EventStore {
     loadTeams = async () => {
         const response = await matchesService.getTeams()
         this.teams = response.data;
-        console.log(this.teams);
     }
 
     constructor() {

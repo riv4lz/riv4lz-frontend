@@ -49,7 +49,6 @@ export class UserStore {
     loadUser = async (id: any) => {
         const response = await userService.get(id)
         this.user = response.data;
-        console.log(this.user);
         return this.user;
     }
 
@@ -62,7 +61,6 @@ export class UserStore {
     createUserProfile = async (user: User) => {
         const response = await userService.create(user)
         this.user = response.data;
-        console.log(this.user);
     }
 
     @action

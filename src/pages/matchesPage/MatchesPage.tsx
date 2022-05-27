@@ -13,7 +13,6 @@ const MatchesPage = () => {
   const {eventStore, userStore} = useStore();
 
   const onReadGuide = () => {
-    console.log('read guide');
   }
 
   const [showState, setShowState] = useState(false);

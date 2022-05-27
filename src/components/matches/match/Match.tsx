@@ -20,7 +20,7 @@ const Match = () => {
                         <img className="Streams_Element" src={youtube}></img>
                         <img className="Streams_Element Twitch" src={twitch}></img>
                     </div>
-                    <Btn onClick={() => console.log("hi")} classes="Btn_Match Text_Secondary" children="See More" />
+                    <Btn onClick={() => {}} classes="Btn_Match Text_Secondary" children="See More" />
                 </div>
                 <div className="TeamLogo2_Container">
                     <img className="TeamLogo_Element" src={astralis}></img>

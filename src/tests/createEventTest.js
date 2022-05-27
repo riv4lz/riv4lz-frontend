@@ -37,7 +37,6 @@ test('create event successful', async t => {
         .typeText('#price', '100')
         .typeText('#game', 'Counter-Strike: Global Offensive')
         .click('.btn_CallToAction_Blue')
-
 });
 
 //test if both team are the same give alert

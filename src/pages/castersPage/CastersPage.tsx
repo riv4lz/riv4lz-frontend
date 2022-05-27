@@ -16,7 +16,6 @@ function CastersPage() {
   const {userStore} = useStore();
 
   const test = (props: any) => {
-    console.log(props);
     return props;
   }
 

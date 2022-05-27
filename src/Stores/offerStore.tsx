@@ -63,7 +63,6 @@ export class OfferStore {
     @action
     declineOffer = async (offer: acceptRejectOfferDTO) => {
         const response = await offerService.rejectOffer(offer)
-        console.log(response);
         
         return response
     }
@@ -71,7 +70,6 @@ export class OfferStore {
     @action
     acceptOffer = async (offer: acceptRejectOfferDTO) => {
         const response = await offerService.acceptOffer(offer)
-        console.log(response);
         
         return response
     }

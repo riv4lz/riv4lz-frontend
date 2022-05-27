@@ -36,7 +36,6 @@ export class OrgStore {
     loadOrgs = () => {
         orgService.getAll().then((response: any) => {
             this.orgs = response.data;
-            console.log(this.orgs);
         })
     }
 
@@ -56,7 +55,6 @@ export class OrgStore {
     createOrgProfile = async (org: Org) => {
         const response = await orgService.create(org)
         this.org = response.data;
-        console.log(this.org);
     }
 
     @action
