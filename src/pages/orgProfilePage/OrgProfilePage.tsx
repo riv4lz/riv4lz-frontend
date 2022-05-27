@@ -24,13 +24,12 @@ function OrgProfilePage(props: any) {
 
 
 
-  return useObserver(() => (
+  return (
     <div>
       <ProfileDetails id={id}/>
       <Matches />
       <Highlights />
     </div>
-  )
   );
 }
 export default OrgProfilePage
