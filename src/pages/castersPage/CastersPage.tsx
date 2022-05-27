@@ -20,7 +20,7 @@ function CastersPage() {
     return props;
   }
 
-  return useObserver(() => (
+  return (
     <div className='Login_Container'>
     <ul>
         {userStore.casters.map((user) => (
@@ -34,7 +34,6 @@ function CastersPage() {
     </ul>
       <button onClick={() => userStore.loadUsers(0)}>Load casters</button>
     </div>
-  )
   );
 }
 
