@@ -63,7 +63,7 @@ const ChatComponent = () => {
         }
     }
 
-    return useObserver(() => (
+    return (
         <div className={"[ ChatComponent ]"}>
             <div className={"ChatComponent__Wrapper    { margin-bottom-xxl }"}>
                 <div className={"[ ChatSideBar ]"}>
@@ -103,8 +103,7 @@ const ChatComponent = () => {
                 </div>
             </div>
         </div>
-    )
     );
 }
 
-export default ChatComponent;
+export default observer(ChatComponent);
