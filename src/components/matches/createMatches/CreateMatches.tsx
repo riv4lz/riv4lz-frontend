@@ -56,8 +56,6 @@ const CreateMatches = ({ show, handleClose }: any) => {
 
         eventStore.createMatch({ id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: 'lol', eventStatus: 0 })
         handleClose()
-
-        window.location.reload();
     }
 
     return (
