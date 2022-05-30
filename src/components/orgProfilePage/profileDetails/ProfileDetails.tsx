@@ -1,4 +1,4 @@
-import React, { createRef, useEffect } from 'react'
+import React, {createRef, useEffect, useState} from 'react'
 import './ProfileDetails.scss'
 import Btn from "../../button/Btn";
 import ProfileImg from '../../../assets/images/ProfileDetails_ProfileImgTemp.png'
@@ -9,10 +9,28 @@ import Discord from '../../../assets/icons/social-media/Discord_White.svg'
 import Telegram from '../../../assets/icons/social-media/Telegram_White.svg'
 import { useStore } from '../../../Stores/store';
 import Axios from 'axios';
+import UpdateProfile from "../../casterprofilepage/updateProfile/UpdateProfile";
+import {observable} from "mobx";
 
 
 const ProfileDetails = ({ id }: any) => {
     const { userStore, authStore, imageStore } = useStore();
+    const [showState, setShowState] = useState(false);
+    const [image, setImage] = useState('');
+
+
+    const load = () => setShowState(true)
+
+    const show = async() => {
+        setTimeout(load, 10)
+    }
+
+    const hide = async() => {
+        setShowState(false);
+    }
+
+
+
 
     const inputFile = createRef<HTMLInputElement>();
     const test = async () => {
@@ -25,13 +43,12 @@ const ProfileDetails = ({ id }: any) => {
         formData.append('file', event[0]);
         formData.append('upload_preset', 'profileImage');
         await Axios.post('https://api.cloudinary.com/v1_1/riv4lz/image/upload', formData).then(async (response) => {
-            await imageStore.uploadImage({
-                userId: authStore.user !== undefined ? authStore.user.id : "",
-                imageUrl: response.data.secure_url,
-                imageType: 0
-            })
+            userStore.user.profileImageUrl = response.data.secure_url;
+            console.log(response.data.secure_url);
         })
-        setTimeout(reload, 200);
+        userStore.updateUserProfile(userStore.user);
+        console.log(userStore.user.profileImageUrl);
+        console.log(userStore.user);
     }
 
     
@@ -53,10 +70,19 @@ const ProfileDetails = ({ id }: any) => {
 
     return (
         <div className='[ ProfileDetails ]    { padding-top-6 padding-bottom-6 justify-content-center }'>
+            {showState ?
+                <UpdateProfile  show={showState} handleClose={hide} /> : null
+            }
+            {userStore.user.userType === 1 ?
+                <div id='createEvent' className='CreateMatch display-flex justify-content-center align-items-center cursor-pointer' onClick={show}>
+                    <p className='h3 font-poppins clr-darkblue'>+</p>
+                </div>
+                : null}
         <input type="file" ref={inputFile} onChange={(e) => uploadImage(e.target.files)} style={{display: 'none'}} />
         <div className='ProfileDetails__ProfileImage__Wrapper'>
             <div className='[ Overlay ]'>
                 <img src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="Overlay__Profile_Image" />
+                <p>{userStore.user.profileImageUrl}</p>
                 {authStore.user?.id === id ?
                     <div className="Overlay__ChangeProfilePic    { margin-bottom-xs display-flex justify-content-center align-items-center cursor-pointer }" onClick={changeProfileImage}>
                         <div className="{ p1 font-poppins clr-secondary }">Change profile Picture</div>

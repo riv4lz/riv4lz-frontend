@@ -23,13 +23,11 @@ const UpdateProfile = ({ show, handleClose }: any) => {
         setTwitterUrl(userStore.user.twitterUrl);
         setDiscordUrl(userStore.user.discordUrl);
         setTwitchUrl(userStore.user.twitchUrl);
-
-    }, [])
+    }, []);
 
 
     const updateInfo = async () => {
         console.log(name);
-
         userStore.user.name = name;
         userStore.user.description = description;
         userStore.user.facebookUrl = facebookUrl;

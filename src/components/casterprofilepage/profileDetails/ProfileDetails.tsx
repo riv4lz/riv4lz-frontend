@@ -31,7 +31,6 @@ const ProfileDetails = ({id} : any) => {
     }
 
 
-    const reload = () => window.location.reload();
     
     const request = () => {};
     
@@ -47,7 +46,6 @@ const ProfileDetails = ({id} : any) => {
                 imageType: 0
             })
         })
-        setTimeout(reload, 200);
     }
 
     useEffect(() => {
