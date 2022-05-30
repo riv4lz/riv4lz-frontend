@@ -12,7 +12,6 @@ import RegisterPage from './pages/registerPage/RegisterPage';
 import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
 import Footer from './components/shared/Footer/Footer';
 import OrgProfilePage from './pages/orgProfilePage/OrgProfilePage';
-import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 import AboutPage from './pages/aboutPage/AboutPage';
 import ChatPage from "./pages/chatPage/ChatPage";
 import GuidePage from "./pages/guidePage/GuidePage";

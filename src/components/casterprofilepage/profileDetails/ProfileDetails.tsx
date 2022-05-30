@@ -10,10 +10,25 @@ import Telegram from '../../../assets/icons/social-media/Telegram_White.svg'
 import { useStore } from '../../../Stores/store';
 
 import Axios from 'axios';
+import CreateMatches from "../../matches/createMatches/CreateMatches";
+import UpdateProfile from "../updateProfile/UpdateProfile";
 
 const ProfileDetails = ({id} : any) => {
-    const { userStore, imageStore, authStore } = useStore();
+    const { userStore, imageStore, authStore, eventStore } = useStore();
     const [file, setFile] = useState<File>();
+    const [showState, setShowState] = useState(false);
+
+    const load = () => setShowState(true)
+
+    const show = async() => {
+
+        await eventStore.loadTeams();
+        setTimeout(load, 10)
+    }
+
+    const hide = async() => {
+        setShowState(false);
+    }
 
 
     const reload = () => window.location.reload();
@@ -54,6 +69,14 @@ const ProfileDetails = ({id} : any) => {
 
     return (
         <div className='[ ProfileDetails ]    { padding-top-6 padding-bottom-6 justify-content-center }'>
+            {showState ?
+                <UpdateProfile  show={showState} handleClose={hide} /> : null
+            }
+            {userStore.user.userType === 0 ?
+                <div id='createEvent' className='CreateMatch display-flex justify-content-center align-items-center cursor-pointer' onClick={show}>
+                    <p className='h3 font-poppins clr-darkblue'>+</p>
+                </div>
+                : null}
             <input type="file" ref={inputFile} onChange={(e) => uploadImage(e.target.files)} style={{display: 'none'}} />
             <div className='ProfileDetails__ProfileImage__Wrapper'>
                 <div className='[ Overlay ]'>
