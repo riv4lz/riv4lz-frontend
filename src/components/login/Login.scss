@@ -107,7 +107,7 @@
     }
 }
 
-.LoginContinueWith__Buttons {
+.LoginContinueWith__ButtonsContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -115,7 +115,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    .Buttons {
+    .LoginContinueWith__ButtonsContainer__Button {
         padding: 5px 20px;
         background-color: $Secondary;
         border-radius: 40px;
