@@ -1,5 +1,4 @@
 import http from "../http-common";
-import {Caster} from "../stores/casterStore";
 import { UploadImageUrlDTO } from "../stores/imageStore";
 
 class ImageService {
