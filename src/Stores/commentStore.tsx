@@ -22,7 +22,7 @@ export interface message {
     text: string,
     username: string
     userId: string,
-    profileImageUrl: string,
+    profileImageUrl?: string,
 }
 
 export interface messageSent {
@@ -31,7 +31,7 @@ export interface messageSent {
     Text: string,
     Username: string
     userId: string,
-    profileImageUrl: string,
+    profileImageUrl?: string,
 }
 
 export default class CommentStore{

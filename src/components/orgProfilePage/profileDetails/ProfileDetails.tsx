@@ -1,4 +1,4 @@
-import React, { createRef, useEffect } from 'react'
+import React, {createRef, useEffect, useState} from 'react'
 import './ProfileDetails.scss'
 import Btn from "../../button/Btn";
 import ProfileImg from '../../../assets/images/ProfileDetails_ProfileImgTemp.png'
@@ -9,6 +9,7 @@ import Discord from '../../../assets/icons/social-media/Discord_White.svg'
 import Telegram from '../../../assets/icons/social-media/Telegram_White.svg'
 import { useStore } from '../../../Stores/store';
 import Axios from 'axios';
+import UpdateProfile from "../../casterprofilepage/updateProfile/UpdateProfile";
 
 
 const ProfileDetails = ({ id }: any) => {
@@ -28,7 +29,7 @@ const ProfileDetails = ({ id }: any) => {
     const hide = async() => {
         setShowState(false);
     }
-    
+
 
     const inputFile = createRef<HTMLInputElement>();
     const test = async () => {

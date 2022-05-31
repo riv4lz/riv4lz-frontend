@@ -6,8 +6,8 @@ export interface User {
     name: string
     userType: number
     description: string
-    profileImageUrl?: string
-    bannerImageUrl?: string
+    profileImageUrl: string
+    bannerImageUrl: string
     facebookUrl: string
     twitterUrl: string
     discordUrl: string
