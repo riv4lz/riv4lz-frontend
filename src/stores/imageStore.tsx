@@ -1,5 +1,4 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import authService, { loginDto } from "../services/authService";
 import imageService from "../services/imageService";
 
 export interface UploadImageUrlDTO {

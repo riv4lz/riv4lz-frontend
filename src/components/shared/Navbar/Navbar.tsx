@@ -48,7 +48,7 @@ const LoggedInNavbar = () => {
   }
 
   const onClickProfile = () => {
-    navigate(authStore.isCaster ? '/Caster/' + authStore.user?.id : '/Org/' + authStore.user?.id);
+    navigate('/profile/' + authStore.user?.id);
   }
 
   const logout = () => {

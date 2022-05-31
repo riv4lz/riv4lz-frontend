@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import './CasterProfilePage.scss'
+import './ProfilePage.scss'
 import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../stores/store";
-import Cta from "../../components/casterprofilepage/cta/Cta";
-import Highlights from "../../components/casterprofilepage/highlights/Highlights";
-import ProfileDetails from "../../components/casterprofilepage/profileDetails/ProfileDetails";
+import Cta from "../../components/profilePage/cta/Cta";
+import Highlights from "../../components/profilePage/highlights/Highlights";
+import ProfileDetails from "../../components/profilePage/profileDetails/ProfileDetails";
 import Matches from "../../components/matches/matches/Matches";
 import { useParams } from 'react-router-dom'
 
-function CasterProfilePage(props: any) {
+function ProfilePage(props: any) {
   const { userStore, authStore } = useStore();
 
   const [test, setid] = useState('');
@@ -36,4 +36,4 @@ function CasterProfilePage(props: any) {
   )
   );
 }
-export default CasterProfilePage
+export default ProfilePage

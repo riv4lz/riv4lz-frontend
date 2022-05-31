@@ -1,17 +1,15 @@
 import './App.css';
-import {BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate} from 'react-router-dom'
+import {BrowserRouter as Router, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/shared/Navbar/Navbar';
-import React, { Component, useCallback, useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState} from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
 import { observer } from "mobx-react-lite";
-import { store, useStore } from "./stores/store";
+import { useStore } from "./stores/store";
 import RegisterPage from './pages/registerPage/RegisterPage';
-import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
+import ProfilePage from "./pages/profilePage/ProfilePage";
 import Footer from './components/shared/Footer/Footer';
-import OrgProfilePage from './pages/orgProfilePage/OrgProfilePage';
-import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 import AboutPage from './pages/aboutPage/AboutPage';
 import ChatPage from "./pages/chatPage/ChatPage";
 import GuidePage from "./pages/guidePage/GuidePage";
@@ -115,8 +113,7 @@ function App() {
                   <ChatPage />
                 </RequireAuth>}>
               </Route>
-              <Route path="/caster/:id" element={<CasterProfilePage />}></Route>
-              <Route path="/Org/:id" element={<OrgProfilePage />}></Route>
+              <Route path="/profile/:id" element={<ProfilePage />}></Route>
             </Routes>
             <Footer />
           </Router>
