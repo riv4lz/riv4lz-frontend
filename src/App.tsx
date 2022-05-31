@@ -7,15 +7,14 @@ import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
 import { observer } from "mobx-react-lite";
 import { store, useStore } from "./Stores/store";
-import CastersPage from "./pages/castersPage/CastersPage";
 import RegisterPage from './pages/registerPage/RegisterPage';
 import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
 import Footer from './components/shared/Footer/Footer';
 import OrgProfilePage from './pages/orgProfilePage/OrgProfilePage';
-import CreateMatchPage from "./pages/createMatchPage/CreateMatchPage";
 import AboutPage from './pages/aboutPage/AboutPage';
 import ChatPage from "./pages/chatPage/ChatPage";
 import GuidePage from "./pages/guidePage/GuidePage";
+import UsersPage from "./pages/castersPage/UsersPage";
 
 function RequireAuth({ children }) {
   const { authStore } = useStore();
@@ -100,6 +99,11 @@ function App() {
               <Route path="/Guide" element={
                 <>
                   <GuidePage />
+                </>}>
+              </Route>
+              <Route path="/Users/:userType" element={
+                <>
+                  <UsersPage/>
                 </>}>
               </Route>
               <Route path='/Login' element={<LoginPage />}>
