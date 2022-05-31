@@ -13,6 +13,22 @@ import Axios from 'axios';
 
 const ProfileDetails = ({ id }: any) => {
     const { userStore, authStore, imageStore } = useStore();
+    const [showState, setShowState] = useState(false);
+    const [showState1, setShowState1] = useState(false);
+    const [image, setImage] = useState('');
+    let imageUrl: any;
+
+
+    const load = () => setShowState(true)
+
+    const show = async() => {
+        setTimeout(load, 10)
+    }
+
+    const hide = async() => {
+        setShowState(false);
+    }
+    
 
     const inputFile = createRef<HTMLInputElement>();
     const test = async () => {
@@ -25,13 +41,17 @@ const ProfileDetails = ({ id }: any) => {
         formData.append('file', event[0]);
         formData.append('upload_preset', 'profileImage');
         await Axios.post('https://api.cloudinary.com/v1_1/riv4lz/image/upload', formData).then(async (response) => {
-            await imageStore.uploadImage({
-                userId: authStore.user !== undefined ? authStore.user.id : "",
-                imageUrl: response.data.secure_url,
-                imageType: 0
-            })
+            userStore.user.profileImageUrl = response.data.secure_url;
         })
-        setTimeout(reload, 200);
+        console.log(userStore.user.profileImageUrl);
+        setShowState1(true);
+        setShowState1(false);
+        userStore.updateUserProfile(userStore.user);
+        console.log(userStore.user);
+    }
+
+    const updateProfile = async () => {
+        setImage(imageUrl);
     }
 
     
@@ -53,6 +73,17 @@ const ProfileDetails = ({ id }: any) => {
 
     return (
         <div className='[ ProfileDetails ]    { padding-top-6 padding-bottom-6 justify-content-center }'>
+            {showState ?
+                <UpdateProfile  show={showState} handleClose={hide} /> : null
+            }
+            {showState1 ?
+                <div></div> : null
+            }
+            {userStore.user.userType === 1 ?
+                <div id='createEvent' className='CreateMatch display-flex justify-content-center align-items-center cursor-pointer' onClick={show}>
+                    <p className='h3 font-poppins clr-darkblue'>+</p>
+                </div>
+                : null}
         <input type="file" ref={inputFile} onChange={(e) => uploadImage(e.target.files)} style={{display: 'none'}} />
         <div className='ProfileDetails__ProfileImage__Wrapper'>
             <div className='[ Overlay ]'>

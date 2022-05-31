@@ -15,12 +15,14 @@ export interface test {
 export interface room {
     id: string,
     name: string,
-    messages: {text: string, username: string}[];
+    messages: {text: string, username: string, userId: string, profileImageUrl: string}[];
 }
 
 export interface message {
     text: string,
     username: string
+    userId: string,
+    profileImageUrl: string,
 }
 
 export interface messageSent {
@@ -28,6 +30,8 @@ export interface messageSent {
     Id: string,
     Text: string,
     Username: string
+    userId: string,
+    profileImageUrl: string,
 }
 
 export default class CommentStore{
@@ -59,6 +63,7 @@ export default class CommentStore{
             runInAction(() => {
                 this.test2 = comments;
                 this.test3 = comments.messages;
+                console.log(this.test3);
             });
         });
 

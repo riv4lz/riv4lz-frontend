@@ -36,9 +36,13 @@ const ChatComponent = () => {
             Id: uuidv4(),
             Text: localMessage,
             Username: userStore.user.name,
+            userId: userStore.user.id,
+            profileImageUrl: userStore.user.profileImageUrl,
         }
         commentStore.addComment(message).then(() => {
         });
+        console.log(message);
+        console.log(userStore.user.id);
     }
 
     const enterRoom = (id: string, ) => {
@@ -63,6 +67,18 @@ const ChatComponent = () => {
         }
     }
 
+    const handleOwnMessage = (id: string) => {
+        console.log("fisk");
+        console.log(id);
+        if (id === userStore.user.id) {
+            console.log("true");
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     return (
         <div className={"[ ChatComponent ]"}>
             <div className={"ChatComponent__Wrapper    { margin-bottom-xxl }"}>
@@ -80,8 +96,8 @@ const ChatComponent = () => {
                     </div>
                     <div className={"[ ChatSectionBody ]"}>
                             {commentStore.test3.map((message: message, index: number) => (
-                                <div className={"[ ChatMessage ]"} key={index}>
-                                    <img className={"ChatMessage__ProfileImg"} src={profileImg}></img>
+                                <div className={`[ ChatMessage ] ${handleOwnMessage(message.userId) ? 'is-active' : ''}  ` } key={index}>
+                                    <img className={"ChatMessage__ProfileImg"} src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'}></img>
                                     <div className={"[ ChatMessageText ]    { Text_Secondary"}>
                                         <p className={"ChatMessageText__Username    { P0_Oxanium"}>{message.username}</p>
                                         <p className={"ChatMessageText__TextMsg    { P4_Poppins"} >{message.text}</p>
