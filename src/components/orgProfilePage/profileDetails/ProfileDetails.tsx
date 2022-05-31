@@ -17,6 +17,7 @@ const ProfileDetails = ({ id }: any) => {
     const { userStore, authStore, imageStore } = useStore();
     const [showState, setShowState] = useState(false);
     const [image, setImage] = useState('');
+    let imageUrl: any;
 
 
     const load = () => setShowState(true)
@@ -36,19 +37,20 @@ const ProfileDetails = ({ id }: any) => {
     const test = async () => {
 
     }
-    const reload = () => window.location.reload();
 
     const uploadImage = async (event: any) => {
         const formData = new FormData();
         formData.append('file', event[0]);
         formData.append('upload_preset', 'profileImage');
         await Axios.post('https://api.cloudinary.com/v1_1/riv4lz/image/upload', formData).then(async (response) => {
-            userStore.user.profileImageUrl = response.data.secure_url;
-            console.log(response.data.secure_url);
+            imageUrl = response.data.secure_url;
         })
-        userStore.updateUserProfile(userStore.user);
-        console.log(userStore.user.profileImageUrl);
-        console.log(userStore.user);
+        console.log(imageUrl);
+        setTimeout(updateProfile, 50)
+    }
+
+    const updateProfile = async () => {
+        setImage(imageUrl);
     }
 
     
@@ -60,6 +62,14 @@ const ProfileDetails = ({ id }: any) => {
         getUser();
 
     }, [])
+
+    useEffect(() => {
+        console.log("test");
+        console.log(image);
+        userStore.user.profileImageUrl = image;
+        userStore.updateUserProfile(userStore.user);
+        console.log(userStore.user.profileImageUrl);
+    }, [image])
 
     const changeProfileImage = () => {
 
@@ -81,8 +91,7 @@ const ProfileDetails = ({ id }: any) => {
         <input type="file" ref={inputFile} onChange={(e) => uploadImage(e.target.files)} style={{display: 'none'}} />
         <div className='ProfileDetails__ProfileImage__Wrapper'>
             <div className='[ Overlay ]'>
-                <img src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="Overlay__Profile_Image" />
-                <p>{userStore.user.profileImageUrl}</p>
+                <img src={userStore.user.profileImageUrl} className="Overlay__Profile_Image" />
                 {authStore.user?.id === id ?
                     <div className="Overlay__ChangeProfilePic    { margin-bottom-xs display-flex justify-content-center align-items-center cursor-pointer }" onClick={changeProfileImage}>
                         <div className="{ p1 font-poppins clr-secondary }">Change profile Picture</div>

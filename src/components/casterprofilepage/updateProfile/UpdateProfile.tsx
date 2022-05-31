@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 
 
 const UpdateProfile = ({ show, handleClose }: any) => {
-    const { eventStore, authStore, userStore } = useStore()
+    const { userStore } = useStore()
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -15,6 +15,7 @@ const UpdateProfile = ({ show, handleClose }: any) => {
     const [twitterUrl, setTwitterUrl] = useState('');
     const [discordUrl, setDiscordUrl] = useState('');
     const [twitchUrl, setTwitchUrl] = useState('');
+    const [profile, setProfile] = useState('');
 
     useEffect(() => {
         setName(userStore.user.name);
@@ -23,6 +24,7 @@ const UpdateProfile = ({ show, handleClose }: any) => {
         setTwitterUrl(userStore.user.twitterUrl);
         setDiscordUrl(userStore.user.discordUrl);
         setTwitchUrl(userStore.user.twitchUrl);
+        setProfile(userStore.user.profileImageUrl);
     }, []);
 
 
@@ -34,6 +36,7 @@ const UpdateProfile = ({ show, handleClose }: any) => {
         userStore.user.twitterUrl = twitterUrl;
         userStore.user.discordUrl = discordUrl;
         userStore.user.twitchUrl = twitchUrl;
+        userStore.user.profileImageUrl = profile;
 
         userStore.updateUserProfile(userStore.user);
 
@@ -69,6 +72,14 @@ const UpdateProfile = ({ show, handleClose }: any) => {
                                 placeholder='Write here'
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}>
+                            </input>
+                            <input
+                                className='LoginInput__Field'
+                                type="text"
+                                id='description'
+                                placeholder='Write here'
+                                value={profile}
+                                onChange={(e) => setProfile(e.target.value)}>
                             </input>
                         </div>
                     </div>
