@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './EventDetails.scss'
 import Tricked from '../../../../assets/images/Esports-orgs/Tricked.svg'
 import Btn from '../../../button/Btn'
-import { useStore } from '../../../../Stores/store'
-import { OrgStore } from '../../../../Stores/orgStore'
+import { useStore } from '../../../../stores/store'
 import { v4 as uuidv4 } from 'uuid';
 import GetImageService from '../../../../services/getImageService'
 

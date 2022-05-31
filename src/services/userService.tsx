@@ -1,5 +1,5 @@
 import http from "../http-common";
-import {User} from "../Stores/userStore";
+import {User} from "../stores/userStore";
 
 class UserService {
     

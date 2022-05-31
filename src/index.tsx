@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import {store, StoreContext} from "./Stores/store";
+import {store, StoreContext} from "./stores/store";
 
 
 ReactDOM.render(

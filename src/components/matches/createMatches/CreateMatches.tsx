@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './CreateMatches.scss'
-import { useStore } from '../../../Stores/store'
+import { useStore } from '../../../stores/store'
 import Btn from '../../button/Btn'
-import { createMatchDTO, Team } from "../../../Stores/eventStore";
+import { createMatchDTO, Team } from "../../../stores/eventStore";
 import { v4 as uuidv4 } from "uuid";
 
 

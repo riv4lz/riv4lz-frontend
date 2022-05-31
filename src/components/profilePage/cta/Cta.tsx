@@ -2,7 +2,7 @@ import React, { createRef, useEffect } from 'react'
 import './Cta.scss'
 import Btn from "../../button/Btn";
 import BannerImage from '../../../assets/images/ProfileDetails_BannerImgTemp.png'
-import { useStore } from '../../../Stores/store';
+import { useStore } from '../../../stores/store';
 import Axios from 'axios';
 
 

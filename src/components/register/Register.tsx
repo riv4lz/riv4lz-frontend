@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useStore } from '../../Stores/store'
+import { useStore } from '../../stores/store'
 import Btn from '../button/Btn'
 import './Register.scss'
 import { v4 as uuidv4 } from 'uuid';

@@ -1,5 +1,5 @@
-import signalR, {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
-import {makeAutoObservable, observable, runInAction, toJS, autorun, action} from "mobx";
+import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
+import {makeAutoObservable, observable, runInAction, toJS } from "mobx";
 
 export interface ChatRoom {
     id: string,
