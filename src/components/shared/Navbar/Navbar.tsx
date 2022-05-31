@@ -89,13 +89,13 @@ const LoggedInNavbar = () => {
         </div>
         {isOpen ?
           <div className='[ Dropdown ]'>
-            <div className='Dropdown__option    { p2 font-oxanium display-flex justify-content-flex-end align-items-center cursor-pointer }'>
-              <div className='Dropdown__option__text' onClick={onClickProfile}>
+            <div onClick={onClickProfile} className='Dropdown__option    { p2 font-oxanium display-flex justify-content-flex-end align-items-center cursor-pointer }'>
+              <div className='Dropdown__option__text' >
                 Profile
               </div>
             </div>
-            <div className='Dropdown__Logout     { p2 font-oxanium display-flex justify-content-flex-end align-items-center cursor-pointer }'>
-              <div className='Dropdown__option__text' onClick={logout}>
+            <div  onClick={logout} className='Dropdown__Logout     { p2 font-oxanium display-flex justify-content-flex-end align-items-center cursor-pointer }'>
+              <div className='Dropdown__option__text'>
                 Logout
               </div>
             </div>
