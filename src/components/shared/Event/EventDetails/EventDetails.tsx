@@ -3,7 +3,6 @@ import './EventDetails.scss'
 import Tricked from '../../../../assets/images/Esports-orgs/Tricked.svg'
 import Btn from '../../../button/Btn'
 import { useStore } from '../../../../stores/store'
-import { OrgStore } from '../../../../stores/orgStore'
 import { v4 as uuidv4 } from 'uuid';
 import GetImageService from '../../../../services/getImageService'
 

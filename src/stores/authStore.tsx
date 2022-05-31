@@ -1,6 +1,5 @@
 import { makeAutoObservable, observable, action } from "mobx";
 import authService, { loginDto, registerDto } from "../services/authService";
-import casterService from "../services/casterService";
 
 export interface User {
     id: string
