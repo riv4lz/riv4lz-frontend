@@ -13,14 +13,15 @@ import Footer from './components/shared/Footer/Footer';
 import AboutPage from './pages/aboutPage/AboutPage';
 import ChatPage from "./pages/chatPage/ChatPage";
 import GuidePage from "./pages/guidePage/GuidePage";
+import Loading from './components/shared/Loading/Loading';
 
 function RequireAuth({ children }) {
   const { authStore } = useStore();
   const location = useLocation();
-  return authStore.user !== undefined  ? (
-      children
+  return authStore.user !== undefined ? (
+    children
   ) : (
-      <Navigate to="/Login" replace state={{ path: location.pathname }} />
+    <Navigate to="/Login" replace state={{ path: location.pathname }} />
   );
 }
 
@@ -29,7 +30,6 @@ function App() {
   const { commentStore, authStore, userStore, offerStore, eventStore } = useStore();
 
   const [loaded, setLoaded] = useState(false)
-  const test = () => setLoaded(true)
 
 
   useEffect(() => {
@@ -37,28 +37,37 @@ function App() {
     userStore.loadUsers(0);
     userStore.loadUsers(1);
     const loadEvents = async () => {
-      await eventStore.loadMatches();
-    }
-    loadEvents();
 
-    setTimeout(test, 500)
+      await eventStore.loadMatches();
+
+    }
+
+    const getCurrentUser = async () => {
+      setLoaded(false)
+      await authStore.getCurrentUser()
+      const user = await userStore.loadUser(authStore.user?.id);
+      if (user.userType === 0) {
+        authStore.isCaster = true;
+        authStore.isOrg = false;
+      } else {
+        authStore.isCaster = false;
+        authStore.isOrg = true;
+      }
+      setLoaded(true)
+    }
+
+    loadEvents();
     if (localStorage.getItem("token")) {
       getCurrentUser();
+    } else {
+
+      setLoaded(true)
     }
+
+
   }, []);
 
-  const getCurrentUser = async () => {
-    const response = await authStore.getCurrentUser()
-    const user = await userStore.loadUser(authStore.user?.id);
-    if (user.userType === 0) {
-      authStore.isCaster = true;
-      authStore.isOrg = false;
-    } else {
-      authStore.isCaster = false;
-      authStore.isOrg = true;
-    }
-    return response;
-  }
+
 
 
   const navigateHome = () => {
@@ -74,7 +83,7 @@ function App() {
 
   return (
     <>
-      { loaded  ?
+      {loaded ?
 
         <div className="App">
 
@@ -119,7 +128,7 @@ function App() {
           </Router>
 
         </div>
-        : null}
+        : <Loading />}
     </>
   );
 }

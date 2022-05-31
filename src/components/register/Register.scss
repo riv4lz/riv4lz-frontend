@@ -1,6 +1,6 @@
 @import "../../index.scss";
 
-@media only screen and (min-width: $Desktop) {
+@media only screen and (min-width: $desktop) {
     .Register {
         width: 80%;
         max-width: 100% !important;
@@ -101,7 +101,7 @@
         padding-left: 20px;
     }
     .Input::placeholder {
-        color: $Black;
+        color: $clr-black;
     }
 }
 

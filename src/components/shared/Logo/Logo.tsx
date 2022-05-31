@@ -2,9 +2,9 @@ import React from 'react'
 
 const Logo = () => {
     return (
-        <div className='H3'>
-            <span className='Text_Secondary'>RIV</span>
-            <span className='Text_Primary'>4LZ</span>
+        <div className='h3 font-statewideBold'>
+            <span className='clr-secondary'>RIV</span>
+            <span className='clr-primary'>4LZ</span>
         </div>
     )
 }

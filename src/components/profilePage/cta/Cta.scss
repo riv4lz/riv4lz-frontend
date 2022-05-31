@@ -1,7 +1,7 @@
 @import "../../../index";
 
 .Cta {
-    background-color: $Dark_Grey;
+    background-color: $clr-background;
     height: 500px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;

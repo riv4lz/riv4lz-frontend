@@ -27,12 +27,12 @@ const MissionAndVision = () => {
                         VISION
                     </div>
                     <div className='Vision__Paragraph    { p1 font-poppins clr-white }'>
-                        <span className='Text_Secondary'>The vision behind riv4lz is to impower casters of all levels
+                        <span className='clr-secondary'>The vision behind riv4lz is to impower casters of all levels
                             by providing a secure platform for growth and increasing the
                             chance to turn your passion into a full time job. In the
                             future we want to be an international gathering place for the
                             esports entertainment market. Lets make esport even greater</span>
-                        <span className='Text_Primary'><b> TOGETHER </b></span>
+                        <span className='clr-primary'><b> TOGETHER </b></span>
                     </div>
                 </div>
                 <div className='[ EndQuote ]    { h3 font-statewideBold clr-primary }'>

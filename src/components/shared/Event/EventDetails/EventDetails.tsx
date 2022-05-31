@@ -114,7 +114,7 @@ const Caster = ({ Event, handleClose }: any) => {
             <div className='[ Caster_Component ]    { display-grid margin-top-s gap-2 }'>
                 <div className='Caster_Component__Budget'>
                     <div className='Caster_Component__BudgetTitle    { p1 font-statewideBold }'>Organisation budget</div>
-                    <div className='Caster_Component__BudgetInfo    { flex-flow P1_Oxanium fw-900 }'> {Event.price} </div>
+                    <div className='Caster_Component__BudgetInfo    { flex-flow p1 font-oxanium fw-900 }'> {Event.price} </div>
                 </div>
                 <div className='[ OfferComponent ]    { p1 font-statewideBold }'>
                     <div className='OfferComponent__Title'>Your Offer</div>
@@ -150,12 +150,12 @@ const Organisation = ({handleClose}: any ) => {
     return (
         <div className='[ Org ]    { flex-flow margin-top-xl flex-direction-column }'>
             <div className='Org__Title    { margin-bottom-s display-flex justify-content-start align-items-center p1 font-statewideBold clr-white }'>Caster Applications</div>
-            <div className='[ OrgComponent ]    { display-flex Align_Start flex-direction-column gap-2 overflow-y-scroll }'>
+            <div className='[ OrgComponent ]    { display-flex align-items-start flex-direction-column gap-2 overflow-y-scroll }'>
                 {offerStore.offers.map((offer: any) => {
                     return (
                         <div key={offer.id} className='OrgComponent__Wrapper    { flex-direction-row display-flex justify-content-start align-items-center }'>
                             <div className='OrgComponent__Image    { flex-flow }'> <img src={offer.caster.profileImage !== null ? offer.caster.profileImage : 'https://i.imgur.com/sh2 font-statewideBoldIN1A_d.webp?maxwidth=760&fidelity=grand'} alt="" /></div>
-                            <div className='OrgComponent__NameContainer    { display-flex flex-direction-column Justify_Around align-items-center }'>
+                            <div className='OrgComponent__NameContainer    { display-flex flex-direction-column justify-content-space-around align-items-center }'>
                                 <div className='OrgComponent__Name    { p1 font-statewideBold clr-white }'>
                                     {offer.caster.name}
                                 </div>
@@ -163,9 +163,9 @@ const Organisation = ({handleClose}: any ) => {
                                     {offer.caster.description}
                                 </div>
                             </div>
-                            <div className='OrgComponent__OfferContainer    { flex-direction-row gap-2 display-flex Justify_End align-items-center }'>
-                                <div className='OrgComponent__accept   { btn_Offer_Solid }' onClick={() => onAcceptOffer(offer)}>Accept</div>
-                                <div className='OrgComponent__decline    { btn_Offer_Outline }' onClick={() => onDeclineOffer(offer)}>Decline</div>
+                            <div className='OrgComponent__OfferContainer    { flex-direction-row gap-2 display-flex justify-content-flex-end align-items-center }'>
+                                <div className='OrgComponent__accept   { btn-offer-solid }' onClick={() => onAcceptOffer(offer)}>Accept</div>
+                                <div className='OrgComponent__decline    { btn-offer-outline }' onClick={() => onDeclineOffer(offer)}>Decline</div>
                             </div>
                         </div>
                     )

@@ -63,7 +63,7 @@ const Cta = ({ id }: any) => {
             <div className='[ Banner ]    { display-flex align-items-center justify-content-center }'>
                 <div className='Banner__Wrapper'>
                     <div className='[ Overlay ]'>
-                        <img src={userStore.user?.bannerImageUrl !== null ? userStore.user?.bannerImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="Overlay__BannerImage" />
+                        <img src={userStore.user?.bannerImageUrl !== null && userStore.user.bannerImageUrl !== '' ? userStore.user?.bannerImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="Overlay__BannerImage" />
                         {authStore.user?.id === id ?
                             <div className="Overlay__ChangeBannerImage    { display-flex justify-content-center align-items-center cursor-pointer }" onClick={changeProfileImage}>
                                 <div className="p1 font-poppins clr-secondary">Change Banner Image</div>

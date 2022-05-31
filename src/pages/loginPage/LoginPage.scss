@@ -23,7 +23,7 @@
     align-items: center;
 }
 
-@media only screen and (min-width: $Desktop) {
+@media only screen and (min-width: $desktop) {
     .Login_Wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

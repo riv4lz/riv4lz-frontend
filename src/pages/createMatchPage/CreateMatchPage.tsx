@@ -60,23 +60,23 @@ const CreateMatchPage = () => {
           ))}
         </select>
         <div className='Login_Div_Email'>
-          <span className='Half_opacity P4_Statewide_light Text_Secondary' >Date</span>
+          <span className='Half_opacity p4 font-statewideLight clr-secondary' >Date</span>
           <input type="datetime-local" className='Email_Input' placeholder='time' value={dateTime} onChange={(e) => setDateTime(e.target.value)}></input>
         </div>
         <div className='Login_Div_Email'>
-          <span className='Half_opacity P4_Statewide_light Text_Secondary' >Description</span>
+          <span className='Half_opacity p4 font-statewideLight clr-secondary' >Description</span>
           <input type="text" className='Email_Input' placeholder='description' value={description} onChange={(e) => setDescription(e.target.value)}></input>
         </div>
         <div className='Login_Div_Email'>
-          <span className='Half_opacity P4_Statewide_light Text_Secondary'>Price</span>
+          <span className='Half_opacity p4 font-statewideLight clr-secondary'>Price</span>
           <input type="number" className='Email_Input' placeholder='price' value={price} onChange={(e) => setPrice(e.target.valueAsNumber)}></input>
         </div>
 
         <div className='Login_Div_ForgotPass'>
-          <Link to="/Login/ForgotPassword" className='Half_opacity Forgot_Password P4_Statewide_light Text_Secondary'>Forgot Password?</Link>
+          <Link to="/Login/ForgotPassword" className='Half_opacity Forgot_Password p4 font-statewideLight clr-secondary'>Forgot Password?</Link>
         </div>
         <div className='Login_Div_Signin'>
-          <Btn onClick={createMatch} classes="Btn_Login P1_Statewide_Bold Text_Secondary" children="SIGN IN" />
+          <Btn onClick={createMatch} classes="Btn_Login P1_Statewide_Bold clr-secondary" children="SIGN IN" />
         </div>
       </form>
     </div>

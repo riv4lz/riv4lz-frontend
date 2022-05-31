@@ -37,22 +37,22 @@ const FooterMain = () => {
                 <div className='[ UsefulLinks ] Component'>
                     <div className='Title    { p0 font-oxanium fw-900 }'>Useful links</div>
                     <div className='FooterLinks    { display-flex justify-content-space-evenly p3 font-oxanium fw-600 }'>
-                        <a className='{ Text_Secondary' href='#'>About us</a>
-                        <a className='{ Text_Secondary' href='#'>Games</a>
-                        <a className='{ Text_Secondary' href='#'>Matches</a>
-                        <a className='{ Text_Secondary' href='#'>Store</a>
-                        <a className='{ Text_Secondary' href='#'>Blog</a>
+                        <a className='{ clr-secondary' href='#'>About us</a>
+                        <a className='{ clr-secondary' href='#'>Games</a>
+                        <a className='{ clr-secondary' href='#'>Matches</a>
+                        <a className='{ clr-secondary' href='#'>Store</a>
+                        <a className='{ clr-secondary' href='#'>Blog</a>
                     </div>
                 </div>
                 <div className='[ SocialContact ] Component'>
                     <div className='Title    { p0 font-oxanium fw-900 }'>Social Contact</div>
 
                     <div className='FooterLinks    { display-flex justify-content-space-evenly p3 font-oxanium fw-600 }'>
-                        <a className='{ Text_Secondary' href='#'>Facebook</a>
-                        <a className='{ Text_Secondary' href='#'>Twitter</a>
-                        <a className='{ Text_Secondary' href='#'>instagram</a>
-                        <a className='{ Text_Secondary' href='#'>Youtube</a>
-                        <a className='{ Text_Secondary' href='#'>Github</a>
+                        <a className='{ clr-secondary' href='#'>Facebook</a>
+                        <a className='{ clr-secondary' href='#'>Twitter</a>
+                        <a className='{ clr-secondary' href='#'>instagram</a>
+                        <a className='{ clr-secondary' href='#'>Youtube</a>
+                        <a className='{ clr-secondary' href='#'>Github</a>
                     </div>
                 </div>
                 <div className='[ Photos ] Component'>

@@ -64,17 +64,17 @@ const Matches = () => {
             {showState ?
                 <EventDetails show={showState} handleClose={hide} Event={eventDetails} /> : null
             }
-            <div className='matches_Container Flex Justify_Center Align_Center'>
-                <div className='matches_Wrapper Flex Justify_Center Align_Center'>
-                    <div className='matches_Title H2 Text_Secondary'>
+            <div className='matches_Container flex-flow'>
+                <div className='matches_Wrapper flex-flow'>
+                    <div className='matches_Title h2 clr-secondary'>
                         Matches
                     </div>
-                    <div className='matches_Buttons P1_Oxanium Bold Flex Justify_Center Align_Center'>
+                    <div className='matches_Buttons p1 font-oxanium fw-900 flex-flow'>
                         <div style={{ color: upcomingState === true ? '#279BBB' : 'white' }} onClick={onUpcoming}>Upcoming</div>
                         <div style={{ color: finishedState === true ? '#279BBB' : 'white' }} onClick={onFinished}>Finished</div>
                     </div>
 
-                    <div className='matches_MatchContainer Grid Justify_Center Align_Center'>
+                    <div className='matches_MatchContainer display-grid justify-content-center align-items-center'>
 
                         {upcomingState === true ? <Upcoming events={upcomingMatches} show={(value: any) => show(value)} /> : <Finished events={finishedMatches} show={(value: any) => show(value)} />}
 
