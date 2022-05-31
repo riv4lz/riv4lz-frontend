@@ -9,8 +9,8 @@ import { v4 as uuidv4 } from "uuid";
 const CreateMatches = ({ show, handleClose }: any) => {
     const { eventStore, authStore } = useStore()
 
-    const [team1, setTeam1] = useState({ id: '', name: '' })
-    const [team2, setTeam2] = useState({ id: '', name: '' })
+    const [team1, setTeam1] = useState(eventStore.teams[0])
+    const [team2, setTeam2] = useState(eventStore.teams[0])
     const [dateTime, setDateTime] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState(0)
@@ -54,10 +54,8 @@ const CreateMatches = ({ show, handleClose }: any) => {
             return;
         }
 
-        eventStore.createMatch({ id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: 'lol', eventStatus: 0 })
+        eventStore.createMatch({ id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: game, eventStatus: 0 })
         handleClose()
-
-        window.location.reload();
     }
 
     return (

@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite'
 import React, { useEffect, useState } from 'react'
 import { finished } from 'stream'
 import { Match } from '../../../Stores/eventStore'
@@ -139,4 +140,4 @@ const Finished = ({ searchValue, events, show }: any) => {
     )
 }
 
-export default Matches
+export default observer(Matches)
