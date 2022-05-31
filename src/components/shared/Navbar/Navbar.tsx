@@ -53,6 +53,19 @@ const LoggedInNavbar = () => {
 
   const logout = () => {
     authStore.logout();
+    userStore.user = {
+      id: '',
+      name: '',
+      userType: 0,
+      description: '',
+      profileImageUrl: '',
+      bannerImageUrl: '',
+      facebookUrl: '',
+      twitterUrl: '',
+      discordUrl: '',
+      twitchUrl: '',
+      websiteUrl: ''
+    };
     window.location.reload();
   }
   const [isOpen, setIsOpen] = useState(false);
@@ -71,7 +84,7 @@ const LoggedInNavbar = () => {
             </div>
           </div>
           <div className='Profile_Pic'>
-            <img src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="ProfileDetails__ProfileImage_Image" />
+            <img src={userStore.user?.profileImageUrl !== undefined && userStore.user.profileImageUrl !== '' ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="ProfileDetails__ProfileImage_Image" />
           </div>
         </div>
         {isOpen ?

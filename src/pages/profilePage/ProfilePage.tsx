@@ -10,9 +10,7 @@ import { useParams } from 'react-router-dom'
 import Loading from '../../components/shared/Loading/Loading';
 
 function ProfilePage(props: any) {
-  const { userStore, authStore } = useStore();
-
-  const [test, setid] = useState('');
+  const { userStore } = useStore();
   const [loaded, setLoaded] = useState(false);
 
   const { id } = useParams();

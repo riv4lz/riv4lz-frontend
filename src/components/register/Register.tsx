@@ -243,13 +243,13 @@ const Step1_Org = ({ id, nextPage, prevPage }: any) => {
             alert("Email already taken");
             return;
         }
-        authStore.registerUser({
+        await authStore.registerUser({
             id: id,
             email: email,
             password: password,
             userType: 1
         })
-        userStore.createUserProfile({
+        await userStore.createUserProfile({
             id: id,
             name: username,
             userType: 1,

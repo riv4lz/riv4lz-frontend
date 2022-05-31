@@ -57,7 +57,7 @@ const ProfileDetails = ({id} : any) => {
             <input type="file" ref={inputFile} onChange={(e) => uploadImage(e.target.files)} style={{display: 'none'}} />
             <div className='ProfileDetails__ProfileImage__Wrapper'>
                 <div className='[ Overlay ]'>
-                    <img src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="Overlay__Profile_Image" />
+                    <img src={userStore.user?.profileImageUrl !== undefined && userStore.user.profileImageUrl !== '' ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'} className="Overlay__Profile_Image" />
                     {authStore.user?.id === id ?
                         <div className="Overlay__ChangeProfilePic    { margin-bottom-xs display-flex justify-content-center align-items-center cursor-pointer }" onClick={changeProfileImage}>
                             <div className="{ p1 font-poppins clr-secondary }">Change profile Picture</div>
