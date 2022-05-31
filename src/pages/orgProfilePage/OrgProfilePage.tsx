@@ -9,27 +9,42 @@ import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-
 import casterService from "../../services/casterService";
 import Navbar from '../../components/shared/Navbar/Navbar';
 import Footer from '../../components/shared/Footer/Footer';
+import Loading from '../../components/shared/Loading/Loading';
 
 function OrgProfilePage(props: any) {
   const { userStore, authStore } = useStore();
 
   const [test, setid] = useState('');
+  const [loaded, setLoaded] = useState(false);
 
   const { id } = useParams();
 
 
   useEffect(() => {
-    userStore.loadUser(id);
-  });
+    try {
+      const loadUser = async () => {
+        setLoaded(false)
+        await userStore.loadUser(id);
+        setLoaded(true)
+      }
+      loadUser();
+    } catch (error) {
+      console.log(error)
+    }
+  }, []);
 
 
 
   return (
-    <div>
-      <ProfileDetails id={id}/>
-      <Matches />
-      <Highlights />
-    </div>
+    <>
+      {loaded ?
+        <>
+          <ProfileDetails id={id} />
+          <Matches />
+          <Highlights />
+        </>
+        : <Loading />}
+    </>
   );
 }
 export default OrgProfilePage

@@ -5,6 +5,7 @@ import CreateMatches from '../../components/matches/createMatches/CreateMatches'
 import Matches from '../../components/matches/matches/Matches'
 import EventDetails from '../../components/shared/Event/EventDetails/EventDetails';
 import Event from '../../components/shared/EventComponent/Event';
+import Loading from '../../components/shared/Loading/Loading';
 import authService from '../../services/authService';
 import { useStore } from '../../Stores/store';
 import './MatchesPage.scss'
@@ -17,12 +18,11 @@ const MatchesPage = () => {
 
   const [showState, setShowState] = useState(false);
 
-  const load = () => setShowState(true)
   
   const show = async() => {
-
+    setShowState(false)
     await eventStore.loadTeams();
-    setTimeout(load, 10)
+    setShowState(true)
   }
 
   const hide = async() => {

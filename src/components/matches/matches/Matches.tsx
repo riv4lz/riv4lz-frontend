@@ -6,6 +6,7 @@ import { offer } from '../../../Stores/offerStore'
 import { useStore } from '../../../Stores/store'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
+import Loading from '../../shared/Loading/Loading'
 import CreateMatches from '../createMatches/CreateMatches'
 import './Matches.scss'
 
@@ -17,21 +18,26 @@ const Matches = () => {
     const [loaded, setLoaded] = useState(false)
     const [upcoming, setUpcomming] = useState<Match[]>([])
     const [finished, setFinished] = useState<Match[]>([])
-    const test = async () => {
-        setLoaded(true)
-    }
-
-    setTimeout(test, 500)
 
     useEffect(() => {
+
         const t = async () => {
-            if(eventStore.matches.length <= 0){
-                await eventStore.loadMatches();
+            setLoaded(false)
+            try {
+                if (eventStore.matches.length <= 0) {
+                    await eventStore.loadMatches();
+                }
+                setUpcomming(await eventStore.filterMatches(true));
+                setFinished(await eventStore.filterMatches(false))
+                setLoaded(true)
+            } catch (error) {
+                console.log(error);
+                setLoaded(true)
             }
-            setUpcomming(await eventStore.filterMatches(true));
-            setFinished(await eventStore.filterMatches(false))
         }
         t();
+
+
 
 
     }, [])
@@ -101,7 +107,7 @@ const Matches = () => {
                         </div>
                     </div>
                 </>
-                : null}
+                : <Loading />}
         </>
     )
 }
