@@ -102,13 +102,13 @@ const Login = () => {
                         <span className='{ half-opacity font-statewideLight p4 clr-white }' >or continue with</span>
                     </div>
                     <div className='LoginContinueWith__Buttons'>
-                        <div className='Buttons'>
+                        <div className='LoginContinueWith__Buttons__Buttons'>
                             <img src={google}></img>
                         </div>
-                        <div className='Buttons'>
+                        <div className='LoginContinueWith__Buttons__Buttons'>
                             <img src={github}></img>
                         </div>
-                        <div className='Buttons'>
+                        <div className='LoginContinueWith__Buttons__Buttons'>
                             <img src={facebook}></img>
                         </div>
 
