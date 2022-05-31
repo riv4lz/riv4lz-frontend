@@ -10,6 +10,7 @@ import {Link, Navigate, useNavigate} from "react-router-dom";
 import profileImg from '../../../assets/images/Temp/ProfileIMG_Temp.jpg'
 import { FaTelegramPlane } from "react-icons/fa";
 import Btn from "../../button/Btn";
+import ProfileImagePlaceholder from "../../../assets/images/Temp/ProfileImagePlaceholder.jpg"
 
 
 const ChatComponent = () => {
@@ -97,7 +98,7 @@ const ChatComponent = () => {
                     <div className={"[ ChatSectionBody ]"}>
                             {commentStore.test3.map((message: message, index: number) => (
                                 <div className={`[ ChatMessage ] ${handleOwnMessage(message.userId) ? 'is-active' : ''}  ` } key={index}>
-                                    <img className={"ChatMessage__ProfileImg"} src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'}></img>
+                                    <img className={"ChatMessage__ProfileImg"} src={message.profileImageUrl ? message.profileImageUrl : ProfileImagePlaceholder }></img>
                                     <div className={"[ ChatMessageText ]    { Text_Secondary"}>
                                         <p className={"ChatMessageText__Username    { P0_Oxanium"}>{message.username}</p>
                                         <p className={"ChatMessageText__TextMsg    { P4_Poppins"} >{message.text}</p>

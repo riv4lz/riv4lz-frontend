@@ -7,7 +7,6 @@ import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
 import { observer } from "mobx-react-lite";
 import { store, useStore } from "./Stores/store";
-import CastersPage from "./pages/castersPage/CastersPage";
 import RegisterPage from './pages/registerPage/RegisterPage';
 import CasterProfilePage from "./pages/casterProfilePage/CasterProfilePage";
 import Footer from './components/shared/Footer/Footer';
