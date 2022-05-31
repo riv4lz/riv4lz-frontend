@@ -6,9 +6,9 @@ import Twitch from '../../../assets/icons/social-media/twitch.svg'
 import Youtube from '../../../assets/icons/social-media/youtube.svg'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
-import { useStore } from '../../../Stores/store'
+import { useStore } from '../../../stores/store'
 import { v4 as uuidv4 } from 'uuid';
-import { Match } from '../../../Stores/eventStore'
+import { Match } from '../../../stores/eventStore'
 import { useObserver } from 'mobx-react-lite'
 
 const Matches = () => {

@@ -3,7 +3,7 @@ import Login from '../../components/login/Login'
 import './CastersPage.scss'
 import Quote from '../../components/login/quote/Quote'
 import {useObserver} from "mobx-react-lite";
-import {useStore} from "../../Stores/store";
+import {useStore} from "../../stores/store";
 import {
   BrowserRouter as Router,
   Route,

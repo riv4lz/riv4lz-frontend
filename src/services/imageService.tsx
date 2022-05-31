@@ -1,6 +1,6 @@
 import http from "../http-common";
-import {Caster} from "../Stores/casterStore";
-import { UploadImageUrlDTO } from "../Stores/imageStore";
+import {Caster} from "../stores/casterStore";
+import { UploadImageUrlDTO } from "../stores/imageStore";
 
 class ImageService {
     uploadImage(data: UploadImageUrlDTO) {

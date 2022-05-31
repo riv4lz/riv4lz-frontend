@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react'
 import './CreateMatchPage.scss'
 import {Link} from "react-router-dom";
 import Btn from "../../components/button/Btn";
-import {useStore} from "../../Stores/store";
-import {createMatchDTO, Team} from "../../Stores/eventStore";
-import {ChatRoom, messageSent} from "../../Stores/commentStore";
+import {useStore} from "../../stores/store";
+import {createMatchDTO, Team} from "../../stores/eventStore";
+import {ChatRoom, messageSent} from "../../stores/commentStore";
 import {v4 as uuidv4} from "uuid";
 
 const CreateMatchPage = () => {

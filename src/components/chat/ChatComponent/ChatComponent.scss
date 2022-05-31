@@ -57,9 +57,11 @@
         .ChatMessageText {
           display: flex;
           flex-direction: column;
-          text-align: left;
-          margin-left: 33px;
+          text-align: right;
+          margin-right: 33px;
           justify-content: center;
+          width: 100%;
+
           .ChatMessageText__Username {
           }
           .ChatMessageText__TextMsg {
@@ -158,5 +160,10 @@
 }
 
 .is-active {
-  background-color: pink !important;
+  background-color: $clr-primary !important;
+  color: $clr-black !important;
+}
+
+.hidden {
+  display: none;
 }

@@ -6,7 +6,7 @@ import Matches from '../../components/matches/matches/Matches'
 import EventDetails from '../../components/shared/Event/EventDetails/EventDetails';
 import Event from '../../components/shared/EventComponent/Event';
 import authService from '../../services/authService';
-import { useStore } from '../../Stores/store';
+import { useStore } from '../../stores/store';
 import './MatchesPage.scss'
 
 const MatchesPage = () => {

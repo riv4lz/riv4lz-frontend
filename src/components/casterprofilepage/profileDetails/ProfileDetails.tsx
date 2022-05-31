@@ -7,7 +7,7 @@ import Twitter from '../../../assets/icons/social-media/Twitter_White.svg'
 import Instagram from '../../../assets/icons/social-media/Instagram_White.svg'
 import Discord from '../../../assets/icons/social-media/Discord_White.svg'
 import Telegram from '../../../assets/icons/social-media/Telegram_White.svg'
-import { useStore } from '../../../Stores/store';
+import { useStore } from '../../../stores/store';
 
 import Axios from 'axios';
 

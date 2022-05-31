@@ -1,5 +1,5 @@
 import http from "../http-common";
-import { Org } from "../Stores/orgStore";
+import { Org } from "../stores/orgStore";
 
 class OrgService {
     getAll() {

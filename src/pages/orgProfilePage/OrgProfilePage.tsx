@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useObserver } from "mobx-react-lite";
-import { useStore } from "../../Stores/store";
+import { useStore } from "../../stores/store";
 import Cta from "../../components/casterprofilepage/cta/Cta";
 import Highlights from "../../components/casterprofilepage/highlights/Highlights";
 import ProfileDetails from "../../components/orgProfilePage/profileDetails/ProfileDetails";

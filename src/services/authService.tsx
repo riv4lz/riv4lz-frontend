@@ -1,6 +1,6 @@
 import http from "../http-common";
-import { User } from "../Stores/authStore";
-import { Caster } from "../Stores/casterStore";
+import { User } from "../stores/authStore";
+import { Caster } from "../stores/casterStore";
 
 export interface loginDto {
     email: string;

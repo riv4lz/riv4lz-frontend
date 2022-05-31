@@ -6,7 +6,7 @@ import github from '../../assets/icons/social-media/github.svg'
 import facebook from '../../assets/icons/social-media/facebook.svg'
 import Btn from '../button/Btn';
 import { useNavigate } from "react-router-dom";
-import { useStore } from '../../Stores/store';
+import { useStore } from '../../stores/store';
 
 const Login = () => {
     let navigate = useNavigate()

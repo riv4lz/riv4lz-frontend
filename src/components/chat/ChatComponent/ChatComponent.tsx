@@ -2,8 +2,8 @@ import {observer, useObserver} from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
 import './ChatComponent.scss';
 import * as signalR from '@microsoft/signalr'
-import {useStore} from "../../../Stores/store";
-import {ChatRoom, message, messageSent, room} from "../../../Stores/commentStore";
+import {useStore} from "../../../stores/store";
+import {ChatRoom, message, messageSent, room} from "../../../stores/commentStore";
 // @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
 import {Link, Navigate, useNavigate} from "react-router-dom";
@@ -97,12 +97,13 @@ const ChatComponent = () => {
                     </div>
                     <div className={"[ ChatSectionBody ]"}>
                             {commentStore.test3.map((message: message, index: number) => (
-                                <div className={`[ ChatMessage ] ${handleOwnMessage(message.userId) ? 'is-active' : ''}  ` } key={index}>
-                                    <img className={"ChatMessage__ProfileImg"} src={message.profileImageUrl ? message.profileImageUrl : ProfileImagePlaceholder }></img>
-                                    <div className={"[ ChatMessageText ]    { Text_Secondary"}>
+                                <div className={`[ ChatMessage ]    { Text_Secondary } ${handleOwnMessage(message.userId) ? 'is-active' : ''}  ` } key={index}>
+                                    <img className={`ChatMessage__ProfileImg ${handleOwnMessage(message.userId) ? 'hidden' : ''} `} src={message.profileImageUrl ? message.profileImageUrl : ProfileImagePlaceholder }></img>
+                                    <div className={"[ ChatMessageText ]"}>
                                         <p className={"ChatMessageText__Username    { P0_Oxanium"}>{message.username}</p>
                                         <p className={"ChatMessageText__TextMsg    { P4_Poppins"} >{message.text}</p>
                                     </div>
+                                    <img className={`ChatMessage__ProfileImg ${handleOwnMessage(message.userId) ? '' : 'hidden'}  `} src={message.profileImageUrl ? message.profileImageUrl : ProfileImagePlaceholder }></img>
                                 </div>
                             ))}
                     </div>

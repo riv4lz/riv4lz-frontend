@@ -1,5 +1,5 @@
 import http from "../http-common";
-import {Caster} from "../Stores/casterStore";
+import {Caster} from "../stores/casterStore";
 
 class teamService {
     getAll() {

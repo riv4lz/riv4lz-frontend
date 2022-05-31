@@ -1,5 +1,5 @@
 import http from "../http-common";
-import { acceptRejectOfferDTO, CreateOfferDTO, offer } from "../Stores/offerStore";
+import { acceptRejectOfferDTO, CreateOfferDTO, offer } from "../stores/offerStore";
 
 class OfferStatus {
     getOffer(id: string) {

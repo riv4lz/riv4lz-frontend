@@ -9,7 +9,7 @@ import {
   useNavigate
 } from "react-router-dom";
 import Logo from '../Logo/Logo';
-import { useStore } from '../../../Stores/store';
+import { useStore } from '../../../stores/store';
 import Wallet from '../../../assets/icons/wallet.svg';
 import Tricked from '../../../assets/images/Esports-orgs/Tricked.svg';
 
