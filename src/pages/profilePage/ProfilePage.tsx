@@ -7,31 +7,39 @@ import Highlights from "../../components/profilePage/highlights/Highlights";
 import ProfileDetails from "../../components/profilePage/profileDetails/ProfileDetails";
 import Matches from "../../components/matches/matches/Matches";
 import { useParams } from 'react-router-dom'
+import Loading from '../../components/shared/Loading/Loading';
 
 function ProfilePage(props: any) {
   const { userStore, authStore } = useStore();
 
   const [test, setid] = useState('');
+  const [loaded, setLoaded] = useState(false);
 
   const { id } = useParams();
 
 
   useEffect(() => {
     const loadUser = async () => {
+      setLoaded(false)
       await userStore.loadUser(id);
+      setLoaded(true)
     }
     loadUser();
 
-  });
+  }, []);
 
 
 
   return useObserver(() => (
     <>
-      <ProfileDetails id={id} />
-      <Cta id={id} />
-      <Matches />
-      <Highlights />
+      {loaded ?
+        <>
+          <ProfileDetails id={id} />
+          <Cta id={id} />
+          <Matches />
+          <Highlights />
+        </>
+        : <Loading />}
     </>
   )
   );
