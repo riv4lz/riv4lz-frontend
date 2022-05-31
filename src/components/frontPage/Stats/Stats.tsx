@@ -29,7 +29,7 @@ const Stats = () => {
                         Organisations
                     </div>
                 </div>
-                <div className='[ StatsComponent ]    { flex-flow P1_Oxanium Bold Text_Secondary }'>
+                <div className='[ StatsComponent ]    { flex-flow p1 font-oxanium fw-900 clr-secondary }'>
                     <div className='StatsComponent__Title'>
                         15+
                     </div>

@@ -7,14 +7,14 @@
   align-items: center;
 }
 .ChatComponent__Wrapper {
-  background-color: $Grey;
+  background-color: $clr-darkgrey;
   width: 1440px;
   height: 800px;
   display: flex;
   flex-direction: row;
   .ChatSideBar {
     padding-top: 43px;
-    background-color: $Dark_Grey;
+    background-color: $clr-background;
     width: 250px;
     .ChatRoomContainer {
     }
@@ -42,7 +42,7 @@
       .ChatMessage {
         display: flex;
         flex-direction: row;
-        background-color: $Dark_Grey;
+        background-color: $clr-background;
         border-radius: 100px;
         margin: 20px 79px 20px;
 
@@ -91,7 +91,7 @@
       .ChatInputArea__SendBtn {
         grid-area: SendBtn;
         justify-self: end;
-        background-color: $Primary;
+        background-color: $clr-primary;
         height: 50px;
         width: 50px;
         border-radius: 50px;
@@ -102,7 +102,7 @@
         justify-items: center;
         display: flex;
         .ChatInputArea__SendBtn__Icon {
-          color: $Secondary;
+          color: $clr-secondary;
 
         }
       }

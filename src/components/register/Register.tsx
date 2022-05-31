@@ -172,7 +172,7 @@ const Step1_Caster = ({ id, nextPage, prevPage }: any) => {
                 <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     2
                 </div>
-                <div className='Register__Header__Title    { H2 flex-flow }'> BASIC INFO</div>
+                <div className='Register__Header__Title    { h2 font-statewideBold flex-flow }'> BASIC INFO</div>
             </div>
             <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
                 <form className="Inputs__Form    { display-grid justify-content-space-around align-items-center }" onSubmit={onNext}>
@@ -347,7 +347,7 @@ const Step2_Caster = ({ id, nextPage, prevPage }: any) => {
                 <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     3
                 </div>
-                <div className='Register__Header__Title    { H2 flex-flow }'> SOCIALS</div>
+                <div className='Register__Header__Title    { h2 font-statewideBold flex-flow }'> SOCIALS</div>
             </div>
             <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
                 <form className="Inputs_Wrapper   { display-grid justify-content-space-around align-items-center }" onSubmit={onNext}>
@@ -408,7 +408,7 @@ const Step2_Org = ({ id, nextPage, prevPage }: any) => {
                 <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     3
                 </div>
-                <div className='Register__Header__Title    { H2 flex-flow }'> SOCIALS</div>
+                <div className='Register__Header__Title    { h2 font-statewideBold flex-flow }'> SOCIALS</div>
             </div>
             <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
                 <form className="Inputs__Form    { display-grid justify-content-space-around align-items-center }" onSubmit={onNext}>
@@ -465,10 +465,10 @@ const Step3_Caster = ({ id, complete, prevPage }: any) => {
                 <div className='Register__Header__Step    {   h1 font-statewideBold flex-flow }'>
                     4
                 </div>
-                <div className='Register__Header__Title    { H2 flex-flow }'> description</div>
+                <div className='Register__Header__Title    { h2 font-statewideBold flex-flow }'> description</div>
             </div>
             <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
-                <div className='Inputs__Form__Component_Description Flex'>
+                <div className='Inputs__Form__Component_Description    { display-flex }'>
                     <span className='{ half-opacity p4 font-statewideLight clr-white }' >Descripe yourself</span>
                     <textarea className='Input_Description' placeholder='Tell us something great' value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                 </div>
@@ -508,7 +508,7 @@ const Step3_Org = ({ id, complete, prevPage }: any) => {
             </div>
             <div className='[ Inputs ]    { display-flex justify-content-start align-items-center }'>
                 <form className="Inputs__Form_Description    { display-flex justify-content-start align-items-center }" onSubmit={onComplete}>
-                    <div className='Inputs__Form__Component_Description    { Flex }'>
+                    <div className='Inputs__Form__Component_Description    { display-flex }'>
                         <span className='{ half-opacity p4 font-statewideLight clr-white }' >Descripe your organisation</span>
                         <textarea className='Input_Description' placeholder='Tell us something great' value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                     </div>
@@ -540,10 +540,10 @@ const Done = () => {
     }
     return (
         <>
-            <div className='Register__Header Text_Secondary flex-flow'>
+            <div className='Register__Header clr-secondary flex-flow'>
                 <div className='Register__Header__Title    {  h3 font-statewideBold flex-flow }'> Finished</div>
             </div>
-            <div className='Finished_Container    { display-flex justify-content-start align-items-center Text_Secondary P1_Oxanium Bold }'>
+            <div className='Finished_Container    { display-flex justify-content-start align-items-center clr-secondary p1 font-oxanium fw-900 }'>
                 Congratulations! You have successfully created your account.
                 To continue please press the button below, we've already logged you in to your account.
             </div>

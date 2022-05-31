@@ -52,7 +52,7 @@ const UpdateProfile = ({ show, handleClose }: any) => {
                 <div className='Event__Title    { flex-flow h2 font-statewideBold }'>
                     Update profile
                 </div>
-                <div className='[ Details ]    { Grid }'>
+                <div className='[ Details ]    { display-grid }'>
                     <div className='[ Teams ]'>
                         <div className='Teams__Participants    { display-flex flex-direction-column }'>
                             <div className='Teams__Participants__Title    { p1 font-statewideBold flex-flow }'>

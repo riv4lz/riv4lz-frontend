@@ -64,7 +64,7 @@ const CreateMatches = ({ show, handleClose }: any) => {
                 <div className='Event__Title    { flex-flow h2 font-statewideBold }'>
                     Create event
                 </div>
-                <div className='[ Details ]    { Grid }'>
+                <div className='[ Details ]    { display-grid }'>
                     <div className='[ Teams ]'>
                         <div className='Teams__Participants    { display-flex flex-direction-column }'>
                             <div className='Teams__Participants__Title    { p1 font-statewideBold flex-flow }'>Participants</div>
@@ -87,7 +87,7 @@ const CreateMatches = ({ show, handleClose }: any) => {
                         <div className='GameDetails__Title    { p1 font-statewideBold flex-flow }'>
                             DETAILS
                         </div>
-                        <div className='[ Components ]    { Grid }'>
+                        <div className='[ Components ]    { display-grid }'>
                             <div className='Components__InfoComponent    { display-flex justify-content-center }'>
                                 <div className='Component_Title    { p2 font-statewideBold }'>
                                     Time

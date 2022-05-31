@@ -787,6 +787,36 @@ $border-round: 20px;
   }
 }
 
+.btn-nav-login {
+  width: 160px;
+  height: 50px;
+  background-color: $clr-primary;
+  border-radius: 2px;
+}
+
+.btn-offer-outline{
+  width:100px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid $clr-secoundary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-offer-solid{
+  width:100px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: $clr-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 //--------------------------ICONS------------------------------
 @mixin icon-general() {
   display: flex;
@@ -857,16 +887,16 @@ $border-round: 20px;
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: $Dark_Grey;
+  background: $clr-background;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $Primary;
+  background: $clr-primary;
   border-radius: 4px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $Dark_Blue;
+  background: $clr-darkblue;
 }
