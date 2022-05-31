@@ -15,7 +15,7 @@ import Tricked from '../../../assets/images/Esports-orgs/Tricked.svg';
 
 const Navbar = (props: any) => {
   const location = useLocation();
-  const { authStore } = useStore();
+  const { userStore } = useStore();
 
   return (
     <div className='[ Navbar ]    { flex-flow width-full }'>
@@ -31,7 +31,7 @@ const Navbar = (props: any) => {
           <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Guide'>Guide</Link>
           <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/About' ? "1" : "0.5" }} to='/About'>About</Link>
           <Link className='NavbarMenu__Links    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Contact' ? "1" : "0.5" }} to='/Contact'>Contact</Link>
-          {authStore.user !== undefined ? <LoggedInNavbar /> : <Link className='NavbarMenu__Links    { clr-darkblue p3 font-oxanium fw-900 display-flex justify-content-center align-items-center btn_Navlogin }' to='/Login'>Login</Link>}
+          {userStore.user.id !== undefined && userStore.user.id !== "" ? <LoggedInNavbar /> : <Link className='NavbarMenu__Links    { clr-darkblue p3 font-oxanium fw-900 display-flex justify-content-center align-items-center btn_Navlogin }' to='/Login'>Login</Link>}
         </div>
       </div>
     </div>
