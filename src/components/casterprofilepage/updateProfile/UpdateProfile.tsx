@@ -3,8 +3,6 @@ import './UpdateProfile.scss'
 import { useStore } from '../../../stores/store'
 import Btn from '../../button/Btn'
 import { createMatchDTO, Team } from "../../../stores/eventStore";
-import { v4 as uuidv4 } from "uuid";
-
 
 const UpdateProfile = ({ show, handleClose }: any) => {
     const { userStore } = useStore()
