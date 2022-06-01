@@ -1,11 +1,11 @@
 import { makeAutoObservable, observable, action } from "mobx";
 import offerService from "../services/offerService";
-import { Caster } from "./casterStore";
+import {User} from "./userStore";
 
 export interface offer {
     id: string
     offerStatus: number
-    caster: Caster
+    caster: User
 }
 
 export interface CreateOfferDTO {
@@ -31,13 +31,13 @@ export class OfferStore {
             name: '',
             userType: 0,
             description: '',
-            profileImage: '',
-            bannerImage: '',
-            facebookURL: '',
-            twitterURL: '',
-            discordURL: '',
-            twitchURL: '',
-            websiteURL: ''
+            profileImageUrl: '',
+            bannerImageUrl: '',
+            facebookUrl: '',
+            twitterUrl: '',
+            discordUrl: '',
+            twitchUrl: '',
+            websiteUrl: ''
         }
     };
 

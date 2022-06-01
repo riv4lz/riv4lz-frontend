@@ -1,5 +1,5 @@
-import signalR, {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
-import {makeAutoObservable, observable, runInAction, toJS, autorun, action} from "mobx";
+import {HubConnection, HubConnectionBuilder, LogLevel} from "@microsoft/signalr";
+import {makeAutoObservable, observable, runInAction, toJS } from "mobx";
 
 export interface ChatRoom {
     id: string,
@@ -15,12 +15,14 @@ export interface test {
 export interface room {
     id: string,
     name: string,
-    messages: {text: string, username: string}[];
+    messages: {text: string, username: string, userId: string, profileImageUrl: string}[];
 }
 
 export interface message {
     text: string,
     username: string
+    userId: string,
+    profileImageUrl?: string,
 }
 
 export interface messageSent {
@@ -28,6 +30,8 @@ export interface messageSent {
     Id: string,
     Text: string,
     Username: string
+    userId: string,
+    profileImageUrl?: string,
 }
 
 export default class CommentStore{
@@ -59,6 +63,7 @@ export default class CommentStore{
             runInAction(() => {
                 this.test2 = comments;
                 this.test3 = comments.messages;
+                console.log(this.test3);
             });
         });
 

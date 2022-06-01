@@ -27,7 +27,7 @@
                 .Input {
                     width: 100%;
                     height: 50px;
-                    background-color: $Dark_Grey;
+                    background-color: $clr-background;
                     border: none;
                     border-radius: 5px;
                     padding-left: 10px;
@@ -36,7 +36,7 @@
                     outline: none;
                 }
                 .Input::placeholder {
-                    color: $Light_Grey;
+                    color: $clr-lightgrey;
                 }
             }
         }
@@ -51,7 +51,7 @@
             div{
                 justify-self: start !important;
                 margin-right: 25px;
-                background-color: $Dark_Grey;
+                background-color: $clr-background;
             }
         }
     }
@@ -65,7 +65,7 @@
 .matches_Container {
     width: 100%;
     height: 900px;
-    background-color: $Dark_Grey;
+    background-color: $clr-background;
 
     .matches_Wrapper {
         width: 1440px;
@@ -83,7 +83,7 @@
             max-width: 100%;
             height: 100%;
             border-radius: 4px;
-            background-color: $Grey;
+            background-color: $clr-darkgrey;
             flex-direction: row;
             .matches_Logo {
                 width: 120px;
@@ -110,7 +110,7 @@
                     width: 125px;
                     height: 40px;
                     border-radius: 2px;
-                    background-color: $Primary;
+                    background-color: $clr-primary;
                 }
             }
         }
@@ -120,7 +120,7 @@
 #Matches::-webkit-scrollbar-track
 {
 	border-radius: 10px;
-	background-color: $Dark_Grey;
+	background-color: $clr-background;
 }
 
 #Matches::-webkit-scrollbar
@@ -132,5 +132,5 @@
 #Matches::-webkit-scrollbar-thumb
 {
 	border-radius: 4px;
-	background-color: $Primary;
+	background-color: $clr-primary;
 }

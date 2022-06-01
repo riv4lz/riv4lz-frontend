@@ -2,14 +2,15 @@ import {observer, useObserver} from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
 import './ChatComponent.scss';
 import * as signalR from '@microsoft/signalr'
-import {useStore} from "../../../Stores/store";
-import {ChatRoom, message, messageSent, room} from "../../../Stores/commentStore";
+import {useStore} from "../../../stores/store";
+import {ChatRoom, message, messageSent, room} from "../../../stores/commentStore";
 // @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
 import {Link, Navigate, useNavigate} from "react-router-dom";
 import profileImg from '../../../assets/images/Temp/ProfileIMG_Temp.jpg'
 import { FaTelegramPlane } from "react-icons/fa";
 import Btn from "../../button/Btn";
+import ProfileImagePlaceholder from "../../../assets/images/Temp/ProfileImagePlaceholder.jpg"
 
 
 const ChatComponent = () => {
@@ -36,9 +37,13 @@ const ChatComponent = () => {
             Id: uuidv4(),
             Text: localMessage,
             Username: userStore.user.name,
+            userId: userStore.user.id,
+            profileImageUrl: userStore.user.profileImageUrl,
         }
         commentStore.addComment(message).then(() => {
         });
+        console.log(message);
+        console.log(userStore.user.id);
     }
 
     const enterRoom = (id: string, ) => {
@@ -63,6 +68,18 @@ const ChatComponent = () => {
         }
     }
 
+    const handleOwnMessage = (id: string) => {
+        console.log("fisk");
+        console.log(id);
+        if (id === userStore.user.id) {
+            console.log("true");
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     return (
         <div className={"[ ChatComponent ]"}>
             <div className={"ChatComponent__Wrapper    { margin-bottom-xxl }"}>
@@ -80,12 +97,13 @@ const ChatComponent = () => {
                     </div>
                     <div className={"[ ChatSectionBody ]"}>
                             {commentStore.test3.map((message: message, index: number) => (
-                                <div className={"[ ChatMessage ]"} key={index}>
-                                    <img className={"ChatMessage__ProfileImg"} src={userStore.user?.profileImageUrl !== undefined ? userStore.user?.profileImageUrl : 'https://i.imgur.com/sH2IN1A_d.webp?maxwidth=760&fidelity=grand'}></img>
-                                    <div className={"[ ChatMessageText ]    { Text_Secondary"}>
+                                <div className={`[ ChatMessage ]    { Text_Secondary } ${handleOwnMessage(message.userId) ? 'is-active' : ''}  ` } key={index}>
+                                    <img className={`ChatMessage__ProfileImg ${handleOwnMessage(message.userId) ? 'hidden' : ''} `} src={message.profileImageUrl ? message.profileImageUrl : ProfileImagePlaceholder }></img>
+                                    <div className={"[ ChatMessageText ]"}>
                                         <p className={"ChatMessageText__Username    { P0_Oxanium"}>{message.username}</p>
                                         <p className={"ChatMessageText__TextMsg    { P4_Poppins"} >{message.text}</p>
                                     </div>
+                                    <img className={`ChatMessage__ProfileImg ${handleOwnMessage(message.userId) ? '' : 'hidden'}  `} src={message.profileImageUrl ? message.profileImageUrl : ProfileImagePlaceholder }></img>
                                 </div>
                             ))}
                     </div>

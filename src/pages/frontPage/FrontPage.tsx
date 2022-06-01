@@ -8,7 +8,7 @@ import Stats from '../../components/frontPage/Stats/Stats'
 import Matches from '../../components/frontPage/Matches/Matches'
 import Blog from '../../components/frontPage/Blog/Blog'
 import Footer from '../../components/shared/Footer/Footer'
-import { useStore } from '../../Stores/store'
+import { useStore } from '../../stores/store'
 
 const FrontPage = () => {
     const { eventStore } = useStore();

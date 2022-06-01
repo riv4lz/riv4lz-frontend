@@ -1,5 +1,5 @@
 import http from "../http-common";
-import {createMatchDTO, Match} from "../Stores/eventStore";
+import {createMatchDTO, Match} from "../stores/eventStore";
 
 class MatchesService {
     getAll() {

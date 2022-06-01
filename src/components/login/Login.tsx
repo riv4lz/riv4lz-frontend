@@ -6,7 +6,7 @@ import github from '../../assets/icons/social-media/github.svg'
 import facebook from '../../assets/icons/social-media/facebook.svg'
 import Btn from '../button/Btn';
 import { useNavigate } from "react-router-dom";
-import { useStore } from '../../Stores/store';
+import { useStore } from '../../stores/store';
 
 const Login = () => {
     let navigate = useNavigate()
@@ -101,14 +101,14 @@ const Login = () => {
                     <div className='LoginContinueWith__Title'>
                         <span className='{ half-opacity font-statewideLight p4 clr-white }' >or continue with</span>
                     </div>
-                    <div className='LoginContinueWith__ButtonsContainer'>
-                        <div className='LoginContinueWith__ButtonsContainer__Button'>
+                    <div className='LoginContinueWith__Buttons'>
+                        <div className='LoginContinueWith__Buttons__Buttons'>
                             <img src={google}></img>
                         </div>
-                        <div className='LoginContinueWith__ButtonsContainer__Button'>
+                        <div className='LoginContinueWith__Buttons__Buttons'>
                             <img src={github}></img>
                         </div>
-                        <div className='LoginContinueWith__ButtonsContainer__Button'>
+                        <div className='LoginContinueWith__Buttons__Buttons'>
                             <img src={facebook}></img>
                         </div>
 
