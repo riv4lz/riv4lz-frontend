@@ -6,7 +6,7 @@ import {
   Link,
   useParams, useNavigate
 } from "react-router-dom";
-import {useStore} from "../../../Stores/store";
+import {useStore} from "../../../stores/store";
 
 
 function OrgsList() {
