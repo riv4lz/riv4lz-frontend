@@ -18,7 +18,7 @@ pipeline {
         stage("Deployment to Production environment") {
             steps {
                 
-              sh "docker run -d --rm -p 5000:5000 --name riv4lz-frontend-prod frederikotto/riv4lz-frontend:${BUILD_NUMBER}"
+              sh "docker run -d --rm -p 5000:5000 --name riv4lz-frontend-prod frederikotto/riv4lz-frontend:${BUILD_NUMBER} -m http.server --bind 0.0.0.0"
             }
         }
     }
