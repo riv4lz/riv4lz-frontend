@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './Matches.scss'
-import Tricked from '../../../assets/images/Esports-orgs/Tricked.svg'
-import Astralis from '../../../assets/images/Esports-orgs/Astralis.svg'
-import Twitch from '../../../assets/icons/social-media/twitch.svg'
-import Youtube from '../../../assets/icons/social-media/youtube.svg'
 import EventDetails from '../../shared/Event/EventDetails/EventDetails'
 import Event from '../../shared/EventComponent/Event'
 import { useStore } from '../../../stores/store'
 import { v4 as uuidv4 } from 'uuid';
 import { Match } from '../../../stores/eventStore'
-import {observer, useObserver} from 'mobx-react-lite'
+import { observer } from 'mobx-react-lite'
 
 const Matches = () => {
 

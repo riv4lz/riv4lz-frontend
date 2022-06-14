@@ -10,7 +10,7 @@ import { useStore } from '../../../stores/store';
 import Axios from 'axios';
 import UpdateProfile from "../updateProfile/UpdateProfile";
 import { observer } from "mobx-react-lite";
-import {runInAction} from "mobx";
+import { runInAction } from "mobx";
 
 const ProfileDetails = ({id} : any) => {
     const { userStore, authStore, eventStore } = useStore();
@@ -36,17 +36,19 @@ const ProfileDetails = ({id} : any) => {
         await Axios.post('https://api.cloudinary.com/v1_1/riv4lz/image/upload', formData).then(async (response) => {
             runInAction(() => {
                 userStore.user.profileImageUrl = response.data.secure_url;
+                userStore.updateUserProfile(userStore.user);
             })
-            userStore.updateUserProfile(userStore.user);
+        })
+    }
+
+    const getUser = async() => {
+        await runInAction(async () => {
+            await userStore.loadUser(id);
         })
     }
 
     useEffect(() => {
-        const getUser = async () => {
-            await userStore.loadUser(id);
-        }
-        getUser();
-
+        userStore.loadUser(id);
     }, [])
 
     const inputFile = createRef<HTMLInputElement>();
