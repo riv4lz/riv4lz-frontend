@@ -57,8 +57,6 @@
         .ChatMessageText {
           display: flex;
           flex-direction: column;
-          text-align: right;
-          margin-right: 33px;
           justify-content: center;
           width: 100%;
 
@@ -166,4 +164,15 @@
 
 .hidden {
   display: none;
+}
+
+.left-align {
+  text-align: left;
+  margin-left: 33px;
+  color: white !important;
+}
+
+.right-align {
+  text-align: right;
+  margin-right: 33px;
 }
