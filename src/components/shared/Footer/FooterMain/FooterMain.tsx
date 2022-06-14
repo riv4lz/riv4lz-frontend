@@ -12,61 +12,40 @@ import FreeFire from '../../../../assets/images/FreeFire.png';
 import NFS from '../../../../assets/images/NFS.png';
 import Sniper2 from '../../../../assets/images/Sniper2.png';
 import Witcher from '../../../../assets/images/Witcher.png';
+import {Link, useLocation} from "react-router-dom";
 
 const FooterMain = () => {
+    const location = useLocation();
     return (
-        <div className='[ FooterMain ]    { flex-flow clr-white }'>
-            <div className='FooterMain_Wrapper    { display-grid justify-content-center align-items-center }'>
-                <div className='[ LogoAndDetails ] Component    { display-flex justify-content-space-between }'>
-                    <div className='Title'>
-                        <Logo />
-                    </div>
-                    <div className='Paragraph    { p4 font-oxanium fw-300 '>
-                        Warzone
-                        Upropriate brand economca sound technolog after covalent technology encdable prospective wastng markets whereas propriate and brand economca sound technolog
-                    </div>
-                    <div className='Socials_Container    { display-flex justify-content-space-between align-items-center }'>
-                        <img src={Facebook} alt="Facebook" />
-                        <img src={Twitter} alt="Twitter" />
-                        <img src={Instagram} alt="Instagram" />
-                        <img src={Discord} alt="Discord" />
-                        <img src={Telegram} alt="Telegram" />
-
-                    </div>
-                </div>
-                <div className='[ UsefulLinks ] Component'>
-                    <div className='Title    { p0 font-oxanium fw-900 }'>Useful links</div>
-                    <div className='FooterLinks    { display-flex justify-content-space-evenly p3 font-oxanium fw-600 }'>
-                        <a className='{ clr-secondary' href='#'>About us</a>
-                        <a className='{ clr-secondary' href='#'>Games</a>
-                        <a className='{ clr-secondary' href='#'>Matches</a>
-                        <a className='{ clr-secondary' href='#'>Store</a>
-                        <a className='{ clr-secondary' href='#'>Blog</a>
-                    </div>
-                </div>
-                <div className='[ SocialContact ] Component'>
-                    <div className='Title    { p0 font-oxanium fw-900 }'>Social Contact</div>
-
-                    <div className='FooterLinks    { display-flex justify-content-space-evenly p3 font-oxanium fw-600 }'>
-                        <a className='{ clr-secondary' href='#'>Facebook</a>
-                        <a className='{ clr-secondary' href='#'>Twitter</a>
-                        <a className='{ clr-secondary' href='#'>instagram</a>
-                        <a className='{ clr-secondary' href='#'>Youtube</a>
-                        <a className='{ clr-secondary' href='#'>Github</a>
-                    </div>
-                </div>
-                <div className='[ Photos ] Component'>
-                    <div className='Title    { p0 font-oxanium fw-900 }'>TBA</div>
-                    <div className='TBA_Games    { display-grid justify-content-flex-start align-items-center'>
-                        <img src={Pubg} alt="Pubg" />
-                        <img src={FreeFire} alt="FreeFire" />
-                        <img src={Destiny} alt="Destiny" />
-                        <img src={NFS} alt="NFS" />
-                        <img src={Sniper2} alt="Sniper2" />
-                        <img src={Witcher} alt="Witcher" />
-                    </div>
-                </div>
+        <div className='[ FooterMain ]    { display-flex flex-direction-column clr-white align-items-center background-color }'>
+            <div className='[ FooterLogo ]    { display-flex align-items-center }'>
+                <Link className='FooterLogo_Logo' to='/'>
+                    <Logo />
+                </Link>
             </div>
+            <div className='[ FooterText ]'>
+                <p>Revolutionising the journey to become a professional caster and a well established organisation in the e-sports industry</p>
+            </div>
+            <div className='[ FooterMenu ]    { display-flex align-items-center justify-content-center }'>
+                <Link className='FooterMenu__Link    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/' ? "1" : "0.5" }} to='/'>Home</Link>
+                <Link className='FooterMenu__Link    { clr-white p3 font-oxanium fw-900 }' id='navMatches' style={{ opacity: location.pathname === '/Matches' ? "1" : "0.5" }} to='/Matches'>Matches</Link>
+                <Link className='FooterMenu__Link    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Guide' ? "1" : "0.5" }} to='/Guide'>Guide</Link>
+                <Link className='FooterMenu__Link    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/About' ? "1" : "0.5" }} to='/About'>About</Link>
+                <Link className='FooterMenu__Link    { clr-white p3 font-oxanium fw-900 }' style={{ opacity: location.pathname === '/Contact' ? "1" : "0.5" }} to='/Contact'>Contact</Link>
+            </div>
+            <div className={"[ FooterSocials ]"}>
+                <a href="">
+                    <img src={Facebook} className={"FooterSocials__Icon    { padding-right-1 }"}></img></a>
+                <a href="">
+                    <img src={Twitter} className={"FooterSocials__Icon     { padding-right-1 }"}></img></a>
+                <a href="">
+                    <img src={Instagram} className={"FooterSocials__Icon    { padding-right-1 }"}></img></a>
+                <a href="">
+                    <img src={Discord} className={"FooterSocials__Icon    { padding-right-1 }"}></img></a>
+                <a href="">
+                    <img src={Telegram} className={"FooterSocials__Icon     { padding-right-1 }"}></img></a>
+            </div>
+
         </div>
     )
 }

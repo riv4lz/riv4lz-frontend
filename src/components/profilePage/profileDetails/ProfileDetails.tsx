@@ -17,6 +17,7 @@ const ProfileDetails = ({id} : any) => {
     const { userStore, imageStore, authStore, eventStore } = useStore();
     const [file, setFile] = useState<File>();
     const [showState, setShowState] = useState(false);
+    const [updateState, setUpdateState] = useState(false);
 
     const load = () => setShowState(true)
 
@@ -40,11 +41,10 @@ const ProfileDetails = ({id} : any) => {
         formData.append('file', event[0]);
         formData.append('upload_preset', 'profileImage');
         await Axios.post('https://api.cloudinary.com/v1_1/riv4lz/image/upload', formData).then(async (response) => {
-            await imageStore.uploadImage({
-                userId: authStore.user !== undefined ? authStore.user.id : "",
-                imageUrl: response.data.secure_url,
-                imageType: 0
-            })
+            userStore.user.profileImageUrl = response.data.secure_url;
+            userStore.updateUserProfile(userStore.user);
+            setUpdateState(true);
+            setUpdateState(false);
         })
     }
 
@@ -69,6 +69,9 @@ const ProfileDetails = ({id} : any) => {
         <div className='[ ProfileDetails ]    { padding-top-6 padding-bottom-6 justify-content-center }'>
             {showState ?
                 <UpdateProfile  show={showState} handleClose={hide} /> : null
+            }
+            {updateState ?
+                <div></div>  : null
             }
             {userStore.user.userType === 0 ?
                 <div id='createEvent' className='CreateMatch display-flex justify-content-center align-items-center cursor-pointer' onClick={show}>
