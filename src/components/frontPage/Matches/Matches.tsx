@@ -9,7 +9,7 @@ import Event from '../../shared/EventComponent/Event'
 import { useStore } from '../../../stores/store'
 import { v4 as uuidv4 } from 'uuid';
 import { Match } from '../../../stores/eventStore'
-import { useObserver } from 'mobx-react-lite'
+import {observer, useObserver} from 'mobx-react-lite'
 
 const Matches = () => {
 
@@ -59,7 +59,7 @@ const Matches = () => {
         setShowState(false);
     }
 
-    return useObserver(() => 
+    return (
         <>
             {showState ?
                 <EventDetails show={showState} handleClose={hide} Event={eventDetails} /> : null
@@ -97,7 +97,7 @@ const Upcoming = ({ events, show }: any) => {
     }
 
 
-    return useObserver(() =>
+    return (
         <>
             {getEvents(events)}
         </>
@@ -123,4 +123,4 @@ const Finished = ({ events, show }: any) => {
 }
 
 
-export default Matches
+export default observer(Matches)
