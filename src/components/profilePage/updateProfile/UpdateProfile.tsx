@@ -4,6 +4,7 @@ import { useStore } from '../../../stores/store'
 import Btn from '../../button/Btn'
 import { createMatchDTO, Team } from "../../../stores/eventStore";
 import { v4 as uuidv4 } from "uuid";
+import {runInAction} from "mobx";
 
 
 const UpdateProfile = ({ show, handleClose }: any) => {
@@ -30,20 +31,19 @@ const UpdateProfile = ({ show, handleClose }: any) => {
 
 
     const updateInfo = async () => {
-        console.log(name);
-        userStore.user.name = name;
-        userStore.user.description = description;
-        userStore.user.facebookUrl = facebookUrl;
-        userStore.user.twitterUrl = twitterUrl;
-        userStore.user.discordUrl = discordUrl;
-        userStore.user.twitchUrl = twitchUrl;
-        userStore.user.profileImageUrl = profile;
-        userStore.user.bannerImageUrl = bannerImageUrl;
+        runInAction(() => {
+            userStore.user.name = name;
+            userStore.user.description = description;
+            userStore.user.facebookUrl = facebookUrl;
+            userStore.user.twitterUrl = twitterUrl;
+            userStore.user.discordUrl = discordUrl;
+            userStore.user.twitchUrl = twitchUrl;
+            userStore.user.profileImageUrl = profile;
+            userStore.user.bannerImageUrl = bannerImageUrl;
+        })
         userStore.updateUserProfile(userStore.user);
 
         handleClose()
-
-
     }
 
     return (

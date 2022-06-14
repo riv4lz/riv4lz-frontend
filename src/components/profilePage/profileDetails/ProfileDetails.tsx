@@ -1,24 +1,20 @@
-import React, { createRef, useEffect, useRef, useState } from 'react'
+import React, { createRef, useEffect, useState } from 'react'
 import './ProfileDetails.scss'
 import Btn from "../../button/Btn";
-import ProfileImg from '../../../assets/images/ProfileDetails_ProfileImgTemp.png'
 import Facebook from '../../../assets/icons/social-media/Facebook_White.svg'
 import Twitter from '../../../assets/icons/social-media/Twitter_White.svg'
 import Instagram from '../../../assets/icons/social-media/Instagram_White.svg'
 import Discord from '../../../assets/icons/social-media/Discord_White.svg'
 import Telegram from '../../../assets/icons/social-media/Telegram_White.svg'
 import { useStore } from '../../../stores/store';
-
 import Axios from 'axios';
-import CreateMatches from "../../matches/createMatches/CreateMatches";
 import UpdateProfile from "../updateProfile/UpdateProfile";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
+import {runInAction} from "mobx";
 
 const ProfileDetails = ({id} : any) => {
-    const { userStore, imageStore, authStore, eventStore } = useStore();
-    const [file, setFile] = useState<File>();
+    const { userStore, authStore, eventStore } = useStore();
     const [showState, setShowState] = useState(false);
-    const [updateState, setUpdateState] = useState(false);
 
     const load = () => setShowState(true)
 
@@ -31,18 +27,16 @@ const ProfileDetails = ({id} : any) => {
     const hide = async() => {
         setShowState(false);
     }
-
-
-    
     const request = () => {};
-    
 
     const uploadImage = async (event: any) => {
         const formData = new FormData();
         formData.append('file', event[0]);
         formData.append('upload_preset', 'profileImage');
         await Axios.post('https://api.cloudinary.com/v1_1/riv4lz/image/upload', formData).then(async (response) => {
-            userStore.user.profileImageUrl = response.data.secure_url;
+            runInAction(() => {
+                userStore.user.profileImageUrl = response.data.secure_url;
+            })
             userStore.updateUserProfile(userStore.user);
         })
     }
@@ -51,7 +45,6 @@ const ProfileDetails = ({id} : any) => {
         const getUser = async () => {
             await userStore.loadUser(id);
         }
-        
         getUser();
 
     }, [])
@@ -69,7 +62,6 @@ const ProfileDetails = ({id} : any) => {
             {showState ?
                 <UpdateProfile  show={showState} handleClose={hide} /> : null
             }
-
             {userStore.user.userType === 0 ?
                 <div id='createEvent' className='CreateMatch display-flex justify-content-center align-items-center cursor-pointer' onClick={show}>
                     <p className='h3 font-poppins clr-darkblue'>+</p>

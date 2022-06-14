@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './ProfilePage.scss'
-import { useObserver } from "mobx-react-lite";
 import { useStore } from "../../stores/store";
 import Cta from "../../components/profilePage/cta/Cta";
 import Highlights from "../../components/profilePage/highlights/Highlights";
@@ -28,7 +27,7 @@ function ProfilePage(props: any) {
 
 
 
-  return useObserver(() => (
+  return (
     <>
       {loaded ?
         <>
@@ -39,7 +38,6 @@ function ProfilePage(props: any) {
         </>
         : <Loading />}
     </>
-  )
   );
 }
 export default ProfilePage

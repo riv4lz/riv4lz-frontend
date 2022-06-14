@@ -4,27 +4,27 @@ import Btn from "../../button/Btn";
 import BannerImage from '../../../assets/images/ProfileDetails_BannerImgTemp.png'
 import { useStore } from '../../../stores/store';
 import Axios from 'axios';
+import {observer} from "mobx-react-lite";
+import {runInAction} from "mobx";
 
 
 const Cta = ({ id }: any) => {
-    const { userStore, authStore, imageStore } = useStore();
+    const { userStore, authStore } = useStore();
+
     const test = () => {
     }
 
-    const reload = () => window.location.reload();
-
+    // Upload banner image to profile
     const uploadImage = async (event: any) => {
         const formData = new FormData();
         formData.append('file', event[0]);
         formData.append('upload_preset', 'profileImage');
         await Axios.post('https://api.cloudinary.com/v1_1/riv4lz/image/upload', formData).then(async (response) => {
-            await imageStore.uploadImage({
-                userId: authStore.user !== undefined ? authStore.user.id : "",
-                imageUrl: response.data.secure_url,
-                imageType: 1
+            runInAction(() => {
+                userStore.user.bannerImageUrl = response.data.secure_url;
             })
+            userStore.updateUserProfile(userStore.user);
         })
-        setTimeout(reload, 200);
     }
 
     useEffect(() => {
@@ -76,6 +76,4 @@ const Cta = ({ id }: any) => {
     )
 }
 
-
-// @ts-ignore
-export default Cta
+export default observer(Cta)
