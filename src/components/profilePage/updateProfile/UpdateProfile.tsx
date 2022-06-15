@@ -16,8 +16,6 @@ const UpdateProfile = ({ show, handleClose }: any) => {
     const [twitterUrl, setTwitterUrl] = useState('');
     const [discordUrl, setDiscordUrl] = useState('');
     const [twitchUrl, setTwitchUrl] = useState('');
-    const [profile, setProfile] = useState('');
-    const [bannerImageUrl, setBannerImageUrl] = useState('');
 
     useEffect(() => {
         setName(userStore.user.name);
@@ -26,7 +24,6 @@ const UpdateProfile = ({ show, handleClose }: any) => {
         setTwitterUrl(userStore.user.twitterUrl);
         setDiscordUrl(userStore.user.discordUrl);
         setTwitchUrl(userStore.user.twitchUrl);
-        setProfile(userStore.user.profileImageUrl);
     }, []);
 
 
@@ -38,12 +35,9 @@ const UpdateProfile = ({ show, handleClose }: any) => {
             userStore.user.twitterUrl = twitterUrl;
             userStore.user.discordUrl = discordUrl;
             userStore.user.twitchUrl = twitchUrl;
-            userStore.user.profileImageUrl = profile;
-            userStore.user.bannerImageUrl = bannerImageUrl;
         })
         userStore.updateUserProfile(userStore.user);
-
-        handleClose()
+        handleClose();
     }
 
     return (
@@ -73,22 +67,6 @@ const UpdateProfile = ({ show, handleClose }: any) => {
                                 placeholder='Write here'
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}>
-                            </input>
-                            <input
-                                className='LoginInput__Field'
-                                type="text"
-                                id='description'
-                                placeholder='Write here'
-                                value={profile}
-                                onChange={(e) => setProfile(e.target.value)}>
-                            </input>
-                            <input
-                                className='LoginInput__Field'
-                                type="text"
-                                id='bannerImageUrl'
-                                placeholder='Write here'
-                                value={bannerImageUrl}
-                                onChange={(e) => setBannerImageUrl(e.target.value)}>
                             </input>
                         </div>
                     </div>
