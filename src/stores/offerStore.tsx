@@ -43,7 +43,7 @@ export class OfferStore {
 
     @action
     sendOffer = async (offer: CreateOfferDTO) => {
-        offerService.sendOffer(offer)
+        await offerService.sendOffer(offer)
     }
 
     @action

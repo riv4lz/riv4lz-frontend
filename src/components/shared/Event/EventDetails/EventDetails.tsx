@@ -7,12 +7,16 @@ import { v4 as uuidv4 } from 'uuid';
 import GetImageService from '../../../../services/getImageService'
 
 const EventDetails = ({ isOrg, isCaster, Event, handleClose, show }: any) => {
-    const { userStore, offerStore } = useStore()
+    const { userStore, offerStore, eventStore } = useStore()
     const [casterState, setCasterState] = useState(isCaster);
     const [organisationState, setOrganisationState] = useState(isOrg);
     const [o, setOffers] = useState<any>([]);
 
     useEffect(() => {
+        if (eventStore.finished.includes(Event)) {
+            setCasterState(false);
+            setOrganisationState(false);
+        }
         setOffers(offerStore.offers);
     }, [])
 
@@ -100,9 +104,9 @@ const Caster = ({ Event, handleClose }: any) => {
     const {offerStore, authStore} = useStore();
     const [offer, setOfferState] = useState("");
 
-    const onSendOffer = () => {
+    const onSendOffer = async() => {
 
-        offerStore.sendOffer({id: uuidv4(), offerStatus: 0, eventId: Event.id, casterId: authStore.user?.id ? authStore.user.id : ""});
+        await offerStore.sendOffer({id: uuidv4(), offerStatus: 0, eventId: Event.id, casterId: authStore.user?.id ? authStore.user.id : ""});
         handleClose();
         alert("Offer sent!");
     }
@@ -119,7 +123,7 @@ const Caster = ({ Event, handleClose }: any) => {
                 <div className='[ OfferComponent ]    { p1 font-statewideBold }'>
                     <div className='OfferComponent__Title'>Your Offer</div>
                     <div className='OfferComponent__inputContainer    { flex-flow gap-2 flex-direction-row }'>
-                        <Btn classes='{ btn_Offer_Solid p3 font-oxanium fw-900 clr-darkblue }' children='Send Offer' onClick={onSendOffer} />
+                        <Btn classes='{ btn-offer-solid p3 font-oxanium fw-900 clr-darkblue }' children='Send Offer' onClick={onSendOffer} />
                     </div>
                 </div>
             </div>
