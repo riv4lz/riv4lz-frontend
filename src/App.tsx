@@ -1,7 +1,7 @@
 import './App.css';
-import {BrowserRouter as Router, Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/shared/Navbar/Navbar';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import LoginPage from './pages/loginPage/LoginPage'
 import FrontPage from './pages/frontPage/FrontPage';
 import MatchesPage from './pages/matchesPage/MatchesPage';
@@ -31,6 +31,16 @@ function App() {
   const { commentStore, authStore, userStore, offerStore, eventStore } = useStore();
 
   const [loaded, setLoaded] = useState(false)
+  const routes = [
+    { path: "/", element: <FrontPage /> },
+    { path: "/About", element: <AboutPage /> },
+    { path: "/Guide", element: <GuidePage /> },
+    { path: "/Users/:userType", element: <UsersPage /> },
+    { path: "/Matches", element: <MatchesPage /> },
+    { path: "//profile/:id", element: <ProfilePage /> },
+    { path: "/Chat", element: <ChatPage /> },
+  ];
+
 
 
   useEffect(() => {
@@ -89,48 +99,17 @@ function App() {
         <div className="App">
 
           <Router>
-            <Navbar />
             <Routes>
-              {["/Contact"].map((path, index) =>
-                <Route path={path} element={<Navbar />} key={index} />
-              )}
-              <Route path="/" element={
+              {routes.map((route, index) => {
                 <>
-                  <FrontPage />
-                </>}>
-              </Route>
-              <Route path="/About" element={
-                <>
-                  <AboutPage />
-                </>}>
-              </Route>
-              <Route path="/Guide" element={
-                <>
-                  <GuidePage />
-                </>}>
-              </Route>
-              <Route path="/Users/:userType" element={
-                <>
-                  <UsersPage/>
-                </>}>
-              </Route>
-              <Route path='/Login' element={<LoginPage />}>
-              </Route>
-              <Route path='/Register' element={<RegisterPage />}></Route>
-              <Route path='/Matches' element={
-                <>
-                  <MatchesPage />
+                  <Navbar />
+                  <Route key={index} path={route.path} element={route.element} />
+                  <Footer />
                 </>
-              }>
-              </Route>
-              <Route path="/Chat" element={
-                <RequireAuth>
-                  <ChatPage />
-                </RequireAuth>}>
-              </Route>
-              <Route path="/profile/:id" element={<ProfilePage />}></Route>
+              })}
+              <Route path='/Login' element={<LoginPage />}></Route>
+              <Route path='/Register' element={<RegisterPage />}></Route>
             </Routes>
-            <Footer />
           </Router>
 
         </div>
