@@ -57,6 +57,8 @@ export class EventStore {
         this.finished = [];
         const response = await matchesService.getAll();
         this.matches = response.data.filter(match => match.eventStatus === 0);
+        this.upcoming = response.data.filter((match: Match) => new Date(match.time) > new Date()).sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
+        this.finished = response.data.filter((match: Match) => new Date(match.time) < new Date()).sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
     }
 
     @action
@@ -77,9 +79,9 @@ export class EventStore {
     }
 
     @action
-    createMatch = (data: createMatchDTO) => {
-
-        matchesService.create(data)
+    createMatch = async (data: createMatchDTO) => {
+        await matchesService.create(data)
+        this.loadMatches();
     }
 
     @action

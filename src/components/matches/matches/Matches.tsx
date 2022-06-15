@@ -24,9 +24,8 @@ const Matches = () => {
         const t = async () => {
             setLoaded(false)
             try {
-                if (eventStore.matches.length <= 0) {
-                    await eventStore.loadMatches();
-                }
+                await eventStore.loadMatches();
+
                 setUpcomming(await eventStore.filterMatches(true));
                 setFinished(await eventStore.filterMatches(false))
                 setLoaded(true)
@@ -102,7 +101,7 @@ const Matches = () => {
                                 <div style={{ color: finishedState === true ? '#279BBB' : 'white' }} onClick={onFinished}>Finished</div>
                             </div>
                             <div className='[ Components ]    { overflow-y-scroll flex-direction-column margin-bottom-xxl }' id='Matches'>
-                                {upcomingState === true ? <Upcoming searchValue={searchValue} events={upcoming} show={(value: any) => show(value)} /> : <Finished searchValue={searchValue} events={finished} show={(value: any) => show(value)} />}
+                                {upcomingState === true ? <Upcoming searchValue={searchValue} events={eventStore.upcoming} show={(value: any) => show(value)} /> : <Finished searchValue={searchValue} events={eventStore.finished} show={(value: any) => show(value)} />}
                             </div>
                         </div>
                     </div>

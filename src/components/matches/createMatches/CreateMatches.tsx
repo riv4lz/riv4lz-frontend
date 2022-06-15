@@ -54,7 +54,8 @@ const CreateMatches = ({ show, handleClose }: any) => {
             return;
         }
 
-        eventStore.createMatch({ id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: game, eventStatus: 0 })
+        await eventStore.createMatch({ id: id, organisationId: orgId, time: dateTime, description: description, price: price, teamOne: team1, teamTwo: team2, game: game, eventStatus: 0 })
+        
         handleClose()
     }
 

@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom';
 import Btn from '../../components/button/Btn';
@@ -64,4 +65,4 @@ const MatchesPage = () => {
 
 
 
-export default MatchesPage
+export default observer(MatchesPage)
