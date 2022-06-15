@@ -33,11 +33,11 @@ function App() {
   const [loaded, setLoaded] = useState(false)
   const routes = [
     { path: "/", element: <FrontPage /> },
-    { path: "/About", element: <AboutPage /> },
+    { path: "/About", element: <><AboutPage /></> },
     { path: "/Guide", element: <GuidePage /> },
     { path: "/Users/:userType", element: <UsersPage /> },
     { path: "/Matches", element: <MatchesPage /> },
-    { path: "//profile/:id", element: <ProfilePage /> },
+    { path: "/profile/:id", element: <ProfilePage /> },
     { path: "/Chat", element: <ChatPage /> },
   ];
 
@@ -49,7 +49,7 @@ function App() {
     userStore.loadUsers(1);
     const loadEvents = async () => {
 
-      await eventStore.loadMatches();
+      //await eventStore.loadMatches();
 
     }
 
@@ -66,6 +66,7 @@ function App() {
       }
       setLoaded(true)
     }
+    routes.forEach(route => { console.log(route) });
 
     loadEvents();
     if (localStorage.getItem("token")) {
@@ -100,13 +101,15 @@ function App() {
 
           <Router>
             <Routes>
-              {routes.map((route, index) => {
-                <>
-                  <Navbar />
-                  <Route key={index} path={route.path} element={route.element} />
-                  <Footer />
-                </>
-              })}
+              {routes.map((route, index) => (
+                <Route key={index} path={route.path} element={
+                  <>
+                    <Navbar />
+                    {route.element}
+                    <Footer />
+                  </>
+                } />
+              ))}
               <Route path='/Login' element={<LoginPage />}></Route>
               <Route path='/Register' element={<RegisterPage />}></Route>
             </Routes>
