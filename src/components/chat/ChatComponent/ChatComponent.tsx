@@ -93,13 +93,13 @@ const ChatComponent = () => {
                 </div>
                 <div className={"[ ChatSection ]"}>
                     <div className={"[ ChatSectionHeader ]    { H3 Text_Secondary"}>
-                        <p className={"ChatSectionHeader__Title"}>{commentStore.test2.name}</p>
+                        <p className={"ChatSectionHeader__Title     clr-white h3 font-statewideBold }"}>{commentStore.test2.name}</p>
                     </div>
                     <div className={"[ ChatSectionBody ]"}>
                             {commentStore.test3.map((message: message, index: number) => (
                                 <div className={`[ ChatMessage ]    { Text_Secondary } ${handleOwnMessage(message.userId) ? 'is-active' : ''}  ` } key={index}>
                                     <img className={`ChatMessage__ProfileImg ${handleOwnMessage(message.userId) ? 'hidden' : ''} `} src={message.profileImageUrl ? message.profileImageUrl : ProfileImagePlaceholder }></img>
-                                    <div className={"[ ChatMessageText ]"}>
+                                    <div className={`[ ChatMessageText ] ${handleOwnMessage(message.userId) ? 'right-align' : 'left-align'}  ` }>
                                         <p className={"ChatMessageText__Username    { P0_Oxanium"}>{message.username}</p>
                                         <p className={"ChatMessageText__TextMsg    { P4_Poppins"} >{message.text}</p>
                                     </div>
