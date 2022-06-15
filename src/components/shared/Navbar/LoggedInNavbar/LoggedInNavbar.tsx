@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './LoggedInNavbar.scss';
-
 import {
   Link,
   useLocation,
