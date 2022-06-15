@@ -10,7 +10,7 @@ const Event = ({ E, show }: any) => {
     }
 
     const getImageService = new GetImageService();
-    
+
     return (
         <div className='[ MatchEvent ]    { flex-flow margin-bottom-m flex-direction-row }'>
             <div className='MatchEvent__Wrapper    { display-flex flex-direction-row justify-content-space-evenly align-itemns-center }'>
@@ -28,7 +28,7 @@ const Event = ({ E, show }: any) => {
                         <img src={Youtube} alt="Youtube" />
                         <img src={Twitch} alt="Twitch" />
                     </div>
-                    <div onClick={() => show(E) } className='EventInfo__Button    { cusor-pointer flex-flow p3 font-oxanium fw-900 clr-darkblue'>
+                    <div onClick={() => show(E)} className='EventInfo__Button    { cursor-pointer flex-flow p3 font-oxanium fw-900 clr-darkblue'>
                         See more
                     </div>
                 </div>
