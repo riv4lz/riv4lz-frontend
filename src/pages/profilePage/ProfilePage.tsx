@@ -34,7 +34,6 @@ function ProfilePage(props: any) {
           <ProfileDetails id={id} />
           <Cta id={id} />
           <Matches />
-          <Highlights />
         </>
         : <Loading />}
     </>
