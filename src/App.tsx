@@ -38,7 +38,7 @@ function App() {
     { path: "/Users/:userType", element: <UsersPage /> },
     { path: "/Matches", element: <MatchesPage /> },
     { path: "/profile/:id", element: <ProfilePage /> },
-    { path: "/Chat", element: <ChatPage /> },
+    { path: "/Chat", element: <><RequireAuth><ChatPage /></RequireAuth></> },
   ];
 
 
